@@ -4,9 +4,9 @@ Control a live Chrome browser from the command line: navigate, click, fill forms
 
 A lighter alternative to Chrome DevTools MCP or Puppeteer, designed for AI agents and shell workflows. A persistent HTTP daemon keeps an MCP connection to the browser alive so each command incurs minimal latency.
 
-- rely on [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) for robust browser control
 - rely on [a11y_parse](https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/a11y_parse) for accessibility tree parsing and querying. 
   Especially a CSS-like selector syntax optimized for the accessibility tree.
+- rely on [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) for robust browser control
 - expose a curated, efficient toolset optimized for AI agent use cases
 - minimize the required round-trips and boilerplate to perform common tasks
 - minimize the output size, thus reducing LLM input size and parsing complexity. 
@@ -15,8 +15,9 @@ A lighter alternative to Chrome DevTools MCP or Puppeteer, designed for AI agent
 
 ## How to install the CLI tool for claude
 
-### How to install the SKILL.md
-```
+fastbrowser can be used at the cli level, with a SKILL.md that maps CLI commands to tools. To install the SKILL.md into a claude agent folder:
+
+```bash
 # goto the claude directory
 cd ~/.claude
 # install the fastbrowser_cli skill
@@ -25,6 +26,31 @@ npx fastbrowser_cli install
 
 ### How to install the MCP server
 
+How to launch the MCP server that the CLI relies on to control the browser:
+
+```bash
+npx -p fastbrowser_cli fastbrowser_mcp mcp_server
+```
+
+how to install it in [Claude Desktop](https://code.claude.com/docs/en/desktop) - [more details](https://modelcontextprotocol.io/docs/develop/connect-local-servers#installing-the-filesystem-server)
+1. Open Claude Desktop
+2. Go to Settings -> Developer -> Local MCP servers
+3. Click "Edit Config"
+4. Add the following MCP server config to the JSON:
+5. Save and restart Claude Desktop
+
+```json
+{
+  "mcpServers": {
+    "fastbrowser_mcp": {
+      "command": "npx",
+      "args": [
+        "-p", "fastbrowser_cli", "fastbrowser_mcp", "mcp_server"
+      ]
+    }
+  }
+}
+```
 
 ## Architecture
 
