@@ -25,7 +25,7 @@ class SilentExitError extends Error {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class FastbrowserCli {
+class MainHelper {
 	static getServerFromCmd(cmd: Command): string {
 		const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
 		return HttpClient.getServerUrl(globalOpts.server);
@@ -37,8 +37,8 @@ class FastbrowserCli {
 	}
 
 	static async runTool(cmd: Command, routeName: string, body: unknown): Promise<void> {
-		const server = FastbrowserCli.getServerFromCmd(cmd);
-		if (FastbrowserCli.getAutostartFromCmd(cmd) === true) {
+		const server = MainHelper.getServerFromCmd(cmd);
+		if (MainHelper.getAutostartFromCmd(cmd) === true) {
 			await ServerManager.ensureRunning(server);
 		}
 		const response = await HttpClient.postTool(server, routeName, body);
@@ -140,7 +140,7 @@ class FastbrowserCli {
 		if (process.stdin.isTTY === true) {
 			throw new Error('batch: no input. Provide a file path, --script, or pipe commands on stdin.');
 		}
-		return await FastbrowserCli.readStdinToString();
+		return await MainHelper.readStdinToString();
 	}
 
 	static async readStdinToString(): Promise<string> {
@@ -208,7 +208,7 @@ async function main(): Promise<void> {
 	if (installIdx !== -1) {
 		const next = process.argv[installIdx + 1];
 		const skillFolder = (next !== undefined && next.startsWith('-') === false) ? next : '.';
-		await FastbrowserCli.runInstall(skillFolder);
+		await MainHelper.runInstall(skillFolder);
 		return;
 	}
 
@@ -235,7 +235,7 @@ async function main(): Promise<void> {
 		.command('start')
 		.description('Start the fastbrowser HTTP server as a detached daemon')
 		.action(async (_opts, cmd: Command) => {
-			const server = FastbrowserCli.getServerFromCmd(cmd);
+			const server = MainHelper.getServerFromCmd(cmd);
 			await ServerManager.start(server);
 		});
 
@@ -243,7 +243,7 @@ async function main(): Promise<void> {
 		.command('stop')
 		.description('Stop the fastbrowser HTTP server')
 		.action(async (_opts, cmd: Command) => {
-			const server = FastbrowserCli.getServerFromCmd(cmd);
+			const server = MainHelper.getServerFromCmd(cmd);
 			await ServerManager.stop(server);
 		});
 
@@ -251,7 +251,7 @@ async function main(): Promise<void> {
 		.command('status')
 		.description('Report whether the fastbrowser HTTP server is running')
 		.action(async (_opts, cmd: Command) => {
-			const server = FastbrowserCli.getServerFromCmd(cmd);
+			const server = MainHelper.getServerFromCmd(cmd);
 			const state = await ServerManager.status(server);
 			console.log(`fastbrowser server at ${server}: ${state}`);
 			if (state === 'stopped') throw new SilentExitError();
@@ -267,7 +267,7 @@ async function main(): Promise<void> {
 		.command('list_pages')
 		.description('List all open browser pages')
 		.action(async (_opts, cmd: Command) => {
-			await FastbrowserCli.runTool(cmd, 'list_pages', {});
+			await MainHelper.runTool(cmd, 'list_pages', {});
 		});
 
 	program
@@ -275,7 +275,7 @@ async function main(): Promise<void> {
 		.description('Open a new browser page')
 		.requiredOption('--url <url>', 'URL to open')
 		.action(async (opts: { url: string }, cmd: Command) => {
-			await FastbrowserCli.runTool(cmd, 'new_page', { url: opts.url });
+			await MainHelper.runTool(cmd, 'new_page', { url: opts.url });
 		});
 
 	program
@@ -287,7 +287,7 @@ async function main(): Promise<void> {
 			if (Number.isNaN(pageId) === true) {
 				throw new Error(`Invalid --page-id: ${opts.pageId}`);
 			}
-			await FastbrowserCli.runTool(cmd, 'close_page', { pageId });
+			await MainHelper.runTool(cmd, 'close_page', { pageId });
 		});
 
 	program
@@ -295,7 +295,7 @@ async function main(): Promise<void> {
 		.description('Navigate the current page to a URL')
 		.requiredOption('--url <url>', 'URL to navigate to')
 		.action(async (opts: { url: string }, cmd: Command) => {
-			await FastbrowserCli.runTool(cmd, 'navigate_page', { url: opts.url });
+			await MainHelper.runTool(cmd, 'navigate_page', { url: opts.url });
 		});
 
 	program
@@ -303,7 +303,7 @@ async function main(): Promise<void> {
 		.description('Click an element by its accessibility selector')
 		.requiredOption('-s, --selector <selector>', 'Accessibility selector (e.g. "#1_3" or \'button[name="Submit"]\')')
 		.action(async (opts: { selector: string }, cmd: Command) => {
-			await FastbrowserCli.runTool(cmd, 'click', { selector: opts.selector });
+			await MainHelper.runTool(cmd, 'click', { selector: opts.selector });
 		});
 
 	program
@@ -312,7 +312,7 @@ async function main(): Promise<void> {
 		.requiredOption('-s, --selector <selector>', 'Accessibility selector (e.g. "#1_3" or \'textbox[name="Email"]\')')
 		.requiredOption('-v, --value <value>', 'Value to fill')
 		.action(async (opts: { selector: string; value: string }, cmd: Command) => {
-			await FastbrowserCli.runTool(cmd, 'fill_form', {
+			await MainHelper.runTool(cmd, 'fill_form', {
 				elements: [{ selector: opts.selector, value: opts.value }],
 			});
 		});
@@ -334,8 +334,8 @@ async function main(): Promise<void> {
 			withAncestors?: boolean;
 			selectorsJson?: string;
 		}, cmd: Command) => {
-			const body = FastbrowserCli.buildQuerySelectorsBody(opts);
-			await FastbrowserCli.runTool(cmd, 'query_selectors_all', body);
+			const body = MainHelper.buildQuerySelectorsBody(opts);
+			await MainHelper.runTool(cmd, 'query_selectors_all', body);
 		});
 
 	program
@@ -353,15 +353,15 @@ async function main(): Promise<void> {
 			withAncestors?: boolean;
 			selectorsJson?: string;
 		}, cmd: Command) => {
-			const body = FastbrowserCli.buildQuerySelectorFirstBody(opts);
-			await FastbrowserCli.runTool(cmd, 'query_selectors', body);
+			const body = MainHelper.buildQuerySelectorFirstBody(opts);
+			await MainHelper.runTool(cmd, 'query_selectors', body);
 		});
 
 	program
 		.command('take_snapshot')
 		.description('Take an accessibility-tree snapshot of the current page')
 		.action(async (_opts, cmd: Command) => {
-			await FastbrowserCli.runTool(cmd, 'take_snapshot', {});
+			await MainHelper.runTool(cmd, 'take_snapshot', {});
 		});
 
 	program
@@ -369,7 +369,7 @@ async function main(): Promise<void> {
 		.description('Press a sequence of keys')
 		.requiredOption('--keys <keys>', "Comma-separated keys. E.g. 'Hello, Tab, Enter'")
 		.action(async (opts: { keys: string }, cmd: Command) => {
-			await FastbrowserCli.runTool(cmd, 'press_keys', { keys: opts.keys });
+			await MainHelper.runTool(cmd, 'press_keys', { keys: opts.keys });
 		});
 
 	program
@@ -378,8 +378,8 @@ async function main(): Promise<void> {
 		.option('--script <script>', 'Inline multi-line script (overrides [file] and stdin)')
 		.option('--no-stop-on-error', 'Continue running subsequent lines after a failure (default: stop on first error)')
 		.action(async (file: string | undefined, opts: { script?: string; stopOnError: boolean }, cmd: Command) => {
-			const source = await FastbrowserCli.readBatchSource(file, opts.script);
-			await FastbrowserCli.runBatch(program, source, opts.stopOnError !== false, cmd);
+			const source = await MainHelper.readBatchSource(file, opts.script);
+			await MainHelper.runBatch(program, source, opts.stopOnError !== false, cmd);
 		});
 
 	///////////////////////////////////////////////////////////////////////////////

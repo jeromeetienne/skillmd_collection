@@ -1,0 +1,2 @@
+- remove the --json mode
+  - only json will be supported
