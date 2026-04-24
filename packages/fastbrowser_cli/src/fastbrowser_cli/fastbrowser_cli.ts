@@ -1,23 +1,15 @@
 #!/usr/bin/env node
 
-// node imports
 import fs from 'node:fs';
 import path from 'node:path';
 
-// npm imports
 import { Command, CommanderError } from 'commander';
 import stringArgv from 'string-argv';
 
-// local imports
 import { HttpClient } from './libs/http-client.js';
 import { ServerManager } from './libs/server-manager.js';
 import type { QuerySelectorInput, QuerySelectorFirstInput, QuerySelectorsAllRequest, QuerySelectorRequest } from '../fastbrowser_httpd/libs/tool-schemas.js';
 
-
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
 type GlobalOpts = {
@@ -31,125 +23,183 @@ class SilentExitError extends Error {
 	}
 }
 
-function getServerFromCmd(cmd: Command): string {
-	const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
-	return HttpClient.getServerUrl(globalOpts.server);
-}
+///////////////////////////////////////////////////////////////////////////////
 
-function getAutostartFromCmd(cmd: Command): boolean {
-	const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
-	return globalOpts.autostart !== false;
-}
-
-async function runTool(cmd: Command, routeName: string, body: unknown): Promise<void> {
-	const server = getServerFromCmd(cmd);
-	if (getAutostartFromCmd(cmd) === true) {
-		await ServerManager.ensureRunning(server);
+class FastbrowserCli {
+	static getServerFromCmd(cmd: Command): string {
+		const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
+		return HttpClient.getServerUrl(globalOpts.server);
 	}
-	const response = await HttpClient.postTool(server, routeName, body);
-	HttpClient.printResponse(response);
-}
 
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
+	static getAutostartFromCmd(cmd: Command): boolean {
+		const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
+		return globalOpts.autostart !== false;
+	}
 
-function buildQuerySelectorsBody(opts: {
-	selector?: string[];
-	limit?: string;
-	withAncestors?: boolean;
-	selectorsJson?: string;
-}): QuerySelectorsAllRequest {
-	if (opts.selectorsJson !== undefined && opts.selectorsJson !== '') {
-		let parsed: unknown;
+	static async runTool(cmd: Command, routeName: string, body: unknown): Promise<void> {
+		const server = FastbrowserCli.getServerFromCmd(cmd);
+		if (FastbrowserCli.getAutostartFromCmd(cmd) === true) {
+			await ServerManager.ensureRunning(server);
+		}
+		const response = await HttpClient.postTool(server, routeName, body);
+		HttpClient.printResponse(response);
+	}
+
+	static buildQuerySelectorsBody(opts: {
+		selector?: string[];
+		limit?: string;
+		withAncestors?: boolean;
+		selectorsJson?: string;
+	}): QuerySelectorsAllRequest {
+		if (opts.selectorsJson !== undefined && opts.selectorsJson !== '') {
+			let parsed: unknown;
+			try {
+				parsed = JSON.parse(opts.selectorsJson);
+			} catch (err) {
+				throw new Error(`--selectors-json is not valid JSON: ${(err as Error).message}`);
+			}
+			if (Array.isArray(parsed) === false) {
+				throw new Error('--selectors-json must be a JSON array');
+			}
+			return { selectors: parsed as QuerySelectorInput[] };
+		}
+
+		const selectorList = opts.selector ?? [];
+		if (selectorList.length === 0) {
+			throw new Error('At least one --selector or --selectors-json is required');
+		}
+
+		const limit = opts.limit === undefined ? 0 : Number.parseInt(opts.limit, 10);
+		if (Number.isNaN(limit) === true) {
+			throw new Error(`Invalid --limit: ${opts.limit}`);
+		}
+		const withAncestors = opts.withAncestors !== false;
+
+		const selectors: QuerySelectorInput[] = selectorList.map((selector) => ({
+			selector,
+			limit,
+			withAncestors,
+		}));
+		return { selectors };
+	}
+
+	static buildQuerySelectorFirstBody(opts: {
+		selector?: string[];
+		withAncestors?: boolean;
+		selectorsJson?: string;
+	}): QuerySelectorRequest {
+		if (opts.selectorsJson !== undefined && opts.selectorsJson !== '') {
+			let parsed: unknown;
+			try {
+				parsed = JSON.parse(opts.selectorsJson);
+			} catch (err) {
+				throw new Error(`--selectors-json is not valid JSON: ${(err as Error).message}`);
+			}
+			if (Array.isArray(parsed) === false) {
+				throw new Error('--selectors-json must be a JSON array');
+			}
+			return { selectors: parsed as QuerySelectorFirstInput[] };
+		}
+
+		const selectorList = opts.selector ?? [];
+		if (selectorList.length === 0) {
+			throw new Error('At least one --selector or --selectors-json is required');
+		}
+
+		const withAncestors = opts.withAncestors !== false;
+
+		const selectors: QuerySelectorFirstInput[] = selectorList.map((selector) => ({
+			selector,
+			withAncestors,
+		}));
+		return { selectors };
+	}
+
+	static async runInstall(skillFolder: string): Promise<void> {
+		const sourceSkillMd = path.resolve(__dirname, '../../skills/fastbrowser/SKILL.md');
+		const targetDir = path.resolve(skillFolder, 'skills', 'fastbrowser');
+		const targetSkillMd = path.join(targetDir, 'SKILL.md');
 		try {
-			parsed = JSON.parse(opts.selectorsJson);
+			await fs.promises.mkdir(targetDir, { recursive: true });
+			await fs.promises.copyFile(sourceSkillMd, targetSkillMd);
+			console.log(`Installed fastbrowser SKILL.md at ${targetSkillMd}`);
 		} catch (err) {
-			throw new Error(`--selectors-json is not valid JSON: ${(err as Error).message}`);
+			const message = err instanceof Error ? err.message : String(err);
+			console.error(`fastbrowser-cli error: ${message}`);
+			process.exit(1);
 		}
-		if (Array.isArray(parsed) === false) {
-			throw new Error('--selectors-json must be a JSON array');
+	}
+
+	static async readBatchSource(file: string | undefined, inlineScript: string | undefined): Promise<string> {
+		if (inlineScript !== undefined && inlineScript !== '') {
+			return inlineScript;
 		}
-		return { selectors: parsed as QuerySelectorInput[] };
-	}
-
-	const selectorList = opts.selector ?? [];
-	if (selectorList.length === 0) {
-		throw new Error('At least one --selector or --selectors-json is required');
-	}
-
-	const limit = opts.limit === undefined ? 0 : Number.parseInt(opts.limit, 10);
-	if (Number.isNaN(limit) === true) {
-		throw new Error(`Invalid --limit: ${opts.limit}`);
-	}
-	const withAncestors = opts.withAncestors !== false;
-
-	const selectors: QuerySelectorInput[] = selectorList.map((selector) => ({
-		selector,
-		limit,
-		withAncestors,
-	}));
-	return { selectors };
-}
-
-function buildQuerySelectorFirstBody(opts: {
-	selector?: string[];
-	withAncestors?: boolean;
-	selectorsJson?: string;
-}): QuerySelectorRequest {
-	if (opts.selectorsJson !== undefined && opts.selectorsJson !== '') {
-		let parsed: unknown;
-		try {
-			parsed = JSON.parse(opts.selectorsJson);
-		} catch (err) {
-			throw new Error(`--selectors-json is not valid JSON: ${(err as Error).message}`);
+		if (file !== undefined && file !== '') {
+			return await fs.promises.readFile(file, 'utf-8');
 		}
-		if (Array.isArray(parsed) === false) {
-			throw new Error('--selectors-json must be a JSON array');
+		if (process.stdin.isTTY === true) {
+			throw new Error('batch: no input. Provide a file path, --script, or pipe commands on stdin.');
 		}
-		return { selectors: parsed as QuerySelectorFirstInput[] };
+		return await FastbrowserCli.readStdinToString();
 	}
 
-	const selectorList = opts.selector ?? [];
-	if (selectorList.length === 0) {
-		throw new Error('At least one --selector or --selectors-json is required');
+	static async readStdinToString(): Promise<string> {
+		const chunks: Buffer[] = [];
+		return await new Promise((resolve, reject) => {
+			process.stdin.on('data', (chunk) => chunks.push(chunk as Buffer));
+			process.stdin.on('end', () => resolve(Buffer.concat(chunks).toString('utf-8')));
+			process.stdin.on('error', (err) => reject(err));
+		});
 	}
 
-	const withAncestors = opts.withAncestors !== false;
+	static async runBatch(program: Command, source: string, stopOnError: boolean, batchCmd: Command): Promise<void> {
+		const globalOpts = batchCmd.optsWithGlobals<GlobalOpts>();
+		const globalFlags: string[] = [];
+		if (globalOpts.server !== undefined) {
+			globalFlags.push('--server', globalOpts.server);
+		}
+		if (globalOpts.autostart === false) {
+			globalFlags.push('--no-autostart');
+		}
 
-	const selectors: QuerySelectorFirstInput[] = selectorList.map((selector) => ({
-		selector,
-		withAncestors,
-	}));
-	return { selectors };
-}
+		const lines = source.split('\n');
+		let ok = 0;
+		let failed = 0;
+		for (const rawLine of lines) {
+			const line = rawLine.trim();
+			if (line === '' || line.startsWith('#') === true) continue;
 
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-//
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
+			const argv = stringArgv(line);
+			if (argv.length === 0) continue;
 
-async function runInstall(skillFolder: string): Promise<void> {
-	const sourceSkillMd = path.resolve(__dirname, '../../skills/fastbrowser/SKILL.md');
-	const targetDir = path.resolve(skillFolder, 'skills', 'fastbrowser');
-	const targetSkillMd = path.join(targetDir, 'SKILL.md');
-	try {
-		await fs.promises.mkdir(targetDir, { recursive: true });
-		await fs.promises.copyFile(sourceSkillMd, targetSkillMd);
-		console.log(`Installed fastbrowser SKILL.md at ${targetSkillMd}`);
-	} catch (err) {
-		const message = err instanceof Error ? err.message : String(err);
-		console.error(`fastbrowser-cli error: ${message}`);
-		process.exit(1);
+			console.log(`> ${line}`);
+			try {
+				await program.parseAsync([...globalFlags, ...argv], { from: 'user' });
+				ok += 1;
+			} catch (err) {
+				failed += 1;
+				if (err instanceof SilentExitError === false && err instanceof CommanderError === false) {
+					const message = err instanceof Error ? err.message : String(err);
+					console.error(`fastbrowser-cli error: ${message}`);
+				}
+				if (stopOnError === true) {
+					throw new SilentExitError();
+				}
+			}
+		}
+
+		if (stopOnError === false) {
+			console.log(`batch: ${ok} ok, ${failed} failed`);
+		}
+		if (failed > 0) {
+			throw new SilentExitError();
+		}
 	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-//
+//	
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -158,7 +208,7 @@ async function main(): Promise<void> {
 	if (installIdx !== -1) {
 		const next = process.argv[installIdx + 1];
 		const skillFolder = (next !== undefined && next.startsWith('-') === false) ? next : '.';
-		await runInstall(skillFolder);
+		await FastbrowserCli.runInstall(skillFolder);
 		return;
 	}
 
@@ -171,6 +221,12 @@ async function main(): Promise<void> {
 		.option('--no-autostart', 'Do not auto-start the server before a command')
 		.option('--install [skill-folder]', 'Install SKILL.md into <skill-folder>/skills/fastbrowser (default: .)');
 
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
 	const serverCmd = program
 		.command('server')
 		.description('Manage the fastbrowser HTTP server');
@@ -179,7 +235,7 @@ async function main(): Promise<void> {
 		.command('start')
 		.description('Start the fastbrowser HTTP server as a detached daemon')
 		.action(async (_opts, cmd: Command) => {
-			const server = getServerFromCmd(cmd);
+			const server = FastbrowserCli.getServerFromCmd(cmd);
 			await ServerManager.start(server);
 		});
 
@@ -187,7 +243,7 @@ async function main(): Promise<void> {
 		.command('stop')
 		.description('Stop the fastbrowser HTTP server')
 		.action(async (_opts, cmd: Command) => {
-			const server = getServerFromCmd(cmd);
+			const server = FastbrowserCli.getServerFromCmd(cmd);
 			await ServerManager.stop(server);
 		});
 
@@ -195,17 +251,23 @@ async function main(): Promise<void> {
 		.command('status')
 		.description('Report whether the fastbrowser HTTP server is running')
 		.action(async (_opts, cmd: Command) => {
-			const server = getServerFromCmd(cmd);
+			const server = FastbrowserCli.getServerFromCmd(cmd);
 			const state = await ServerManager.status(server);
 			console.log(`fastbrowser server at ${server}: ${state}`);
 			if (state === 'stopped') throw new SilentExitError();
 		});
 
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
 	program
 		.command('list_pages')
 		.description('List all open browser pages')
 		.action(async (_opts, cmd: Command) => {
-			await runTool(cmd, 'list_pages', {});
+			await FastbrowserCli.runTool(cmd, 'list_pages', {});
 		});
 
 	program
@@ -213,7 +275,7 @@ async function main(): Promise<void> {
 		.description('Open a new browser page')
 		.requiredOption('--url <url>', 'URL to open')
 		.action(async (opts: { url: string }, cmd: Command) => {
-			await runTool(cmd, 'new_page', { url: opts.url });
+			await FastbrowserCli.runTool(cmd, 'new_page', { url: opts.url });
 		});
 
 	program
@@ -225,7 +287,7 @@ async function main(): Promise<void> {
 			if (Number.isNaN(pageId) === true) {
 				throw new Error(`Invalid --page-id: ${opts.pageId}`);
 			}
-			await runTool(cmd, 'close_page', { pageId });
+			await FastbrowserCli.runTool(cmd, 'close_page', { pageId });
 		});
 
 	program
@@ -233,7 +295,7 @@ async function main(): Promise<void> {
 		.description('Navigate the current page to a URL')
 		.requiredOption('--url <url>', 'URL to navigate to')
 		.action(async (opts: { url: string }, cmd: Command) => {
-			await runTool(cmd, 'navigate_page', { url: opts.url });
+			await FastbrowserCli.runTool(cmd, 'navigate_page', { url: opts.url });
 		});
 
 	program
@@ -241,7 +303,7 @@ async function main(): Promise<void> {
 		.description('Click an element by its accessibility selector')
 		.requiredOption('-s, --selector <selector>', 'Accessibility selector (e.g. "#1_3" or \'button[name="Submit"]\')')
 		.action(async (opts: { selector: string }, cmd: Command) => {
-			await runTool(cmd, 'click', { selector: opts.selector });
+			await FastbrowserCli.runTool(cmd, 'click', { selector: opts.selector });
 		});
 
 	program
@@ -250,7 +312,7 @@ async function main(): Promise<void> {
 		.requiredOption('-s, --selector <selector>', 'Accessibility selector (e.g. "#1_3" or \'textbox[name="Email"]\')')
 		.requiredOption('-v, --value <value>', 'Value to fill')
 		.action(async (opts: { selector: string; value: string }, cmd: Command) => {
-			await runTool(cmd, 'fill_form', {
+			await FastbrowserCli.runTool(cmd, 'fill_form', {
 				elements: [{ selector: opts.selector, value: opts.value }],
 			});
 		});
@@ -272,8 +334,8 @@ async function main(): Promise<void> {
 			withAncestors?: boolean;
 			selectorsJson?: string;
 		}, cmd: Command) => {
-			const body = buildQuerySelectorsBody(opts);
-			await runTool(cmd, 'query_selectors_all', body);
+			const body = FastbrowserCli.buildQuerySelectorsBody(opts);
+			await FastbrowserCli.runTool(cmd, 'query_selectors_all', body);
 		});
 
 	program
@@ -291,15 +353,15 @@ async function main(): Promise<void> {
 			withAncestors?: boolean;
 			selectorsJson?: string;
 		}, cmd: Command) => {
-			const body = buildQuerySelectorFirstBody(opts);
-			await runTool(cmd, 'query_selectors', body);
+			const body = FastbrowserCli.buildQuerySelectorFirstBody(opts);
+			await FastbrowserCli.runTool(cmd, 'query_selectors', body);
 		});
 
 	program
 		.command('take_snapshot')
 		.description('Take an accessibility-tree snapshot of the current page')
 		.action(async (_opts, cmd: Command) => {
-			await runTool(cmd, 'take_snapshot', {});
+			await FastbrowserCli.runTool(cmd, 'take_snapshot', {});
 		});
 
 	program
@@ -307,7 +369,7 @@ async function main(): Promise<void> {
 		.description('Press a sequence of keys')
 		.requiredOption('--keys <keys>', "Comma-separated keys. E.g. 'Hello, Tab, Enter'")
 		.action(async (opts: { keys: string }, cmd: Command) => {
-			await runTool(cmd, 'press_keys', { keys: opts.keys });
+			await FastbrowserCli.runTool(cmd, 'press_keys', { keys: opts.keys });
 		});
 
 	program
@@ -316,91 +378,17 @@ async function main(): Promise<void> {
 		.option('--script <script>', 'Inline multi-line script (overrides [file] and stdin)')
 		.option('--no-stop-on-error', 'Continue running subsequent lines after a failure (default: stop on first error)')
 		.action(async (file: string | undefined, opts: { script?: string; stopOnError: boolean }, cmd: Command) => {
-			const source = await readBatchSource(file, opts.script);
-			await runBatch(program, source, opts.stopOnError !== false, cmd);
+			const source = await FastbrowserCli.readBatchSource(file, opts.script);
+			await FastbrowserCli.runBatch(program, source, opts.stopOnError !== false, cmd);
 		});
 
-	program.exitOverride();
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
-	try {
-		await program.parseAsync(process.argv);
-	} catch (err) {
-		if (err instanceof SilentExitError) {
-			process.exit(1);
-		}
-		if (err instanceof CommanderError) {
-			process.exit(err.exitCode === undefined ? 1 : err.exitCode);
-		}
-		const message = err instanceof Error ? err.message : String(err);
-		console.error(`fastbrowser-cli error: ${message}`);
-		process.exit(1);
-	}
-}
-
-async function readBatchSource(file: string | undefined, inlineScript: string | undefined): Promise<string> {
-	if (inlineScript !== undefined && inlineScript !== '') {
-		return inlineScript;
-	}
-	if (file !== undefined && file !== '') {
-		return await fs.promises.readFile(file, 'utf-8');
-	}
-	if (process.stdin.isTTY === true) {
-		throw new Error('batch: no input. Provide a file path, --script, or pipe commands on stdin.');
-	}
-	return await readStdinToString();
-}
-
-async function readStdinToString(): Promise<string> {
-	const chunks: Buffer[] = [];
-	return await new Promise((resolve, reject) => {
-		process.stdin.on('data', (chunk) => chunks.push(chunk as Buffer));
-		process.stdin.on('end', () => resolve(Buffer.concat(chunks).toString('utf-8')));
-		process.stdin.on('error', (err) => reject(err));
-	});
-}
-
-async function runBatch(program: Command, source: string, stopOnError: boolean, batchCmd: Command): Promise<void> {
-	const globalOpts = batchCmd.optsWithGlobals<GlobalOpts>();
-	const globalFlags: string[] = [];
-	if (globalOpts.server !== undefined) {
-		globalFlags.push('--server', globalOpts.server);
-	}
-	if (globalOpts.autostart === false) {
-		globalFlags.push('--no-autostart');
-	}
-
-	const lines = source.split('\n');
-	let ok = 0;
-	let failed = 0;
-	for (const rawLine of lines) {
-		const line = rawLine.trim();
-		if (line === '' || line.startsWith('#') === true) continue;
-
-		const argv = stringArgv(line);
-		if (argv.length === 0) continue;
-
-		console.log(`> ${line}`);
-		try {
-			await program.parseAsync([...globalFlags, ...argv], { from: 'user' });
-			ok += 1;
-		} catch (err) {
-			failed += 1;
-			if (err instanceof SilentExitError === false && err instanceof CommanderError === false) {
-				const message = err instanceof Error ? err.message : String(err);
-				console.error(`fastbrowser-cli error: ${message}`);
-			}
-			if (stopOnError === true) {
-				throw new SilentExitError();
-			}
-		}
-	}
-
-	if (stopOnError === false) {
-		console.log(`batch: ${ok} ok, ${failed} failed`);
-	}
-	if (failed > 0) {
-		throw new SilentExitError();
-	}
+	await program.parseAsync();
 }
 
 void main();
