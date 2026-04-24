@@ -6,13 +6,13 @@ A monorepo of Claude Code agent skills and CLI tools. Each package ships a `SKIL
 
 | Package | Description |
 |---------|-------------|
-| [a11y_parse](packages/a11y_parse/README.md) | Accessibility tree parser and CSS-like query engine |
-| [fastbrowser_cli](packages/fastbrowser_cli/README.md) | CLI daemon for controlling Chrome from shell or AI agents |
-| [business_analyst_cli](packages/business_analyst_cli/README.md) | Business modeling, trend analysis, and strategic planning CLI |
-| [bsky_client](packages/bsky_client/README.md) | Bluesky social network CLI (posts, replies, likes, search) |
-| [perplexity_cli](packages/perplexity_cli/README.md) | Web search and deep research CLI via Perplexity AI |
+| [a11y_parse](packages/a11y_parse#README.md) | Accessibility tree parser and CSS-like query engine |
+| [fastbrowser_cli](packages/fastbrowser_cli#README.md) | CLI daemon for controlling Chrome from shell or AI agents |
+| [business_analyst_cli](packages/business_analyst_cli#README.md) | Business modeling, trend analysis, and strategic planning CLI |
+| [bsky_client](packages/bsky_client#README.md) | Bluesky social network CLI (posts, replies, likes, search) |
+| [perplexity_cli](packages/perplexity_cli#README.md) | Web search and deep research CLI via Perplexity AI |
 
-### [a11y_parse](packages/a11y_parse/README.md)
+### [a11y_parse](packages/a11y_parse#README.md)
 
 A TypeScript library for parsing and querying accessibility trees using a CSS-inspired selector syntax. It is the query layer used by `fastbrowser_cli`.
 
@@ -23,7 +23,7 @@ A TypeScript library for parsing and querying accessibility trees using a CSS-in
 
 ---
 
-### [fastbrowser_cli](packages/fastbrowser_cli/README.md)
+### [fastbrowser_cli](packages/fastbrowser_cli#README.md)
 
 A lightweight CLI for controlling a live Chrome browser from the shell or an AI agent. Designed for minimal latency: a long-running daemon holds the browser connection and each command is a single HTTP call.
 
@@ -40,7 +40,7 @@ fastbrowser_cli ──HTTP──▶ fastbrowser_httpd ──MCP/stdio──▶ f
 
 ---
 
-### [business_analyst_cli](packages/business_analyst_cli/README.md)
+### [business_analyst_cli](packages/business_analyst_cli#README.md)
 
 A CLI for structured business modeling, trend analysis, and strategic planning. Three composable commands form a pipeline — model → analyze → plan — each backed by a dedicated Claude Code skill.
 
@@ -54,7 +54,7 @@ A CLI for structured business modeling, trend analysis, and strategic planning. 
 
 ---
 
-### [bsky_client](packages/bsky_client/README.md)
+### [bsky_client](packages/bsky_client#README.md)
 
 A CLI for the Bluesky social network (ATProto). Handles authentication, posts, replies, likes, follows, and search. Ships a `SKILL.md` so Claude Code agents can install and use it directly.
 
@@ -65,7 +65,7 @@ A CLI for the Bluesky social network (ATProto). Handles authentication, posts, r
 
 ---
 
-### [perplexity_cli](packages/perplexity_cli/README.md)
+### [perplexity_cli](packages/perplexity_cli#README.md)
 
 A CLI for searching the web and running deep research queries using Perplexity AI. Ships a `SKILL.md` for use in agent workflows.
 
