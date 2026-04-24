@@ -1,0 +1,5 @@
+# Dependencies
+node_modules/
+
+# dist typescript output
+dist/

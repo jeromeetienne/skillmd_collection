@@ -1,0 +1,6 @@
+Create a baseline model called demo-whatif with Q1 through Q3 2026, tracking Revenue and Costs in USD, assuming 10% revenue growth, a 70% cost ratio, and Q1 revenue of $200K.
+Show me the current state of demo-whatif.
+Simulate what happens to demo-whatif if the revenue growth rate doubles to 20%.
+Show me demo-whatif again to confirm it was not modified by the simulation.
+Delete the demo-whatif model.
+/quit

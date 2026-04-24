@@ -1,0 +1,5 @@
+Create a model called demo-trend-analysis covering January through April 2026, tracking Revenue and Costs in USD, assuming 10% revenue growth and a 70% cost ratio, with initial revenue data of $50K, $52K, $180K, and $55K.
+Analyze the revenue trends for demo-trend-analysis.
+Detect any anomalies in demo-trend-analysis.
+Delete the demo-trend-analysis model.
+/quit

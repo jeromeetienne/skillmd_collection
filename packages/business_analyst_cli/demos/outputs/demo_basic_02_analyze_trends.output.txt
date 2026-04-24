@@ -1,0 +1,28 @@
+
+>> Create a model called demo-trend-analysis covering January through April 2026, tracking Revenue and Costs in USD, assuming 10% revenue growth and a 70% cost ratio, with initial revenue data of $50K, $52K, $180K, and $55K.
+
+The model demo-trend-analysis has been created, covering January through April 2026, tracking both Revenue and Costs in USD. It uses a 10% revenue growth rate and a 70% cost ratio as assumptions, with your provided initial revenue data and computed costs for each month.
+If you’d like to view the model details or make updates, let me know!
+
+>> Analyze the revenue trends for demo-trend-analysis.
+
+Here is the revenue trend analysis for demo-trend-analysis:
+- January 2026 → February 2026: Revenue grew from $50,000 to $52,000 (+4.0%).
+- February 2026 → March 2026: Revenue increased sharply from $52,000 to $180,000 (+246.2%).
+- March 2026 → April 2026: Revenue dropped from $180,000 to $55,000 (−69.4%).
+There is a notable spike in revenue in March followed by a significant drop in April. If you want further analysis (such as anomaly detection or a summary), let me know!
+
+>> Detect any anomalies in demo-trend-analysis.
+
+Anomaly detection for the demo-trend-analysis model highlights the following:
+- Revenue (USD): March 2026 revenue is $180,000, which is +113.6% above the mean ($84,250). This is flagged as an anomaly.
+- Costs (USD): March 2026 costs are $126,000, which is also +113.6% above the mean ($58,975). This is flagged as an anomaly.
+March 2026 stands out as a significant outlier in both revenue and costs compared to other months in the model.
+
+>> Delete the demo-trend-analysis model.
+
+The model demo-trend-analysis has been deleted. If you need to work with other models or create a new one, just let me know!
+
+>> /quit
+
+Bye.

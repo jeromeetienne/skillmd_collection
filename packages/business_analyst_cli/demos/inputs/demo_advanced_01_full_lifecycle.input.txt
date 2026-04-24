@@ -1,0 +1,8 @@
+Create a SaaS revenue model called demo-saas-plan with Q1–Q4 2026, tracking Revenue, Costs, and Headcount, assuming 12% growth and 60% cost ratio, starting with Q1 revenue of $500K and 25 heads.
+Update demo-saas-plan with Q2 actuals: $580K revenue and 28 headcount.
+Update the cost ratio in demo-saas-plan from 60% down to 55% to reflect market changes.
+Show me the current state of demo-saas-plan.
+Run a full summary analysis on demo-saas-plan.
+Give me recommendations for demo-saas-plan to reach $3M annual revenue while keeping headcount under 40.
+Delete the demo-saas-plan model.
+/quit

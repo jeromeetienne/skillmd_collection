@@ -1,0 +1,27 @@
+{
+  "name": "super-model",
+  "created_at": "2026-03-22T10:49:44.947Z",
+  "updated_at": "2026-03-22T10:49:44.952Z",
+  "dimensions": [
+    "Q1 2026",
+    "Q2 2026"
+  ],
+  "metrics": [
+    {
+      "name": "Sales",
+      "unit": "USD"
+    },
+    {
+      "name": "Expenses",
+      "unit": "USD"
+    }
+  ],
+  "assumptions": {
+    "growth_rate": 0.15,
+    "expense_ratio": 0.6
+  },
+  "data": {
+    "Sales": {},
+    "Expenses": {}
+  }
+}

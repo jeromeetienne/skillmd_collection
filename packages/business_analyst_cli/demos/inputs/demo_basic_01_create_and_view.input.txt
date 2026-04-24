@@ -1,0 +1,5 @@
+Create a model called demo-basic-revenue with Q1 through Q4 2026 dimensions, tracking Revenue and Costs in USD, assuming 10% revenue growth and a 65% cost ratio, with Q1 2026 revenue starting at $100K.
+Show me the current state of demo-basic-revenue.
+List all existing models.
+Delete the demo-basic-revenue model.
+/quit

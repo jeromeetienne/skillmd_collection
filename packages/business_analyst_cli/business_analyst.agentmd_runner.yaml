@@ -1,0 +1,13 @@
+version: "1.0"
+id: "business_analyst"
+
+agents:
+  business_analyst_agent:
+    instructionsPath: ./AGENTS.md
+    skills:
+      - name: analyst
+        folderPath: ./skills/analyst
+      - name: modeler
+        folderPath: ./skills/modeler
+      - name: planner
+        folderPath: ./skills/planner

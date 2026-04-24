@@ -1,0 +1,133 @@
+# Demo 04 — Advanced: Full model lifecycle
+
+## Description
+Shows the complete create → update → analyze → recommend pipeline,
+mimicking a real conversation where a user iteratively builds up
+their business model and gets actionable insights.
+
+1. Create a quarterly SaaS revenue model
+2. Populate data quarter by quarter (as if actuals come in)
+3. Update an assumption mid-cycle
+4. Run a full summary analysis
+5. Get strategic recommendations with a specific goal
+6. Clean up
+
+
+## Demo
+
+>> Create a SaaS revenue model called demo-saas-plan with Q1–Q4 2026, tracking Revenue, Costs, and Headcount, assuming 12% growth and 60% cost ratio, starting with Q1 revenue of $500K and 25 heads.
+
+Your SaaS revenue model "demo-saas-plan" has been created with the following details:
+Dimensions: Q1 2026, Q2 2026, Q3 2026, Q4 2026
+Metrics: Revenue (USD), Costs (USD), Headcount (FTE)
+Assumptions:
+- Revenue growth rate: 12% per quarter
+- Cost ratio: 60% of revenue
+- Starting Q1 revenue: $500,000
+- Starting Q1 headcount: 25
+Here is the initial model:
+| Metric            | Q1 2026  | Q2 2026  | Q3 2026  | Q4 2026  |
+|-------------------|----------|----------|----------|----------|
+| Revenue (USD)     | 500,000  | 560,000  | 627,200  | 702,464  |
+| Costs (USD)       | 300,000  | 336,000  | 376,320  | 421,478  |
+| Headcount (FTE)   | 25       | —        | —        | —        |
+Would you like to fill in headcount for future quarters, update any numbers, or proceed with analysis or planning?
+
+>> Update demo-saas-plan with Q2 actuals: $580K revenue and 28 headcount.
+
+The demo-saas-plan model has been updated with Q2 2026 actuals:
+- Revenue (Q2 2026): $580,000 (previously $560,000)
+- Headcount (Q2 2026): 28 (was not set previously)
+Here is your current model:
+| Metric            | Q1 2026 | Q2 2026 | Q3 2026 | Q4 2026 |
+|-------------------|---------|---------|---------|---------|
+| Revenue (USD)     | 500,000 | 580,000 | 627,200 | 702,464 |
+| Costs (USD)       | 300,000 | 336,000 | 376,320 | 421,478 |
+| Headcount (FTE)   | 25      | 28      | —       | —       |
+Let me know if you'd like to update additional data, fill in projections, or run further scenarios on this plan!
+
+>> 
+The cost ratio assumption in demo-saas-plan has been updated from 60% to 55% to reflect market changes.
+Current model (assumptions updated, but Costs values have not automatically been recalculated):
+| Metric            | Q1 2026 | Q2 2026 | Q3 2026 | Q4 2026 |
+|-------------------|---------|---------|---------|---------|
+| Revenue (USD)     | 500,000 | 580,000 | 627,200 | 702,464 |
+| Costs (USD)       | 300,000 | 336,000 | 376,320 | 421,478 |
+| Headcount (FTE)   | 25      | 28      | —       | —       |
+Assumptions:
+- revenue_growth_rate: 0.12
+- cost_ratio: 0.55
+If you want to recalculate Costs using the new 55% ratio, let me know and I will update the numbers accordingly!
+
+>> Show me the current state of demo-saas-plan.
+
+Here is the current state of your demo-saas-plan model:
+| Metric            | Q1 2026 | Q2 2026 | Q3 2026 | Q4 2026 |
+|-------------------|---------|---------|---------|---------|
+| Revenue (USD)     | 500,000 | 580,000 | 627,200 | 702,464 |
+| Costs (USD)       | 300,000 | 336,000 | 376,320 | 421,478 |
+| Headcount (FTE)   | 25      | 28      | —       | —       |
+Assumptions:
+- Revenue growth rate: 0.12 (12%)
+- Cost ratio: 0.55 (recently updated from 0.60)
+Note: “Costs” values have not yet been recalculated based on the updated 55% cost ratio and are still showing the prior figures. Would you like me to recalculate the Cost values using the new ratio for all quarters?
+
+>> Run a full summary analysis on demo-saas-plan.
+
+Here is a full summary analysis of your demo-saas-plan model:
+────────────────────────────────────────
+
+### Metrics Overview
+
+Revenue (USD)
+- Total: $2,409,664
+- Mean: $602,416
+- Min: $500,000 (Q1 2026)
+- Max: $702,464 (Q4 2026)
+- Trend: Up (largest swing: Q1 2026 → Q2 2026 at +16.0%)
+Costs (USD)
+- Total: $1,433,798
+- Mean: $358,450
+- Min: $300,000 (Q1 2026)
+- Max: $421,478 (Q4 2026)
+- Trend: Up (largest swing: Q1 2026 → Q2 2026 at +12.0%)
+Headcount (FTE)
+- Total: 53
+- Mean: 27
+- Min: 25 (Q1 2026)
+- Max: 28 (Q2 2026)
+- Trend: Stable (largest swing: Q1 2026 → Q2 2026 at +12.0%)
+────────────────────────────────────────
+
+### Anomalies (threshold: 50%)
+
+None detected.
+Overall: No anomalies detected. Model data looks consistent.
+If you would like to see a specific trend, anomaly, or breakdown by quarter, let me know!
+
+>> Give me recommendations for demo-saas-plan to reach $3M annual revenue while keeping headcount under 40.
+
+Here are strategic recommendations for demo-saas-plan to reach $3M annual revenue in 2026 while keeping headcount under 40:
+Model Overview
+- Revenue (USD): total = $2,409,664 | mean = $602,416 | trend: +40.5% | Q1 = $500K, Q4 = $702K
+- Costs (USD): total = $1,433,798 | mean = $358,450 | trend: +40.5%
+- Headcount (FTE): total = 53 | mean = 27 | trend: +12% | Q1 = 25, Q2 = 28
+Recommendations:
+1. To achieve your goal ("reach $3M annual revenue for 2026 while keeping headcount under 40"), you should aim for annual Revenue of at least $2,891,597, which is about 20% higher than your current projection of $2,409,664 for 2026.
+2. Options to achieve the revenue target without exceeding 40 FTEs:
+   
+  - Increase your quarterly growth rate (currently 12%) either through higher sales, improved retention, or price increases.
+  - Accelerate acquisition or upsell initiatives, focusing on high-value customers for greater revenue without corresponding headcount growth.
+  - Leverage automation and operational efficiency to support growth with minimal hiring.
+  - Explore strategic partnerships or channel sales to expand distribution without additional headcount.
+3. Closely monitor actuals each quarter and course-correct by reforecasting revenue and carefully managing hiring plans to maintain the headcount cap.
+4. Review your cost structure: improved gross margins from the new (lower) cost ratio will support scalable growth as revenue increases.
+Would you like a milestone plan showing the exact quarterly targets needed to hit $3M by year-end under these constraints?
+
+>> Delete the demo-saas-plan model.
+
+The demo-saas-plan model has been deleted. If you need to create a new model or work on a different one, just let me know!
+
+>> /quit
+
+Bye.

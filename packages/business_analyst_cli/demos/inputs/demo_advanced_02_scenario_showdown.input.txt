@@ -1,0 +1,9 @@
+Create a 6-month revenue model called demo-growth-scenarios from January to June 2026, tracking Revenue and Costs in USD, with 12% growth, 60% cost ratio, and Jan–Mar revenue data of $400K, $430K, and $470K.
+Show me the current state of demo-growth-scenarios.
+Compare three growth scenarios for demo-growth-scenarios: Conservative at 5%, Base at 12%, and Aggressive at 25%.
+Build a milestone plan for demo-growth-scenarios to reach $1M revenue by June 2026.
+Simulate demo-growth-scenarios with aggressive 25% growth, save it as demo-growth-scenarios-aggressive so we can analyze it.
+Run a full summary analysis on the aggressive scenario demo-growth-scenarios-aggressive.
+Run an anomaly check on demo-growth-scenarios-aggressive before we commit to a strategy.
+Delete the demo-growth-scenarios and demo-growth-scenarios-aggressive models.
+/quit

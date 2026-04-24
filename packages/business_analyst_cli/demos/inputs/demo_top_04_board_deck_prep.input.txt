@@ -1,0 +1,27 @@
+Create a revenue model called demo-board-revenue spanning Q3 2025 through Q4 2026, tracking Revenue and Costs in USD, with 12% growth, 58% cost ratio, and four quarters of actuals from $3.2M to $4.45M.
+Show me the demo-board-revenue overview.
+Create an OpEx model called demo-board-opex spanning Q3 2025 through Q4 2026, tracking Headcount and CostPerHead, with historical data showing headcount growing from 120 to 155.
+Show me the demo-board-opex overview.
+Analyze the quarter-over-quarter revenue trend for demo-board-revenue.
+Analyze the cost trend for demo-board-revenue — are costs tracking with revenue?
+Scan demo-board-revenue for revenue anomalies with a tight 15% threshold.
+Run a full summary analysis on demo-board-revenue.
+Analyze the headcount growth trend for demo-board-opex.
+Analyze the cost-per-head trend for demo-board-opex.
+Run anomaly detection on demo-board-opex with a 10% threshold.
+Run a full summary analysis on demo-board-opex.
+Compare three growth scenarios for demo-board-revenue in H2 2026: Bear Case at 8%, Base Case at 12%, and Bull Case at 18%.
+Simulate the bull case for demo-board-revenue with 18% growth and 55% cost ratio.
+Build a milestone plan for demo-board-revenue to reach $6M quarterly revenue by Q4 2026.
+Compare three hiring scenarios for demo-board-opex: Hiring Freeze, Moderate growth at +10 per quarter, and Aggressive at +20 per quarter.
+Stress test demo-board-revenue: what if a major deal slips and Q3 2026 revenue drops to $3.56M?
+Stress test demo-board-revenue: what if the cost ratio spikes to 70% due to unexpected infrastructure costs?
+Stress test demo-board-revenue with the worst case: deal slip and cost spike together. Save as demo-board-revenue-worst-case.
+Run a summary analysis on demo-board-revenue-worst-case to quantify the downside risk.
+Give recommendations for demo-board-revenue-worst-case to mitigate the downside if both a deal slip and cost spike happen.
+Run a summary analysis on demo-board-revenue for comparison with the worst case.
+Give strategic recommendations for demo-board-revenue to maintain 12%+ quarterly growth and reach $20M ARR by end of 2026.
+Give strategic recommendations for demo-board-opex to scale the team efficiently without exceeding $16K cost-per-head.
+Show me the final demo-board-revenue state for the board deck.
+Show me the final demo-board-opex state for the board deck.
+/quit

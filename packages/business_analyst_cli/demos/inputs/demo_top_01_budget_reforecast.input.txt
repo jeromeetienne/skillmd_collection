@@ -1,0 +1,22 @@
+Create the original 2026 budget model called demo-budget-2026 with Q1–Q4 dimensions, tracking Revenue, Costs, and Headcount, assuming 15% growth and 55% cost ratio, starting with $2M Q1 revenue and headcount ramping from 80 to 110.
+Show me the approved demo-budget-2026.
+Run a summary analysis on demo-budget-2026 as a baseline.
+Update demo-budget-2026 with Q1 actuals: $1.85M revenue, $1.147M costs, and 78 headcount.
+Update demo-budget-2026 with Q2 actuals: $1.95M revenue, $1.209M costs, and 85 headcount.
+Adjust the cost ratio in demo-budget-2026 to 62% to reflect actual spending.
+Show me demo-budget-2026 with the actuals baked in.
+Run a full summary analysis on demo-budget-2026 now that actuals are in.
+Analyze the revenue trend for demo-budget-2026 — is it accelerating or decelerating?
+Analyze the cost trend for demo-budget-2026 — are costs growing faster than revenue?
+Run anomaly detection on demo-budget-2026 with a tight 30% threshold.
+Compare three reforecast scenarios for demo-budget-2026: Continued Drag at 5% growth, Partial Recovery at 10%, and Full Recovery at 15%.
+Simulate the worst case for demo-budget-2026: 5% growth with 62% cost ratio.
+Simulate the best case for demo-budget-2026: 15% growth with 55% cost ratio. Save it as demo-budget-2026-best-case.
+Run a summary analysis on demo-budget-2026-best-case to see if full recovery is realistic.
+Give recommendations for demo-budget-2026-best-case to sustain 15% growth.
+Build a milestone plan for demo-budget-2026 to hit $2.5M revenue by Q4 2026.
+Lock in the Scenario B assumptions for demo-budget-2026: 10% growth and 58% cost ratio.
+Show me the reforecast demo-budget-2026 with the updated assumptions.
+Run a summary analysis on the reforecast demo-budget-2026.
+Generate strategic recommendations for demo-budget-2026 to close the gap between original budget and reforecast while improving cost efficiency by Q4.
+/quit

@@ -1,0 +1,20 @@
+Create a P&L model called demo-cost-optimization with 6 months of data, tracking Revenue and Costs in USD, with 8% growth, 78% cost ratio, and full historical revenue and cost figures.
+Show me the current state of demo-cost-optimization.
+Analyze the revenue trend for demo-cost-optimization.
+Analyze the cost trend for demo-cost-optimization.
+Run anomaly detection on demo-cost-optimization with a 20% threshold to catch the Month 3 cost spike.
+Run a full summary analysis on demo-cost-optimization.
+Compare four cost strategies for demo-cost-optimization: Do Nothing, Lean Ops, Smart Cut, and Growth Invest.
+Simulate Lean Ops for demo-cost-optimization: growth drops to 5% but costs fall to 65%. Save as demo-cost-optimization-lean-ops.
+Simulate Smart Cut for demo-cost-optimization: growth stays at 8% with costs trimmed to 70%. Save as demo-cost-optimization-smart-cut.
+Run a summary analysis on demo-cost-optimization-lean-ops to see the full impact.
+Run a summary analysis on demo-cost-optimization-smart-cut to see the full impact.
+Simulate a Hybrid strategy for demo-cost-optimization: 10% growth with a 68% cost ratio. Save as demo-cost-optimization-hybrid.
+Compare the Hybrid strategy against Lean Ops and Smart Cut for demo-cost-optimization.
+Lock in the Hybrid assumptions for demo-cost-optimization: 10% growth and 68% cost ratio.
+Show me demo-cost-optimization with the Hybrid assumptions applied.
+Re-run the summary analysis on demo-cost-optimization after the assumption change.
+Build a milestone plan for demo-cost-optimization to reach $550K revenue by Month 6.
+Give final recommendations for demo-cost-optimization to achieve profitability with costs below 65% of revenue within 3 months while maintaining 10%+ growth.
+Run a final anomaly check on demo-cost-optimization with a 25% threshold.
+/quit

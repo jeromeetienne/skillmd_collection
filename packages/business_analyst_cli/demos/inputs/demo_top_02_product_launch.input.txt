@@ -1,0 +1,25 @@
+Create a North America launch model called demo-atlas-na over 6 months, tracking Revenue and Costs in USD, with 20% growth, 50% cost ratio, and $120K Month 1 revenue.
+Create an EMEA launch model called demo-atlas-emea over 6 months, with 12% growth, 65% cost ratio, and $45K Month 1 revenue.
+Create an APAC launch model called demo-atlas-apac over 6 months, with 30% growth, 70% cost ratio, and $25K Month 1 revenue.
+Update demo-atlas-na with months 2–4 revenue: $148K, $135K, and $175K.
+Update demo-atlas-emea with months 2–4 revenue: $42K, $68K, and $110K.
+Update demo-atlas-apac with months 2–4 revenue: $58K, $35K, and $72K.
+Show me the current state of all three regional models.
+Analyze the revenue trend for demo-atlas-na — look for the Month 3 dip.
+Analyze the revenue trend for demo-atlas-emea — check the regulatory delay then hockey stick pattern.
+Analyze the revenue trend for demo-atlas-apac — look for the churn spike.
+Run anomaly detection on all three regional models.
+Run a full summary on demo-atlas-apac, the most volatile region.
+Recommend a strategy for demo-atlas-na to sustain 20% monthly growth while keeping the cost ratio at 50%.
+Recommend a strategy for demo-atlas-emea to sustain the Month 4 acceleration and reduce the cost ratio from 65% to 55%.
+Recommend a strategy for demo-atlas-apac to stabilize after the Month 3 churn dip and reach $100K monthly revenue by Month 6.
+Compare three pricing strategies for demo-atlas-emea: Current Pricing, Premium Tier at +20%, and Volume Play at -15%.
+Compare three recovery scenarios for demo-atlas-apac: Status Quo, Anti-Churn Invest, and Lean + Targeted.
+Build a milestone plan for demo-atlas-na to reach $300K revenue by Month 6.
+Build a recovery milestone plan for demo-atlas-apac to reach $100K revenue by Month 6.
+Simulate demo-atlas-na with boosted 25% growth and a 45% cost ratio. Save as demo-atlas-na-boosted.
+Simulate demo-atlas-emea with boosted 17% growth and a 60% cost ratio.
+Simulate demo-atlas-apac with boosted 35% growth and a 65% cost ratio.
+Run a summary analysis on demo-atlas-na-boosted — our top region with the growth push.
+Build a milestone plan for demo-atlas-na-boosted to reach $350K revenue by Month 6.
+/quit

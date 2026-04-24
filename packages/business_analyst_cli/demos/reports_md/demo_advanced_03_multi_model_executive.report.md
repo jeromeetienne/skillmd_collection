@@ -1,0 +1,209 @@
+# Demo 06 — Advanced: Multi-model executive review
+
+## Description
+Simulates an executive quarterly review spanning two interconnected
+business models — a revenue forecast and a hiring plan. Demonstrates
+how all three skills (modeler, analyst, planner) work together across
+multiple models.
+
+1. Create a revenue forecast model with real-looking SaaS numbers
+2. Create a hiring plan model tracking headcount and cost-per-hire
+3. Populate both with quarterly data (including a Q3 dip in revenue)
+4. Analyze both: summary + anomaly detection
+5. Build a revenue recovery plan with milestones
+6. Compare hiring scenarios: freeze vs steady vs accelerate
+7. Generate strategic recommendations tying both models together
+8. Clean up
+
+
+## Demo
+
+>> Create a revenue forecast model called demo-exec-revenue for Q1–Q4 2026 with Revenue and Costs, assuming 15% growth and 55% cost ratio, including actuals for Q1 through Q3: Revenue $1.2M, $1.4M, $0.9M and Costs $660K, $770K, $720K.
+
+The model demo-exec-revenue has been created with the following setup:
+- Dimensions: Q1 2026, Q2 2026, Q3 2026, Q4 2026
+- Metrics: Revenue (USD), Costs (USD)
+- Assumptions: 15% revenue growth, 55% cost ratio
+Actuals (entered as provided):
+- Q1: Revenue $1,200,000 | Costs $660,000
+- Q2: Revenue $1,400,000 | Costs $770,000
+- Q3: Revenue $900,000   | Costs $720,000
+Forecast (Q4 2026):
+- Revenue: $1,035,000 (15% growth over Q3)
+- Costs: $569,250 (55% of Q4 Revenue)
+Let me know if you’d like to see or further modify the model!
+
+>> Show me the demo-exec-revenue overview.
+
+Here is the overview of the demo-exec-revenue model:
+Model: demo-exec-revenue
+Updated: 2026-03-22
+|                  | Q1 2026    | Q2 2026    | Q3 2026    | Q4 2026    |
+|------------------|------------|------------|------------|------------|
+| Revenue (USD)    | 1,200,000  | 1,400,000  |   900,000  | 1,035,000  |
+| Costs (USD)      |   660,000  |   770,000  |   720,000  |   569,250  |
+Assumptions:
+- revenue_growth_rate: 0.15
+- cost_ratio: 0.55
+Let me know if you need further details or want to make changes!
+
+>> Analyze the revenue trend for demo-exec-revenue.
+
+Here is the period-over-period revenue trend for the demo-exec-revenue model:
+Metric: Revenue (USD)
+| Period                | Before      | After      | Change  |
+|-----------------------|-------------|------------|---------|
+| Q1 2026 → Q2 2026     | 1,200,000   | 1,400,000  | +16.7%  |
+| Q2 2026 → Q3 2026     | 1,400,000   |   900,000  | -35.7%  |
+| Q3 2026 → Q4 2026     |   900,000   | 1,035,000  | +15.0%  |
+Highlights:
+- Revenue grew by 16.7% from Q1 to Q2.
+- There was a significant drop (-35.7%) from Q2 to Q3.
+- A recovery is forecast for Q4, with 15.0% growth over Q3.
+If you want to explore the reasons behind these changes or need further analysis, let me know!
+
+>> Detect anomalies in demo-exec-revenue — something happened in Q3.
+
+No anomalies were detected in the demo-exec-revenue model using a 50% deviation threshold, even in Q3 2026.
+This suggests that while Q3 revenue dropped significantly, it was not extreme enough versus the mean to be classified as an anomaly by the current criteria. If you want a more sensitive analysis, we can lower the threshold or review the data in a different way. Let me know how you’d like to proceed!
+
+>> Create a hiring plan model called demo-exec-hiring for Q1–Q4 2026, tracking Headcount and CostPerHire, with Q1–Q3 data.
+
+The model demo-exec-hiring has been created for Q1–Q4 2026 with the following metrics:
+- Headcount (FTE)
+- CostPerHire (USD)
+Data entries are ready for Q1 through Q3 2026; Q4 is left blank for future planning.
+Please provide the actual numbers for Headcount and CostPerHire in Q1–Q3, or let me know if you’d like to proceed with any assumptions or next steps!
+
+>> Run a summary analysis on demo-exec-hiring.
+
+The summary analysis for demo-exec-hiring did not complete successfully because the model currently does not have any actual data entered for Headcount or CostPerHire in any quarter (all values are blank or zero).
+To generate a meaningful summary, please provide the actual Headcount and CostPerHire values for Q1, Q2, and Q3 2026. Let me know the numbers, and I will update and re-run the analysis for you!
+
+>> Build a revenue recovery plan for demo-exec-revenue targeting $1.8M by Q4 2026.
+
+Here’s a revenue recovery plan for demo-exec-revenue targeting $1.8M by Q4 2026:
+Action Plan: demo-exec-revenue
+Target: Revenue = $1,800,000 by Q4 2026
+Current State:
+- Latest Revenue (Q4): $1,035,000
+- Peak Revenue (Q2): $1,400,000
+Gap Analysis:
+- Reference (Q3): $900,000
+- Target: $1,800,000
+- Gap: +$900,000 (+100.0%)
+Required Growth Rate:
+- +100.0% growth per period over 1 period (Q4)
+Milestone Plan:
+| Quarter   | Revenue (USD) | Status    |
+|-----------|---------------|-----------|
+| Q1 2026   | $1,200,000    | ✓ actual  |
+| Q2 2026   | $1,400,000    | ✓ actual  |
+| Q3 2026   |   $900,000    | ✓ actual  |
+| Q4 2026   | $1,035,000    | ← current/target |
+Recommended Actions:
+- Update revenue_growth_rate to reflect the +100% growth required from Q3 to Q4.
+- Run a simulation using the new target growth rate to preview new potential milestones.
+- After simulation, update the model to commit to the revised recovery plan.
+Would you like to simulate this revised growth scenario or take other action on the model?
+
+>> Compare three hiring scenarios for demo-exec-hiring in Q4: Freeze at 50, Steady Growth at 55, and Accelerate Hiring at 65.
+
+The scenario comparison for demo-exec-hiring could not be fully executed because the underlying model does not have actual data for preceding Headcount metrics or CostPerHire, causing a calculation error. This means the comparison table for the Q4 headcount scenarios (Freeze at 50, Steady Growth to 55, Accelerate Hiring to 65) could not be completed.
+To perform a valid scenario analysis:
+- Please provide actual Headcount values for Q1–Q3 2026, and if available, CostPerHire for those periods.
+- With this data, the tool will be able to meaningfully compare the Q4 hiring scenarios and outline their impacts.
+Let me know the missing Q1–Q3 headcount and cost figures, or if you want to proceed based on default/assumed values!
+
+>> Simulate demo-exec-revenue with aggressive 20% growth and a 50% cost ratio, save as demo-exec-revenue-recovery for analysis.
+
+The simulation with an aggressive 20% revenue growth rate and a 50% cost ratio has been completed and saved as the model demo-exec-revenue-recovery. Here’s the before/after comparison:
+|                | Before     | After      | Delta     |
+|----------------|------------|------------|-----------|
+| Revenue Q2     | 1,400,000  | 1,440,000  | +2.9%     |
+| Revenue Q3     |   900,000  | 1,728,000  | +92.0%    |
+| Revenue Q4     | 1,035,000  | 2,073,600  | +100.3%   |
+| Costs Q1       |   660,000  |   600,000  |  -9.1%    |
+| Costs Q2       |   770,000  |   720,000  |  -6.5%    |
+| Costs Q3       |   720,000  |   864,000  | +20.0%    |
+| Costs Q4       |   569,250  | 1,036,800  | +82.1%    |
+Next steps: You can now analyze or further plan using demo-exec-revenue-recovery. Let me know if you want a summary analysis or have follow-up questions!
+
+>> Run a summary analysis on demo-exec-revenue-recovery to see if the recovery numbers hold up.
+
+Summary analysis of demo-exec-revenue-recovery (20% growth, 50% cost ratio):
+Metrics Overview:
+- Revenue (USD)
+  
+  - Total:        $6,441,600
+  - Mean:         $1,610,400
+  - Min:          $1,200,000 (Q1 2026)
+  - Max:          $2,073,600 (Q4 2026)
+  - Trend:        Up (largest swing: Q1 → Q2 at +20.0%)
+- Costs (USD)
+  
+  - Total:        $3,220,800
+  - Mean:         $805,200
+  - Min:          $600,000 (Q1 2026)
+  - Max:        $1,036,800 (Q4 2026)
+  - Trend:      Up (largest swing: Q1 → Q2 at +20.0%)
+Anomalies (threshold: 50%): None detected.
+Overall: The recovery model’s numbers are consistent, with no anomalies. The plan shows strong upward trends for both Revenue and Costs, and achieves the recovery target for Q4.
+If you want a deeper dive into any period or metric, just ask!
+
+>> Give strategic recommendations for the recovery scenario demo-exec-revenue-recovery to reach $1.8M in Q4 while improving margins.
+
+Here are strategic recommendations for the demo-exec-revenue-recovery scenario to reach at least $1.8M revenue in Q4 2026 while improving margins:
+Model Overview:
+- Revenue (USD): total = $6,441,600, mean = $1,610,400, trend: +72.8%, first = $1,200,000, last = $2,073,600
+- Costs (USD): total = $3,220,800, mean = $805,200, trend: +72.8%, first = $600,000, last = $1,036,800
+Strategic Recommendations:
+1. With the goal of reaching at least $1.8M in Q4 revenue while improving margins, consider targeting a new total revenue of $7,729,920 (20% above the current model's total of $6,441,600).
+2. To improve margins, evaluate cost reduction strategies in addition to revenue growth, such as renegotiating supplier contracts, optimizing operations, and reducing variable costs.
+3. Closely monitor both revenue and cost trends each quarter. If revenue is well ahead of $1.8M in Q4's forecast, ensure cost growth is not keeping pace—aim for a lower cost ratio in Q4 (<50%).
+4. Use scenario modeling to analyze the effect of different cost ratios (e.g., 45% vs 50%) and growth rates to further widen the margin.
+5. Identify and mitigate risks such as customer churn, sales pipeline volatility, or cost inflation that may threaten margin gains.
+6. Regularly review and refine sales and marketing strategies to sustain aggressive growth while managing resource constraints.
+7. Set up leading indicator metrics (e.g., monthly pipeline velocity, average deal size, cost per acquisition) for early warning signs of margin pressure.
+Would you like to simulate and analyze the impact of reducing the cost ratio for Q4 or run margin scenarios for further planning?
+
+>> Give strategic recommendations for demo-exec-hiring to right-size the team for a revenue recovery push without overspending.
+
+Strategic recommendations for the demo-exec-hiring model could not be automatically generated because the model currently lacks actual Headcount and CostPerHire data. This prevents specific calculations and comparisons to support actionable hiring guidance.
+However, based on best practices for right-sizing your team to support a major revenue recovery push (such as in your demo-exec-revenue-recovery scenario) without overspending, here are tailored recommendations you can use:
+────────────────────────────────────────
+Strategic Recommendations for Right-Sizing Hiring (Q4 2026):
+1. Align Headcount Growth to Revenue Plan
+Set Q4 2026 headcount targets based on projected workload increases from your aggressive revenue plan. Avoid "overhiring for growth" before realizing sustained demand.
+2. Prioritize Revenue-Generating Roles
+Focus hiring on roles directly contributing to revenue (e.g., sales, delivery, key customer support), deferring back-office expansion unless absolutely necessary.
+3. Benchmark CostPerHire & Hiring Productivity
+Research industry CostPerHire averages to avoid overspending. Track productivity metrics for recent hires and adjust hiring velocity if ramp-up is slow.
+4. Monitor Efficiency Metrics
+Keep a close eye on Revenue per FTE and Operating Margin. If team size grows faster than revenue, pause on additional hires and re-evaluate.
+5. Scenario-Plan for Headcount Needs
+Model a "Freeze" scenario (minimal headcount), "Steady Growth," and "Accelerated Hiring" for Q4 to understand financial impacts, justifying each incremental hire via expected ROI.
+6. Control Risks
+   
+  - Set hiring approval thresholds—require business case reviews for every growth hire.
+  - Tie hiring decisions to leading indicators (e.g., sales pipeline, customer onboarding rate) rather than lagging results.
+7. Agility in Workforce Planning
+Consider contract or temporary staff for uncertain or short-term needs, minimizing the risk of long-term fixed costs outpacing actual business growth.
+8. Feedback Loop
+Implement a rapid-cycle feedback loop between hiring, sales growth, and financial performance. Adjust headcount plans quarterly, not just annually.
+────────────────────────────────────────
+To unlock automated, scenario-based recommendations:
+Please provide Headcount and CostPerHire values for Q1–Q3 2026 in the demo-exec-hiring model, or specify likely figures for Q4 scenarios (e.g. target headcount for each path).
+Would you like to provide this data, or receive instructions for updating the model so you can access even more targeted and quantified advice?
+
+>> Delete the demo-exec-revenue, demo-exec-revenue-recovery, and demo-exec-hiring models.
+
+All requested models have been successfully deleted:
+- demo-exec-revenue
+- demo-exec-revenue-recovery
+- demo-exec-hiring
+If you need to start fresh with new models or would like to see your updated model list, just let me know!
+
+>> /quit
+
+Bye.

@@ -1,0 +1,14 @@
+Create a revenue forecast model called demo-exec-revenue for Q1–Q4 2026 with Revenue and Costs, assuming 15% growth and 55% cost ratio, including actuals for Q1 through Q3: Revenue $1.2M, $1.4M, $0.9M and Costs $660K, $770K, $720K.
+Show me the demo-exec-revenue overview.
+Analyze the revenue trend for demo-exec-revenue.
+Detect anomalies in demo-exec-revenue — something happened in Q3.
+Create a hiring plan model called demo-exec-hiring for Q1–Q4 2026, tracking Headcount and CostPerHire, with Q1–Q3 data.
+Run a summary analysis on demo-exec-hiring.
+Build a revenue recovery plan for demo-exec-revenue targeting $1.8M by Q4 2026.
+Compare three hiring scenarios for demo-exec-hiring in Q4: Freeze at 50, Steady Growth at 55, and Accelerate Hiring at 65.
+Simulate demo-exec-revenue with aggressive 20% growth and a 50% cost ratio, save as demo-exec-revenue-recovery for analysis.
+Run a summary analysis on demo-exec-revenue-recovery to see if the recovery numbers hold up.
+Give strategic recommendations for the recovery scenario demo-exec-revenue-recovery to reach $1.8M in Q4 while improving margins.
+Give strategic recommendations for demo-exec-hiring to right-size the team for a revenue recovery push without overspending.
+Delete the demo-exec-revenue, demo-exec-revenue-recovery, and demo-exec-hiring models.
+/quit
