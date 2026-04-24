@@ -1,7 +1,7 @@
 import Assert from 'node:assert';
 
-import { A11yTree } from '../src/a11y_tree';
-import { A11yQuery } from '../src/a11y_selector';
+import { A11yTree } from '../src/libs/a11y_tree';
+import { A11yQuery } from '../src/libs/a11y_selector';
 
 async function usageExample() {
 	const treeText = [
