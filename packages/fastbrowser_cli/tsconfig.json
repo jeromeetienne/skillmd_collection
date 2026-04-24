@@ -10,7 +10,7 @@
             "node"
         ],
         "outDir": "./dist",
-        "rootDir": "./src",
+        "rootDir": ".",
         "declaration": true,
         "declarationMap": true,
         "sourceMap": true,
@@ -31,7 +31,8 @@
         "isolatedModules": true
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "examples/**/*"
     ],
     "exclude": [
         "node_modules",
