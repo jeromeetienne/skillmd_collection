@@ -44,3 +44,28 @@ A CLI for structured business modeling, trend analysis, and strategic planning. 
 | `analyst` | Read-only | Trend analysis, period-over-period %, anomaly detection |
 | `planner` | Read-only | Strategic recommendations, milestone roadmaps, scenario comparison |
 
+---
+
+### [bsky_client](packages/bsky_client/README.md)
+
+A CLI for the Bluesky social network (ATProto). Handles authentication, posts, replies, likes, follows, and search. Ships a `SKILL.md` so Claude Code agents can install and use it directly.
+
+**Features:**
+- Authenticate with a handle and app password; session persisted in `~/.bsky_cli/session.json`
+- Create, list, view, and delete posts; reply, like/unlike, follow/unfollow
+- Full-text post search and account search with advanced filters (author, date range, language)
+
+---
+
+### [perplexity_cli](packages/perplexity_cli/README.md)
+
+A CLI for searching the web and running deep research queries using Perplexity AI. Ships a `SKILL.md` for use in agent workflows.
+
+**Commands:**
+
+| Command | Description |
+|---------|-------------|
+| `search` | Search the web; supports multi-query batches, domain allow/block lists, country and language filters |
+| `deep-search` | Comprehensive research query returning a full text answer; four presets from fast lookup to advanced deep research |
+| `install` | Copy the Perplexity skill into an agent folder |
+
