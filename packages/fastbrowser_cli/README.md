@@ -34,7 +34,7 @@ npm install -g fastbrowser_cli
 Or install just the SKILL.md into an agent folder so an AI agent can use it:
 
 ```bash
-npx fastbrowser_cli --install <skill-folder>
+npx fastbrowser_cli install <skill-folder>
 ```
 
 This copies `SKILL.md` to `<skill-folder>/skills/fastbrowser/SKILL.md`.
@@ -66,6 +66,7 @@ npx fastbrowser_cli click -s 'link[name="More information..."]'
 | `click` | Click an element by accessibility selector | `-s, --selector` |
 | `fill_form` | Fill a form field by accessibility selector | `-s, --selector`, `--value` |
 | `press_keys` | Press a comma-separated key sequence | `--keys` |
+| `install [skill-folder]` | Install SKILL.md into `<skill-folder>/skills/fastbrowser` (default: `.`) | — |
 | `server start` | Start the HTTP daemon | — |
 | `server status` | Report daemon running/stopped | — |
 | `server stop` | Stop the HTTP daemon | — |

@@ -204,22 +204,13 @@ class MainHelper {
 ///////////////////////////////////////////////////////////////////////////////
 
 async function main(): Promise<void> {
-	const installIdx = process.argv.indexOf('--install');
-	if (installIdx !== -1) {
-		const next = process.argv[installIdx + 1];
-		const skillFolder = (next !== undefined && next.startsWith('-') === false) ? next : '.';
-		await MainHelper.runInstall(skillFolder);
-		return;
-	}
-
 	const program = new Command();
 	program
 		.name('fastbrowser-cli')
 		.description('CLI client for fastbrowser')
 		.option('--server <url>', 'fastbrowser-httpd URL (default: env FASTBROWSER_SERVER or http://localhost:8787)')
 		.option('--autostart', 'Auto-start the server before a command if it is not running', true)
-		.option('--no-autostart', 'Do not auto-start the server before a command')
-		.option('--install [skill-folder]', 'Install SKILL.md into <skill-folder>/skills/fastbrowser (default: .)');
+		.option('--no-autostart', 'Do not auto-start the server before a command');
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -370,6 +361,13 @@ async function main(): Promise<void> {
 		.requiredOption('--keys <keys>', "Comma-separated keys. E.g. 'Hello, Tab, Enter'")
 		.action(async (opts: { keys: string }, cmd: Command) => {
 			await MainHelper.runTool(cmd, 'press_keys', { keys: opts.keys });
+		});
+
+	program
+		.command('install [skill-folder]')
+		.description('Install SKILL.md into <skill-folder>/skills/fastbrowser (default: .)')
+		.action(async (skillFolder: string | undefined) => {
+			await MainHelper.runInstall(skillFolder ?? '.');
 		});
 
 	program
