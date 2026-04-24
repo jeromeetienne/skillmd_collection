@@ -4,7 +4,7 @@ A monorepo of Claude Code agent skills and CLI tools. Each package ships a `SKIL
 
 ## Packages
 
-### [a11y_parse](packages/a11y_parse/)
+### [a11y_parse](packages/a11y_parse/README.md)
 
 A TypeScript library for parsing and querying accessibility trees using a CSS-inspired selector syntax. It is the query layer used by `fastbrowser_cli`.
 
@@ -15,7 +15,7 @@ A TypeScript library for parsing and querying accessibility trees using a CSS-in
 
 ---
 
-### [fastbrowser_cli](packages/fastbrowser_cli/)
+### [fastbrowser_cli](packages/fastbrowser_cli/README.md)
 
 A lightweight CLI for controlling a live Chrome browser from the shell or an AI agent. Designed for minimal latency: a long-running daemon holds the browser connection and each command is a single HTTP call.
 
@@ -32,7 +32,7 @@ fastbrowser_cli ──HTTP──▶ fastbrowser_httpd ──MCP/stdio──▶ f
 
 ---
 
-### [business_analyst_cli](packages/business_analyst_cli/)
+### [business_analyst_cli](packages/business_analyst_cli/README.md)
 
 A CLI for structured business modeling, trend analysis, and strategic planning. Three composable commands form a pipeline — model → analyze → plan — each backed by a dedicated Claude Code skill.
 
