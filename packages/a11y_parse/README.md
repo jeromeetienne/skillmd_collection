@@ -2,6 +2,8 @@
 
 A TypeScript library for parsing and querying accessibility trees. Provides a CSS-inspired selector language for navigating AX (Accessibility) tree structures — useful for browser automation, testing, and accessibility analysis.
 
+- originally designed for [fastbrowser_cli](https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/fastbrowser_cli), a SKILL.md which helps AI agents browse the web efficiently by exposing a simplified accessibility tree interface and powerful querying capabilities (aka the CSS-like selector syntax).
+
 ## What is an Accessibility Tree?
 
 An accessibility tree is a hierarchical representation of a UI that assistive technologies (screen readers, automation tools) use to interact with an application. Every visible element — buttons, links, headings, form fields — appears as a node with a role, a name, and optional attributes.
