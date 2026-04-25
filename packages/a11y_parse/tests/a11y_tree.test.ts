@@ -3,9 +3,9 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 
 // local imports
-import { A11yTree } from '../src/libs/a11y_tree';
-import type { AxNode } from '../src/libs/a11y_tree';
-import { SAMPLE_TREE_TEXT } from './test-fixtures';
+import { A11yTree } from '../src/libs/a11y_tree.js';
+import type { AxNode } from '../src/libs/a11y_tree.js';
+import { SAMPLE_TREE_TEXT } from './test-fixtures.js';
 
 const collectUids = (root: AxNode): string[] => {
 	const uids: string[] = [];

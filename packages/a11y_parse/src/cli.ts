@@ -7,8 +7,8 @@ import Fs from 'node:fs';
 import { Command } from 'commander';
 
 // local imports
-import { A11yTree } from './libs/a11y_tree';
-import { A11yQuery } from './libs/a11y_selector';
+import { A11yTree } from './libs/a11y_tree.js';
+import { A11yQuery } from './libs/a11y_selector.js';
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////

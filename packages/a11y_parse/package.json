@@ -2,6 +2,7 @@
     "name": "a11y_parse",
     "version": "1.0.1",
     "description": "",
+    "type": "module",
     "main": "dist/src/index.js",
     "bin": {
         "a11y_parse": "dist/src/cli.js"

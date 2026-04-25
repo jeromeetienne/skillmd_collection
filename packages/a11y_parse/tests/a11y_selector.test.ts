@@ -3,9 +3,9 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 
 // local imports
-import { A11yTree } from '../src/libs/a11y_tree';
-import { A11yQuery } from '../src/libs/a11y_selector';
-import { SAMPLE_TREE_TEXT, SIBLINGS_TREE_TEXT } from './test-fixtures';
+import { A11yTree } from '../src/libs/a11y_tree.js';
+import { A11yQuery } from '../src/libs/a11y_selector.js';
+import { SAMPLE_TREE_TEXT, SIBLINGS_TREE_TEXT } from './test-fixtures.js';
 
 describe('A11yQuery', () => {
 	describe('simple selectors', () => {

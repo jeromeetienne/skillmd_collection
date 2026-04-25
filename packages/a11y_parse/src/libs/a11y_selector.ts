@@ -1,9 +1,10 @@
 // node imports
 import Assert from "node:assert";
+import { fileURLToPath } from "node:url";
 
 // local imports
-import type { AxNode } from "./a11y_tree";
-import { A11yTree } from "./a11y_tree";
+import type { AxNode } from "./a11y_tree.js";
+import { A11yTree } from "./a11y_tree.js";
 
 // role                        → match by role
 // role[attr=value]            → attribute equals
@@ -31,11 +32,11 @@ import { A11yTree } from "./a11y_tree";
 ///////////////////////////////////////////////////////////////////////////////
 
 type Token =
-	| { kind: "ident";  value: string; pos: number }
+	| { kind: "ident"; value: string; pos: number }
 	| { kind: "string"; value: string; pos: number }
 	| { kind: "symbol"; value: "#" | "*" | "[" | "]" | ">" | "," | "+" | "~" | ":" | "(" | ")"; pos: number }
-	| { kind: "op";     value: "^=" | "$=" | "*=" | "=" | "~="; pos: number }
-	| { kind: "ws";     pos: number };
+	| { kind: "op"; value: "^=" | "$=" | "*=" | "=" | "~="; pos: number }
+	| { kind: "ws"; pos: number };
 
 type AttrMatch = {
 	name: string;
@@ -394,44 +395,4 @@ export class A11yQuery {
 		return true;
 	}
 
-}
-
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-//	usage examples
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-
-async function usageExample() {
-	const treeText = [
-		'uid=1_0 RootWebArea "Example Domain" url="https://www.example.com/"',
-		'  uid=1_1 heading "Example Domain" level="1"',
-		'  uid=1_2 StaticText "This domain is for use in documentation examples without needing permission. Avoid use in operations."',
-		'  uid=1_3 link "Learn more" url="https://iana.org/domains/example"',
-		'    uid=1_4 StaticText "Learn more"',
-		'',
-	].join('\n');
-	console.log('Expected snapshot text content:');
-	console.log(treeText);
-	console.log('-----');
-
-	const axTree = A11yTree.parse(treeText);
-
-	const linkNode = A11yTree.findOne(axTree, A11yTree.filterByRole('link'));
-	Assert.ok(linkNode, 'Link node not found');
-	console.log(linkNode?.name, linkNode?.attributes.url);
-	console.log(linkNode);
-
-	const headingNode = A11yTree.findOne(axTree, A11yTree.filterByUid('1_1'));
-	if (headingNode !== undefined) {
-		headingNode.name = 'New Heading';
-	}
-
-	const treeTextNew = A11yTree.stringify(axTree);
-	console.log('Serialized tree:');
-	console.log(treeTextNew);
-}
-
-if (require.main === module) {
-	void usageExample();
 }

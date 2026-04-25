@@ -1,7 +1,8 @@
 import Assert from 'node:assert';
+import { fileURLToPath } from 'node:url';
 
-import { A11yTree } from '../src/libs/a11y_tree';
-import { A11yQuery } from '../src/libs/a11y_selector';
+import { A11yTree } from '../src/libs/a11y_tree.js';
+import { A11yQuery } from '../src/libs/a11y_selector.js';
 
 async function usageExample() {
 	const treeText = [
@@ -66,6 +67,6 @@ async function usageExample() {
 	console.log(treeTextNew);
 }
 
-if (require.main === module) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
 	void usageExample();
 }
