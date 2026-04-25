@@ -64,7 +64,7 @@ export class ServerManager {
 		}
 
 		// debugger
-		let entryPath = Path.resolve(__dirname, '..', '..', 'fastbrowser_httpd', 'fastbrowser_httpd.js');
+		let entryPath = Path.resolve(import.meta.dirname, '..', '..', 'fastbrowser_httpd', 'fastbrowser_httpd.js');
 		const port = ServerManager.parsePort(serverUrl);
 		let spawnCommand = process.execPath;
 		let spawnArgs = [entryPath, '--port', String(port)]
@@ -74,7 +74,7 @@ export class ServerManager {
 			spawnArgs[0] = spawnArgs[0].replace(/\.js$/, '.ts');
 			spawnArgs = ['tsx', ...spawnArgs];
 		}
-		const packageRoot = Path.resolve(__dirname, '..', '..', '..');
+		const packageRoot = Path.resolve(import.meta.dirname, '..', '..', '..');
 
 		Fs.mkdirSync(STATE_DIR, { recursive: true });
 		const logFd = Fs.openSync(LOG_FILE, 'a');
