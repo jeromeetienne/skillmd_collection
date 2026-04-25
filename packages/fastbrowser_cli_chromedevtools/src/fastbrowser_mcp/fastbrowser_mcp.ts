@@ -258,9 +258,11 @@ class MainHelper {
 			])
 		} else if (mcpTarget === 'playwright') {
 			toolsToProxys.push(...[
-				'browser_tabs',
-				'browser_navigate',
-				'browser_snapshot',
+				'list_pages',
+				'new_page',
+				'close_page',
+				'navigate_page',
+				'take_snapshot',
 			])
 		} else {
 			throw new Error(`Unsupported MCP type: ${mcpTarget}`);
