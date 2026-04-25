@@ -17,7 +17,7 @@
         "inspect:playwright:chrome": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --cdp-endpoint=chrome",
         "inspect:playwright:cdp_endpoint": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --cdp-endpoint=http://localhost:9222",
         "inspect:playwright:extension": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --extension",
-        "build": "tsc -p tsconfig.json",
+        "build": "tsc -p tsconfig.build.json",
         "publish:all": "npm run build && npm version patch && npm publish --access public",
         "typecheck": "tsc -p tsconfig.json --noEmit"
     },
