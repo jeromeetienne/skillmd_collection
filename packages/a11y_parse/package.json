@@ -3,9 +3,9 @@
     "version": "1.0.1",
     "description": "",
     "type": "module",
-    "main": "dist/src/index.js",
+    "main": "dist/index.js",
     "bin": {
-        "a11y_parse": "dist/src/cli.js"
+        "a11y_parse": "dist/cli.js"
     },
     "scripts": {
         "build": "tsc -p tsconfig.build.json",

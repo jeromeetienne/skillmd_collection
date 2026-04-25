@@ -29,7 +29,7 @@
         "url": "https://github.com/jeromeetienne/skillmd_collecetion.git"
     },
     "homepage": "https://github.com/jeromeetienne/skillmd_collection/packages/fastbrowser_cli#readme",
-    "type": "commonjs",
+    "type": "module",
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.29.0",
         "a11y_parse": "file:../a11y_parse",

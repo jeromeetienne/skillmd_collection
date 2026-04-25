@@ -1,5 +1,5 @@
 import { ta } from "zod/locales";
-import { FastBrowserMcpTarget } from "../fastbrowser_types";
+import { FastBrowserMcpTarget } from "../fastbrowser_types.js";
 
 export type TargetToolConfig = {
 	toolName: string;

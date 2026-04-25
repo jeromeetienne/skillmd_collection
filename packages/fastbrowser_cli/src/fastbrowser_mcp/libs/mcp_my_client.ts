@@ -4,7 +4,7 @@ import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js"
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 import type { CallToolResult, Prompt, Resource, Tool } from "@modelcontextprotocol/sdk/types.js";
-import { FastBrowserMcpTarget } from "../fastbrowser_types";
+import { FastBrowserMcpTarget } from "../fastbrowser_types.js";
 
 export type StdioConfig = {
 	type: "stdio";

@@ -5,8 +5,8 @@ import * as Assert from "assert";
 import { CallToolResult } from "@modelcontextprotocol/sdk/types";
 
 // local imports
-import { FastBrowserMcpTarget } from "../fastbrowser_types";
-import { PlaywrightA11yConverter } from "./playwright_a11y_helper";
+import { FastBrowserMcpTarget } from "../fastbrowser_types.js";
+import { PlaywrightA11yConverter } from "./playwright_a11y_helper.js";
 
 export class ResponseFormatter {
 	static async formatListPages(mcpTarget: FastBrowserMcpTarget, callToolResult: CallToolResult): Promise<string> {
