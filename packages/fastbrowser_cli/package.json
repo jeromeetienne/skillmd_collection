@@ -13,6 +13,9 @@
         "start:cli": "npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts",
         "inspect:fastbrowser_mcp": "npx @modelcontextprotocol/inspector npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts mcp_server",
         "inspect:chrome-devtools": "npx @modelcontextprotocol/inspector npx chrome-devtools-mcp@latest --autoconnect",
+        "inspect:playwright:chrome": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --cdp-endpoint=chrome",
+        "inspect:playwright:cdp_endpoint": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --cdp-endpoint=http://localhost:9222",
+        "inspect:playwright:extension": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --extension",
         "build": "tsc -p tsconfig.json",
         "publish:all": "npm run build && npm version patch && npm publish --access public",
         "typecheck": "tsc --noEmit"
