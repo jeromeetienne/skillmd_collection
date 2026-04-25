@@ -11,6 +11,7 @@ import express from 'express';
 import { McpMyClient } from '../fastbrowser_mcp/libs/mcp_my_client.js';
 import { Routes } from './libs/routes.js';
 
+
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -26,7 +27,7 @@ class MainHelper {
 		verbose?: boolean;
 	}): Promise<void> {
 		// Spawn fastbrowser-mcp as a subprocess and hold a persistent MCP client to it.
-		const fastbrowserMcpEntry = Path.resolve(__dirname, '..', 'fastbrowser_mcp', 'fastbrowser_mcp.js');
+		const fastbrowserMcpEntry = Path.resolve(import.meta.dirname, '..', 'fastbrowser_mcp', 'fastbrowser_mcp.js');
 		let mcpServerCommand = process.execPath;
 		let mcpServerArgs = [fastbrowserMcpEntry, 'mcp_server'];
 		// trick to work without being in `./dist'
