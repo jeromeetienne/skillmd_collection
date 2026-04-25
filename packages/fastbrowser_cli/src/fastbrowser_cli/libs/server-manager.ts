@@ -16,9 +16,9 @@ type PidFile = {
 	startedAt: string;
 };
 
-const STATE_DIR = Path.join(Os.homedir(), '.fastbrowser_cli');
-const PID_FILE = Path.join(STATE_DIR, 'server.json');
-const LOG_FILE = Path.join(STATE_DIR, 'server.log');
+const STATE_DIRNAME = Path.join(Os.homedir(), '.fastbrowser_cli');
+const PID_FILENAME = Path.join(STATE_DIRNAME, 'server.json');
+const LOG_FILENAME = Path.join(STATE_DIRNAME, 'server.log');
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -76,8 +76,8 @@ export class ServerManager {
 		}
 		const packageRoot = Path.resolve(import.meta.dirname, '..', '..', '..');
 
-		Fs.mkdirSync(STATE_DIR, { recursive: true });
-		const logFd = Fs.openSync(LOG_FILE, 'a');
+		Fs.mkdirSync(STATE_DIRNAME, { recursive: true });
+		const logFd = Fs.openSync(LOG_FILENAME, 'a');
 
 		const child = spawn(spawnCommand, spawnArgs, {
 			detached: true,
@@ -98,7 +98,7 @@ export class ServerManager {
 			port,
 			startedAt: new Date().toISOString(),
 		};
-		Fs.writeFileSync(PID_FILE, JSON.stringify(pidFile, null, 2));
+		Fs.writeFileSync(PID_FILENAME, JSON.stringify(pidFile, null, 2));
 
 		const deadline = Date.now() + 10_000;
 		while (Date.now() < deadline) {
@@ -117,17 +117,17 @@ export class ServerManager {
 	}
 
 	static async stop(serverUrl: string): Promise<void> {
-		if (Fs.existsSync(PID_FILE) === false) {
+		if (Fs.existsSync(PID_FILENAME) === false) {
 			console.error('no server pid file; nothing to stop');
 			return;
 		}
 
 		let pidFile: PidFile;
 		try {
-			const raw = Fs.readFileSync(PID_FILE, 'utf8');
+			const raw = Fs.readFileSync(PID_FILENAME, 'utf8');
 			pidFile = JSON.parse(raw) as PidFile;
 		} catch (err) {
-			throw new Error(`Failed to read pid file ${PID_FILE}: ${(err as Error).message}`);
+			throw new Error(`Failed to read pid file ${PID_FILENAME}: ${(err as Error).message}`);
 		}
 
 		const pid = pidFile.pid;
@@ -155,7 +155,7 @@ export class ServerManager {
 		}
 
 		try {
-			Fs.unlinkSync(PID_FILE);
+			Fs.unlinkSync(PID_FILENAME);
 		} catch {
 			// best effort
 		}
@@ -205,7 +205,7 @@ export class ServerManager {
 
 	private static readLogTail(maxLines: number): string {
 		try {
-			const content = Fs.readFileSync(LOG_FILE, 'utf8');
+			const content = Fs.readFileSync(LOG_FILENAME, 'utf8');
 			const lines = content.split('\n');
 			return lines.slice(Math.max(0, lines.length - maxLines)).join('\n');
 		} catch {
