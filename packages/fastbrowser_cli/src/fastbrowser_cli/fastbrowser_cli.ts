@@ -26,18 +26,34 @@ class SilentExitError extends Error {
 ///////////////////////////////////////////////////////////////////////////////
 
 class MainHelper {
-	static getServerFromCmd(cmd: Command): string {
+	/**
+	 * Get the server URL from the command options, environment variable, or default
+	 * @param cmd 
+	 * @returns 
+	 */
+	static getServerUrlFromCmd(cmd: Command): string {
 		const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
 		return HttpClient.getServerUrl(globalOpts.server);
 	}
 
+	/**
+	 * Determine whether to auto-start the server based on command options (default: true)
+	 * @param cmd 
+	 * @returns 
+	 */
 	static getAutostartFromCmd(cmd: Command): boolean {
 		const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
 		return globalOpts.autostart !== false;
 	}
 
+	/**
+	 * Run a tool by making an HTTP request to the server, with optional auto-start
+	 * @param cmd 
+	 * @param routeName 
+	 * @param body 
+	 */
 	static async runTool(cmd: Command, routeName: string, body: unknown): Promise<void> {
-		const server = MainHelper.getServerFromCmd(cmd);
+		const server = MainHelper.getServerUrlFromCmd(cmd);
 		if (MainHelper.getAutostartFromCmd(cmd) === true) {
 			await ServerManager.ensureRunning(server);
 		}
@@ -226,26 +242,25 @@ async function main(): Promise<void> {
 		.command('start')
 		.description('Start the fastbrowser HTTP server as a detached daemon')
 		.action(async (_opts, cmd: Command) => {
-			const server = MainHelper.getServerFromCmd(cmd);
-			await ServerManager.start(server);
+			const serverUrl = MainHelper.getServerUrlFromCmd(cmd);
+			await ServerManager.start(serverUrl);
 		});
 
 	serverCmd
 		.command('stop')
 		.description('Stop the fastbrowser HTTP server')
 		.action(async (_opts, cmd: Command) => {
-			const server = MainHelper.getServerFromCmd(cmd);
-			await ServerManager.stop(server);
+			const serverUrl = MainHelper.getServerUrlFromCmd(cmd);
+			await ServerManager.stop(serverUrl);
 		});
 
 	serverCmd
 		.command('status')
 		.description('Report whether the fastbrowser HTTP server is running')
 		.action(async (_opts, cmd: Command) => {
-			const server = MainHelper.getServerFromCmd(cmd);
-			const state = await ServerManager.status(server);
-			console.log(`fastbrowser server at ${server}: ${state}`);
-			if (state === 'stopped') throw new SilentExitError();
+			const serverUrl = MainHelper.getServerUrlFromCmd(cmd);
+			const serverStatus = await ServerManager.status(serverUrl);
+			console.log(`fastbrowser server at ${serverUrl}: ${serverStatus}`);
 		});
 
 	///////////////////////////////////////////////////////////////////////////////

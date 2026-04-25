@@ -122,6 +122,11 @@ export class ResponseFormatter {
 		}
 	}
 
+	static async formatPressKeys(mcpTarget: FastBrowserMcpTarget, keysToSend: string[]): Promise<string> {
+		const outputStr = `Pressed keys: ${keysToSend.join(', ')}`
+		return outputStr;
+	}
+
 	static async formatClick(mcpTarget: FastBrowserMcpTarget, callToolResult: CallToolResult): Promise<string> {
 		const resultContent = callToolResult.content[0]
 		if (resultContent.type !== "text") throw new Error("Unexpected content type");

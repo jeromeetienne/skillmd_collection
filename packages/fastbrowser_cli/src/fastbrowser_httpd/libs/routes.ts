@@ -2,7 +2,7 @@
 import type { Express, Request, Response } from 'express';
 
 // local imports
-import { McpMyClient } from '../../fastbrowser_mcp/libs/mcp_client.js';
+import { McpMyClient } from '../../fastbrowser_mcp/libs/mcp_my_client.js';
 import { TOOL_SCHEMAS, ToolResponseSchema } from './tool-schemas.js';
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -7,7 +7,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { convertJsonSchemaToZod } from 'zod-from-json-schema';
 
 // local imports
-import { McpMyClient } from "./mcp_client.js";
+import { McpMyClient } from "./mcp_my_client.js";
 
 export class McpProxy {
 	private _mcpServer: McpServer;

@@ -53,16 +53,16 @@ export class McpTargetHelper {
 		const toolsToProxys: string[] = []
 		if (mcpTarget === 'chrome_devtools') {
 			toolsToProxys.push(...[
-				'list_pages',
-				'new_page',
-				'close_page',
-				'navigate_page',
+				// 'list_pages',
+				// 'new_page',
+				// 'close_page',
+				// 'navigate_page',
 				// 'take_snapshot',
 			])
 		} else if (mcpTarget === 'playwright') {
 			toolsToProxys.push(...[
-				'browser_tabs',
-				'browser_navigate',
+				// 'browser_tabs',
+				// 'browser_navigate',
 				// 'browser_snapshot',
 			])
 		} else {
@@ -124,11 +124,39 @@ export class McpTargetHelper {
 		}
 	}
 
+	static async targetToolPressKey(mcpTarget: FastBrowserMcpTarget, key: string): Promise<TargetToolConfig> {
+		if (mcpTarget === 'chrome_devtools') {
+			return {
+				toolName: 'press_key', toolArgs: {
+					key: key,
+				}
+			};
+		} else if (mcpTarget === 'playwright') {
+			return {
+				toolName: 'browser_press_key', toolArgs: {
+					key: key,
+				}
+			};
+		} else {
+			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
+		}
+	}
+
 	static async targetToolClick(mcpTarget: FastBrowserMcpTarget, uid: string): Promise<TargetToolConfig> {
 		if (mcpTarget === 'chrome_devtools') {
 			return { toolName: 'click', toolArgs: { uid } };
 		} else if (mcpTarget === 'playwright') {
 			return { toolName: 'browser_click', toolArgs: { ref: uid } };
+		} else {
+			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
+		}
+	}
+
+	static async targetToolFillForm(mcpTarget: FastBrowserMcpTarget, elements: { uid: string; value: string }[]): Promise<TargetToolConfig> {
+		if (mcpTarget === 'chrome_devtools') {
+			return { toolName: 'fill_form', toolArgs: { elements } };
+		} else if (mcpTarget === 'playwright') {
+			throw new Error(`Fill form tool is not supported for Playwright MCP target yet`);
 		} else {
 			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
 		}

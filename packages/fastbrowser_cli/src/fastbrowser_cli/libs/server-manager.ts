@@ -63,14 +63,23 @@ export class ServerManager {
 			throw new Error(`Refusing to start: ${serverUrl} is not a local URL`);
 		}
 
+		// debugger
+		let entryPath = Path.resolve(__dirname, '..', '..', 'fastbrowser_httpd', 'fastbrowser_httpd.js');
 		const port = ServerManager.parsePort(serverUrl);
-		const entryPath = Path.resolve(__dirname, '..', '..', 'fastbrowser_httpd', 'fastbrowser_httpd.js');
+		let spawnCommand = process.execPath;
+		let spawnArgs = [entryPath, '--port', String(port)]
+		// trick to work without being in `./dist'
+		if (entryPath.includes('/dist/') === false) {
+			spawnCommand = '/usr/local/bin/npx';
+			spawnArgs[0] = spawnArgs[0].replace(/\.js$/, '.ts');
+			spawnArgs = ['tsx', ...spawnArgs];
+		}
 		const packageRoot = Path.resolve(__dirname, '..', '..', '..');
 
 		Fs.mkdirSync(STATE_DIR, { recursive: true });
 		const logFd = Fs.openSync(LOG_FILE, 'a');
 
-		const child = spawn(process.execPath, [entryPath, '--port', String(port)], {
+		const child = spawn(spawnCommand, spawnArgs, {
 			detached: true,
 			stdio: ['ignore', logFd, logFd],
 			cwd: packageRoot,

@@ -48,6 +48,7 @@ export class McpMyClient {
 			name: options.name,
 			version: options.version,
 		});
+
 		debugger
 	}
 

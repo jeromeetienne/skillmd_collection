@@ -32,7 +32,7 @@
     "type": "commonjs",
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.29.0",
-        "a11y_parse": "^1.0.1",
+        "a11y_parse": "file:../a11y_parse",
         "commander": "^12.1.0",
         "express": "^4.21.2",
         "string-argv": "^0.3.2",

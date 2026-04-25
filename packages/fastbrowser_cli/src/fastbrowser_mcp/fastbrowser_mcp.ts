@@ -8,11 +8,10 @@ import Path from 'node:path';
 // npm imports
 import { Command, Option } from 'commander';
 import { z } from "zod";
-import * as A11yParse from "../../../a11y_parse/dist/src/index.js";
+import * as A11yParse from "a11y_parse";
 
 // local imports
-import { McpMyClient } from "./libs/mcp_client.js";
-import { Client as McpClient } from "@modelcontextprotocol/sdk/client/index.js";
+import { McpMyClient } from "./libs/mcp_my_client.js";
 import { McpProxy } from "./libs/mcp_proxy.js";
 import { ResponseFormatter } from "./libs/response_formatter.js";
 import { FastBrowserMcpTarget } from './fastbrowser_types.js';
@@ -178,6 +177,7 @@ class MainHelper {
 
 	static async initExternalTools(mcpServer: McpServer, mcpClient: McpMyClient): Promise<void> {
 		const mcpTarget = await mcpClient.getMcpTarget();
+
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
 		//	list_pages
@@ -342,12 +342,22 @@ class MainHelper {
 				console.error("Keys to send:", keysToSend);
 				// chrome-devtools-mcp's 'press_key' tool accepts a single 'key' per call — loop through the sequence
 				for (const key of keysToSend) {
-					await mcpClient.callTool('press_key', { key });
+					const toolConfig = await McpTargetHelper.targetToolPressKey(mcpTarget, key);
+					const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
+					// trying to handle the error case
+					if (callToolResult.isError) {
+						console.error(`Error pressing key '${key}':`, callToolResult.error);
+						return {
+							content: [{ type: "text", text: `Error pressing key '${key}'` }],
+						};
+					}
 				}
+
+				let outputText = await ResponseFormatter.formatPressKeys(mcpTarget, keysToSend);
 
 				// return a response indicating which keys were pressed
 				return {
-					content: [{ type: "text", text: `Pressed keys: ${keysToSend.join(', ')}` }],
+					content: [{ type: "text", text: outputText }],
 				};
 			}
 		);
@@ -411,7 +421,32 @@ class MainHelper {
 						value: element.value,
 					});
 				}
-				return await mcpClient.callTool('fill_form', { elements: resolved });
+				if (mcpTarget === 'chrome_devtools') {
+					const toolConfig = await McpTargetHelper.targetToolFillForm(mcpTarget, resolved);
+					const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
+					// const callToolResult = await mcpClient.callTool('fill_form', { elements: resolved });
+					return callToolResult
+				} else if (mcpTarget === 'playwright') {
+					type Field = {
+						name: string; // Human readable name for the field, e.g. "Email address"
+						// type can be textbox, checkbox, radio, combobox, or slider
+						type: 'textbox' | 'checkbox' | 'radio' | 'combobox' | 'slider';
+						// the uid of the field's corresponding node in the accessibility tree
+						ref: string;
+						// the value to fill into the field - for checkboxes this can be "checked" or "unchecked", for radio buttons this can be "selected", for comboboxes this can be the option to select, and for sliders this can be the value to set the slider to
+						value: string
+					};
+					const fields: Field[] = resolved.map((element, index) => ({
+						name: `Field ${index + 1}`,
+						type: 'textbox', // for simplicity, we assume all fields are textboxes in this example
+						ref: element.uid,
+						value: element.value,
+					}));
+					const callToolResult = await mcpClient.callTool('browser_fill_form', { fields: fields });
+					return callToolResult
+				} else {
+					throw new Error(`Unsupported MCP target: ${mcpTarget}`);
+				}
 			}
 		);
 
@@ -547,10 +582,6 @@ class MainHelper {
 		for (const toolName of toolsToProxys) {
 			await mcpProxy.proxyToolCall(mcpClient, toolName)
 		}
-
-		// Connect the MCP proxy server to start accepting connections from MCP clients (e.g. LLM agents).
-		await mcpProxy.connect();
-
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
 		//	.querySelectorsAll tool implementation
@@ -559,6 +590,10 @@ class MainHelper {
 		const mcpServer = await mcpProxy.getMcpServer();
 
 		await MainHelper.initExternalTools(mcpServer, mcpClient);
+
+
+		// Connect the MCP proxy server to start accepting connections from MCP clients (e.g. LLM agents).
+		await mcpProxy.connect();
 	}
 }
 
@@ -585,7 +620,7 @@ async function main() {
 		.addOption(
 			new Option('-b, --mcp_target <mcpTarget>', 'the MCP> of MCP to run')
 				.choices(['chrome_devtools', 'playwright'])
-				.default('chrome_devtools')
+				.default('playwright')
 		)
 		.action(async (options: { verbose?: boolean, mcp_target: FastBrowserMcpTarget }) => {
 			await MainHelper.commandMcpServer({

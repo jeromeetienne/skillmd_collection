@@ -2,15 +2,14 @@
     "name": "a11y_parse",
     "version": "1.0.1",
     "description": "",
-    "main": "dist/cli.js",
+    "main": "dist/src/index.js",
     "bin": {
-        "a11y_parse": "dist/cli.js"
+        "a11y_parse": "dist/src/cli.js"
     },
     "scripts": {
         "build": "tsc -p tsconfig.json",
         "typecheck": "tsc --noEmit",
         "dev": "npx tsx ./src/cli.ts",
-        "start": "node dist/cli.js",
         "publish:all": "npm run build && npm version patch && npm publish --access public",
         "test": "npx tsx --test 'tests/**/*.test.ts'"
     },
