@@ -24,6 +24,12 @@ cd ~/.claude
 npx fastbrowser_cli install
 ```
 
+### How to include Playwright chrome extension 
+It is use by fastbrowser_mcp to ontrol the browser.
+
+[Playwright MCP Bridge](
+https://chromewebstore.google.com/detail/playwright-mcp-bridge/mmlmfjhmonkocbjadbfplnigmagldckm)
+
 ### How to install the MCP server
 
 How to launch the MCP server that the CLI relies on to control the browser:
