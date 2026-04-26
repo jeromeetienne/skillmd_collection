@@ -132,13 +132,21 @@ class MainHelper {
 	}
 
 	static async runInstall(skillFolder: string): Promise<void> {
-		const sourceSkillMd = path.resolve(import.meta.dirname, '../../skills/fastbrowser/SKILL.md');
-		const targetDir = path.resolve(skillFolder, 'skills', 'fastbrowser');
-		const targetSkillMd = path.join(targetDir, 'SKILL.md');
+		const sourceSkillsDir = path.resolve(import.meta.dirname, '../../skills');
+		const targetSkillsDir = path.resolve(skillFolder, 'skills');
 		try {
-			await fs.promises.mkdir(targetDir, { recursive: true });
-			await fs.promises.copyFile(sourceSkillMd, targetSkillMd);
-			console.log(`Installed fastbrowser SKILL.md at ${targetSkillMd}`);
+			const entries = await fs.promises.readdir(sourceSkillsDir, { withFileTypes: true });
+			const skillDirs = entries.filter((entry) => entry.isDirectory() === true);
+			if (skillDirs.length === 0) {
+				console.error(`fastbrowser-cli error: no skills found in ${sourceSkillsDir}`);
+				process.exit(1);
+			}
+			for (const skillDir of skillDirs) {
+				const sourceDir = path.join(sourceSkillsDir, skillDir.name);
+				const targetDir = path.join(targetSkillsDir, skillDir.name);
+				await fs.promises.cp(sourceDir, targetDir, { recursive: true });
+				console.log(`Installed ${skillDir.name} skill at ${targetDir}`);
+			}
 		} catch (err) {
 			const message = err instanceof Error ? err.message : String(err);
 			console.error(`fastbrowser-cli error: ${message}`);
@@ -388,7 +396,7 @@ async function main(): Promise<void> {
 
 	program
 		.command('install [skill-folder]')
-		.description('Install SKILL.md into <skill-folder>/skills/fastbrowser (default: .)')
+		.description('Install all bundled skills into <skill-folder>/skills/ (default: .)')
 		.action(async (skillFolder: string | undefined) => {
 			await MainHelper.runInstall(skillFolder ?? '.');
 		});
