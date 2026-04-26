@@ -8,9 +8,9 @@
         "fastbrowser_mcp": "./dist/fastbrowser_mcp/fastbrowser_mcp.js"
     },
     "scripts": {
-        "start:fastbrowser_mcp": "npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts",
-        "start:httpd": "npx tsx ./src/fastbrowser_httpd/fastbrowser_httpd.ts",
-        "start:cli": "npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts",
+        "dev:fastbrowser_mcp": "npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts",
+        "dev:httpd": "npx tsx ./src/fastbrowser_httpd/fastbrowser_httpd.ts",
+        "dev:cli": "npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts",
         "inspect:fastbrowser_mcp:chrome_devtools": "npx @modelcontextprotocol/inspector npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts mcp_server --mcp_target chrome_devtools",
         "inspect:fastbrowser_mcp:playwright": "npx @modelcontextprotocol/inspector npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts mcp_server -v --mcp_target playwright",
         "inspect:chrome_devtools": "npx @modelcontextprotocol/inspector npx chrome-devtools-mcp@latest --autoconnect",

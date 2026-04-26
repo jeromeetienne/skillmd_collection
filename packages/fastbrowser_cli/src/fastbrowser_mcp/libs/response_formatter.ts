@@ -101,6 +101,58 @@ export class ResponseFormatter {
 		}
 	}
 
+	static async formatNewPage(mcpTarget: FastBrowserMcpTarget, callToolResult: CallToolResult, url: string): Promise<string> {
+		const resultContent = callToolResult.content[0];
+		if (resultContent.type !== "text") throw new Error("Unexpected content type");
+		const resultText: string = resultContent.text;
+
+		// Target format example:
+		// Successfully opened new page at https://example.com
+
+		if (mcpTarget === 'chrome_devtools') {
+			// EXAMPLE:
+			// # new_page response
+			// Opened new page <id> with URL: https://example.com
+			// ## Pages
+			// 0: about:blank
+			// 1: https://example.com/ [selected]
+
+			// Best-effort: extract URL from the first non-empty line; fall back to the requested URL.
+			const lines = resultText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+			const firstLine = lines.length > 0 ? lines[0] : '';
+			const urlMatch = firstLine.match(/(https?:\/\/\S+)/);
+			const extractedUrl = urlMatch !== null ? urlMatch[1] : url;
+			return `Successfully opened new page at ${extractedUrl}`;
+		} else if (mcpTarget === 'playwright') {
+			// EXAMPLE:
+			// ### Ran Playwright code
+			// ```js
+			// await context.newPage();
+			// ```
+			// ### Page
+			// - Page URL: https://example.com/
+			// - Page Title: Example Domain
+			// ### Snapshot
+			// - [Snapshot](.playwright-mcp/page-...yml)
+
+			const lines = resultText.split('\n');
+			const pageUrlLine = lines.find(line => line.trim().startsWith('- Page URL:'));
+			const pageUrl = pageUrlLine !== undefined ? pageUrlLine.replace('- Page URL:', '').trim() : url;
+			return `Successfully opened new page at ${pageUrl}`;
+		} else {
+			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
+		}
+	}
+
+	static async formatClosePage(mcpTarget: FastBrowserMcpTarget, callToolResult: CallToolResult, pageId: number): Promise<string> {
+		const resultContent = callToolResult.content[0];
+		if (resultContent.type !== "text") throw new Error("Unexpected content type");
+
+		// Target format example:
+		// Successfully closed page 1
+		return `Successfully closed page ${pageId}`;
+	}
+
 	static async formatTakeSnapshot(mcpTarget: FastBrowserMcpTarget, callToolResult: CallToolResult): Promise<string> {
 		// extract the snapshot text from the tool response, which has different formats for chrome_devtools and playwright MCP targets
 		if (mcpTarget === 'chrome_devtools') {

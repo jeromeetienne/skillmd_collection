@@ -96,6 +96,44 @@ export class McpTargetHelper {
 		}
 	}
 
+	static async targetToolNewPage(mcpTarget: FastBrowserMcpTarget, url: string): Promise<TargetToolConfig> {
+		if (mcpTarget === 'chrome_devtools') {
+			return {
+				toolName: 'new_page', toolArgs: {
+					url,
+				}
+			};
+		} else if (mcpTarget === 'playwright') {
+			return {
+				toolName: 'browser_tabs', toolArgs: {
+					action: 'new',
+					url,
+				}
+			};
+		} else {
+			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
+		}
+	}
+
+	static async targetToolClosePage(mcpTarget: FastBrowserMcpTarget, pageId: number): Promise<TargetToolConfig> {
+		if (mcpTarget === 'chrome_devtools') {
+			return {
+				toolName: 'close_page', toolArgs: {
+					pageId,
+				}
+			};
+		} else if (mcpTarget === 'playwright') {
+			return {
+				toolName: 'browser_tabs', toolArgs: {
+					action: 'close',
+					index: pageId,
+				}
+			};
+		} else {
+			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
+		}
+	}
+
 	static async targetToolNavigatePage(mcpTarget: FastBrowserMcpTarget, url: string): Promise<TargetToolConfig> {
 		if (mcpTarget === 'chrome_devtools') {
 			return {

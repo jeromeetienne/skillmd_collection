@@ -202,6 +202,56 @@ class MainHelper {
 
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
+		//	new_page
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		mcpServer.registerTool(
+			McpTargetHelper.EXTERNAL_TOOL_NAME.newPage,
+			{
+				description: "Open a new browser page/tab at the given URL",
+				inputSchema: z.object({
+					url: z.string().describe("The URL to open in the new page"),
+				}),
+			},
+			async ({ url }: { url: string }) => {
+				const toolConfig = await McpTargetHelper.targetToolNewPage(mcpTarget, url);
+				const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
+				let outputStr = await ResponseFormatter.formatNewPage(mcpTarget, callToolResult, url);
+
+				return {
+					content: [{ type: "text", text: outputStr }],
+				};
+			}
+		);
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	close_page
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		mcpServer.registerTool(
+			McpTargetHelper.EXTERNAL_TOOL_NAME.closePage,
+			{
+				description: "Close a browser page/tab by its id (as listed by list_pages)",
+				inputSchema: z.object({
+					pageId: z.number().describe("The id of the page to close"),
+				}),
+			},
+			async ({ pageId }: { pageId: number }) => {
+				const toolConfig = await McpTargetHelper.targetToolClosePage(mcpTarget, pageId);
+				const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
+				let outputStr = await ResponseFormatter.formatClosePage(mcpTarget, callToolResult, pageId);
+
+				return {
+					content: [{ type: "text", text: outputStr }],
+				};
+			}
+		);
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
 		//	navigate_page
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
