@@ -1,6 +1,6 @@
 {
     "name": "fastbrowser_cli",
-    "version": "1.0.19",
+    "version": "1.0.20",
     "description": "",
     "main": "dist/fastbrowser_cli/fastbrowser_cli.js",
     "bin": {
