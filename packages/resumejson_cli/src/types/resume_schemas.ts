@@ -15,275 +15,275 @@ export const Iso8601Schema = z.string()
 export const ResumeLocationSchema = z.object({
 	address: z.string()
 		.describe('To add multiple address lines, use \\n. For example, 1234 Glücklichkeit Straße\\nHinterhaus 5. Etage li.')
-		.optional(),
-	postalCode: z.string().optional(),
-	city: z.string().optional(),
+		.nullable(),
+	postalCode: z.string().nullable(),
+	city: z.string().nullable(),
 	countryCode: z.string()
 		.describe('code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN')
-		.optional(),
+		.nullable(),
 	region: z.string()
 		.describe('The general region where you live. Can be a US state, or a province, for instance.')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeProfileSchema = z.object({
 	network: z.string()
 		.describe('e.g. Facebook or Twitter')
-		.optional(),
+		.nullable(),
 	username: z.string()
 		.describe('e.g. neutralthoughts')
-		.optional(),
-	url: z.string().url()
+		.nullable(),
+	url: z.string()
 		.describe('e.g. http://twitter.example.com/neutralthoughts')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeBasicsSchema = z.object({
-	name: z.string().optional(),
+	name: z.string().nullable(),
 	label: z.string()
 		.describe('e.g. Web Developer')
-		.optional(),
+		.nullable(),
 	image: z.string()
 		.describe('URL (as per RFC 3986) to a image in JPEG or PNG format')
-		.optional(),
-	email: z.string().email()
+		.nullable(),
+	email: z.string()
 		.describe('e.g. thomas@gmail.com')
-		.optional(),
+		.nullable(),
 	phone: z.string()
 		.describe('Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923')
-		.optional(),
-	url: z.string().url()
+		.nullable(),
+	url: z.string()
 		.describe('URL (as per RFC 3986) to your website, e.g. personal homepage')
-		.optional(),
+		.nullable(),
 	summary: z.string()
 		.describe('Write a short 2-3 sentence biography about yourself')
-		.optional(),
-	location: ResumeLocationSchema.optional(),
+		.nullable(),
+	location: ResumeLocationSchema.nullable(),
 	profiles: z.array(ResumeProfileSchema)
 		.describe('Specify any number of social networks that you participate in')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeWorkSchema = z.object({
 	name: z.string()
 		.describe('e.g. Facebook')
-		.optional(),
+		.nullable(),
 	location: z.string()
 		.describe('e.g. Menlo Park, CA')
-		.optional(),
+		.nullable(),
 	description: z.string()
 		.describe('e.g. Social Media Company')
-		.optional(),
+		.nullable(),
 	position: z.string()
 		.describe('e.g. Software Engineer')
-		.optional(),
-	url: z.string().url()
+		.nullable(),
+	url: z.string()
 		.describe('e.g. http://facebook.example.com')
-		.optional(),
-	startDate: Iso8601Schema.optional(),
-	endDate: Iso8601Schema.optional(),
+		.nullable(),
+	startDate: Iso8601Schema.nullable(),
+	endDate: Iso8601Schema.nullable(),
 	summary: z.string()
 		.describe('Give an overview of your responsibilities at the company')
-		.optional(),
+		.nullable(),
 	highlights: z.array(z.string())
 		.describe('Specify multiple accomplishments')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeVolunteerSchema = z.object({
 	organization: z.string()
 		.describe('e.g. Facebook')
-		.optional(),
+		.nullable(),
 	position: z.string()
 		.describe('e.g. Software Engineer')
-		.optional(),
-	url: z.string().url()
+		.nullable(),
+	url: z.string()
 		.describe('e.g. http://facebook.example.com')
-		.optional(),
-	startDate: Iso8601Schema.optional(),
-	endDate: Iso8601Schema.optional(),
+		.nullable(),
+	startDate: Iso8601Schema.nullable(),
+	endDate: Iso8601Schema.nullable(),
 	summary: z.string()
 		.describe('Give an overview of your responsibilities at the company')
-		.optional(),
+		.nullable(),
 	highlights: z.array(z.string())
 		.describe('Specify accomplishments and achievements')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeEducationSchema = z.object({
 	institution: z.string()
 		.describe('e.g. Massachusetts Institute of Technology')
-		.optional(),
-	url: z.string().url()
+		.nullable(),
+	url: z.string()
 		.describe('e.g. http://facebook.example.com')
-		.optional(),
+		.nullable(),
 	area: z.string()
 		.describe('e.g. Arts')
-		.optional(),
+		.nullable(),
 	studyType: z.string()
 		.describe('e.g. Bachelor')
-		.optional(),
-	startDate: Iso8601Schema.optional(),
-	endDate: Iso8601Schema.optional(),
+		.nullable(),
+	startDate: Iso8601Schema.nullable(),
+	endDate: Iso8601Schema.nullable(),
 	score: z.string()
 		.describe('grade point average, e.g. 3.67/4.0')
-		.optional(),
+		.nullable(),
 	courses: z.array(z.string())
 		.describe('List notable courses/subjects')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeAwardSchema = z.object({
 	title: z.string()
 		.describe('e.g. One of the 100 greatest minds of the century')
-		.optional(),
-	date: Iso8601Schema.optional(),
+		.nullable(),
+	date: Iso8601Schema.nullable(),
 	awarder: z.string()
 		.describe('e.g. Time Magazine')
-		.optional(),
+		.nullable(),
 	summary: z.string()
 		.describe('e.g. Received for my work with Quantum Physics')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeCertificateSchema = z.object({
 	name: z.string()
 		.describe('e.g. Certified Kubernetes Administrator')
-		.optional(),
-	date: Iso8601Schema.optional(),
-	url: z.string().url()
+		.nullable(),
+	date: Iso8601Schema.nullable(),
+	url: z.string()
 		.describe('e.g. http://example.com')
-		.optional(),
+		.nullable(),
 	issuer: z.string()
 		.describe('e.g. CNCF')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumePublicationSchema = z.object({
 	name: z.string()
 		.describe('e.g. The World Wide Web')
-		.optional(),
+		.nullable(),
 	publisher: z.string()
 		.describe('e.g. IEEE, Computer Magazine')
-		.optional(),
-	releaseDate: Iso8601Schema.optional(),
-	url: z.string().url()
+		.nullable(),
+	releaseDate: Iso8601Schema.nullable(),
+	url: z.string()
 		.describe('e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html')
-		.optional(),
+		.nullable(),
 	summary: z.string()
 		.describe('Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeSkillSchema = z.object({
 	name: z.string()
 		.describe('e.g. Web Development')
-		.optional(),
+		.nullable(),
 	level: z.string()
 		.describe('e.g. Master')
-		.optional(),
+		.nullable(),
 	keywords: z.array(z.string())
 		.describe('List some keywords pertaining to this skill')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeLanguageSchema = z.object({
 	language: z.string()
 		.describe('e.g. English, Spanish')
-		.optional(),
+		.nullable(),
 	fluency: z.string()
 		.describe('e.g. Fluent, Beginner')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeInterestSchema = z.object({
 	name: z.string()
 		.describe('e.g. Philosophy')
-		.optional(),
-	keywords: z.array(z.string()).optional(),
-}).passthrough();
+		.nullable(),
+	keywords: z.array(z.string()).nullable(),
+});
 
 export const ResumeReferenceSchema = z.object({
 	name: z.string()
 		.describe('e.g. Timothy Cook')
-		.optional(),
+		.nullable(),
 	reference: z.string()
 		.describe('e.g. Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing.')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeProjectSchema = z.object({
 	name: z.string()
 		.describe('e.g. The World Wide Web')
-		.optional(),
+		.nullable(),
 	description: z.string()
 		.describe('Short summary of project. e.g. Collated works of 2017.')
-		.optional(),
+		.nullable(),
 	highlights: z.array(z.string())
 		.describe('Specify multiple features')
-		.optional(),
+		.nullable(),
 	keywords: z.array(z.string())
 		.describe('Specify special elements involved')
-		.optional(),
-	startDate: Iso8601Schema.optional(),
-	endDate: Iso8601Schema.optional(),
-	url: z.string().url()
+		.nullable(),
+	startDate: Iso8601Schema.nullable(),
+	endDate: Iso8601Schema.nullable(),
+	url: z.string()
 		.describe('e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html')
-		.optional(),
+		.nullable(),
 	roles: z.array(z.string())
 		.describe('Specify your role on this project or in company')
-		.optional(),
+		.nullable(),
 	entity: z.string()
 		.describe('Specify the relevant company/entity affiliations e.g. \'greenpeace\', \'corporationXYZ\'')
-		.optional(),
+		.nullable(),
 	type: z.string()
 		.describe('e.g. \'volunteering\', \'presentation\', \'talk\', \'application\', \'conference\'')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeMetaSchema = z.object({
-	canonical: z.string().url()
+	canonical: z.string()
 		.describe('URL (as per RFC 3986) to latest version of this document')
-		.optional(),
+		.nullable(),
 	version: z.string()
 		.describe('A version field which follows semver - e.g. v1.0.0')
-		.optional(),
+		.nullable(),
 	lastModified: z.string()
 		.describe('Using ISO 8601 with YYYY-MM-DDThh:mm:ss')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});
 
 export const ResumeJsonSchema = z.object({
-	$schema: z.string().url()
+	$schema: z.string()
 		.describe('link to the version of the schema that can validate the resume')
-		.optional(),
-	basics: ResumeBasicsSchema.optional(),
-	work: z.array(ResumeWorkSchema).optional(),
-	volunteer: z.array(ResumeVolunteerSchema).optional(),
-	education: z.array(ResumeEducationSchema).optional(),
+		.nullable(),
+	basics: ResumeBasicsSchema.nullable(),
+	work: z.array(ResumeWorkSchema).nullable(),
+	volunteer: z.array(ResumeVolunteerSchema).nullable(),
+	education: z.array(ResumeEducationSchema).nullable(),
 	awards: z.array(ResumeAwardSchema)
 		.describe('Specify any awards you have received throughout your professional career')
-		.optional(),
+		.nullable(),
 	certificates: z.array(ResumeCertificateSchema)
 		.describe('Specify any certificates you have received throughout your professional career')
-		.optional(),
+		.nullable(),
 	publications: z.array(ResumePublicationSchema)
 		.describe('Specify your publications through your career')
-		.optional(),
+		.nullable(),
 	skills: z.array(ResumeSkillSchema)
 		.describe('List out your professional skill-set')
-		.optional(),
+		.nullable(),
 	languages: z.array(ResumeLanguageSchema)
 		.describe('List any other languages you speak')
-		.optional(),
-	interests: z.array(ResumeInterestSchema).optional(),
+		.nullable(),
+	interests: z.array(ResumeInterestSchema).nullable(),
 	references: z.array(ResumeReferenceSchema)
 		.describe('List references you have received')
-		.optional(),
+		.nullable(),
 	projects: z.array(ResumeProjectSchema)
 		.describe('Specify career projects')
-		.optional(),
+		.nullable(),
 	meta: ResumeMetaSchema
 		.describe('The schema version and any other tooling configuration lives here')
-		.optional(),
-}).passthrough();
+		.nullable(),
+});

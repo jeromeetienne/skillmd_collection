@@ -14,15 +14,15 @@ export type Iso8601 = string;
  */
 export type ResumeLocation = {
 	/** Street address. To add multiple address lines, use `\n`. e.g. `1234 Glücklichkeit Straße\nHinterhaus 5. Etage li.`. */
-	address?: string;
+	address: string | null;
 	/** Postal/ZIP code. */
-	postalCode?: string;
+	postalCode: string | null;
 	/** City name. */
-	city?: string;
+	city: string | null;
 	/** Country code as per ISO-3166-1 ALPHA-2. e.g. `US`, `AU`, `IN`. */
-	countryCode?: string;
+	countryCode: string | null;
 	/** General region — a US state, province, etc. */
-	region?: string;
+	region: string | null;
 	[key: string]: unknown;
 };
 
@@ -31,11 +31,11 @@ export type ResumeLocation = {
  */
 export type ResumeProfile = {
 	/** Network name. e.g. `Facebook` or `Twitter`. */
-	network?: string;
+	network: string | null;
 	/** Username on that network. e.g. `neutralthoughts`. */
-	username?: string;
+	username: string | null;
 	/** Profile URL (RFC 3986). e.g. `http://twitter.example.com/neutralthoughts`. */
-	url?: string;
+	url: string | null;
 	[key: string]: unknown;
 };
 
@@ -44,23 +44,23 @@ export type ResumeProfile = {
  */
 export type ResumeBasics = {
 	/** Full name. */
-	name?: string;
+	name: string | null;
 	/** Job title or headline. e.g. `Web Developer`. */
-	label?: string;
+	label: string | null;
 	/** URL (RFC 3986) to a profile image in JPEG or PNG format. */
-	image?: string;
+	image: string | null;
 	/** Email address. e.g. `thomas@gmail.com`. */
-	email?: string;
+	email: string | null;
 	/** Phone number. Stored as a string, any format. e.g. `712-117-2923`. */
-	phone?: string;
+	phone: string | null;
 	/** Personal website URL (RFC 3986). */
-	url?: string;
+	url: string | null;
 	/** Short 2–3 sentence biography. */
-	summary?: string;
+	summary: string | null;
 	/** Postal address and region. */
-	location?: ResumeLocation;
+	location: ResumeLocation | null;
 	/** Social network profiles. */
-	profiles?: ResumeProfile[];
+	profiles: ResumeProfile[] | null;
 	[key: string]: unknown;
 };
 
@@ -69,23 +69,23 @@ export type ResumeBasics = {
  */
 export type ResumeWork = {
 	/** Company name. e.g. `Facebook`. */
-	name?: string;
+	name: string | null;
 	/** Office location. e.g. `Menlo Park, CA`. */
-	location?: string;
+	location: string | null;
 	/** Short company description. e.g. `Social Media Company`. */
-	description?: string;
+	description: string | null;
 	/** Job title at the company. e.g. `Software Engineer`. */
-	position?: string;
+	position: string | null;
 	/** Company URL (RFC 3986). e.g. `http://facebook.example.com`. */
-	url?: string;
+	url: string | null;
 	/** Employment start date (ISO-8601). */
-	startDate?: Iso8601;
+	startDate: Iso8601 | null;
 	/** Employment end date (ISO-8601). Omit if current. */
-	endDate?: Iso8601;
+	endDate: Iso8601 | null;
 	/** Overview of responsibilities at the company. */
-	summary?: string;
+	summary: string | null;
 	/** Notable accomplishments. e.g. `Increased profits by 20% from 2011-2012 through viral advertising`. */
-	highlights?: string[];
+	highlights: string[] | null;
 	[key: string]: unknown;
 };
 
@@ -94,19 +94,19 @@ export type ResumeWork = {
  */
 export type ResumeVolunteer = {
 	/** Organization name. e.g. `Facebook`. */
-	organization?: string;
+	organization: string | null;
 	/** Role within the organization. e.g. `Software Engineer`. */
-	position?: string;
+	position: string | null;
 	/** Organization URL (RFC 3986). */
-	url?: string;
+	url: string | null;
 	/** Start date (ISO-8601). */
-	startDate?: Iso8601;
+	startDate: Iso8601 | null;
 	/** End date (ISO-8601). Omit if current. */
-	endDate?: Iso8601;
+	endDate: Iso8601 | null;
 	/** Overview of responsibilities. */
-	summary?: string;
+	summary: string | null;
 	/** Accomplishments and achievements. */
-	highlights?: string[];
+	highlights: string[] | null;
 	[key: string]: unknown;
 };
 
@@ -115,21 +115,21 @@ export type ResumeVolunteer = {
  */
 export type ResumeEducation = {
 	/** Institution name. e.g. `Massachusetts Institute of Technology`. */
-	institution?: string;
+	institution: string | null;
 	/** Institution URL (RFC 3986). */
-	url?: string;
+	url: string | null;
 	/** Field of study. e.g. `Arts`. */
-	area?: string;
+	area: string | null;
 	/** Type of degree. e.g. `Bachelor`. */
-	studyType?: string;
+	studyType: string | null;
 	/** Start date (ISO-8601). */
-	startDate?: Iso8601;
+	startDate: Iso8601 | null;
 	/** End date (ISO-8601). */
-	endDate?: Iso8601;
+	endDate: Iso8601 | null;
 	/** Grade point average. e.g. `3.67/4.0`. */
-	score?: string;
+	score: string | null;
 	/** Notable courses/subjects. e.g. `H1302 - Introduction to American history`. */
-	courses?: string[];
+	courses: string[] | null;
 	[key: string]: unknown;
 };
 
@@ -138,13 +138,13 @@ export type ResumeEducation = {
  */
 export type ResumeAward = {
 	/** Award title. e.g. `One of the 100 greatest minds of the century`. */
-	title?: string;
+	title: string | null;
 	/** Date awarded (ISO-8601). */
-	date?: Iso8601;
+	date: Iso8601 | null;
 	/** Awarding body. e.g. `Time Magazine`. */
-	awarder?: string;
+	awarder: string | null;
 	/** Why the award was received. e.g. `Received for my work with Quantum Physics`. */
-	summary?: string;
+	summary: string | null;
 	[key: string]: unknown;
 };
 
@@ -153,13 +153,13 @@ export type ResumeAward = {
  */
 export type ResumeCertificate = {
 	/** Certificate name. e.g. `Certified Kubernetes Administrator`. */
-	name?: string;
+	name: string | null;
 	/** Date earned (ISO-8601). */
-	date?: Iso8601;
+	date: Iso8601 | null;
 	/** Certificate URL (RFC 3986). */
-	url?: string;
+	url: string | null;
 	/** Issuing body. e.g. `CNCF`. */
-	issuer?: string;
+	issuer: string | null;
 	[key: string]: unknown;
 };
 
@@ -168,15 +168,15 @@ export type ResumeCertificate = {
  */
 export type ResumePublication = {
 	/** Publication name. e.g. `The World Wide Web`. */
-	name?: string;
+	name: string | null;
 	/** Publisher. e.g. `IEEE, Computer Magazine`. */
-	publisher?: string;
+	publisher: string | null;
 	/** Release date (ISO-8601). */
-	releaseDate?: Iso8601;
+	releaseDate: Iso8601 | null;
 	/** Publication URL (RFC 3986). */
-	url?: string;
+	url: string | null;
 	/** Short summary of the publication. e.g. `Discussion of the World Wide Web, HTTP, HTML.`. */
-	summary?: string;
+	summary: string | null;
 	[key: string]: unknown;
 };
 
@@ -185,11 +185,11 @@ export type ResumePublication = {
  */
 export type ResumeSkill = {
 	/** Skill name. e.g. `Web Development`. */
-	name?: string;
+	name: string | null;
 	/** Proficiency level. e.g. `Master`. */
-	level?: string;
+	level: string | null;
 	/** Keywords pertaining to this skill. e.g. `HTML`. */
-	keywords?: string[];
+	keywords: string[] | null;
 	[key: string]: unknown;
 };
 
@@ -198,9 +198,9 @@ export type ResumeSkill = {
  */
 export type ResumeLanguage = {
 	/** Language name. e.g. `English`, `Spanish`. */
-	language?: string;
+	language: string | null;
 	/** Fluency level. e.g. `Fluent`, `Beginner`. */
-	fluency?: string;
+	fluency: string | null;
 	[key: string]: unknown;
 };
 
@@ -209,9 +209,9 @@ export type ResumeLanguage = {
  */
 export type ResumeInterest = {
 	/** Interest name. e.g. `Philosophy`. */
-	name?: string;
+	name: string | null;
 	/** Related keywords. e.g. `Friedrich Nietzsche`. */
-	keywords?: string[];
+	keywords: string[] | null;
 	[key: string]: unknown;
 };
 
@@ -220,9 +220,9 @@ export type ResumeInterest = {
  */
 export type ResumeReference = {
 	/** Referrer name. e.g. `Timothy Cook`. */
-	name?: string;
+	name: string | null;
 	/** The reference text itself. */
-	reference?: string;
+	reference: string | null;
 	[key: string]: unknown;
 };
 
@@ -231,25 +231,25 @@ export type ResumeReference = {
  */
 export type ResumeProject = {
 	/** Project name. e.g. `The World Wide Web`. */
-	name?: string;
+	name: string | null;
 	/** Short summary of the project. e.g. `Collated works of 2017.`. */
-	description?: string;
+	description: string | null;
 	/** Notable features. e.g. `Directs you close but not quite there`. */
-	highlights?: string[];
+	highlights: string[] | null;
 	/** Special elements involved. e.g. `AngularJS`. */
-	keywords?: string[];
+	keywords: string[] | null;
 	/** Project start date (ISO-8601). */
-	startDate?: Iso8601;
+	startDate: Iso8601 | null;
 	/** Project end date (ISO-8601). */
-	endDate?: Iso8601;
+	endDate: Iso8601 | null;
 	/** Project URL (RFC 3986). */
-	url?: string;
+	url: string | null;
 	/** Roles on this project. e.g. `Team Lead`, `Speaker`, `Writer`. */
-	roles?: string[];
+	roles: string[] | null;
 	/** Relevant company/entity affiliation. e.g. `greenpeace`, `corporationXYZ`. */
-	entity?: string;
+	entity: string | null;
 	/** Project type. e.g. `volunteering`, `presentation`, `talk`, `application`, `conference`. */
-	type?: string;
+	type: string | null;
 	[key: string]: unknown;
 };
 
@@ -258,11 +258,11 @@ export type ResumeProject = {
  */
 export type ResumeMeta = {
 	/** URL (RFC 3986) to the latest version of this document. */
-	canonical?: string;
+	canonical: string | null;
 	/** Version following semver. e.g. `v1.0.0`. */
-	version?: string;
+	version: string | null;
 	/** Last modified timestamp using ISO-8601 `YYYY-MM-DDThh:mm:ss`. */
-	lastModified?: string;
+	lastModified: string | null;
 	[key: string]: unknown;
 };
 
@@ -271,32 +271,32 @@ export type ResumeMeta = {
  */
 export type ResumeJson = {
 	/** Link to the version of the schema that can validate this resume. */
-	$schema?: string;
+	$schema: string | null;
 	/** Personal information. */
-	basics?: ResumeBasics;
+	basics: ResumeBasics | null;
 	/** Work/employment history. */
-	work?: ResumeWork[];
+	work: ResumeWork[] | null;
 	/** Volunteer experience. */
-	volunteer?: ResumeVolunteer[];
+	volunteer: ResumeVolunteer[] | null;
 	/** Education history. */
-	education?: ResumeEducation[];
+	education: ResumeEducation[] | null;
 	/** Awards received throughout one's professional career. */
-	awards?: ResumeAward[];
+	awards: ResumeAward[] | null;
 	/** Certificates received throughout one's professional career. */
-	certificates?: ResumeCertificate[];
+	certificates: ResumeCertificate[] | null;
 	/** Publications throughout one's career. */
-	publications?: ResumePublication[];
+	publications: ResumePublication[] | null;
 	/** Professional skill-set. */
-	skills?: ResumeSkill[];
+	skills: ResumeSkill[] | null;
 	/** Other languages spoken. */
-	languages?: ResumeLanguage[];
+	languages: ResumeLanguage[] | null;
 	/** Personal interests. */
-	interests?: ResumeInterest[];
+	interests: ResumeInterest[] | null;
 	/** References received. */
-	references?: ResumeReference[];
+	references: ResumeReference[] | null;
 	/** Career projects. */
-	projects?: ResumeProject[];
+	projects: ResumeProject[] | null;
 	/** Schema version and tooling configuration. */
-	meta?: ResumeMeta;
+	meta: ResumeMeta | null;
 	[key: string]: unknown;
 };

@@ -11,54 +11,6 @@ import * as PdfToImg from "pdf-to-img";
 
 export class UtilsPdf {
 
-	// /**
-	//  * Convert a PDF buffer to Markdown using an LLM.
-	//  * 
-	//  * @param openaiClient The OpenAI client instance.
-	//  * @param pdfBuffer The PDF file as a Buffer.
-	//  * @param param2 Optional parameters, including the model name.
-	//  * @returns A promise that resolves to the generated Markdown string.
-	//  */
-	// static async pdf2MarkdownByLlm(openaiClient: OpenAI, pdfBuffer: Buffer, {
-	// 	modelName = 'gpt-4o'
-	// }: {
-	// 	modelName?: string
-	// } = {}): Promise<string> {
-	// 	const imageBuffers = await UtilsPdf._pdf2images(pdfBuffer);
-
-	// 	const response = await openaiClient.responses.parse({
-	// 		model: modelName,
-	// 		max_output_tokens: 4096,
-	// 		input: [
-	// 			{
-	// 				role: "user",
-	// 				content: [
-	// 					...imageBuffers.map((imageBuffer) => ({
-	// 						type: "input_image" as const,
-	// 						image_url: `data:image/png;base64,${imageBuffer.toString('base64')}`,
-	// 						detail: "auto" as const,
-	// 					})),
-	// 					{
-	// 						type: "input_text" as const,
-	// 						text: [
-	// 							"Convert these PDF pages to well-structured markdown.",
-	// 							"Preserve headings, lists, tables, and emphasis.",
-	// 							"Output only the markdown content without any explanations and no codeblocks.",
-	// 						].join("\n"),
-	// 					},
-	// 				],
-	// 			},
-	// 		],
-	// 	});
-
-	// 	if (response.output_text === null) {
-	// 		throw new Error("Failed to convert PDF to Markdown. The LLM did not return any content.");
-	// 	}
-	// 	const markdown = response.output_text;
-
-	// 	return markdown;
-	// }
-
 	/**
 	 * Convert a PDF buffer to an array of image buffers, one for each page.
 	 * @param pdfBuffer The PDF file as a Buffer.

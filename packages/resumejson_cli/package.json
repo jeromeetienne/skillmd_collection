@@ -6,6 +6,8 @@
     "type": "module",
     "scripts": {
         "dev": "npx tsx ./src/cli.ts",
+        "dev:from_pdf": "npm run dev -- from_pdf ./data/samples/resume_webdev.resume.pdf",
+        "build": "tsc -p tsconfig.build.json",
         "typecheck": "tsc --noEmit -p tsconfig.build.json",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -21,6 +23,7 @@
         "openai-cache": "^1.0.35",
         "pdf-to-img": "^6.0.0",
         "puppeteer": "^24.42.0",
+        "typescript": "^6.0.3",
         "zod": "^3.25.76"
     },
     "devDependencies": {
