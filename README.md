@@ -13,14 +13,15 @@ A monorepo of SKILL.md and CLI tools. Each package ships a `SKILL.md` that AI ag
 | [a11y_parse](packages/a11y_parse/README.md) | Accessibility tree parser and CSS-like query engine |
 | [business_analyst_cli](packages/business_analyst_cli/README.md) | Business modeling, trend analysis, and strategic planning CLI |
 
-### [a11y_parse](packages/a11y_parse/README.md)
+### [build_in_public](packages/build_in_public/README.md)
 
-A TypeScript library for parsing and querying accessibility trees using a CSS-inspired selector syntax. It is the query layer used by `fastbrowser_cli`.
+A skill-only package (no CLI) that turns recent GitHub activity into ready-to-post `#buildInPublic` updates for Twitter/X, Bluesky, and LinkedIn. Uses the local `gh` CLI to scan commits and releases, then drafts posts in an authentic developer voice.
 
 **Features:**
-- Parse indentation-based accessibility tree text into a typed tree structure
-- Query nodes with CSS-like selectors — role, UID (`#uid`), attributes (`[name="…"]`), descendant/child combinators, union
-- Walk, filter, and build pruned ancestor trees for result context
+- Scans the 10 most recently pushed public repos and pulls commits from the last 7 days
+- Categorizes activity (feature, bug fix, docs, refactor, release, infra) and groups by narrative
+- Drafts 1–3 posts per platform under 280 chars, with hashtags and suggested visuals
+- Falls back to use-case / value-proposition posts when there's no recent activity
 
 ---
 
@@ -38,20 +39,6 @@ fastbrowser_cli ──HTTP──▶ fastbrowser_httpd ──MCP/stdio──▶ f
 - Query the accessibility tree with CSS-like selectors (`query_selectors`, `take_snapshot`)
 - Manage the daemon (`server start / stop / status`)
 - Ships a `SKILL.md` so Claude Code agents can install and use it directly
-
----
-
-### [business_analyst_cli](packages/business_analyst_cli/README.md)
-
-A CLI for structured business modeling, trend analysis, and strategic planning. Three composable commands form a pipeline — model → analyze → plan — each backed by a dedicated Claude Code skill.
-
-**Commands:**
-
-| Command | Role | Description |
-|---------|------|-------------|
-| `modeler` | Write | Create, update, simulate business models (dimensions, metrics, assumptions, data) |
-| `analyst` | Read-only | Trend analysis, period-over-period %, anomaly detection |
-| `planner` | Read-only | Strategic recommendations, milestone roadmaps, scenario comparison |
 
 ---
 
@@ -80,13 +67,25 @@ A CLI for searching the web and running deep research queries using Perplexity A
 
 ---
 
-### [build_in_public](packages/build_in_public/README.md)
+### [a11y_parse](packages/a11y_parse/README.md)
 
-A skill-only package (no CLI) that turns recent GitHub activity into ready-to-post `#buildInPublic` updates for Twitter/X, Bluesky, and LinkedIn. Uses the local `gh` CLI to scan commits and releases, then drafts posts in an authentic developer voice.
+A TypeScript library for parsing and querying accessibility trees using a CSS-inspired selector syntax. It is the query layer used by `fastbrowser_cli`.
 
 **Features:**
-- Scans the 10 most recently pushed public repos and pulls commits from the last 7 days
-- Categorizes activity (feature, bug fix, docs, refactor, release, infra) and groups by narrative
-- Drafts 1–3 posts per platform under 280 chars, with hashtags and suggested visuals
-- Falls back to use-case / value-proposition posts when there's no recent activity
+- Parse indentation-based accessibility tree text into a typed tree structure
+- Query nodes with CSS-like selectors — role, UID (`#uid`), attributes (`[name="…"]`), descendant/child combinators, union
+- Walk, filter, and build pruned ancestor trees for result context
 
+---
+
+### [business_analyst_cli](packages/business_analyst_cli/README.md)
+
+A CLI for structured business modeling, trend analysis, and strategic planning. Three composable commands form a pipeline — model → analyze → plan — each backed by a dedicated Claude Code skill.
+
+**Commands:**
+
+| Command | Role | Description |
+|---------|------|-------------|
+| `modeler` | Write | Create, update, simulate business models (dimensions, metrics, assumptions, data) |
+| `analyst` | Read-only | Trend analysis, period-over-period %, anomaly detection |
+| `planner` | Read-only | Strategic recommendations, milestone roadmaps, scenario comparison |
