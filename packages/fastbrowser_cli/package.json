@@ -19,7 +19,8 @@
         "inspect:playwright:extension": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --extension",
         "build": "tsc -p tsconfig.build.json",
         "publish:all": "npm run build && npm version patch && npm publish --access public",
-        "typecheck": "tsc -p tsconfig.json --noEmit"
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "npx tsx --test 'tests/**/*.test.ts'"
     },
     "keywords": [],
     "author": "",
