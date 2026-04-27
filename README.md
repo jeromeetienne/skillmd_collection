@@ -6,11 +6,12 @@ A monorepo of SKILL.md and CLI tools. Each package ships a `SKILL.md` that AI ag
 
 | Package | Description |
 |---------|-------------|
-| [a11y_parse](packages/a11y_parse/README.md) | Accessibility tree parser and CSS-like query engine |
+| [build_in_public](packages/build_in_public/README.md) | Skill that turns recent GitHub activity into `#buildInPublic` social posts |
 | [fastbrowser_cli](packages/fastbrowser_cli/README.md) | CLI daemon for controlling Chrome from shell or AI agents |
-| [business_analyst_cli](packages/business_analyst_cli/README.md) | Business modeling, trend analysis, and strategic planning CLI |
 | [bsky_client](packages/bsky_client/README.md) | Bluesky social network CLI (posts, replies, likes, search) |
 | [perplexity_cli](packages/perplexity_cli/README.md) | Web search and deep research CLI via Perplexity AI |
+| [a11y_parse](packages/a11y_parse/README.md) | Accessibility tree parser and CSS-like query engine |
+| [business_analyst_cli](packages/business_analyst_cli/README.md) | Business modeling, trend analysis, and strategic planning CLI |
 
 ### [a11y_parse](packages/a11y_parse/README.md)
 
@@ -76,4 +77,16 @@ A CLI for searching the web and running deep research queries using Perplexity A
 | `search` | Search the web; supports multi-query batches, domain allow/block lists, country and language filters |
 | `deep-search` | Comprehensive research query returning a full text answer; four presets from fast lookup to advanced deep research |
 | `install` | Copy the Perplexity skill into an agent folder |
+
+---
+
+### [build_in_public](packages/build_in_public/README.md)
+
+A skill-only package (no CLI) that turns recent GitHub activity into ready-to-post `#buildInPublic` updates for Twitter/X, Bluesky, and LinkedIn. Uses the local `gh` CLI to scan commits and releases, then drafts posts in an authentic developer voice.
+
+**Features:**
+- Scans the 10 most recently pushed public repos and pulls commits from the last 7 days
+- Categorizes activity (feature, bug fix, docs, refactor, release, infra) and groups by narrative
+- Drafts 1–3 posts per platform under 280 chars, with hashtags and suggested visuals
+- Falls back to use-case / value-proposition posts when there's no recent activity
 
