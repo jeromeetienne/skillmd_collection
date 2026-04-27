@@ -3,18 +3,20 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { Command, CommanderError } from 'commander';
+import { Command, CommanderError, Option } from 'commander';
 import stringArgv from 'string-argv';
 
 import { HttpClient } from './libs/http-client.js';
 import { ServerManager } from './libs/server-manager.js';
 import { QueryBuilder } from './libs/query-builder.js';
+import type { FastBrowserMcpTarget } from '../fastbrowser_mcp/fastbrowser_types.js';
 
 ///////////////////////////////////////////////////////////////////////////////
 
 type GlobalOpts = {
 	server?: string;
 	autostart?: boolean;
+	mcpTarget?: FastBrowserMcpTarget;
 };
 
 class SilentExitError extends Error {
@@ -38,24 +40,30 @@ class MainHelper {
 
 	/**
 	 * Determine whether to auto-start the server based on command options (default: true)
-	 * @param cmd 
-	 * @returns 
+	 * @param cmd
+	 * @returns
 	 */
 	static getAutostartFromCmd(cmd: Command): boolean {
 		const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
 		return globalOpts.autostart !== false;
 	}
 
+	static getMcpTargetFromCmd(cmd: Command): FastBrowserMcpTarget {
+		const globalOpts = cmd.optsWithGlobals<GlobalOpts>();
+		return globalOpts.mcpTarget ?? 'playwright';
+	}
+
 	/**
 	 * Run a tool by making an HTTP request to the server, with optional auto-start
-	 * @param cmd 
-	 * @param routeName 
-	 * @param body 
+	 * @param cmd
+	 * @param routeName
+	 * @param body
 	 */
 	static async runTool(cmd: Command, routeName: string, body: unknown): Promise<void> {
 		const server = MainHelper.getServerUrlFromCmd(cmd);
+		const mcpTarget = MainHelper.getMcpTargetFromCmd(cmd);
 		if (MainHelper.getAutostartFromCmd(cmd) === true) {
-			await ServerManager.ensureRunning(server);
+			await ServerManager.ensureRunning(server, mcpTarget);
 		}
 		const response = await HttpClient.postTool(server, routeName, body);
 		HttpClient.printResponse(response);
@@ -115,6 +123,9 @@ class MainHelper {
 		if (globalOpts.autostart === false) {
 			globalFlags.push('--no-autostart');
 		}
+		if (globalOpts.mcpTarget !== undefined) {
+			globalFlags.push('--mcp-target', globalOpts.mcpTarget);
+		}
 
 		const lines = source.split('\n');
 		let ok = 0;
@@ -164,7 +175,12 @@ async function main(): Promise<void> {
 		.description('CLI client for fastbrowser')
 		.option('--server <url>', 'fastbrowser-httpd URL (default: env FASTBROWSER_SERVER or http://localhost:8787)')
 		.option('--autostart', 'Auto-start the server before a command if it is not running', true)
-		.option('--no-autostart', 'Do not auto-start the server before a command');
+		.option('--no-autostart', 'Do not auto-start the server before a command')
+		.addOption(
+			new Option('--mcp-target <target>', 'browser backend (default: $FASTBROWSER_MCP_TARGET or playwright)')
+				.choices(['chrome_devtools', 'playwright'])
+				.default(process.env.FASTBROWSER_MCP_TARGET ?? 'playwright'),
+		);
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -181,7 +197,8 @@ async function main(): Promise<void> {
 		.description('Start the fastbrowser HTTP server as a detached daemon')
 		.action(async (_opts, cmd: Command) => {
 			const serverUrl = MainHelper.getServerUrlFromCmd(cmd);
-			await ServerManager.start(serverUrl);
+			const mcpTarget = MainHelper.getMcpTargetFromCmd(cmd);
+			await ServerManager.start(serverUrl, mcpTarget);
 		});
 
 	serverCmd
@@ -198,7 +215,8 @@ async function main(): Promise<void> {
 		.action(async (_opts, cmd: Command) => {
 			const serverUrl = MainHelper.getServerUrlFromCmd(cmd);
 			const serverStatus = await ServerManager.status(serverUrl);
-			console.log(`fastbrowser server at ${serverUrl}: ${serverStatus}`);
+			const targetSuffix = serverStatus.mcpTarget !== undefined ? ` (mcpTarget=${serverStatus.mcpTarget})` : '';
+			console.log(`fastbrowser server at ${serverUrl}: ${serverStatus.state}${targetSuffix}`);
 		});
 
 	serverCmd
@@ -206,8 +224,9 @@ async function main(): Promise<void> {
 		.description('Restart the fastbrowser HTTP server')
 		.action(async (_opts, cmd: Command) => {
 			const serverUrl = MainHelper.getServerUrlFromCmd(cmd);
+			const mcpTarget = MainHelper.getMcpTargetFromCmd(cmd);
 			await ServerManager.stop(serverUrl);
-			await ServerManager.start(serverUrl);
+			await ServerManager.start(serverUrl, mcpTarget);
 		});
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////

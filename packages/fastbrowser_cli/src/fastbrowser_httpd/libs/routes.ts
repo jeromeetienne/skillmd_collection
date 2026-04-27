@@ -3,6 +3,7 @@ import type { Express, Request, Response } from 'express';
 
 // local imports
 import { McpMyClient } from '../../fastbrowser_mcp/libs/mcp_my_client.js';
+import type { FastBrowserMcpTarget } from '../../fastbrowser_mcp/fastbrowser_types.js';
 import { TOOL_SCHEMAS, ToolResponseSchema } from './tool-schemas.js';
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -12,9 +13,9 @@ import { TOOL_SCHEMAS, ToolResponseSchema } from './tool-schemas.js';
 ///////////////////////////////////////////////////////////////////////////////
 
 export class Routes {
-	static register(app: Express, mcpClient: McpMyClient): void {
+	static register(app: Express, mcpClient: McpMyClient, mcpTarget: FastBrowserMcpTarget): void {
 		app.get('/health', (_req: Request, res: Response) => {
-			res.json({ ok: true });
+			res.json({ ok: true, mcpTarget });
 		});
 
 		for (const entry of TOOL_SCHEMAS) {

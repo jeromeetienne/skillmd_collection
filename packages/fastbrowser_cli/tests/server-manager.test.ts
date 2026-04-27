@@ -30,18 +30,18 @@ async function startFakeServer(handler: (req: http.IncomingMessage, res: http.Se
 }
 
 describe('ServerManager.status', () => {
-	it("returns 'stopped' when nothing is listening on the URL", async () => {
+	it("returns state 'stopped' when nothing is listening on the URL", async () => {
 		// Port 1 is reserved (tcpmux); a connection will be refused.
 		const result = await ServerManager.status('http://127.0.0.1:1');
-		assert.equal(result, 'stopped');
+		assert.equal(result.state, 'stopped');
 	});
 
-	it("returns 'stopped' for an unreachable host (DNS or routing failure)", async () => {
+	it("returns state 'stopped' for an unreachable host (DNS or routing failure)", async () => {
 		const result = await ServerManager.status('http://127.0.0.1:9');
-		assert.equal(result, 'stopped');
+		assert.equal(result.state, 'stopped');
 	});
 
-	it("returns 'running' when /health responds with { ok: true }", async () => {
+	it("returns state 'running' when /health responds with { ok: true }", async () => {
 		const fake = await startFakeServer((req, res) => {
 			if (req.url === '/health') {
 				res.setHeader('content-type', 'application/json');
@@ -53,33 +53,53 @@ describe('ServerManager.status', () => {
 		});
 		try {
 			const result = await ServerManager.status(fake.url);
-			assert.equal(result, 'running');
+			assert.equal(result.state, 'running');
+			assert.equal(result.mcpTarget, undefined);
 		} finally {
 			await fake.close();
 		}
 	});
 
-	it("returns 'stopped' when /health responds with { ok: false }", async () => {
+	it('reports mcpTarget from /health payload', async () => {
+		const fake = await startFakeServer((req, res) => {
+			if (req.url === '/health') {
+				res.setHeader('content-type', 'application/json');
+				res.end(JSON.stringify({ ok: true, mcpTarget: 'playwright' }));
+				return;
+			}
+			res.statusCode = 404;
+			res.end();
+		});
+		try {
+			const result = await ServerManager.status(fake.url);
+			assert.equal(result.state, 'running');
+			assert.equal(result.mcpTarget, 'playwright');
+		} finally {
+			await fake.close();
+		}
+	});
+
+	it("returns state 'stopped' when /health responds with { ok: false }", async () => {
 		const fake = await startFakeServer((_req, res) => {
 			res.setHeader('content-type', 'application/json');
 			res.end(JSON.stringify({ ok: false }));
 		});
 		try {
 			const result = await ServerManager.status(fake.url);
-			assert.equal(result, 'stopped');
+			assert.equal(result.state, 'stopped');
 		} finally {
 			await fake.close();
 		}
 	});
 
-	it("returns 'stopped' when /health returns non-2xx", async () => {
+	it("returns state 'stopped' when /health returns non-2xx", async () => {
 		const fake = await startFakeServer((_req, res) => {
 			res.statusCode = 500;
 			res.end('boom');
 		});
 		try {
 			const result = await ServerManager.status(fake.url);
-			assert.equal(result, 'stopped');
+			assert.equal(result.state, 'stopped');
 		} finally {
 			await fake.close();
 		}
@@ -94,7 +114,7 @@ describe('ServerManager.status', () => {
 		});
 		try {
 			const result = await ServerManager.status(`${fake.url}///`);
-			assert.equal(result, 'running');
+			assert.equal(result.state, 'running');
 			assert.deepEqual(seenUrls, ['/health']);
 		} finally {
 			await fake.close();

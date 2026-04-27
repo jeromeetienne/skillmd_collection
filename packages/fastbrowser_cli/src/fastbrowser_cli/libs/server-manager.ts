@@ -4,6 +4,9 @@ import Os from 'node:os';
 import Path from 'node:path';
 import { spawn } from 'node:child_process';
 
+// local imports
+import type { FastBrowserMcpTarget } from '../../fastbrowser_mcp/fastbrowser_types.js';
+
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -13,7 +16,13 @@ import { spawn } from 'node:child_process';
 type PidFile = {
 	pid: number;
 	port: number;
+	mcpTarget?: FastBrowserMcpTarget;
 	startedAt: string;
+};
+
+export type ServerStatus = {
+	state: 'running' | 'stopped';
+	mcpTarget?: FastBrowserMcpTarget;
 };
 
 const STATE_DIRNAME = Path.join(Os.homedir(), '.fastbrowser_cli');
@@ -27,34 +36,52 @@ const LOG_FILENAME = Path.join(STATE_DIRNAME, 'server.log');
 ///////////////////////////////////////////////////////////////////////////////
 
 export class ServerManager {
-	static async status(serverUrl: string): Promise<'running' | 'stopped'> {
+	static async status(serverUrl: string): Promise<ServerStatus> {
 		const base = serverUrl.replace(/\/+$/, '');
 		try {
 			const response = await fetch(`${base}/health`, {
 				method: 'GET',
 				signal: AbortSignal.timeout(500),
 			});
-			if (response.ok === false) return 'stopped';
-			const payload = await response.json() as { ok?: unknown };
-			return payload.ok === true ? 'running' : 'stopped';
+			if (response.ok === false) return { state: 'stopped' };
+			const payload = await response.json() as { ok?: unknown; mcpTarget?: unknown };
+			if (payload.ok !== true) return { state: 'stopped' };
+			const mcpTarget = payload.mcpTarget === 'chrome_devtools' || payload.mcpTarget === 'playwright'
+				? payload.mcpTarget
+				: undefined;
+			return { state: 'running', mcpTarget };
 		} catch {
-			return 'stopped';
+			return { state: 'stopped' };
 		}
 	}
 
-	static async ensureRunning(serverUrl: string): Promise<void> {
-		const state = await ServerManager.status(serverUrl);
-		if (state === 'running') return;
+	static async ensureRunning(serverUrl: string, mcpTarget: FastBrowserMcpTarget): Promise<void> {
+		const info = await ServerManager.status(serverUrl);
+		if (info.state === 'running') {
+			if (info.mcpTarget !== undefined && info.mcpTarget !== mcpTarget) {
+				throw new Error(
+					`fastbrowser server already running with mcpTarget=${info.mcpTarget}. ` +
+					`To switch to ${mcpTarget}, run: fastbrowser-cli --mcp-target ${mcpTarget} server restart`,
+				);
+			}
+			return;
+		}
 
 		if (ServerManager.isLocalUrl(serverUrl) === false) {
 			throw new Error(`fastbrowser server at ${serverUrl} is not reachable and cannot be auto-started (non-local URL)`);
 		}
-		await ServerManager.start(serverUrl);
+		await ServerManager.start(serverUrl, mcpTarget);
 	}
 
-	static async start(serverUrl: string): Promise<void> {
+	static async start(serverUrl: string, mcpTarget: FastBrowserMcpTarget): Promise<void> {
 		const existing = await ServerManager.status(serverUrl);
-		if (existing === 'running') {
+		if (existing.state === 'running') {
+			if (existing.mcpTarget !== undefined && existing.mcpTarget !== mcpTarget) {
+				throw new Error(
+					`fastbrowser server already running with mcpTarget=${existing.mcpTarget}. ` +
+					`Stop it first: fastbrowser-cli server stop`,
+				);
+			}
 			console.error(`fastbrowser server already running at ${serverUrl}`);
 			return;
 		}
@@ -67,7 +94,7 @@ export class ServerManager {
 		let entryPath = Path.resolve(import.meta.dirname, '..', '..', 'fastbrowser_httpd', 'fastbrowser_httpd.js');
 		const port = ServerManager.parsePort(serverUrl);
 		let spawnCommand = process.execPath;
-		let spawnArgs = [entryPath, '--port', String(port)]
+		let spawnArgs = [entryPath, '--port', String(port), '--mcp-target', mcpTarget]
 		// trick to work without being in `./dist'
 		if (entryPath.includes('/dist/') === false) {
 			spawnCommand = '/usr/local/bin/npx';
@@ -96,16 +123,17 @@ export class ServerManager {
 		const pidFile: PidFile = {
 			pid,
 			port,
+			mcpTarget,
 			startedAt: new Date().toISOString(),
 		};
 		Fs.writeFileSync(PID_FILENAME, JSON.stringify(pidFile, null, 2));
 
 		const deadline = Date.now() + 10_000;
 		while (Date.now() < deadline) {
-			const state = await ServerManager.status(serverUrl);
-			if (state === 'running') {
+			const info = await ServerManager.status(serverUrl);
+			if (info.state === 'running') {
 				Fs.closeSync(logFd);
-				console.error(`fastbrowser server started (pid=${pid}, port=${port})`);
+				console.error(`fastbrowser server started (pid=${pid}, port=${port}, mcpTarget=${mcpTarget})`);
 				return;
 			}
 			await ServerManager.sleep(500);
@@ -161,8 +189,8 @@ export class ServerManager {
 		}
 
 		// Best-effort: ensure the HTTP server is actually down from the caller's perspective.
-		const state = await ServerManager.status(serverUrl);
-		if (state === 'running') {
+		const info = await ServerManager.status(serverUrl);
+		if (info.state === 'running') {
 			console.error(`warning: process ${pid} killed but ${serverUrl} still responds to /health`);
 			return;
 		}

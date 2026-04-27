@@ -4,14 +4,14 @@ Control a live Chrome browser from the command line: navigate, click, fill forms
 
 A lighter alternative to Chrome DevTools MCP or Puppeteer, designed for AI agents and shell workflows. A persistent HTTP daemon keeps an MCP connection to the browser alive so each command incurs minimal latency.
 
-- rely on [a11y_parse](https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/a11y_parse) for accessibility tree parsing and querying. 
-  Especially a CSS-like selector syntax optimized for the accessibility tree.
-- rely on [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) for robust browser control
-- expose a curated, efficient toolset optimized for AI agent use cases
-- minimize the required round-trips and boilerplate to perform common tasks
-- minimize the output size, thus reducing LLM input size and parsing complexity. 
-  - It means faster/cheaper LLM iterations when used in an agent loop. 
-  - It means more accurate/better quality responses from the LLM as well, since it has less irrelevant info to parse through.
+## Key Features
+
+- **CSS-like selectors for accessibility trees** — powered by [a11y_parse](https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/a11y_parse), optimized for precise, efficient querying
+— see [Selector Language](https://github.com/jeromeetienne/skillmd_collection/blob/main/packages/a11y_parse/docs/spec_a11y_selector_language.md) for the full spec
+- **Pluggable browser backends** — choose between [@playwright/mcp](https://github.com/microsoft/playwright/tree/main/packages/mcp) (default, via the [Playwright MCP Bridge](https://chromewebstore.google.com/detail/playwright-mcp-bridge/mmlmfjhmonkocbjadbfplnigmagldckm) Chrome extension) or [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) using `--mcp-target` or `FASTBROWSER_MCP_TARGET`
+- **AI-optimized toolset** — curated commands that minimize round-trips and boilerplate for common tasks
+- **Lean output** — reduces LLM input size, parsing complexity, and iteration cost while improving response quality
+
 
 ## How to install the CLI tool for claude
 
@@ -64,10 +64,10 @@ Three components ship together in this package:
 
 - **`fastbrowser_cli`** — the user-facing CLI. Each subcommand maps 1-to-1 to a fastbrowser tool and prints the response on stdout.
 - **`fastbrowser_httpd`** — a long-running HTTP server that fronts `fastbrowser_mcp` and holds the persistent MCP connection. The CLI auto-starts it on first use.
-- **`fastbrowser_mcp`** — the MCP server that drives the actual Chrome browser via `chrome-devtools-mcp`.
+- **`fastbrowser_mcp`** — the MCP server that drives the browser. It proxies to one of two backends, picked at start time: `playwright` (default, via the Playwright MCP Bridge extension) or `chrome_devtools` (via `chrome-devtools-mcp`).
 
 ```
-  fastbrowser_cli  ──HTTP──▶  fastbrowser_httpd  ──MCP/stdio──▶  fastbrowser_mcp  ──▶  chrome-devtools-mcp ──▶ Chrome
+  fastbrowser_cli  ──HTTP──▶  fastbrowser_httpd  ──MCP/stdio──▶  fastbrowser_mcp  ──▶  @playwright/mcp │ chrome-devtools-mcp  ──▶ Chrome
 ```
 
 ## Installation
@@ -144,6 +144,30 @@ Full selector reference is in [skills/fastbrowser/SKILL.md](skills/fastbrowser/S
 |---|---|---|
 | `--server <url>` / `FASTBROWSER_SERVER` | URL of the `fastbrowser_httpd` daemon | `http://localhost:8787` |
 | `--autostart` / `--no-autostart` | Auto-start the daemon if it is not already running | `--autostart` |
+| `--mcp-target <target>` / `FASTBROWSER_MCP_TARGET` | Browser backend: `playwright` or `chrome_devtools` | `playwright` |
+
+## Browser backend
+
+The daemon binds to one backend at startup. Resolution order: `--mcp-target` flag → `FASTBROWSER_MCP_TARGET` env var → default `playwright`.
+
+```bash
+# Stick with the default (Playwright + bridge extension)
+npx fastbrowser_cli new_page --url https://example.com
+
+# Or use chrome-devtools-mcp instead
+FASTBROWSER_MCP_TARGET=chrome_devtools npx fastbrowser_cli new_page --url https://example.com
+
+# One-off override of the env var
+npx fastbrowser_cli --mcp-target chrome_devtools list_pages
+```
+
+If the daemon is already running with a different backend, the CLI refuses the request and prints the exact restart command, e.g.:
+
+```
+fastbrowser server already running with mcpTarget=playwright. To switch to chrome_devtools, run: fastbrowser-cli --mcp-target chrome_devtools server restart
+```
+
+`server status` shows the active backend, and `GET /health` returns `{ ok: true, mcpTarget: "<target>" }`.
 
 ## Scripts
 
