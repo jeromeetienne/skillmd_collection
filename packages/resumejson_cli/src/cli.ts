@@ -9,12 +9,12 @@ import { UtilsAisdk } from './utils/utils_aisdk.js';
 import * as AiSdk from 'ai';
 import { z } from 'zod';
 
-import { ResumeSchema } from './types/resume_schemas.js';
-import { Resume } from './types/resume_types.js';
+import { ResumeJsonSchema } from './types/resume_schemas.js';
+import { ResumeJson } from './types/resume_types.js';
 
 
 class MainHelper {
-	async fromPdf(inputPath: string): Promise<Resume> {
+	async fromPdf(inputPath: string): Promise<ResumeJson> {
 		const pdfBuffer = await Fs.promises.readFile(inputPath);
 		const imageBuffers = await UtilsPdf.pdf2images(pdfBuffer);
 
@@ -22,7 +22,9 @@ class MainHelper {
 		const result = await AiSdk.generateText({
 			model: openaiAiSdk('gpt-4.1'),
 			output: AiSdk.Output.object({
-				schema: z.object({ resume: ResumeSchema }),
+				schema: z.object({
+					resumeJson: ResumeJsonSchema
+				}),
 			}),
 			messages: [
 				{
@@ -37,8 +39,8 @@ class MainHelper {
 				},
 			],
 		});
-		const resume = result.output.resume;
-		return resume;
+		const resumeJson = result.output.resumeJson;
+		return resumeJson;
 	}
 }
 
@@ -63,7 +65,8 @@ async function main() {
 		.description('Extract resume JSON from a PDF file')
 		.argument('<inputPdfPath>', 'path to the input PDF file')
 		.action(async (inputPdfPath: string) => {
-			await mainHelper.fromPdf(inputPdfPath);
+			const resumeJson = await mainHelper.fromPdf(inputPdfPath);
+			console.log(JSON.stringify(resumeJson));
 		});
 
 

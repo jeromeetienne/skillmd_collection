@@ -253,7 +253,7 @@ export const ResumeMetaSchema = z.object({
 		.optional(),
 }).passthrough();
 
-export const ResumeSchema = z.object({
+export const ResumeJsonSchema = z.object({
 	$schema: z.string().url()
 		.describe('link to the version of the schema that can validate the resume')
 		.optional(),

@@ -269,7 +269,7 @@ export type ResumeMeta = {
 /**
  * A complete JSON Resume document.
  */
-export type Resume = {
+export type ResumeJson = {
 	/** Link to the version of the schema that can validate this resume. */
 	$schema?: string;
 	/** Personal information. */
