@@ -5,21 +5,40 @@ import Path from 'node:path';
 import * as Commander from 'commander';
 
 import { UtilsPdf } from './utils/utils_pdf.js';
+import { UtilsAisdk } from './utils/utils_aisdk.js';
+import * as AiSdk from 'ai';
+import { z } from 'zod';
+
+import { ResumeSchema } from './types/resume_schemas.js';
+import { Resume } from './types/resume_types.js';
+
 
 class MainHelper {
-	async fromPdf(inputPath: string): Promise<void> {
+	async fromPdf(inputPath: string): Promise<Resume> {
 		const pdfBuffer = await Fs.promises.readFile(inputPath);
 		const imageBuffers = await UtilsPdf.pdf2images(pdfBuffer);
 
-		const inputDir = Path.dirname(inputPath);
-		const inputBase = Path.basename(inputPath, Path.extname(inputPath));
-
-		for (let pageIndex = 0; pageIndex < imageBuffers.length; pageIndex++) {
-			const pageNumber = pageIndex + 1;
-			const outputPath = Path.resolve(inputDir, `${inputBase}.page${pageNumber}.png`);
-			await Fs.promises.writeFile(outputPath, imageBuffers[pageIndex]);
-			console.log(`wrote ${outputPath}`);
-		}
+		const openaiAiSdk = await UtilsAisdk.openaiAiSdk();
+		const result = await AiSdk.generateText({
+			model: openaiAiSdk('gpt-4.1'),
+			output: AiSdk.Output.object({
+				schema: z.object({ resume: ResumeSchema }),
+			}),
+			messages: [
+				{
+					role: 'user',
+					content: [
+						{ type: 'text', text: 'Analyze this image.' },
+						{
+							type: 'image',
+							image: imageBuffers[0],
+						},
+					],
+				},
+			],
+		});
+		const resume = result.output.resume;
+		return resume;
 	}
 }
 
