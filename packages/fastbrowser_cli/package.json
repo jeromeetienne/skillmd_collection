@@ -8,7 +8,7 @@
         "fastbrowser_mcp": "./dist/fastbrowser_mcp/fastbrowser_mcp.js"
     },
     "scripts": {
-        "dev:fastbrowser_mcp": "npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts",
+        "dev:mcp": "npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts",
         "dev:httpd": "npx tsx ./src/fastbrowser_httpd/fastbrowser_httpd.ts",
         "dev:cli": "npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts",
         "inspect:fastbrowser_mcp:chrome_devtools": "npx @modelcontextprotocol/inspector npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts mcp_server --mcp_target chrome_devtools",
