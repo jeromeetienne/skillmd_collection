@@ -1,6 +1,6 @@
 {
     "name": "fastbrowser_cli",
-    "version": "1.0.28",
+    "version": "1.0.29",
     "description": "A CLI tool for FastBrowser, providing commands to interact with the FastBrowser MCP (Model Context Protocol) server and perform various browser automation tasks.",
     "main": "dist/fastbrowser_cli/fastbrowser_cli.js",
     "bin": {
@@ -19,7 +19,8 @@
         "inspect:playwright:extension": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --extension",
         "build": "tsc -p tsconfig.build.json",
         "prepublish:check": "test -z \"$(git status --porcelain)\" || (echo 'Working tree dirty — commit or stash first' && exit 1)",
-        "publish:all": "pnpm run prepublish:check && pnpm run build && npm version patch && pnpm publish --access public",
+        "version:bump": "npm version patch --no-git-tag-version && git add package.json && git commit -m \"feat: bump version to $(node -p 'require(\\\"./package.json\\\").version') in fastbrowser_cli package.json\"",
+        "publish:all": "pnpm run prepublish:check && pnpm run build && pnpm run version:bump && pnpm publish --access public",
         "typecheck": "tsc -p tsconfig.json --noEmit",
         "test": "npx tsx --test 'tests/**/*.test.ts'"
     },
