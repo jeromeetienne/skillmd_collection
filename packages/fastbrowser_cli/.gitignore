@@ -6,3 +6,4 @@ dist/
 
 # Playwright test artifacts
 .playwright-mcp/
+.playwright-cli/
