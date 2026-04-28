@@ -111,6 +111,7 @@ class MainHelper {
 		}
 
 		// Prompt the AI SDK to generate the resume JSON
+		// FIXME this is bad - 
 		const modelName = 'gpt-4.1';
 		const openaiAiSdk = await UtilsAisdk.openaiAiSdk();
 		const result = await AiSdk.generateText({
@@ -146,6 +147,47 @@ class MainHelper {
 		const pdfBuffer: Buffer = await UtilsPdf.html2pdf(resumeHtml);
 
 		return pdfBuffer;
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	fromMarkdown
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async fromMarkdown(resumeMd: string): Promise<ResumeJson> {
+		// Build the user content array with the instruction and the markdown
+		const userContent: AiSdk.UserContent = [
+			{
+				type: 'text',
+				text: [
+					'Analyze this resume markdown and extract resume information in JSON format according to the ResumeJsonSchema.',
+					'Only output the JSON, no explanations.',
+					'',
+					resumeMd,
+				].join('\n'),
+			},
+		];
+
+		// Prompt the AI SDK to generate the resume JSON
+		const modelName = 'gpt-4.1';
+		const openaiAiSdk = await UtilsAisdk.openaiAiSdk();
+		const result = await AiSdk.generateText({
+			model: openaiAiSdk(modelName),
+			output: AiSdk.Output.object({
+				schema: ResumeJsonSchema,
+			}),
+			messages: [
+				{
+					role: 'user',
+					content: userContent,
+				},
+			],
+		});
+
+		// return ResumeJson
+		const resumeJson: ResumeJson = result.output;
+		return resumeJson;
 	}
 }
 
@@ -199,6 +241,23 @@ async function main() {
 
 			await MainHelper.writeOutputBuffer(options.outputResumePdf, pdfBuffer);
 			console.log(`PDF written to ${options.outputResumePdf}`);
+		});
+
+	program
+		.command('from_markdown')
+		.description('Extract resume JSON from a markdown file')
+		.requiredOption('-i, --inputResumeMarkdown <path>', 'path to the input markdown file')
+		.requiredOption('-o, --outputResumeJson <path>', 'path to write the resume JSON output')
+		.action(async (options: { inputResumeMarkdown: string; outputResumeJson: string }) => {
+			const resumeMd = await MainHelper.readInputString(options.inputResumeMarkdown);
+
+			const resumeJson = await MainHelper.fromMarkdown(resumeMd);
+			const resumeJsonStr = JSON.stringify(resumeJson, null, '\t');
+
+			await MainHelper.writeOutputString(options.outputResumeJson, resumeJsonStr);
+
+			const resumeJsonPrettyStr = await ResumePrettyPrint.prettyPrint(resumeJson);
+			console.log(resumeJsonPrettyStr);
 		});
 
 	program
