@@ -82,6 +82,9 @@ export class AtsQuestioner {
 			const color = priorityColor(question.priority);
 			lines.push(color(`    ${questionIndex}. [${question.priority.toUpperCase()}] (${question.category}) ${question.question}`));
 			lines.push(color(`       Context: ${question.context}`));
+			if (question.answer !== undefined && question.answer !== '') {
+				lines.push(`       Answer: ${question.answer}`);
+			}
 		}
 		return lines.join("\n");
 	}

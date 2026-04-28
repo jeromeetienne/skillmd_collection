@@ -20,6 +20,7 @@ import { AtsQuestion } from './ats/ats_question_type.js';
 import { AtsQuestionSchema } from './ats/ats_question_schema.js';
 import { ResumeHelper } from './resume_json/resume_helper.js';
 import { AtsAnswered } from './ats/ats_answered.js';
+import { AtsOptimizer } from './ats/ats_optimizer.js';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const PROJECT_ROOT = Path.resolve(__dirname, '..');
@@ -143,6 +144,12 @@ async function main() {
 		.name('resumejson_cli')
 		.description('Command-line interface for resume JSON tooling.')
 		.version('1.0.0');
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
 	program
 		.command('from_pdf')
@@ -269,6 +276,35 @@ async function main() {
 			console.log(atsQuestionAnsweredPrettyStr);
 		});
 
+	program
+		.command('ats_optimize')
+		.description('Produce an optimized resume JSON based on the original resume JSON and the ATS review')
+		.requiredOption('-i, --inputResumeJson <path>', 'path to the input resume JSON file')
+		.requiredOption('-r, --inputAtsReview <path>', 'path to the input ATS review JSON file')
+		.requiredOption('-o, --outputResumeJson <path>', 'path to write the optimized resume JSON output')
+		.action(async (options: { inputResumeJson: string; inputAtsReview: string; outputResumeJson: string }) => {
+			const aiSdkProvider = await UtilsAisdk.openaiAiSdk()
+
+			const resumeJsonStr = await MainHelper.readInputString(options.inputResumeJson);
+			const resumeJson: ResumeJson = ResumeJsonSchema.parse(JSON.parse(resumeJsonStr));
+
+			const atsReviewStr = await MainHelper.readInputString(options.inputAtsReview);
+			const atsReview = JSON.parse(atsReviewStr);
+
+			const resumeOptimizedJson = await AtsOptimizer.optimize(aiSdkProvider, resumeJson, atsReview);
+
+			const resumeOptimizedStr = JSON.stringify(resumeOptimizedJson, null, '\t');
+			await MainHelper.writeOutputString(options.outputResumeJson, resumeOptimizedStr);
+
+			const resumeOptimizedPrettyStr = await ResumeHelper.prettyPrint(resumeOptimizedJson);
+			console.log(resumeOptimizedPrettyStr);
+		});
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
 	program.parse(process.argv);
 }
