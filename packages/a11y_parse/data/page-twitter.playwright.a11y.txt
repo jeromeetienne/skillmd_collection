@@ -1,0 +1,1362 @@
+uid=s1 Page
+uid=s2 Page
+uid=s3 Console value="1 errors, 0 warnings"
+uid=e1 generic active
+  uid=e2 generic
+    uid=s4 generic
+      uid=s5 generic
+        uid=e3 heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" level="2"
+          uid=e4 generic value="To view keyboard shortcuts, press question mark"
+          uid=e5 link "View keyboard shortcuts" url="/i/keyboard_shortcuts"
+        uid=s6 generic
+          uid=s7 generic
+            uid=e8 button
+              uid=e9 img
+            uid=e16 img
+        uid=e18 generic
+          uid=e464 button "Skip to home timeline"
+          uid=e466 button "Skip to trending"
+          uid=e23 banner
+            uid=e25 generic
+              uid=e26 generic
+                uid=e28 heading "X" level="1"
+                  uid=e29 link "X" url="/home"
+                    uid=e31 img
+                uid=e35 navigation "Primary"
+                  uid=e36 link "Home" url="/home"
+                    uid=e37 generic
+                      uid=e468 img
+                      uid=e42 generic value="Home"
+                  uid=e43 link "Search and explore" url="/explore"
+                    uid=e44 generic
+                      uid=e46 img
+                      uid=e49 generic value="Explore"
+                  uid=e50 link "Notifications" url="/notifications"
+                    uid=e51 generic
+                      uid=e53 img
+                      uid=e56 generic value="Notifications"
+                  uid=e57 link "Direct Messages" url="/i/chat"
+                    uid=e58 generic
+                      uid=e60 img
+                      uid=e63 generic value="Chat"
+                  uid=e64 link "Grok" url="/i/grok"
+                    uid=e65 generic
+                      uid=e67 img
+                      uid=e70 generic value="Grok"
+                  uid=e71 link "Bookmarks" url="/i/bookmarks"
+                    uid=e72 generic
+                      uid=e74 img
+                      uid=e77 generic value="Bookmarks"
+                  uid=e78 link "Creator Studio" url="/i/jf/creators/studio"
+                    uid=e79 generic
+                      uid=e81 img
+                      uid=e84 generic value="Creator Studio"
+                  uid=e85 link "Premium" url="/i/premium_sign_up"
+                    uid=e86 generic
+                      uid=e88 img
+                      uid=e91 generic value="Premium"
+                      uid=e471 generic
+                        uid=s8 generic
+                          uid=s9 generic value="50% off"
+                  uid=e92 link "Profile" url="/jerome_etienne"
+                    uid=e93 generic
+                      uid=e95 img
+                      uid=e98 generic value="Profile"
+                  uid=e99 button "More menu items"
+                    uid=e100 generic
+                      uid=e102 img
+                      uid=e105 generic value="More"
+                uid=e107 link "Post" url="/compose/post"
+                  uid=e113 generic value="Post"
+              uid=e116 button "Account menu"
+                uid=e124 generic
+                  uid=s10 generic
+                    uid=s11 generic
+                      uid=s12 generic
+                        uid=s13 unknown
+                          uid=s14 unknown
+                uid=e128 generic
+                  uid=e132 generic value="Jerome Etienne #ARjs"
+                  uid=e136 generic value="@jerome_etienne"
+                uid=e138 img
+          uid=e141 main
+            uid=e473 generic
+              uid=e475 generic "Home timeline"
+                uid=e476 generic
+                  uid=e482 generic
+                    uid=e484 button "Back"
+                      uid=e486 img
+                    uid=e491 heading "Post" level="2"
+                  uid=s15 generic
+                    uid=s16 generic
+                      uid=s17 status
+                        uid=s18 button
+                          uid=s19 generic
+                            uid=s20 img
+                            uid=s21 generic value="See new posts"
+                uid=e493 region "Conversation"
+                  uid=e494 heading "Conversation" level="1"
+                  uid=s22 unknown
+                    uid=e496 generic
+                      uid=s23 unknown
+                        uid=e508 generic
+                          uid=e520 link url="/aibytekat"
+                          uid=e524 generic
+                            uid=e526 generic
+                              uid=e529 generic
+                                uid=e532 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e533 generic
+                                    uid=e535 generic value="Katyayani Shukla"
+                                    uid=e538 img "Verified account"
+                                uid=e542 generic
+                                  uid=e544 link "@aibytekat" url="/aibytekat"
+                                    uid=e545 generic value="@aibytekat"
+                                  uid=e546 generic value="·"
+                                  uid=e548 link "Apr 26" url="/aibytekat/status/2048370268742238492"
+                                    uid=e549 time value="Apr 26"
+                              uid=e551 generic
+                                uid=e553 button "Grok actions"
+                                  uid=e558 img
+                                uid=e564 button "More"
+                                  uid=e568 img
+                            uid=e571 generic
+                              uid=e572 generic value="2. The \"Fixed Budget\" Lie Situation: The recruiter tells you with a sympathetic voice that the salary band is strictly capped by finance and they literally cannot offer a higher base pay. System: Ask for a one-time sign-on bonus or demand an accelerated 6-month performance"
+                              uid=e573 button "Show more"
+                            uid=e576 group "3 replies, 114 likes, 68 bookmarks, 107801 views"
+                              uid=e578 button "3 Replies. Reply"
+                                uid=e579 generic
+                                  uid=e582 img
+                                  uid=e587 generic value="3"
+                              uid=e589 button "0 reposts. Repost"
+                                uid=e593 img
+                              uid=e600 button "114 Likes. Like"
+                                uid=e601 generic
+                                  uid=e604 img
+                                  uid=e609 generic value="114"
+                              uid=e611 link "107801 views. View post analytics" url="/aibytekat/status/2048370268742238492/analytics"
+                                uid=e612 generic
+                                  uid=e615 img
+                                  uid=e620 generic value="107K"
+                              uid=e622 button "Bookmark"
+                                uid=e626 img
+                              uid=e631 button "Share post"
+                                uid=e635 img
+                      uid=s24 unknown
+                        uid=e649 generic
+                          uid=e661 link url="/aibytekat"
+                          uid=e665 generic
+                            uid=e667 generic
+                              uid=e670 generic
+                                uid=e673 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e674 generic
+                                    uid=e676 generic value="Katyayani Shukla"
+                                    uid=e679 img "Verified account"
+                                uid=e683 generic
+                                  uid=e685 link "@aibytekat" url="/aibytekat"
+                                    uid=e686 generic value="@aibytekat"
+                                  uid=e687 generic value="·"
+                                  uid=e689 link "Apr 26" url="/aibytekat/status/2048370280519852295"
+                                    uid=e690 time value="Apr 26"
+                              uid=e692 generic
+                                uid=e694 button "Grok actions"
+                                  uid=e699 img
+                                uid=e705 button "More"
+                                  uid=e709 img
+                            uid=e712 generic
+                              uid=e713 generic value="3. The \"Total Compensation\" Distraction Situation: They try to sell you on a massive \"total compensation\" package, heavily emphasizing free office lunches, unlimited PTO, a ping-pong table, and a \"family culture\" to offset the heavily discounted base pay. System: Assign a"
+                              uid=e714 button "Show more"
+                            uid=e717 group "3 replies, 88 likes, 24 bookmarks, 96276 views"
+                              uid=e719 button "3 Replies. Reply"
+                                uid=e720 generic
+                                  uid=e723 img
+                                  uid=e728 generic value="3"
+                              uid=e730 button "0 reposts. Repost"
+                                uid=e734 img
+                              uid=e741 button "88 Likes. Like"
+                                uid=e742 generic
+                                  uid=e745 img
+                                  uid=e750 generic value="88"
+                              uid=e752 link "96276 views. View post analytics" url="/aibytekat/status/2048370280519852295/analytics"
+                                uid=e753 generic
+                                  uid=e756 img
+                                  uid=e761 generic value="96K"
+                              uid=e763 button "Bookmark"
+                                uid=e767 img
+                              uid=e772 button "Share post"
+                                uid=e776 img
+                      uid=s25 unknown
+                        uid=e790 generic
+                          uid=e802 link url="/aibytekat"
+                          uid=e806 generic
+                            uid=e808 generic
+                              uid=e811 generic
+                                uid=e814 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e815 generic
+                                    uid=e817 generic value="Katyayani Shukla"
+                                    uid=e820 img "Verified account"
+                                uid=e824 generic
+                                  uid=e826 link "@aibytekat" url="/aibytekat"
+                                    uid=e827 generic value="@aibytekat"
+                                  uid=e828 generic value="·"
+                                  uid=e830 link "Apr 26" url="/aibytekat/status/2048370292431684033"
+                                    uid=e831 time value="Apr 26"
+                              uid=e833 generic
+                                uid=e835 button "Grok actions"
+                                  uid=e840 img
+                                uid=e846 button "More"
+                                  uid=e850 img
+                            uid=e853 generic
+                              uid=e854 generic value="4. The Exploding Offer Trap Situation: They send you the contract and give you exactly 24 hours to sign it, threatening that the offer will be entirely revoked if you miss the arbitrary deadline. System: Reply cleanly: \"I am highly interested in the role, but I do not make major"
+                              uid=e855 button "Show more"
+                            uid=e858 group "2 replies, 2 reposts, 68 likes, 31 bookmarks, 82459 views"
+                              uid=e860 button "2 Replies. Reply"
+                                uid=e861 generic
+                                  uid=e864 img
+                                  uid=e869 generic value="2"
+                              uid=e871 button "2 reposts. Repost"
+                                uid=e872 generic
+                                  uid=e875 img
+                                  uid=e880 generic value="2"
+                              uid=e882 button "68 Likes. Like"
+                                uid=e883 generic
+                                  uid=e886 img
+                                  uid=e891 generic value="68"
+                              uid=e893 link "82459 views. View post analytics" url="/aibytekat/status/2048370292431684033/analytics"
+                                uid=e894 generic
+                                  uid=e897 img
+                                  uid=e902 generic value="82K"
+                              uid=e904 button "Bookmark"
+                                uid=e908 img
+                              uid=e913 button "Share post"
+                                uid=e917 img
+                      uid=s26 unknown
+                        uid=e931 generic
+                          uid=e943 link url="/aibytekat"
+                          uid=e947 generic
+                            uid=e949 generic
+                              uid=e952 generic
+                                uid=e955 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e956 generic
+                                    uid=e958 generic value="Katyayani Shukla"
+                                    uid=e961 img "Verified account"
+                                uid=e965 generic
+                                  uid=e967 link "@aibytekat" url="/aibytekat"
+                                    uid=e968 generic value="@aibytekat"
+                                  uid=e969 generic value="·"
+                                  uid=e971 link "Apr 26" url="/aibytekat/status/2048370304330989617"
+                                    uid=e972 time value="Apr 26"
+                              uid=e974 generic
+                                uid=e976 button "Grok actions"
+                                  uid=e981 img
+                                uid=e987 button "More"
+                                  uid=e991 img
+                            uid=e994 generic
+                              uid=e995 generic value="5. The Recruiter's \"Friend\" Persona Situation: The recruiter uses incredibly casual language, texts you after hours, and acts like they are secretly fighting the terrible hiring manager to get you the best deal possible. System: Remember that the recruiter is not your friend."
+                              uid=e996 button "Show more"
+                            uid=e999 group "1 reply, 42 likes, 11 bookmarks, 68132 views"
+                              uid=e1001 button "1 Reply. Reply"
+                                uid=e1002 generic
+                                  uid=e1005 img
+                                  uid=e1010 generic value="1"
+                              uid=e1012 button "0 reposts. Repost"
+                                uid=e1016 img
+                              uid=e1023 button "42 Likes. Like"
+                                uid=e1024 generic
+                                  uid=e1027 img
+                                  uid=e1032 generic value="42"
+                              uid=e1034 link "68132 views. View post analytics" url="/aibytekat/status/2048370304330989617/analytics"
+                                uid=e1035 generic
+                                  uid=e1038 img
+                                  uid=e1043 generic value="68K"
+                              uid=e1045 button "Bookmark"
+                                uid=e1049 img
+                              uid=e1054 button "Share post"
+                                uid=e1058 img
+                      uid=s27 unknown
+                        uid=e1072 generic
+                          uid=e1084 link url="/aibytekat"
+                          uid=e1088 generic
+                            uid=e1090 generic
+                              uid=e1093 generic
+                                uid=e1096 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e1097 generic
+                                    uid=e1099 generic value="Katyayani Shukla"
+                                    uid=e1102 img "Verified account"
+                                uid=e1106 generic
+                                  uid=e1108 link "@aibytekat" url="/aibytekat"
+                                    uid=e1109 generic value="@aibytekat"
+                                  uid=e1110 generic value="·"
+                                  uid=e1112 link "Apr 26" url="/aibytekat/status/2048370315999490507"
+                                    uid=e1113 time value="Apr 26"
+                              uid=e1115 generic
+                                uid=e1117 button "Grok actions"
+                                  uid=e1122 img
+                                uid=e1128 button "More"
+                                  uid=e1132 img
+                            uid=e1135 generic
+                              uid=e1136 generic value="6. The \"Market Rate\" Bluff Situation: They claim their low offer is actually highly competitive for the current market and attempt to make you feel like your expectations are completely unreasonable. System: Bring highly specific data to the table. Reply: \"Based on my direct"
+                              uid=e1137 button "Show more"
+                            uid=e1140 group "1 reply, 40 likes, 36 bookmarks, 56004 views"
+                              uid=e1142 button "1 Reply. Reply"
+                                uid=e1143 generic
+                                  uid=e1146 img
+                                  uid=e1151 generic value="1"
+                              uid=e1153 button "0 reposts. Repost"
+                                uid=e1157 img
+                              uid=e1164 button "40 Likes. Like"
+                                uid=e1165 generic
+                                  uid=e1168 img
+                                  uid=e1173 generic value="40"
+                              uid=e1175 link "56004 views. View post analytics" url="/aibytekat/status/2048370315999490507/analytics"
+                                uid=e1176 generic
+                                  uid=e1179 img
+                                  uid=e1184 generic value="56K"
+                              uid=e1186 button "Bookmark"
+                                uid=e1190 img
+                              uid=e1195 button "Share post"
+                                uid=e1199 img
+                      uid=s28 unknown
+                        uid=e1213 generic
+                          uid=e1225 link url="/aibytekat"
+                          uid=e1229 generic
+                            uid=e1231 generic
+                              uid=e1234 generic
+                                uid=e1237 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e1238 generic
+                                    uid=e1240 generic value="Katyayani Shukla"
+                                    uid=e1243 img "Verified account"
+                                uid=e1247 generic
+                                  uid=e1249 link "@aibytekat" url="/aibytekat"
+                                    uid=e1250 generic value="@aibytekat"
+                                  uid=e1251 generic value="·"
+                                  uid=e1253 link "Apr 26" url="/aibytekat/status/2048370327760314557"
+                                    uid=e1254 time value="Apr 26"
+                              uid=e1256 generic
+                                uid=e1258 button "Grok actions"
+                                  uid=e1263 img
+                                uid=e1269 button "More"
+                                  uid=e1273 img
+                            uid=e1276 generic
+                              uid=e1277 generic value="7. The Silence Tactic Situation: You send your well-crafted counter-offer and they do not reply for three full days. You start panicking, assuming you ruined everything, and want to follow up to backtrack on your number. System: Do absolutely nothing. Close your laptop and let"
+                              uid=e1278 button "Show more"
+                            uid=e1281 group "1 reply, 29 likes, 12 bookmarks, 46479 views"
+                              uid=e1283 button "1 Reply. Reply"
+                                uid=e1284 generic
+                                  uid=e1287 img
+                                  uid=e1292 generic value="1"
+                              uid=e1294 button "0 reposts. Repost"
+                                uid=e1298 img
+                              uid=e1305 button "29 Likes. Like"
+                                uid=e1306 generic
+                                  uid=e1309 img
+                                  uid=e1314 generic value="29"
+                              uid=e1316 link "46479 views. View post analytics" url="/aibytekat/status/2048370327760314557/analytics"
+                                uid=e1317 generic
+                                  uid=e1320 img
+                                  uid=e1325 generic value="46K"
+                              uid=e1327 button "Bookmark"
+                                uid=e1331 img
+                              uid=e1336 button "Share post"
+                                uid=e1340 img
+                      uid=s29 unknown
+                        uid=e1354 generic
+                          uid=e1366 link url="/aibytekat"
+                          uid=e1370 generic
+                            uid=e1372 generic
+                              uid=e1375 generic
+                                uid=e1378 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e1379 generic
+                                    uid=e1381 generic value="Katyayani Shukla"
+                                    uid=e1384 img "Verified account"
+                                uid=e1388 generic
+                                  uid=e1390 link "@aibytekat" url="/aibytekat"
+                                    uid=e1391 generic value="@aibytekat"
+                                  uid=e1392 generic value="·"
+                                  uid=e1394 link "Apr 26" url="/aibytekat/status/2048370339529490466"
+                                    uid=e1395 time value="Apr 26"
+                              uid=e1397 generic
+                                uid=e1399 button "Grok actions"
+                                  uid=e1404 img
+                                uid=e1410 button "More"
+                                  uid=e1414 img
+                            uid=e1417 generic
+                              uid=e1418 generic value="8. The \"Other Candidates\" Threat Situation: They subtly mention they have three other highly qualified candidates waiting in the wings if you do not accept the current terms immediately. System: Call the bluff with total professional detachment. \"I completely understand if you"
+                              uid=e1419 button "Show more"
+                            uid=e1422 group "1 reply, 48 likes, 20 bookmarks, 38926 views"
+                              uid=e1424 button "1 Reply. Reply"
+                                uid=e1425 generic
+                                  uid=e1428 img
+                                  uid=e1433 generic value="1"
+                              uid=e1435 button "0 reposts. Repost"
+                                uid=e1439 img
+                              uid=e1446 button "48 Likes. Like"
+                                uid=e1447 generic
+                                  uid=e1450 img
+                                  uid=e1455 generic value="48"
+                              uid=e1457 link "38926 views. View post analytics" url="/aibytekat/status/2048370339529490466/analytics"
+                                uid=e1458 generic
+                                  uid=e1461 img
+                                  uid=e1466 generic value="38K"
+                              uid=e1468 button "Bookmark"
+                                uid=e1472 img
+                              uid=e1477 button "Share post"
+                                uid=e1481 img
+                      uid=s30 unknown
+                        uid=e1495 generic
+                          uid=e1507 link url="/aibytekat"
+                          uid=e1511 generic
+                            uid=e1513 generic
+                              uid=e1516 generic
+                                uid=e1519 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e1520 generic
+                                    uid=e1522 generic value="Katyayani Shukla"
+                                    uid=e1525 img "Verified account"
+                                uid=e1529 generic
+                                  uid=e1531 link "@aibytekat" url="/aibytekat"
+                                    uid=e1532 generic value="@aibytekat"
+                                  uid=e1533 generic value="·"
+                                  uid=e1535 link "Apr 26" url="/aibytekat/status/2048370351550386672"
+                                    uid=e1536 time value="Apr 26"
+                              uid=e1538 generic
+                                uid=e1540 button "Grok actions"
+                                  uid=e1545 img
+                                uid=e1551 button "More"
+                                  uid=e1555 img
+                            uid=e1558 generic
+                              uid=e1559 generic value="9. The \"Future Review\" Promise Situation: They absolutely refuse to increase the offer now, but they promise to heavily bump your salary to your requested number after a standard 90-day probationary period. System: Demand it in the official offer letter as a guaranteed,"
+                              uid=e1560 button "Show more"
+                            uid=e1563 group "1 reply, 32 likes, 10 bookmarks, 33189 views"
+                              uid=e1565 button "1 Reply. Reply"
+                                uid=e1566 generic
+                                  uid=e1569 img
+                                  uid=e1574 generic value="1"
+                              uid=e1576 button "0 reposts. Repost"
+                                uid=e1580 img
+                              uid=e1587 button "32 Likes. Like"
+                                uid=e1588 generic
+                                  uid=e1591 img
+                                  uid=e1596 generic value="32"
+                              uid=e1598 link "33189 views. View post analytics" url="/aibytekat/status/2048370351550386672/analytics"
+                                uid=e1599 generic
+                                  uid=e1602 img
+                                  uid=e1607 generic value="33K"
+                              uid=e1609 button "Bookmark"
+                                uid=e1613 img
+                              uid=e1618 button "Share post"
+                                uid=e1622 img
+                      uid=s31 unknown
+                        uid=e1636 generic
+                          uid=e1648 link url="/aibytekat"
+                          uid=e1652 generic
+                            uid=e1654 generic
+                              uid=e1657 generic
+                                uid=e1660 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e1661 generic
+                                    uid=e1663 generic value="Katyayani Shukla"
+                                    uid=e1666 img "Verified account"
+                                uid=e1670 generic
+                                  uid=e1672 link "@aibytekat" url="/aibytekat"
+                                    uid=e1673 generic value="@aibytekat"
+                                  uid=e1674 generic value="·"
+                                  uid=e1676 link "Apr 26" url="/aibytekat/status/2048370363516817772"
+                                    uid=e1677 time value="Apr 26"
+                              uid=e1679 generic
+                                uid=e1681 button "Grok actions"
+                                  uid=e1686 img
+                                uid=e1692 button "More"
+                                  uid=e1696 img
+                            uid=e1699 generic
+                              uid=e1700 generic value="10. The Equity Illusion Situation: They offer a massive amount of unvested options in a highly speculative, pre-IPO startup to justify asking you to take a massive 40% pay cut from your market rate. System: Calculate the equity at a 90% discount, or treat it as $0 until a"
+                              uid=e1701 button "Show more"
+                            uid=e1704 group "1 reply, 12 likes, 10 bookmarks, 28956 views"
+                              uid=e1706 button "1 Reply. Reply"
+                                uid=e1707 generic
+                                  uid=e1710 img
+                                  uid=e1715 generic value="1"
+                              uid=e1717 button "0 reposts. Repost"
+                                uid=e1721 img
+                              uid=e1728 button "12 Likes. Like"
+                                uid=e1729 generic
+                                  uid=e1732 img
+                                  uid=e1737 generic value="12"
+                              uid=e1739 link "28956 views. View post analytics" url="/aibytekat/status/2048370363516817772/analytics"
+                                uid=e1740 generic
+                                  uid=e1743 img
+                                  uid=e1748 generic value="28K"
+                              uid=e1750 button "Bookmark"
+                                uid=e1754 img
+                              uid=e1759 button "Share post"
+                                uid=e1763 img
+                      uid=s32 unknown
+                        uid=e1777 generic
+                          uid=e1789 link url="/aibytekat"
+                          uid=e1793 generic
+                            uid=e1795 generic
+                              uid=e1798 generic
+                                uid=e1801 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e1802 generic
+                                    uid=e1804 generic value="Katyayani Shukla"
+                                    uid=e1807 img "Verified account"
+                                uid=e1811 generic
+                                  uid=e1813 link "@aibytekat" url="/aibytekat"
+                                    uid=e1814 generic value="@aibytekat"
+                                  uid=e1815 generic value="·"
+                                  uid=e1817 link "Apr 26" url="/aibytekat/status/2048370375231512933"
+                                    uid=e1818 time value="Apr 26"
+                              uid=e1820 generic
+                                uid=e1822 button "Grok actions"
+                                  uid=e1827 img
+                                uid=e1833 button "More"
+                                  uid=e1837 img
+                            uid=e1840 generic
+                              uid=e1841 generic value="11. The Title Downgrade Situation: They agree to pay you the money you asked for, but they quietly downgrade the official title from Senior to Mid-level so your salary fits neatly into their rigid HR bands. System: Reject the downgrade entirely. The title dictates your baseline"
+                              uid=e1842 button "Show more"
+                            uid=e1845 group "1 reply, 20 likes, 5 bookmarks, 25587 views"
+                              uid=e1847 button "1 Reply. Reply"
+                                uid=e1848 generic
+                                  uid=e1851 img
+                                  uid=e1856 generic value="1"
+                              uid=e1858 button "0 reposts. Repost"
+                                uid=e1862 img
+                              uid=e1869 button "20 Likes. Like"
+                                uid=e1870 generic
+                                  uid=e1873 img
+                                  uid=e1878 generic value="20"
+                              uid=e1880 link "25587 views. View post analytics" url="/aibytekat/status/2048370375231512933/analytics"
+                                uid=e1881 generic
+                                  uid=e1884 img
+                                  uid=e1889 generic value="25K"
+                              uid=e1891 button "Bookmark"
+                                uid=e1895 img
+                              uid=e1900 button "Share post"
+                                uid=e1904 img
+                      uid=s33 unknown
+                        uid=e1918 generic
+                          uid=e1930 link url="/aibytekat"
+                          uid=e1934 generic
+                            uid=e1936 generic
+                              uid=e1939 generic
+                                uid=e1942 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e1943 generic
+                                    uid=e1945 generic value="Katyayani Shukla"
+                                    uid=e1948 img "Verified account"
+                                uid=e1952 generic
+                                  uid=e1954 link "@aibytekat" url="/aibytekat"
+                                    uid=e1955 generic value="@aibytekat"
+                                  uid=e1956 generic value="·"
+                                  uid=e1958 link "Apr 26" url="/aibytekat/status/2048370387168415915"
+                                    uid=e1959 time value="Apr 26"
+                              uid=e1961 generic
+                                uid=e1963 button "Grok actions"
+                                  uid=e1968 img
+                                uid=e1974 button "More"
+                                  uid=e1978 img
+                            uid=e1981 generic
+                              uid=e1982 generic value="12. The \"Verbal Agreement\" Trap Situation: The hiring manager calls you directly, sounds incredibly excited, and agrees to all of your negotiated terms over a quick phone call. System: Reply: \"Excellent. Please send over the updated offer letter so I can review and sign it"
+                              uid=e1983 button "Show more"
+                            uid=e1986 group "1 reply, 22 likes, 4 bookmarks, 22605 views"
+                              uid=e1988 button "1 Reply. Reply"
+                                uid=e1989 generic
+                                  uid=e1992 img
+                                  uid=e1997 generic value="1"
+                              uid=e1999 button "0 reposts. Repost"
+                                uid=e2003 img
+                              uid=e2010 button "22 Likes. Like"
+                                uid=e2011 generic
+                                  uid=e2014 img
+                                  uid=e2019 generic value="22"
+                              uid=e2021 link "22605 views. View post analytics" url="/aibytekat/status/2048370387168415915/analytics"
+                                uid=e2022 generic
+                                  uid=e2025 img
+                                  uid=e2030 generic value="22K"
+                              uid=e2032 button "Bookmark"
+                                uid=e2036 img
+                              uid=e2041 button "Share post"
+                                uid=e2045 img
+                      uid=s34 unknown
+                        uid=e2059 generic
+                          uid=e2071 link url="/aibytekat"
+                          uid=e2075 generic
+                            uid=e2077 generic
+                              uid=e2080 generic
+                                uid=e2083 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e2084 generic
+                                    uid=e2086 generic value="Katyayani Shukla"
+                                    uid=e2089 img "Verified account"
+                                uid=e2093 generic
+                                  uid=e2095 link "@aibytekat" url="/aibytekat"
+                                    uid=e2096 generic value="@aibytekat"
+                                  uid=e2097 generic value="·"
+                                  uid=e2099 link "Apr 26" url="/aibytekat/status/2048370398992224471"
+                                    uid=e2100 time value="Apr 26"
+                              uid=e2102 generic
+                                uid=e2104 button "Grok actions"
+                                  uid=e2109 img
+                                uid=e2115 button "More"
+                                  uid=e2119 img
+                            uid=e2122 generic
+                              uid=e2123 generic value="13. The PTO Pivot Situation: They hit a hard wall and absolutely refuse to move on the base salary due to strict, immovable corporate bands that require VP approval to break. System: Pivot instantly from cash to time. \"If we truly cannot meet at $120k, I will accept $105k with"
+                              uid=e2124 button "Show more"
+                            uid=e2127 group "1 reply, 21 likes, 12 bookmarks, 20153 views"
+                              uid=e2129 button "1 Reply. Reply"
+                                uid=e2130 generic
+                                  uid=e2133 img
+                                  uid=e2138 generic value="1"
+                              uid=e2140 button "0 reposts. Repost"
+                                uid=e2144 img
+                              uid=e2151 button "21 Likes. Like"
+                                uid=e2152 generic
+                                  uid=e2155 img
+                                  uid=e2160 generic value="21"
+                              uid=e2162 link "20153 views. View post analytics" url="/aibytekat/status/2048370398992224471/analytics"
+                                uid=e2163 generic
+                                  uid=e2166 img
+                                  uid=e2171 generic value="20K"
+                              uid=e2173 button "Bookmark"
+                                uid=e2177 img
+                              uid=e2182 button "Share post"
+                                uid=e2186 img
+                      uid=s35 unknown
+                        uid=e2200 generic
+                          uid=e2212 link url="/aibytekat"
+                          uid=e2216 generic
+                            uid=e2218 generic
+                              uid=e2221 generic
+                                uid=e2224 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e2225 generic
+                                    uid=e2227 generic value="Katyayani Shukla"
+                                    uid=e2230 img "Verified account"
+                                uid=e2234 generic
+                                  uid=e2236 link "@aibytekat" url="/aibytekat"
+                                    uid=e2237 generic value="@aibytekat"
+                                  uid=e2238 generic value="·"
+                                  uid=e2240 link "Apr 26" url="/aibytekat/status/2048370410698510831"
+                                    uid=e2241 time value="Apr 26"
+                              uid=e2243 generic
+                                uid=e2245 button "Grok actions"
+                                  uid=e2250 img
+                                uid=e2256 button "More"
+                                  uid=e2260 img
+                            uid=e2263 generic
+                              uid=e2264 generic value="14. The \"Immediate Answer\" Demand Situation: They call you out of the blue with the offer details and immediately ask: \"So, what do you think? Are you ready to accept and get started?\" System: Never negotiate live on the phone when the adrenaline is hitting. \"I appreciate the"
+                              uid=e2265 button "Show more"
+                            uid=e2268 group "1 reply, 14 likes, 5 bookmarks, 18065 views"
+                              uid=e2270 button "1 Reply. Reply"
+                                uid=e2271 generic
+                                  uid=e2274 img
+                                  uid=e2279 generic value="1"
+                              uid=e2281 button "0 reposts. Repost"
+                                uid=e2285 img
+                              uid=e2292 button "14 Likes. Like"
+                                uid=e2293 generic
+                                  uid=e2296 img
+                                  uid=e2301 generic value="14"
+                              uid=e2303 link "18065 views. View post analytics" url="/aibytekat/status/2048370410698510831/analytics"
+                                uid=e2304 generic
+                                  uid=e2307 img
+                                  uid=e2312 generic value="18K"
+                              uid=e2314 button "Bookmark"
+                                uid=e2318 img
+                              uid=e2323 button "Share post"
+                                uid=e2327 img
+                      uid=s36 unknown
+                        uid=e2341 generic
+                          uid=e2353 link url="/aibytekat"
+                          uid=e2357 generic
+                            uid=e2359 generic
+                              uid=e2362 generic
+                                uid=e2365 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e2366 generic
+                                    uid=e2368 generic value="Katyayani Shukla"
+                                    uid=e2371 img "Verified account"
+                                uid=e2375 generic
+                                  uid=e2377 link "@aibytekat" url="/aibytekat"
+                                    uid=e2378 generic value="@aibytekat"
+                                  uid=e2379 generic value="·"
+                                  uid=e2381 link "Apr 26" url="/aibytekat/status/2048370422622884007"
+                                    uid=e2382 time value="Apr 26"
+                              uid=e2384 generic
+                                uid=e2386 button "Grok actions"
+                                  uid=e2391 img
+                                uid=e2397 button "More"
+                                  uid=e2401 img
+                            uid=e2404 generic
+                              uid=e2405 generic value="15. The \"Overqualified\" Guilt Trip Situation: They push back on your number by claiming you are asking for too much because your advanced skills exceed the basic requirements of the role. System: Frame your deep expertise as an automation asset. \"My experience means I will"
+                              uid=e2406 button "Show more"
+                            uid=e2409 group "1 reply, 18 likes, 12 bookmarks, 16346 views"
+                              uid=e2411 button "1 Reply. Reply"
+                                uid=e2412 generic
+                                  uid=e2415 img
+                                  uid=e2420 generic value="1"
+                              uid=e2422 button "0 reposts. Repost"
+                                uid=e2426 img
+                              uid=e2433 button "18 Likes. Like"
+                                uid=e2434 generic
+                                  uid=e2437 img
+                                  uid=e2442 generic value="18"
+                              uid=e2444 link "16346 views. View post analytics" url="/aibytekat/status/2048370422622884007/analytics"
+                                uid=e2445 generic
+                                  uid=e2448 img
+                                  uid=e2453 generic value="16K"
+                              uid=e2455 button "Bookmark"
+                                uid=e2459 img
+                              uid=e2464 button "Share post"
+                                uid=e2468 img
+                      uid=s37 unknown
+                        uid=e2482 generic
+                          uid=e2494 link url="/aibytekat"
+                          uid=e2498 generic
+                            uid=e2500 generic
+                              uid=e2503 generic
+                                uid=e2506 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e2507 generic
+                                    uid=e2509 generic value="Katyayani Shukla"
+                                    uid=e2512 img "Verified account"
+                                uid=e2516 generic
+                                  uid=e2518 link "@aibytekat" url="/aibytekat"
+                                    uid=e2519 generic value="@aibytekat"
+                                  uid=e2520 generic value="·"
+                                  uid=e2522 link "Apr 26" url="/aibytekat/status/2048370434538864773"
+                                    uid=e2523 time value="Apr 26"
+                              uid=e2525 generic
+                                uid=e2527 button "Grok actions"
+                                  uid=e2532 img
+                                uid=e2538 button "More"
+                                  uid=e2542 img
+                            uid=e2545 generic
+                              uid=e2546 generic value="16. The \"Internal Equity\" Excuse Situation: HR claims they cannot pay you $120k because it would create internal conflict and be unfair to the current, loyal team members who are only making $90k. System: Make their problem their problem. \"My rate reflects the external market"
+                              uid=e2547 button "Show more"
+                            uid=e2550 group "2 replies, 1 repost, 19 likes, 19 bookmarks, 14793 views"
+                              uid=e2552 button "2 Replies. Reply"
+                                uid=e2553 generic
+                                  uid=e2556 img
+                                  uid=e2561 generic value="2"
+                              uid=e2563 button "1 repost. Repost"
+                                uid=e2564 generic
+                                  uid=e2567 img
+                                  uid=e2572 generic value="1"
+                              uid=e2574 button "19 Likes. Like"
+                                uid=e2575 generic
+                                  uid=e2578 img
+                                  uid=e2583 generic value="19"
+                              uid=e2585 link "14793 views. View post analytics" url="/aibytekat/status/2048370434538864773/analytics"
+                                uid=e2586 generic
+                                  uid=e2589 img
+                                  uid=e2594 generic value="14K"
+                              uid=e2596 button "Bookmark"
+                                uid=e2600 img
+                              uid=e2605 button "Share post"
+                                uid=e2609 img
+                      uid=s38 unknown
+                        uid=e2623 generic
+                          uid=e2635 link url="/aibytekat"
+                          uid=e2639 generic
+                            uid=e2641 generic
+                              uid=e2644 generic
+                                uid=e2647 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e2648 generic
+                                    uid=e2650 generic value="Katyayani Shukla"
+                                    uid=e2653 img "Verified account"
+                                uid=e2657 generic
+                                  uid=e2659 link "@aibytekat" url="/aibytekat"
+                                    uid=e2660 generic value="@aibytekat"
+                                  uid=e2661 generic value="·"
+                                  uid=e2663 link "Apr 26" url="/aibytekat/status/2048370446241054815"
+                                    uid=e2664 time value="Apr 26"
+                              uid=e2666 generic
+                                uid=e2668 button "Grok actions"
+                                  uid=e2673 img
+                                uid=e2679 button "More"
+                                  uid=e2683 img
+                            uid=e2686 generic
+                              uid=e2687 generic value="17. The Walk-Away Power Situation: They give you a final, aggressive, non-negotiable offer that is still $20k below your absolute minimum baseline. System: Walk away cleanly and professionally. \"Thank you for the opportunity, but this does not align with my current trajectory."
+                              uid=e2688 button "Show more"
+                            uid=e2691 group "2 replies, 23 likes, 11 bookmarks, 13504 views"
+                              uid=e2693 button "2 Replies. Reply"
+                                uid=e2694 generic
+                                  uid=e2697 img
+                                  uid=e2702 generic value="2"
+                              uid=e2704 button "0 reposts. Repost"
+                                uid=e2708 img
+                              uid=e2715 button "23 Likes. Like"
+                                uid=e2716 generic
+                                  uid=e2719 img
+                                  uid=e2724 generic value="23"
+                              uid=e2726 link "13504 views. View post analytics" url="/aibytekat/status/2048370446241054815/analytics"
+                                uid=e2727 generic
+                                  uid=e2730 img
+                                  uid=e2735 generic value="13K"
+                              uid=e2737 button "Bookmark"
+                                uid=e2741 img
+                              uid=e2746 button "Share post"
+                                uid=e2750 img
+                      uid=s39 unknown
+                        uid=e2764 generic
+                          uid=e2776 link url="/aibytekat"
+                          uid=e2780 generic
+                            uid=e2782 generic
+                              uid=e2785 generic
+                                uid=e2788 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e2789 generic
+                                    uid=e2791 generic value="Katyayani Shukla"
+                                    uid=e2794 img "Verified account"
+                                uid=e2798 generic
+                                  uid=e2800 link "@aibytekat" url="/aibytekat"
+                                    uid=e2801 generic value="@aibytekat"
+                                  uid=e2802 generic value="·"
+                                  uid=e2804 link "Apr 26" url="/aibytekat/status/2048370458446463112"
+                                    uid=e2805 time value="Apr 26"
+                              uid=e2807 generic
+                                uid=e2809 button "Grok actions"
+                                  uid=e2814 img
+                                uid=e2820 button "More"
+                                  uid=e2824 img
+                            uid=e2827 generic
+                              uid=e2828 generic value="18. The Ultimate Realization Situation: You feel deeply ungrateful for pushing back. You convince yourself you should just be happy to have an offer at all in this highly volatile economy. System: Realize that a corporate entity will never, ever pay you what you are actually"
+                              uid=e2829 button "Show more"
+                            uid=e2832 group "1 reply, 18 likes, 5 bookmarks, 12385 views"
+                              uid=e2834 button "1 Reply. Reply"
+                                uid=e2835 generic
+                                  uid=e2838 img
+                                  uid=e2843 generic value="1"
+                              uid=e2845 button "0 reposts. Repost"
+                                uid=e2849 img
+                              uid=e2856 button "18 Likes. Like"
+                                uid=e2857 generic
+                                  uid=e2860 img
+                                  uid=e2865 generic value="18"
+                              uid=e2867 link "12385 views. View post analytics" url="/aibytekat/status/2048370458446463112/analytics"
+                                uid=e2868 generic
+                                  uid=e2871 img
+                                  uid=e2876 generic value="12K"
+                              uid=e2878 button "Bookmark"
+                                uid=e2882 img
+                              uid=e2887 button "Share post"
+                                uid=e2891 img
+                      uid=e2897 article "Katyayani Shukla Verified account @aibytekat Apr 26 The secret to tech survival? Stop playing by HR's rules. Stop accepting their first draft of your future. Build your leverage, control the negotiation, and direct your own reality. 1 reply, 13 likes, 6 bookmarks, 11599 views"
+                        uid=e2905 generic
+                          uid=e2917 link url="/aibytekat"
+                          uid=e2921 generic
+                            uid=e2923 generic
+                              uid=e2926 generic
+                                uid=e2929 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e2930 generic
+                                    uid=e2932 generic value="Katyayani Shukla"
+                                    uid=e2935 img "Verified account"
+                                uid=e2939 generic
+                                  uid=e2941 link "@aibytekat" url="/aibytekat"
+                                    uid=e2942 generic value="@aibytekat"
+                                  uid=e2943 generic value="·"
+                                  uid=e2945 link "Apr 26" url="/aibytekat/status/2048370470186295535"
+                                    uid=e2946 time value="Apr 26"
+                              uid=e2948 generic
+                                uid=e2950 button "Grok actions"
+                                  uid=e2955 img
+                                uid=e2961 button "More"
+                                  uid=e2965 img
+                            uid=e2969 generic value="The secret to tech survival? Stop playing by HR's rules. Stop accepting their first draft of your future. Build your leverage, control the negotiation, and direct your own reality."
+                            uid=e2972 group "1 reply, 13 likes, 6 bookmarks, 11599 views"
+                              uid=e2974 button "1 Reply. Reply"
+                                uid=e2975 generic
+                                  uid=e2978 img
+                                  uid=e2983 generic value="1"
+                              uid=e2985 button "0 reposts. Repost"
+                                uid=e2989 img
+                              uid=e2996 button "13 Likes. Like"
+                                uid=e2997 generic
+                                  uid=e3000 img
+                                  uid=e3005 generic value="13"
+                              uid=e3007 link "11599 views. View post analytics" url="/aibytekat/status/2048370470186295535/analytics"
+                                uid=e3008 generic
+                                  uid=e3011 img
+                                  uid=e3016 generic value="11K"
+                              uid=e3018 button "Bookmark"
+                                uid=e3022 img
+                              uid=e3027 button "Share post"
+                                uid=e3031 img
+                      uid=s40 unknown
+                        uid=e3045 generic
+                          uid=e3057 link url="/aibytekat"
+                          uid=e3060 generic
+                            uid=e3062 generic
+                              uid=e3065 generic
+                                uid=e3068 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e3069 generic
+                                    uid=e3071 generic value="Katyayani Shukla"
+                                    uid=e3074 img "Verified account"
+                                uid=e3078 generic
+                                  uid=e3080 link "@aibytekat" url="/aibytekat"
+                                    uid=e3081 generic value="@aibytekat"
+                                  uid=e3082 generic value="·"
+                                  uid=e3084 link "Apr 26" url="/aibytekat/status/2048370481829667147"
+                                    uid=e3085 time value="Apr 26"
+                              uid=e3087 generic
+                                uid=e3089 button "Grok actions"
+                                  uid=e3094 img
+                                uid=e3100 button "More"
+                                  uid=e3104 img
+                            uid=e3108 generic
+                              uid=s41 StaticText "I hope you've found this thread helpful. Follow me"
+                              uid=e3111 link "@aibytekat" url="/aibytekat"
+                              uid=s42 StaticText "for more. Like/Repost the quote below if you can:"
+                            uid=s43 unknown
+                              uid=e3113 generic
+                                uid=e3114 generic value="Quote"
+                                uid=s44 unknown
+                                  uid=e3116 generic
+                                    uid=e3134 generic
+                                      uid=e3138 generic
+                                        uid=e3140 generic value="Katyayani Shukla"
+                                        uid=e3143 img "Verified account"
+                                      uid=e3147 generic
+                                        uid=e3150 generic value="@aibytekat"
+                                        uid=e3151 generic value="·"
+                                        uid=e3154 generic "Apr 26"
+                                          uid=e3155 time value="Apr 26"
+                                    uid=e3157 generic value="When you get the email: \"We are thrilled to offer you the role. The base salary is $85,000.\" (And you know the market rate is $120k). USE THE GOLDEN COUNTER-OFFER:"
+                            uid=e3160 group "1 reply, 21 likes, 42 bookmarks, 18052 views"
+                              uid=e3162 button "1 Reply. Reply"
+                                uid=e3163 generic
+                                  uid=e3166 img
+                                  uid=e3171 generic value="1"
+                              uid=e3173 button "0 reposts. Repost"
+                                uid=e3177 img
+                              uid=e3184 button "21 Likes. Like"
+                                uid=e3185 generic
+                                  uid=e3188 img
+                                  uid=e3193 generic value="21"
+                              uid=e3195 link "18052 views. View post analytics" url="/aibytekat/status/2048370481829667147/analytics"
+                                uid=e3196 generic
+                                  uid=e3199 img
+                                  uid=e3204 generic value="18K"
+                              uid=e3206 button "Bookmark"
+                                uid=e3210 img
+                              uid=e3215 button "Share post"
+                                uid=e3219 img
+                      uid=e3225 article "Javarevisited Verified account @javarevisited Apr 27 Doesn't work all the time, use with caution and always have something to go back."
+                        uid=e3231 generic
+                          uid=e3243 link url="/javarevisited"
+                          uid=e3246 generic
+                            uid=e3248 generic
+                              uid=e3251 generic
+                                uid=e3254 link "Javarevisited Verified account" url="/javarevisited"
+                                  uid=e3255 generic
+                                    uid=e3257 generic value="Javarevisited"
+                                    uid=e3260 img "Verified account"
+                                uid=e3264 generic
+                                  uid=e3266 link "@javarevisited" url="/javarevisited"
+                                    uid=e3267 generic value="@javarevisited"
+                                  uid=e3268 generic value="·"
+                                  uid=e3270 link "Apr 27" url="/javarevisited/status/2048579730044305439"
+                                    uid=e3271 time value="Apr 27"
+                              uid=e3273 generic
+                                uid=e3275 button "Grok actions"
+                                  uid=e3280 img
+                                uid=e3286 button "More"
+                                  uid=e3290 img
+                            uid=e3294 generic value="Doesn't work all the time, use with caution and always have something to go back."
+                            uid=e3297 group "1871 views"
+                              uid=e3299 button "0 Replies. Reply"
+                                uid=e3303 img
+                              uid=e3310 button "0 reposts. Repost"
+                                uid=e3314 img
+                              uid=e3321 button "0 Likes. Like"
+                                uid=e3325 img
+                              uid=e3332 link "1871 views. View post analytics" url="/javarevisited/status/2048579730044305439/analytics"
+                                uid=e3333 generic
+                                  uid=e3336 img
+                                  uid=e3341 generic value="1.8K"
+                              uid=e3343 button "Bookmark"
+                                uid=e3347 img
+                              uid=e3352 button "Share post"
+                                uid=e3356 img
+                      uid=s45 unknown
+                        uid=e3368 generic
+                          uid=e3380 link url="/sunnydaevt"
+                          uid=e3383 generic
+                            uid=e3385 generic
+                              uid=e3388 generic
+                                uid=e3391 link "sunnydae 🔅 Verified account" url="/sunnydaevt"
+                                  uid=e3392 generic
+                                    uid=e3394 generic
+                                      uid=s46 StaticText "sunnydae"
+                                      uid=e3395 img "🔅"
+                                    uid=e3398 img "Verified account"
+                                uid=e3402 generic
+                                  uid=e3404 link "@sunnydaevt" url="/sunnydaevt"
+                                    uid=e3405 generic value="@sunnydaevt"
+                                  uid=e3406 generic value="·"
+                                  uid=e3408 link "Apr 27" url="/sunnydaevt/status/2048566853878899018"
+                                    uid=e3409 time value="Apr 27"
+                              uid=e3411 generic
+                                uid=e3413 button "Grok actions"
+                                  uid=e3418 img
+                                uid=e3424 button "More"
+                                  uid=e3428 img
+                            uid=e3432 generic value="If they lowball you the golden counter offer is: “How about you suck my nuts, and in return, I’ll go work elsewhere.”"
+                            uid=e3435 group "8 likes, 1921 views"
+                              uid=e3437 button "0 Replies. Reply"
+                                uid=e3441 img
+                              uid=e3448 button "0 reposts. Repost"
+                                uid=e3452 img
+                              uid=e3459 button "8 Likes. Like"
+                                uid=e3460 generic
+                                  uid=e3463 img
+                                  uid=e3468 generic value="8"
+                              uid=e3470 link "1921 views. View post analytics" url="/sunnydaevt/status/2048566853878899018/analytics"
+                                uid=e3471 generic
+                                  uid=e3474 img
+                                  uid=e3479 generic value="1.9K"
+                              uid=e3481 button "Bookmark"
+                                uid=e3485 img
+                              uid=e3490 button "Share post"
+                                uid=e3494 img
+                      uid=e3500 article "libertarianass Verified account @libertarian_ass Apr 27 As someone who has been a hiring manager for several large companies for the last 20 years, I can tell you that none of these will work. There is indeed a compensation range. HR will indeed make an offer at the lower half of that range. If you counter offer within range, it 16 likes, 2 bookmarks, 1284 views"
+                        uid=e3506 generic
+                          uid=e3518 link url="/libertarian_ass"
+                          uid=e3521 generic
+                            uid=e3523 generic
+                              uid=e3526 generic
+                                uid=e3529 link "libertarianass Verified account" url="/libertarian_ass"
+                                  uid=e3530 generic
+                                    uid=e3532 generic value="libertarianass"
+                                    uid=e3535 img "Verified account"
+                                uid=e3539 generic
+                                  uid=e3541 link "@libertarian_ass" url="/libertarian_ass"
+                                    uid=e3542 generic value="@libertarian_ass"
+                                  uid=e3543 generic value="·"
+                                  uid=e3545 link "Apr 27" url="/libertarian_ass/status/2048613234094276681"
+                                    uid=e3546 time value="Apr 27"
+                              uid=e3548 generic
+                                uid=e3550 button "Grok actions"
+                                  uid=e3555 img
+                                uid=e3561 button "More"
+                                  uid=e3565 img
+                            uid=e3568 generic
+                              uid=e3569 generic value="As someone who has been a hiring manager for several large companies for the last 20 years, I can tell you that none of these will work. There is indeed a compensation range. HR will indeed make an offer at the lower half of that range. If you counter offer within range, it"
+                              uid=e3570 button "Show more"
+                            uid=e3573 group "16 likes, 2 bookmarks, 1284 views"
+                              uid=e3575 button "0 Replies. Reply"
+                                uid=e3579 img
+                              uid=e3586 button "0 reposts. Repost"
+                                uid=e3590 img
+                              uid=e3597 button "16 Likes. Like"
+                                uid=e3598 generic
+                                  uid=e3601 img
+                                  uid=e3606 generic value="16"
+                              uid=e3608 link "1284 views. View post analytics" url="/libertarian_ass/status/2048613234094276681/analytics"
+                                uid=e3609 generic
+                                  uid=e3612 img
+                                  uid=e3617 generic value="1.2K"
+                              uid=e3619 button "Bookmark"
+                                uid=e3623 img
+                              uid=e3628 button "Share post"
+                                uid=e3632 img
+                      uid=e3638 article "saiyaman enjoyer @gohanfangirl_ Apr 27 Negotiate, indeed, but it isn’t the market to pull out all the bells and whistles if you’re desperate. But definitely don’t accept that first offer. 1 reply, 1 like, 3291 views"
+                        uid=e3644 generic
+                          uid=e3656 link url="/gohanfangirl_"
+                          uid=e3659 generic
+                            uid=e3661 generic
+                              uid=e3664 generic
+                                uid=e3667 link "saiyaman enjoyer" url="/gohanfangirl_"
+                                  uid=e3670 generic value="saiyaman enjoyer"
+                                uid=e3672 generic
+                                  uid=e3674 link "@gohanfangirl_" url="/gohanfangirl_"
+                                    uid=e3675 generic value="@gohanfangirl_"
+                                  uid=e3676 generic value="·"
+                                  uid=e3678 link "Apr 27" url="/gohanfangirl_/status/2048523249957425287"
+                                    uid=e3679 time value="Apr 27"
+                              uid=e3681 generic
+                                uid=e3683 button "Grok actions"
+                                  uid=e3688 img
+                                uid=e3694 button "More"
+                                  uid=e3698 img
+                            uid=e3702 generic value="Negotiate, indeed, but it isn’t the market to pull out all the bells and whistles if you’re desperate. But definitely don’t accept that first offer."
+                            uid=e3705 group "1 reply, 1 like, 3291 views"
+                              uid=e3707 button "1 Reply. Reply"
+                                uid=e3708 generic
+                                  uid=e3711 img
+                                  uid=e3716 generic value="1"
+                              uid=e3718 button "0 reposts. Repost"
+                                uid=e3722 img
+                              uid=e3729 button "1 Like. Like"
+                                uid=e3730 generic
+                                  uid=e3733 img
+                                  uid=e3738 generic value="1"
+                              uid=e3740 link "3291 views. View post analytics" url="/gohanfangirl_/status/2048523249957425287/analytics"
+                                uid=e3741 generic
+                                  uid=e3744 img
+                                  uid=e3749 generic value="3.2K"
+                              uid=e3751 button "Bookmark"
+                                uid=e3755 img
+                              uid=e3760 button "Share post"
+                                uid=e3764 img
+                      uid=e3770 article "Chiba San @Yoshinori_Umeki Apr 27 No, the correct answer is \"Go fuck yourselves\" because a lowball like that means you will be working for people that think of you as a peon to be abused. 1 like, 754 views"
+                        uid=e3776 generic
+                          uid=e3788 link url="/Yoshinori_Umeki"
+                          uid=e3791 generic
+                            uid=e3793 generic
+                              uid=e3796 generic
+                                uid=e3799 link "Chiba San" url="/Yoshinori_Umeki"
+                                  uid=e3802 generic value="Chiba San"
+                                uid=e3804 generic
+                                  uid=e3806 link "@Yoshinori_Umeki" url="/Yoshinori_Umeki"
+                                    uid=e3807 generic value="@Yoshinori_Umeki"
+                                  uid=e3808 generic value="·"
+                                  uid=e3810 link "Apr 27" url="/Yoshinori_Umeki/status/2048607917905985750"
+                                    uid=e3811 time value="Apr 27"
+                              uid=e3813 generic
+                                uid=e3815 button "Grok actions"
+                                  uid=e3820 img
+                                uid=e3826 button "More"
+                                  uid=e3830 img
+                            uid=e3834 generic value="No, the correct answer is \"Go fuck yourselves\" because a lowball like that means you will be working for people that think of you as a peon to be abused."
+                            uid=e3837 group "1 like, 754 views"
+                              uid=e3839 button "0 Replies. Reply"
+                                uid=e3843 img
+                              uid=e3850 button "0 reposts. Repost"
+                                uid=e3854 img
+                              uid=e3861 button "1 Like. Like"
+                                uid=e3862 generic
+                                  uid=e3865 img
+                                  uid=e3870 generic value="1"
+                              uid=e3872 link "754 views. View post analytics" url="/Yoshinori_Umeki/status/2048607917905985750/analytics"
+                                uid=e3873 generic
+                                  uid=e3876 img
+                                  uid=e3881 generic value="754"
+                              uid=e3883 button "Bookmark"
+                                uid=e3887 img
+                              uid=e3892 button "Share post"
+                                uid=e3896 img
+                      uid=e3902 article "Frank @FrankDaTanks Apr 27 This much of a low ball says a lot about a company and how it treats its employees. Best advice is to walk away and find a job where you will be valued."
+                        uid=e3908 generic
+                          uid=e3920 link url="/FrankDaTanks"
+                          uid=e3923 generic
+                            uid=e3925 generic
+                              uid=e3928 generic
+                                uid=e3931 link "Frank" url="/FrankDaTanks"
+                                  uid=e3934 generic value="Frank"
+                                uid=e3936 generic
+                                  uid=e3938 link "@FrankDaTanks" url="/FrankDaTanks"
+                                    uid=e3939 generic value="@FrankDaTanks"
+                                  uid=e3940 generic value="·"
+                                  uid=e3942 link "Apr 27" url="/FrankDaTanks/status/2048587083325874508"
+                                    uid=e3943 time value="Apr 27"
+                              uid=e3945 generic
+                                uid=e3947 button "Grok actions"
+                                  uid=e3952 img
+                                uid=e3958 button "More"
+                                  uid=e3962 img
+                            uid=e3966 generic value="This much of a low ball says a lot about a company and how it treats its employees. Best advice is to walk away and find a job where you will be valued."
+                            uid=e3969 group "1250 views"
+                              uid=e3971 button "0 Replies. Reply"
+                                uid=e3975 img
+                              uid=e3982 button "0 reposts. Repost"
+                                uid=e3986 img
+                              uid=e3993 button "0 Likes. Like"
+                                uid=e3997 img
+                              uid=e4004 link "1250 views. View post analytics" url="/FrankDaTanks/status/2048587083325874508/analytics"
+                                uid=e4005 generic
+                                  uid=e4008 img
+                                  uid=e4013 generic value="1.2K"
+                              uid=e4015 button "Bookmark"
+                                uid=e4019 img
+                              uid=e4024 button "Share post"
+                                uid=e4028 img
+                      uid=e4034 article "tlark @tlark8 Apr 27 If you think you can negotiate $85k to $120k you’re likely delusional. Especially at companies that have established levels w/ comp guides. You’d likely have to negotiate a different position. Different IC level or a higher ranking position of the offer. 3 likes, 1175 views"
+                        uid=e4040 generic
+                          uid=e4052 link url="/tlark8"
+                          uid=e4055 generic
+                            uid=e4057 generic
+                              uid=e4060 generic
+                                uid=e4063 link "tlark" url="/tlark8"
+                                  uid=e4066 generic value="tlark"
+                                uid=e4068 generic
+                                  uid=e4070 link "@tlark8" url="/tlark8"
+                                    uid=e4071 generic value="@tlark8"
+                                  uid=e4072 generic value="·"
+                                  uid=e4074 link "Apr 27" url="/tlark8/status/2048581615488786739"
+                                    uid=e4075 time value="Apr 27"
+                              uid=e4077 generic
+                                uid=e4079 button "Grok actions"
+                                  uid=e4084 img
+                                uid=e4090 button "More"
+                                  uid=e4094 img
+                            uid=e4098 generic value="If you think you can negotiate $85k to $120k you’re likely delusional. Especially at companies that have established levels w/ comp guides. You’d likely have to negotiate a different position. Different IC level or a higher ranking position of the offer."
+                            uid=e4101 group "3 likes, 1175 views"
+                              uid=e4103 button "0 Replies. Reply"
+                                uid=e4107 img
+                              uid=e4114 button "0 reposts. Repost"
+                                uid=e4118 img
+                              uid=e4125 button "3 Likes. Like"
+                                uid=e4126 generic
+                                  uid=e4129 img
+                                  uid=e4134 generic value="3"
+                              uid=e4136 link "1175 views. View post analytics" url="/tlark8/status/2048581615488786739/analytics"
+                                uid=e4137 generic
+                                  uid=e4140 img
+                                  uid=e4145 generic value="1.1K"
+                              uid=e4147 button "Bookmark"
+                                uid=e4151 img
+                              uid=e4156 button "Share post"
+                                uid=e4160 img
+                      uid=e4166 article "Noah Hradek @NoahHradek Apr 27 I don't care too much about money if the job is shit. I've left well paying jobs because the job was shit. 1 like, 1099 views"
+                        uid=e4172 generic
+                          uid=e4184 link url="/NoahHradek"
+                          uid=e4187 generic
+                            uid=e4189 generic
+                              uid=e4192 generic
+                                uid=e4195 link "Noah Hradek" url="/NoahHradek"
+                                  uid=e4198 generic value="Noah Hradek"
+                                uid=e4200 generic
+                                  uid=e4202 link "@NoahHradek" url="/NoahHradek"
+                                    uid=e4203 generic value="@NoahHradek"
+                                  uid=e4204 generic value="·"
+                                  uid=e4206 link "Apr 27" url="/NoahHradek/status/2048571610429272126"
+                                    uid=e4207 time value="Apr 27"
+                              uid=e4209 generic
+                                uid=e4211 button "Grok actions"
+                                  uid=e4216 img
+                                uid=e4222 button "More"
+                                  uid=e4226 img
+                            uid=e4230 generic value="I don't care too much about money if the job is shit. I've left well paying jobs because the job was shit."
+                            uid=e4233 group "1 like, 1099 views"
+                              uid=e4235 button "0 Replies. Reply"
+                                uid=e4239 img
+                              uid=e4246 button "0 reposts. Repost"
+                                uid=e4250 img
+                              uid=e4257 button "1 Like. Like"
+                                uid=e4258 generic
+                                  uid=e4261 img
+                                  uid=e4266 generic value="1"
+                              uid=e4268 link "1099 views. View post analytics" url="/NoahHradek/status/2048571610429272126/analytics"
+                                uid=e4269 generic
+                                  uid=e4272 img
+                                  uid=e4277 generic value="1K"
+                              uid=e4279 button "Bookmark"
+                                uid=e4283 img
+                              uid=e4288 button "Share post"
+                                uid=e4292 img
+                      uid=e4298 article "Red Mooon - Swear Harris In POTUS 48 @BrainFlavours Apr 26 Yup @orangetheory fitness hq in Boca tried this shit on me, claiming I'd said low six fig, missing my ask by 20k, giving me 48hrs over the weekend to respond. When I pushed back they pulled the offer. Their loss to their technology dept. 🤷🏻 1 like, 4587 views"
+                        uid=e4304 generic
+                          uid=e4316 link url="/BrainFlavours"
+                          uid=e4319 generic
+                            uid=e4321 generic
+                              uid=e4324 generic
+                                uid=e4327 link "Red Mooon - Swear Harris In POTUS 48" url="/BrainFlavours"
+                                  uid=e4330 generic value="Red Mooon - Swear Harris In POTUS 48"
+                                uid=e4332 generic
+                                  uid=e4334 link "@BrainFlavours" url="/BrainFlavours"
+                                    uid=e4335 generic value="@BrainFlavours"
+                                  uid=e4336 generic value="·"
+                                  uid=e4338 link "Apr 26" url="/BrainFlavours/status/2048416737117282721"
+                                    uid=e4339 time value="Apr 26"
+                              uid=e4341 generic
+                                uid=e4343 button "Grok actions"
+                                  uid=e4348 img
+                                uid=e4354 button "More"
+                                  uid=e4358 img
+                            uid=e4362 generic
+                              uid=s47 StaticText "Yup"
+                              uid=e4365 link "@orangetheory" url="/orangetheory"
+                              uid=s48 StaticText "fitness hq in Boca tried this shit on me, claiming I'd said low six fig, missing my ask by 20k, giving me 48hrs over the weekend to respond. When I pushed back they pulled the offer. Their loss to their technology dept."
+                              uid=e4366 img "🤷🏻"
+                            uid=e4369 group "1 like, 4587 views"
+                              uid=e4371 button "0 Replies. Reply"
+                                uid=e4375 img
+                              uid=e4382 button "0 reposts. Repost"
+                                uid=e4386 img
+                              uid=e4393 button "1 Like. Like"
+                                uid=e4394 generic
+                                  uid=e4397 img
+                                  uid=e4402 generic value="1"
+                              uid=e4404 link "4587 views. View post analytics" url="/BrainFlavours/status/2048416737117282721/analytics"
+                                uid=e4405 generic
+                                  uid=e4408 img
+                                  uid=e4413 generic value="4.5K"
+                              uid=e4415 button "Bookmark"
+                                uid=e4419 img
+                              uid=e4424 button "Share post"
+                                uid=e4428 img
+              uid=e4435 generic "Trending"
+                uid=e4436 generic
+                  uid=e4441 search "Search"
+                    uid=e4446 generic
+                      uid=e4448 img
+                      uid=e4453 combobox "Search query"
+                  uid=e4456 complementary "Relevant people"
+                    uid=e4458 heading "Relevant people" level="2"
+                      uid=e4459 generic value="Relevant people"
+                    uid=e4460 list
+                      uid=e4461 listitem
+                        uid=e4462 generic
+                          uid=e4472 link url="/aibytekat"
+                          uid=e4475 generic
+                            uid=e4476 generic
+                              uid=e4478 generic
+                                uid=e4480 link "Katyayani Shukla Verified account" url="/aibytekat"
+                                  uid=e4481 generic
+                                    uid=e4483 generic value="Katyayani Shukla"
+                                    uid=e4486 img "Verified account"
+                                uid=e4491 link "@aibytekat" url="/aibytekat"
+                                  uid=e4493 generic value="@aibytekat"
+                              uid=e4495 button "Follow @aibytekat"
+                                uid=e4498 generic value="Follow"
+                            uid=e4499 generic value="Turning AI ideas into real systems while figuring out what really works. DM or katyayani.ht@gmail.com"
+                  uid=e4501 region "Trending now"
+                    uid=e4502 heading "Trending now" level="1"
+                    uid=s49 unknown
+                      uid=e4504 generic
+                        uid=e4508 heading "What’s happening" level="2"
+                          uid=e4509 generic value="What’s happening"
+                        uid=e4512 link "Gaming · Trending Steam Deck More"
+                          uid=e4513 generic
+                            uid=e4515 generic value="Gaming · Trending"
+                            uid=e4516 generic value="Steam Deck"
+                            uid=e4519 button "More"
+                              uid=e4523 img
+                        uid=e4528 link "Trending in France Air Liquide More"
+                          uid=e4529 generic
+                            uid=e4531 generic value="Trending in France"
+                            uid=e4532 generic value="Air Liquide"
+                            uid=e4535 button "More"
+                              uid=e4539 img
+                        uid=e4544 link "Trending in France Maboul More"
+                          uid=e4545 generic
+                            uid=e4547 generic value="Trending in France"
+                            uid=e4548 generic value="Maboul"
+                            uid=e4551 button "More"
+                              uid=e4555 img
+                        uid=e4560 link "Entertainment · Trending France TV More"
+                          uid=e4561 generic
+                            uid=e4563 generic value="Entertainment · Trending"
+                            uid=e4564 generic value="France TV"
+                            uid=e4567 button "More"
+                              uid=e4571 img
+                        uid=e4576 link "Show more" url="/explore/tabs/for-you"
+                          uid=e4577 generic value="Show more"
+                  uid=e4579 navigation "Footer"
+                    uid=e4580 generic
+                      uid=e4581 link "Terms of Service" url="https://x.com/tos"
+                      uid=e4582 generic value="|"
+                    uid=e4583 generic
+                      uid=e4584 link "Privacy Policy" url="https://x.com/privacy"
+                      uid=e4585 generic value="|"
+                    uid=e4586 generic
+                      uid=e4587 link "Cookie Policy" url="https://support.x.com/articles/20170514"
+                      uid=e4588 generic value="|"
+                    uid=e4589 generic
+                      uid=e4590 link "Accessibility" url="https://help.x.com/resources/accessibility"
+                      uid=e4591 generic value="|"
+                    uid=e4592 generic
+                      uid=e4593 link "Ads info" url="https://business.x.com/en/help/troubleshooting/how-twitter-ads-work.html?ref=web-twc-ao-gbl-adsinfo&utm_source=twc&utm_medium=web&utm_campaign=ao&utm_content=adsinfo"
+                      uid=e4594 generic value="|"
+                    uid=e4595 button "More"
+                      uid=e4596 generic
+                        uid=s50 StaticText "More"
+                        uid=e4597 img
+                    uid=e4600 generic value="© 2026 X Corp."
+  uid=s51 generic
+    uid=s52 img
+  uid=s53 generic
+    uid=s54 img
