@@ -26,6 +26,13 @@ import { ResumeMarkdown } from './resume_json/resume_markdown.js';
 const __dirname = new URL('.', import.meta.url).pathname;
 const PROJECT_ROOT = Path.resolve(__dirname, '..');
 
+const pdf2imagesCachePath = Path.resolve(PROJECT_ROOT, '.pdf2images_cache.sqlite');
+const pdf2imagesCache = new Cacheable({ secondary: new KeyvSqlite(`sqlite://${pdf2imagesCachePath}`) });
+const pdf2imagesMemoized = UtilsMemoisation.memoise(UtilsPdf.pdf2images, {
+	cache: pdf2imagesCache,
+	keyPrefix: 'pdf2images',
+});
+
 class MainHelper {
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -72,20 +79,6 @@ class MainHelper {
 	///////////////////////////////////////////////////////////////////////////////
 
 	private static async pdf2images(pdfBuffer: Buffer): Promise<Buffer[]> {
-		if (false) {
-			const imageBuffers = await UtilsPdf.pdf2images(pdfBuffer);
-			return imageBuffers;
-		}
-
-		const sqlitePath = Path.resolve(PROJECT_ROOT, '.openai_cache.sqlite');
-		const sqliteUrl = `sqlite://${sqlitePath}`;
-		const sqliteCache = new Cacheable({ secondary: new KeyvSqlite(sqliteUrl) });
-
-		const pdf2imagesMemoized = UtilsMemoisation.memoise(UtilsPdf.pdf2images, {
-			cache: sqliteCache,
-			keyPrefix: 'pdf2images',
-		})
-
 		const imageBuffers = await pdf2imagesMemoized(pdfBuffer);
 		return imageBuffers;
 	}

@@ -1,9 +1,11 @@
 // node imports
+import { Buffer } from 'node:buffer';
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 
 // npm imports
 import { Cacheable } from 'cacheable';
+import KeyvSqlite from '@keyv/sqlite';
 
 // local imports
 import { UtilsMemoisation } from '../src/utils/utils_memoisation.js';
@@ -82,6 +84,47 @@ describe('UtilsMemoisation.memoise', () => {
 
 		await assert.rejects(memoFlaky(), /boom/);
 		await assert.rejects(memoFlaky(), /boom/);
+		assert.equal(calls, 2);
+	});
+
+	it('round-trips Buffer args and Buffer[] returns through a SQLite-backed cache', async () => {
+		const cache = new Cacheable({ secondary: new KeyvSqlite('sqlite://:memory:') });
+		let calls = 0;
+		const expected = [Buffer.from('hello'), Buffer.from('world')];
+		const fn = async (_buf: Buffer): Promise<Buffer[]> => {
+			calls += 1;
+			return [Buffer.from('hello'), Buffer.from('world')];
+		};
+		const memoFn = UtilsMemoisation.memoise(fn, { cache, keyPrefix: 'bufFn' });
+
+		const input = Buffer.from([0x00, 0x01, 0x02, 0x03]);
+		const first = await memoFn(input);
+		// drop primary so the next call must hydrate from SQLite secondary
+		await cache.primary.clear();
+		const second = await memoFn(input);
+
+		assert.equal(calls, 1);
+		assert.equal(second.length, expected.length);
+		for (let i = 0; i < expected.length; i++) {
+			assert.equal(Buffer.isBuffer(second[i]), true, `result[${i}] must be a Buffer instance`);
+			assert.equal(second[i].equals(expected[i]), true, `result[${i}] bytes must match`);
+		}
+		// sanity: first call also returned valid Buffers
+		assert.equal(Buffer.isBuffer(first[0]), true);
+	});
+
+	it('treats different Buffer args as different cache keys', async () => {
+		const cache = new Cacheable({ secondary: new KeyvSqlite('sqlite://:memory:') });
+		let calls = 0;
+		const fn = async (buf: Buffer): Promise<number> => {
+			calls += 1;
+			return buf.length;
+		};
+		const memoFn = UtilsMemoisation.memoise(fn, { cache, keyPrefix: 'bufLen' });
+
+		assert.equal(await memoFn(Buffer.from([1, 2, 3])), 3);
+		assert.equal(await memoFn(Buffer.from([1, 2, 3, 4])), 4);
+		assert.equal(await memoFn(Buffer.from([1, 2, 3])), 3);
 		assert.equal(calls, 2);
 	});
 });

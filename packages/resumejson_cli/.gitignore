@@ -6,3 +6,6 @@ dist/
 
 # OpenAI cache
 .openai_cache.sqlite
+
+# PDF-to-images cache
+.pdf2images_cache.sqlite

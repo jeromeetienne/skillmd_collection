@@ -17,9 +17,18 @@ export class UtilsMemoisation {
 	): (...args: TArgs) => Promise<TReturn> {
 		const prefix = options.keyPrefix ?? fn.name ?? 'memoise';
 		return async (...args: TArgs): Promise<TReturn> => {
-			const argsHash = Crypto.createHash('sha256')
-				.update(JSON.stringify(args))
-				.digest('hex');
+			const hash = Crypto.createHash('sha256');
+			for (const arg of args) {
+				if (Buffer.isBuffer(arg) === true) {
+					hash.update('B:');
+					hash.update(arg);
+				} else {
+					hash.update('J:');
+					hash.update(JSON.stringify(arg) ?? 'undefined');
+				}
+				hash.update('\0');
+			}
+			const argsHash = hash.digest('hex');
 			const key = `${prefix}:${argsHash}`;
 
 			const hit = await options.cache.has(key);
