@@ -69,6 +69,16 @@ class MainHelper {
 		HttpClient.printResponse(response);
 	}
 
+	static readPackageVersion(): string {
+		const packageJsonPath = Path.resolve(import.meta.dirname, '../../package.json');
+		const raw = Fs.readFileSync(packageJsonPath, 'utf-8');
+		const parsed = JSON.parse(raw) as { version?: string };
+		if (typeof parsed.version !== 'string') {
+			throw new Error(`fastbrowser-cli: missing "version" in ${packageJsonPath}`);
+		}
+		return parsed.version;
+	}
+
 	static async runInstall(skillFolder: string): Promise<void> {
 		const sourceSkillsDir = Path.resolve(import.meta.dirname, '../../skills');
 		const targetSkillsDir = Path.resolve(skillFolder, 'skills');
@@ -173,6 +183,7 @@ async function main(): Promise<void> {
 	program
 		.name('fastbrowser-cli')
 		.description('CLI client for fastbrowser')
+		.version(MainHelper.readPackageVersion(), '-V, --version', 'Print the fastbrowser-cli version')
 		.option('--server <url>', 'fastbrowser-httpd URL (default: env FASTBROWSER_SERVER or http://localhost:8787)')
 		.option('--autostart', 'Auto-start the server before a command if it is not running', true)
 		.option('--no-autostart', 'Do not auto-start the server before a command')
