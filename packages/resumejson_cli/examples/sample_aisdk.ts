@@ -21,13 +21,18 @@ async function main(): Promise<void> {
 		markResponseEnabled: true, // enable marking cached responses with a special header
 	});
 
-	const openai = createOpenAI({
+	const aiSdkProvider = createOpenAI({
+		// baseURL: 'https://api.openai.com/v1',
+		baseURL: 'http://localhost:1234/v1',
 		apiKey: process.env.OPENAI_API_KEY,
 		fetch: openaiCache.getFetchFn(), // use the caching fetch function
 	});
+	// const aiSdkLanguageModel = aiSdkProvider("gpt-4.1-nano");
+	const aiSdkLanguageModel = aiSdkProvider("google/gemma-4-e2b");
+	// const aiSdkLanguageModel = aiSdkProvider("liquid/lfm2.5-1.2b");
 
 	const { text } = await generateText({
-		model: openai("gpt-4.1-nano"),
+		model: aiSdkLanguageModel,
 		prompt: 'Write a one-sentence summary of what a resume is.',
 	});
 

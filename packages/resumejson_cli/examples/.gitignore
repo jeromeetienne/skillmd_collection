@@ -1,0 +1,2 @@
+# Ignore the OpenAI SDK cache file
+.openai_cache.sqlite

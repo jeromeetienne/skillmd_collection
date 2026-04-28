@@ -33,14 +33,23 @@ export async function analyzeImage(imagePath: string): Promise<ImageAnalysis> {
 		markResponseEnabled: true, // enable marking cached responses with a special header
 	});
 
-	const openaiAiSdk = AiSdkOpenAI.createOpenAI({
+	// const openaiAiSdk = AiSdkOpenAI.createOpenAI({
+	// 	apiKey: process.env.OPENAI_API_KEY,
+	// 	fetch: openaiCache.getFetchFn(), // use the caching fetch function
+	// });
+
+	const aiSdkProvider = AiSdkOpenAI.createOpenAI({
+		// baseURL: 'https://api.openai.com/v1',
+		baseURL: 'http://localhost:1234/v1',
 		apiKey: process.env.OPENAI_API_KEY,
 		fetch: openaiCache.getFetchFn(), // use the caching fetch function
 	});
+	// const aiSdkLanguageModel = aiSdkProvider("gpt-4.1-nano");
+	const aiSdkLanguageModel = aiSdkProvider("google/gemma-4-e2b");
 
 
 	const result = await AiSdk.generateText({
-		model: openaiAiSdk("gpt-4.1"),
+		model: aiSdkLanguageModel,
 		output: AiSdk.Output.object({
 			schema: imageAnalysisSchema
 		}),
