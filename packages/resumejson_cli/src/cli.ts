@@ -14,6 +14,7 @@ import { ResumeJsonSchema } from './types/resume_schemas.js';
 import { ResumeJson } from './types/resume_types.js';
 import { AtsScorer as AtsScorer } from './ats/ats_scorer.js';
 import { AtsReviewer } from './ats/ats_reviewer.js';
+import { AtsQuestioner } from './ats/ats_questioner.js';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const PROJECT_ROOT = Path.resolve(__dirname, '..');
@@ -192,6 +193,25 @@ async function main() {
 			console.log(atsReviewPrettyStr);
 		});
 
+	program
+		.command('ats_question')
+		.description('Generate ATS questions for a resume JSON')
+		.requiredOption('-i, --inputResumeJson <path>', 'path to the input resume JSON file')
+		.requiredOption('-o, --outputAtsQuestions <path>', 'path to write the ATS questions output')
+		.action(async (options: { inputResumeJson: string; outputAtsQuestions: string }) => {
+			const aiSdkProvider = await UtilsAisdk.openaiAiSdk()
+
+			const resumeJsonStr = await MainHelper.readInputString(options.inputResumeJson);
+			const resumeJson: ResumeJson = ResumeJsonSchema.parse(JSON.parse(resumeJsonStr));
+
+			const atsQuestions = await AtsQuestioner.evaluate(aiSdkProvider, resumeJsonStr);
+
+			const atsQuestionsStr = JSON.stringify(atsQuestions, null, '\t');
+			await MainHelper.writeOutputString(options.outputAtsQuestions, atsQuestionsStr);
+
+			const atsQuestionsPrettyStr = await AtsQuestioner.prettyPrint(atsQuestions);
+			console.log(atsQuestionsPrettyStr);
+		});
 
 	program.parse(process.argv);
 }
