@@ -80,7 +80,7 @@ importers:
         specifier: ^1.29.0
         version: 1.29.0(zod@4.3.6)
       a11y_parse:
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../a11y_parse
       commander:
         specifier: ^12.1.0

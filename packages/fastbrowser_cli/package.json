@@ -1,6 +1,6 @@
 {
     "name": "fastbrowser_cli",
-    "version": "1.0.22",
+    "version": "1.0.23",
     "description": "A CLI tool for FastBrowser, providing commands to interact with the FastBrowser MCP (Model Context Protocol) server and perform various browser automation tasks.",
     "main": "dist/fastbrowser_cli/fastbrowser_cli.js",
     "bin": {
@@ -18,7 +18,7 @@
         "inspect:playwright:cdp_endpoint": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --cdp-endpoint=http://localhost:9222",
         "inspect:playwright:extension": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --extension",
         "build": "tsc -p tsconfig.build.json",
-        "publish:all": "npm run build && npm version patch && npm publish --access public",
+        "publish:all": "pnpm run build && npm version patch && pnpm publish --access public",
         "typecheck": "tsc -p tsconfig.json --noEmit",
         "test": "npx tsx --test 'tests/**/*.test.ts'"
     },
@@ -33,7 +33,7 @@
     "type": "module",
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.29.0",
-        "a11y_parse": "workspace:*",
+        "a11y_parse": "workspace:^",
         "commander": "^12.1.0",
         "express": "^4.21.2",
         "string-argv": "^0.3.2",

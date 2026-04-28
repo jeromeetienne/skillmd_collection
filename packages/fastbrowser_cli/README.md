@@ -180,6 +180,27 @@ npm run start:fastbrowser_mcp   # run fastbrowser_mcp from source
 npm run inspect:fastbrowser_mcp # open the MCP inspector against fastbrowser_mcp
 ```
 
+## How to publish to npmjs.com
+
+`fastbrowser_cli` depends on the in-repo workspace package `a11y_parse`. Always publish through **pnpm** (not npm) — `pnpm publish` rewrites the `workspace:^` dep into a real version range in the tarball; `npm publish` cannot.
+
+Order matters when both packages have changed: publish `a11y_parse` first so the version baked into `fastbrowser_cli`'s tarball already exists on the registry.
+
+```bash
+# 1. Publish a11y_parse first (only if it changed)
+cd packages/a11y_parse
+pnpm run publish:all
+
+# 2. Then publish fastbrowser_cli
+cd ../fastbrowser_cli
+pnpm run publish:all
+
+# 3. Push the version-bump commits and tags
+git push --follow-tags
+```
+
+Full workflow, gotchas, and the version-rewriting cheatsheet live in [docs/publishing_workflow.md](docs/publishing_workflow.md).
+
 ## Output & Errors
 
 - Tool output is written to **stdout**, one line per response content part.
