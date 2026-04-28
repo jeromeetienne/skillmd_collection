@@ -19,6 +19,7 @@ import { AtsAnswering } from './ats/ats_answering.js';
 import { AtsQuestion } from './ats/ats_question_type.js';
 import { AtsQuestionSchema } from './ats/ats_question_schema.js';
 import { ResumeHelper } from './resume_json/resume_helper.js';
+import { AtsAnswered } from './ats/ats_answered.js';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const PROJECT_ROOT = Path.resolve(__dirname, '..');
@@ -235,13 +236,13 @@ async function main() {
 			const atsQuestionStr = await MainHelper.readInputString(options.inputAtsQuestion);
 			const atsQuestion: AtsQuestion = AtsQuestionSchema.parse(JSON.parse(atsQuestionStr))
 
-			const resumeAnsweredJson = await AtsAnswering.evaluate(aiSdkProvider, resumeJson, atsQuestion);
+			const resumeAnsweredJson = await AtsAnswered.evaluate(aiSdkProvider, resumeJson, atsQuestion);
 
 			const resumeAnsweredStr = JSON.stringify(resumeAnsweredJson, null, '\t');
 			await MainHelper.writeOutputString(options.outputResumeJson, resumeAnsweredStr);
 
-			const atsQuestionAnsweredPrettyStr = await AtsQuestioner.prettyPrint(resumeAnsweredJson);
-			console.log(atsQuestionAnsweredPrettyStr);
+			const resumeAnsweredPrettyStr = await ResumeHelper.prettyPrint(resumeAnsweredJson);
+			console.log(resumeAnsweredPrettyStr);
 		});
 
 	program
