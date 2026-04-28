@@ -22,7 +22,7 @@ const PROJECT_ROOT = Path.resolve(__dirname, '../..');
 
 export class AtsAnswered {
 	static async evaluate(
-		aiSdkProvider: AiSdkOpenAI.OpenAIProvider,
+		aiSdkLanguageModel: AiSdk.LanguageModel,
 		resumeJson: ResumeJson,
 		atsQuestion: AtsQuestion,
 		{
@@ -54,7 +54,7 @@ export class AtsAnswered {
 
 		// Prompt the AI SDK to generate the revised resume markdown
 		const response = await AiSdk.generateText({
-			model: aiSdkProvider(modelName),
+			model: aiSdkLanguageModel,
 			output: AiSdk.Output.object({
 				schema: ResumeJsonSchema,
 			}),

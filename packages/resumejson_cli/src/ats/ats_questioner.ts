@@ -16,7 +16,7 @@ import { ResumeJson } from "../resume_json/resume_types.js";
 
 export class AtsQuestioner {
 	static async evaluate(
-		aiSdkProvider: AiSdkOpenAI.OpenAIProvider,
+		aiSdkLanguageModel: AiSdk.LanguageModel,
 		resumeJson: ResumeJson,
 		{
 			modelName = process.env.OPENAI_MODEL ?? "gpt-4.1-nano",
@@ -38,7 +38,7 @@ export class AtsQuestioner {
 
 		// Prompt the AI SDK to generate the ATS questions
 		const response = await AiSdk.generateText({
-			model: aiSdkProvider(modelName),
+			model: aiSdkLanguageModel,
 			output: AiSdk.Output.object({
 				schema: AtsQuestionSchema,
 			}),

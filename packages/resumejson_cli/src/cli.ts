@@ -83,7 +83,7 @@ class MainHelper {
 		return imageBuffers;
 	}
 
-	static async fromPdf(pdfBuffer: Buffer): Promise<ResumeJson> {
+	static async fromPdf(aiSdkLanguageModel: AiSdk.LanguageModel, pdfBuffer: Buffer): Promise<ResumeJson> {
 		const imageBuffers = await MainHelper.pdf2images(pdfBuffer);
 
 		// Build the user content array with the initial instruction and the images
@@ -104,11 +104,8 @@ class MainHelper {
 		}
 
 		// Prompt the AI SDK to generate the resume JSON
-		// FIXME this is bad - 
-		const modelName = 'gpt-4.1';
-		const openaiAiSdk = await UtilsAisdk.openaiAiSdk();
 		const result = await AiSdk.generateText({
-			model: openaiAiSdk(modelName),
+			model: aiSdkLanguageModel,
 			output: AiSdk.Output.object({
 				schema: ResumeJsonSchema,
 			}),
@@ -148,7 +145,7 @@ class MainHelper {
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
 
-	static async fromMarkdown(resumeMd: string): Promise<ResumeJson> {
+	static async fromMarkdown(aiSdkLanguageModel: AiSdk.LanguageModel, resumeMd: string): Promise<ResumeJson> {
 		// Build the user content array with the instruction and the markdown
 		const userContent: AiSdk.UserContent = [
 			{
@@ -163,10 +160,8 @@ class MainHelper {
 		];
 
 		// Prompt the AI SDK to generate the resume JSON
-		const modelName = 'gpt-4.1';
-		const openaiAiSdk = await UtilsAisdk.openaiAiSdk();
 		const result = await AiSdk.generateText({
-			model: openaiAiSdk(modelName),
+			model: aiSdkLanguageModel,
 			output: AiSdk.Output.object({
 				schema: ResumeJsonSchema,
 			}),
@@ -242,6 +237,15 @@ async function main() {
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	const providerModelName = process.env.AISDK_MODEL_NAME || 'openai:gpt-4.1-nano';
+	const aiSdkLanguageModel = await UtilsAisdk.getAiSdkLanguageModel(providerModelName);
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 	//	from_pdf/to_pdf
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -254,7 +258,7 @@ async function main() {
 		.action(async (options: { inputResumePdf: string; outputResumeJson: string }) => {
 			const pdfBuffer = await MainHelper.readInputBuffer(options.inputResumePdf);
 
-			const resumeJson = await MainHelper.fromPdf(pdfBuffer);
+			const resumeJson = await MainHelper.fromPdf(aiSdkLanguageModel, pdfBuffer);
 			const resumeJsonStr = JSON.stringify(resumeJson, null, '\t');
 
 			await MainHelper.writeOutputString(options.outputResumeJson, resumeJsonStr);
@@ -292,7 +296,7 @@ async function main() {
 		.action(async (options: { inputResumeMarkdown: string; outputResumeJson: string }) => {
 			const resumeMd = await MainHelper.readInputString(options.inputResumeMarkdown);
 
-			const resumeJson = await MainHelper.fromMarkdown(resumeMd);
+			const resumeJson = await MainHelper.fromMarkdown(aiSdkLanguageModel, resumeMd);
 			const resumeJsonStr = JSON.stringify(resumeJson, null, '\t');
 
 			await MainHelper.writeOutputString(options.outputResumeJson, resumeJsonStr);
@@ -328,12 +332,10 @@ async function main() {
 		.requiredOption('-i, --inputResumeJson <path>', 'path to the input resume JSON file')
 		.requiredOption('-o, --outputAtsScore <path>', 'path to write the ATS score output')
 		.action(async (options: { inputResumeJson: string; outputAtsScore: string }) => {
-			const aiSdkProvider = await UtilsAisdk.openaiAiSdk()
-
 			const resumeJsonStr = await MainHelper.readInputString(options.inputResumeJson);
 			const resumeJson: ResumeJson = ResumeJsonSchema.parse(JSON.parse(resumeJsonStr));
 
-			const atsScore = await AtsScorer.evaluate(aiSdkProvider, resumeJson);
+			const atsScore = await AtsScorer.evaluate(aiSdkLanguageModel, resumeJson);
 
 			const atsScoreStr = JSON.stringify(atsScore, null, '\t');
 			await MainHelper.writeOutputString(options.outputAtsScore, atsScoreStr);
@@ -348,12 +350,10 @@ async function main() {
 		.requiredOption('-i, --inputResumeJson <path>', 'path to the input resume JSON file')
 		.requiredOption('-o, --outputAtsReview <path>', 'path to write the ATS review output')
 		.action(async (options: { inputResumeJson: string; outputAtsReview: string }) => {
-			const aiSdkProvider = await UtilsAisdk.openaiAiSdk()
-
 			const resumeJsonStr = await MainHelper.readInputString(options.inputResumeJson);
 			const resumeJson: ResumeJson = ResumeJsonSchema.parse(JSON.parse(resumeJsonStr));
 
-			const atsReview = await AtsReviewer.evaluate(aiSdkProvider, resumeJson);
+			const atsReview = await AtsReviewer.evaluate(aiSdkLanguageModel, resumeJson);
 
 			const atsReviewStr = JSON.stringify(atsReview, null, '\t');
 			await MainHelper.writeOutputString(options.outputAtsReview, atsReviewStr);
@@ -368,12 +368,10 @@ async function main() {
 		.requiredOption('-i, --inputResumeJson <path>', 'path to the input resume JSON file')
 		.requiredOption('-o, --outputAtsQuestions <path>', 'path to write the ATS questions output')
 		.action(async (options: { inputResumeJson: string; outputAtsQuestions: string }) => {
-			const aiSdkProvider = await UtilsAisdk.openaiAiSdk()
-
 			const resumeJsonStr = await MainHelper.readInputString(options.inputResumeJson);
 			const resumeJson: ResumeJson = ResumeJsonSchema.parse(JSON.parse(resumeJsonStr));
 
-			const atsQuestions = await AtsQuestioner.evaluate(aiSdkProvider, resumeJson);
+			const atsQuestions = await AtsQuestioner.evaluate(aiSdkLanguageModel, resumeJson);
 
 			const atsQuestionsStr = JSON.stringify(atsQuestions, null, '\t');
 			await MainHelper.writeOutputString(options.outputAtsQuestions, atsQuestionsStr);
@@ -389,15 +387,13 @@ async function main() {
 		.requiredOption('-q, --inputAtsQuestion <path>', 'path to the input ATS answered questions JSON file')
 		.requiredOption('-o, --outputResumeJson <path>', 'path to write the improved resume JSON output')
 		.action(async (options: { inputResumeJson: string; inputAtsQuestion: string; outputResumeJson: string }) => {
-			const aiSdkProvider = await UtilsAisdk.openaiAiSdk()
-
 			const resumeJsonStr = await MainHelper.readInputString(options.inputResumeJson);
 			const resumeJson: ResumeJson = ResumeJsonSchema.parse(JSON.parse(resumeJsonStr));
 
 			const atsQuestionStr = await MainHelper.readInputString(options.inputAtsQuestion);
 			const atsQuestion: AtsQuestion = AtsQuestionSchema.parse(JSON.parse(atsQuestionStr))
 
-			const resumeAnsweredJson = await AtsAnswered.evaluate(aiSdkProvider, resumeJson, atsQuestion);
+			const resumeAnsweredJson = await AtsAnswered.evaluate(aiSdkLanguageModel, resumeJson, atsQuestion);
 
 			const resumeAnsweredStr = JSON.stringify(resumeAnsweredJson, null, '\t');
 			await MainHelper.writeOutputString(options.outputResumeJson, resumeAnsweredStr);
@@ -413,15 +409,13 @@ async function main() {
 		.requiredOption('-q, --inputAtsQuestion <path>', 'path to the input ATS questions JSON file')
 		.requiredOption('-o, --outputAtsQuestionsAnswered <path>', 'path to write the answered ATS questions JSON output')
 		.action(async (options: { inputResumeJson: string; inputAtsQuestion: string; outputAtsQuestionsAnswered: string }) => {
-			const aiSdkProvider = await UtilsAisdk.openaiAiSdk()
-
 			const resumeJsonStr = await MainHelper.readInputString(options.inputResumeJson);
 			const resumeJson: ResumeJson = ResumeJsonSchema.parse(JSON.parse(resumeJsonStr));
 
 			const atsQuestionStr = await MainHelper.readInputString(options.inputAtsQuestion);
 			const atsQuestion: AtsQuestion = AtsQuestionSchema.parse(JSON.parse(atsQuestionStr))
 
-			const atsQuestionAnswered = await AtsAnswering.evaluate(aiSdkProvider, resumeJson, atsQuestion);
+			const atsQuestionAnswered = await AtsAnswering.evaluate(aiSdkLanguageModel, resumeJson, atsQuestion);
 
 			const atsQuestionAnsweredStr = JSON.stringify(atsQuestionAnswered, null, '\t');
 			await MainHelper.writeOutputString(options.outputAtsQuestionsAnswered, atsQuestionAnsweredStr);
@@ -437,15 +431,13 @@ async function main() {
 		.requiredOption('-r, --inputAtsReview <path>', 'path to the input ATS review JSON file')
 		.requiredOption('-o, --outputResumeJson <path>', 'path to write the optimized resume JSON output')
 		.action(async (options: { inputResumeJson: string; inputAtsReview: string; outputResumeJson: string }) => {
-			const aiSdkProvider = await UtilsAisdk.openaiAiSdk()
-
 			const resumeJsonStr = await MainHelper.readInputString(options.inputResumeJson);
 			const resumeJson: ResumeJson = ResumeJsonSchema.parse(JSON.parse(resumeJsonStr));
 
 			const atsReviewStr = await MainHelper.readInputString(options.inputAtsReview);
 			const atsReview = JSON.parse(atsReviewStr);
 
-			const resumeOptimizedJson = await AtsOptimizer.optimize(aiSdkProvider, resumeJson, atsReview);
+			const resumeOptimizedJson = await AtsOptimizer.optimize(aiSdkLanguageModel, resumeJson, atsReview);
 
 			const resumeOptimizedStr = JSON.stringify(resumeOptimizedJson, null, '\t');
 			await MainHelper.writeOutputString(options.outputResumeJson, resumeOptimizedStr);

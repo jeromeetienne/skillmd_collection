@@ -15,7 +15,7 @@ import { ResumeJson } from '../resume_json/resume_types.js';
 
 export class AtsAnswering {
 	static async evaluate(
-		aiSdkProvider: AiSdkOpenAI.OpenAIProvider,
+		aiSdkLanguageModel: AiSdk.LanguageModel,
 		resumeJson: ResumeJson,
 		atsQuestion: AtsQuestion,
 		{
@@ -47,7 +47,7 @@ export class AtsAnswering {
 
 		// Prompt the AI SDK to generate answers for each ATS question
 		const response = await AiSdk.generateText({
-			model: aiSdkProvider(modelName),
+			model: aiSdkLanguageModel,
 			output: AiSdk.Output.object({
 				schema: AtsQuestionSchema,
 			}),

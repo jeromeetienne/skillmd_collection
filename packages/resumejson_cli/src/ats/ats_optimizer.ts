@@ -22,7 +22,7 @@ const PROJECT_ROOT = Path.resolve(__dirname, '../..');
 
 export class AtsOptimizer {
 	static async optimize(
-		aiSdkProvider: AiSdkOpenAI.OpenAIProvider,
+		aiSdkLanguageModel: AiSdk.LanguageModel,
 		resumeJson: ResumeJson,
 		atsReview: AtsReview,
 		{
@@ -54,7 +54,7 @@ export class AtsOptimizer {
 
 		// Prompt the AI SDK to generate the optimized ResumeJson
 		const response = await AiSdk.generateText({
-			model: aiSdkProvider(modelName),
+			model: aiSdkLanguageModel,
 			output: AiSdk.Output.object({
 				schema: ResumeJsonSchema,
 			}),

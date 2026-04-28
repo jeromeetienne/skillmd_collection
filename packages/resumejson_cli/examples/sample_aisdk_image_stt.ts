@@ -27,7 +27,7 @@ export type ImageAnalysis = z.infer<typeof imageAnalysisSchema>;
 export async function analyzeImage(imagePath: string): Promise<ImageAnalysis> {
 	const image = await Fs.promises.readFile(imagePath);
 	// init OpenAI cache with sqlite backend (you can use any Keyv backend or even an in-memory cache)
-	const sqlitePath = `sqlite://${__dirname}/.openai_cache.sqlite`;
+	const sqlitePath = `sqlite://${__dirname}/../.openai_cache.sqlite`;
 	const sqliteCache = new Cacheable({ secondary: new KeyvSqlite(sqlitePath) });
 	const openaiCache = new OpenAICache(sqliteCache, {
 		markResponseEnabled: true, // enable marking cached responses with a special header
