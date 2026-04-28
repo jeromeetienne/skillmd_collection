@@ -1,6 +1,6 @@
 {
     "name": "fastbrowser_cli",
-    "version": "1.0.23",
+    "version": "1.0.24",
     "description": "A CLI tool for FastBrowser, providing commands to interact with the FastBrowser MCP (Model Context Protocol) server and perform various browser automation tasks.",
     "main": "dist/fastbrowser_cli/fastbrowser_cli.js",
     "bin": {
