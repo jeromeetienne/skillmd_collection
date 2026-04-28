@@ -18,7 +18,8 @@
         "inspect:playwright:cdp_endpoint": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --cdp-endpoint=http://localhost:9222",
         "inspect:playwright:extension": "npx @modelcontextprotocol/inspector npx @playwright/mcp@latest --extension",
         "build": "tsc -p tsconfig.build.json",
-        "publish:all": "pnpm run build && npm version patch && pnpm publish --access public",
+        "prepublish:check": "test -z \"$(git status --porcelain)\" || (echo 'Working tree dirty — commit or stash first' && exit 1)",
+        "publish:all": "pnpm run prepublish:check && pnpm run build && npm version patch && pnpm publish --access public",
         "typecheck": "tsc -p tsconfig.json --noEmit",
         "test": "npx tsx --test 'tests/**/*.test.ts'"
     },
