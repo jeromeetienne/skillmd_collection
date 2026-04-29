@@ -179,6 +179,22 @@ importers:
         specifier: ^4.19.2
         version: 4.21.0
 
+  packages/voicebox_cli:
+    dependencies:
+      commander:
+        specifier: ^14.0.3
+        version: 14.0.3
+    devDependencies:
+      '@types/node':
+        specifier: ^20.0.0
+        version: 20.19.39
+      tsx:
+        specifier: ^4.21.0
+        version: 4.21.0
+      typescript:
+        specifier: ^5.3.3
+        version: 5.9.3
+
 packages:
 
   '@ai-sdk/gateway@3.0.104':

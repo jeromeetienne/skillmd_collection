@@ -1,14 +1,29 @@
 {
     "name": "voicebox_cli",
     "version": "1.0.0",
-    "description": "Voicebox CLI - A command-line interface for Voicebox, an open-source, local-first AI voice studio — a free alternative to ElevenLabs and WisprFlow, running entirely on your machine..",
-    "main": "index.js",
-    "types": "module",
+    "description": "Voicebox CLI - A command-line interface for Voicebox, an open-source, local-first AI voice studio — a free alternative to ElevenLabs and WisprFlow, running entirely on your machine.",
+    "main": "dist/src/cli.js",
+    "bin": {
+        "voicebox_cli": "./dist/src/cli.js"
+    },
     "scripts": {
+        "dev": "tsx ./src/cli.ts",
+        "dev:health": "npm run dev -- health",
+        "build": "tsc -p tsconfig.build.json",
+        "postbuild": "chmod +x ./dist/src/cli.js",
+        "typecheck": "tsc --noEmit",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "type": "commonjs"
+    "type": "commonjs",
+    "dependencies": {
+        "commander": "^14.0.3"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "tsx": "^4.21.0",
+        "typescript": "^5.3.3"
+    }
 }
