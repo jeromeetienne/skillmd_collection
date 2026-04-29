@@ -1,0 +1,14 @@
+{
+    "name": "voicebox_cli",
+    "version": "1.0.0",
+    "description": "Voicebox CLI - A command-line interface for Voicebox, an open-source, local-first AI voice studio — a free alternative to ElevenLabs and WisprFlow, running entirely on your machine..",
+    "main": "index.js",
+    "types": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs"
+}
