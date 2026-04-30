@@ -107,17 +107,23 @@ class MainHelper {
 		selectedNodes: A11yParse.AxNode[],
 		withAncestors: boolean,
 	): string {
-		let text: string = `## Node found for selector '${selector}' (${selectedNodes.length} node${selectedNodes.length > 1 ? 's' : ''}${withAncestors ? ', with ancestors' : ''}):\n`;
-		if (withAncestors) {
-			if (selectedNodes.length === 0) {
-				text += "No node found";
-			} else {
-				const ancestorTree = A11yParse.A11yTree.buildAncestorTree(selectedNodes);
-				text += A11yParse.A11yTree.stringify(ancestorTree);
-			}
+		const nodeCount = selectedNodes.length;
+		const pluralS = nodeCount > 1 ? 's' : '';
+		const ancestorsText = withAncestors ? ', with ancestors' : '';
+		let text: string = `## Node${pluralS} found for selector '${selector}' (${nodeCount} node${pluralS}${ancestorsText}):`;
+		if (selectedNodes.length === 0) {
+			if (text.length > 0) text += '\n';
+			text += "No node found";
 		} else {
-			for (const selectedNode of selectedNodes) {
-				text += A11yParse.A11yTree.stringify(selectedNode) + '\n';
+			if (withAncestors) {
+				const ancestorTree = A11yParse.A11yTree.buildAncestorTree(selectedNodes);
+				if (text.length > 0) text += '\n';
+				text += A11yParse.A11yTree.stringifyTree(ancestorTree);
+			} else {
+				for (const selectedNode of selectedNodes) {
+					if (text.length > 0) text += '\n';
+					text += A11yParse.A11yTree.stringifyNode(selectedNode);
+				}
 			}
 		}
 		text += '\n';

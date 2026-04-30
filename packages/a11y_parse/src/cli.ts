@@ -7,7 +7,7 @@ import Fs from 'node:fs';
 import { Command } from 'commander';
 
 // local imports
-import { A11yTree } from './libs/a11y_tree.js';
+import { A11yTree, AxNode } from './libs/a11y_tree.js';
 import { A11yQuery } from './libs/a11y_selector.js';
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -39,39 +39,29 @@ class MainHelper {
 	 * @param file - Path to the accessibility tree file
 	 * @returns Parsed accessibility tree
 	 */
-	static readTree(file: string): ReturnType<typeof A11yTree.parse> {
-		let content: string;
-		try {
-			content = Fs.readFileSync(file, 'utf-8');
-		} catch (err) {
-			console.error(`Error reading file: ${file}`);
-			process.exit(1);
-		}
+	static async readTree(file: string): Promise<AxNode> {
+		let content: string = await Fs.promises.readFile(file, 'utf-8');
 
 		const treeText = MainHelper.stripFileHeader(content);
 
-		try {
-			return A11yTree.parse(treeText);
-		} catch (err) {
-			console.error(`Error parsing accessibility tree: ${err instanceof Error ? err.message : String(err)}`);
-			process.exit(1);
-		}
+		const axTree: AxNode = A11yTree.parse(treeText);
+		return axTree;
 	}
 
 	/**
 	 * Outputs matched nodes to stdout.
-	 * @param nodes - Array of matched nodes
+	 * @param axNodes - Array of matched nodes
 	 * @param withAncestor - If true, outputs ancestor tree; otherwise outputs individual nodes
 	 */
-	static outputNodes(nodes: ReturnType<typeof A11yQuery.querySelectorAll>, withAncestor: boolean): void {
-		if (nodes.length === 0) {
+	static outputNodes(axNodes: AxNode[], withAncestor: boolean): void {
+		if (axNodes.length === 0) {
 			process.exit(1);
 		}
 		if (withAncestor) {
-			const ancestorTree = A11yTree.buildAncestorTree(nodes);
-			process.stdout.write(A11yTree.stringify(ancestorTree) + '\n');
+			const ancestorTree = A11yTree.buildAncestorTree(axNodes);
+			process.stdout.write(A11yTree.stringifyTree(ancestorTree) + '\n');
 		} else {
-			for (const node of nodes) {
+			for (const node of axNodes) {
 				process.stdout.write(A11yTree.stringifyNode(node) + '\n');
 			}
 		}
@@ -87,7 +77,7 @@ class MainHelper {
 /**
  * Main CLI entry point. Parses command-line arguments and executes accessibility tree queries.
  */
-function main(): void {
+async function main(): Promise<void> {
 	const program = new Command();
 
 	program
@@ -106,19 +96,30 @@ function main(): void {
 		].join('\n'))
 		.parse(process.argv);
 
-	const opts = program.opts<{ file: string; all: boolean; withAncestor: boolean }>();
-	const selector = program.args[0];
+	type CliOptions = {
+		file: string;
+		all: boolean;
+		withAncestor: boolean;
+	};
+	const options = program.opts<CliOptions>();
+	const selector: string = program.args[0];
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
 	// Read and parse the accessibility tree file
-	const root = MainHelper.readTree(opts.file);
+	const axTree = await MainHelper.readTree(options.file);
 
 	// Query based on --all flag
-	if (opts.all) {
-		const nodes = A11yQuery.querySelectorAll(root, selector);
-		MainHelper.outputNodes(nodes, opts.withAncestor === true);
+	if (options.all) {
+		const nodes = A11yQuery.querySelectorAll(axTree, selector);
+		MainHelper.outputNodes(nodes, options.withAncestor === true);
 	} else {
 		// Single match mode
-		const node = A11yQuery.querySelector(root, selector);
+		const node = A11yQuery.querySelector(axTree, selector);
 		if (node === undefined) {
 			process.exit(1);
 		}
@@ -132,4 +133,4 @@ function main(): void {
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-main();
+void main();

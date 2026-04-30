@@ -141,10 +141,10 @@ describe('A11yTree', () => {
 		});
 	});
 
-	describe('stringify', () => {
+	describe('stringifyTree', () => {
 		it('round-trips through parse', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
-			const text = A11yTree.stringify(root);
+			const text = A11yTree.stringifyTree(root);
 			const reparsed = A11yTree.parse(text);
 
 			const normalize = (n: AxNode): unknown => ({
@@ -166,7 +166,7 @@ describe('A11yTree', () => {
 				attributes: { data: 'a"b\\c' },
 				children: [],
 			};
-			const text = A11yTree.stringify(root);
+			const text = A11yTree.stringifyTree(root);
 			const reparsed = A11yTree.parse(text);
 			assert.equal(reparsed.name, 'He said "hi"\\there');
 			assert.equal(reparsed.attributes.data, 'a"b\\c');

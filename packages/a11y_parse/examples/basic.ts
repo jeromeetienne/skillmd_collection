@@ -62,7 +62,7 @@ async function usageExample() {
 	}
 
 	// Serialize back
-	const treeTextNew = A11yTree.stringify(axTree);
+	const treeTextNew = A11yTree.stringifyTree(axTree);
 	console.log("Serialized tree:");
 	console.log(treeTextNew);
 }

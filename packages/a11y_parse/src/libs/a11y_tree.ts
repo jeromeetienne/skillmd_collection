@@ -142,13 +142,14 @@ export class A11yTree {
 	///////////////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Converts an AxNode tree back to its string representation. This is the inverse of the parse method, and the output can 
-	 * be parsed back to an identical tree.
-	 * 
+	 * Converts an AxNode tree (the given node and all its descendants) back to its string representation.
+	 * This is the inverse of the parse method, and the output can be parsed back to an identical tree.
+	 * For a single node without its descendants, use `stringifyNode` instead.
+	 *
 	 * @param root The root of the tree to stringify.
 	 * @returns The string representation of the tree.
 	 */
-	static stringify(root: AxNode): string {
+	static stringifyTree(root: AxNode): string {
 		const out: string[] = [];
 		const write = (node: AxNode, depth: number) => {
 			const pad = '  '.repeat(depth);
