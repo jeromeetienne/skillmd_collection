@@ -2,7 +2,12 @@
 
 // Reads Claude API stream-json events line-by-line from stdin and pretty-prints
 // them with colorized output. Designed to wrap an upstream `claude --stream-json`
-// pipe, e.g. `claude … | claude_stream_viewer`.
+// pipe, e.g. `claude … | npx claude_stream_viewer`.
+// Usage:
+//   claude --stream-json | npx claude_stream_viewer
+//
+// claude --output-format stream-json --verbose --include-partial-messages --permission-mode auto -p "explain quantum computing like I'm 5" | npx claude_stream_viewer
+
 
 import Readline from 'node:readline';
 import Fs from 'node:fs';
