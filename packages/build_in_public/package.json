@@ -1,16 +1,16 @@
 {
-	"name": "build_in_public",
-	"version": "1.0.0",
-	"description": "Build-in-public skills and helper scripts",
-	"private": true,
-	"scripts": {
-		"typecheck": "tsc --noEmit",
-		"video": "tsx ./scripts/build_in_public_video.ts"
-	},
-	"type": "commonjs",
-	"devDependencies": {
-		"@types/node": "^20.0.0",
-		"tsx": "^4.21.0",
-		"typescript": "^5.3.3"
-	}
+    "name": "build_in_public",
+    "version": "1.0.0",
+    "description": "Build-in-public skills and helper scripts",
+    "private": true,
+    "scripts": {
+        "typecheck": "tsc --noEmit",
+        "video": "tsx ./scripts/build_in_public_video.ts"
+    },
+    "type": "module",
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "tsx": "^4.21.0",
+        "typescript": "^5.3.3"
+    }
 }

@@ -24,7 +24,7 @@ npx claude_stream_viewer@latest
 Pipe any source of stream-json events into the viewer:
 
 ```bash
-claude --output-format stream-json --verbose --include-partial-messages \
+claude --output-format stream-json --verbose \
        --permission-mode auto -p "explain quantum computing like I'm 5" \
   | npx claude_stream_viewer@latest
 ```
@@ -33,69 +33,29 @@ The viewer reads one JSON event per line from stdin and writes a colorized, huma
 
 ### What it renders
 
-| Event                              | Output                                                           |
-|------------------------------------|------------------------------------------------------------------|
-| `text_delta` (inside `stream_event`) | streamed inline as plain text — the assistant's reply            |
-| `tool_use`                         | `=== TOOL USE ===` header followed by the event JSON             |
-| Other `stream_event` types         | `=== EVENT: <type> ===` header followed by the event JSON        |
-| Legacy `message_delta`             | streamed inline as plain text                                    |
-| Final assistant message            | `=== FINAL MESSAGE ===` header followed by each content block    |
-| Anything else                      | `=== UNKNOWN EVENT ===` header followed by the raw JSON          |
+The viewer consumes Claude Code's **consolidated event layer** (`system`, `assistant`, `user`, `rate_limit_event`, `result`). The fine-grained `stream_event` SSE envelopes are ignored — the consolidated events already carry fully assembled content blocks.
+
+| Event              | Output                                                                              |
+|--------------------|-------------------------------------------------------------------------------------|
+| `system` (`init`)  | `=== SESSION ===` header with model, cwd, tool count, session id, claude-code version |
+| `assistant`        | One block per content type: `--- thinking ---`, plain assistant text, or `→ <tool>` with input JSON |
+| `user`             | `← <tool> result` (or `← <tool> ERROR`) followed by the tool output, truncated past 40 lines |
+| `rate_limit_event` | One-line `[rate_limit] <status>` notice                                             |
+| `result`           | `=== RESULT ===` summary with terminal_reason, turns, duration, cost, token totals  |
+| `stream_event`     | Silently skipped                                                                    |
+| Anything else      | `=== <type> ===` header followed by the raw JSON                                    |
+
+Tool calls and their results are paired by `tool_use_id`, so each `← <tool> result` is labeled with the matching call's tool name.
 
 Malformed lines are reported on stderr (`Invalid JSON: …`) without aborting the stream.
 
 ## Options
 
-| Flag                  | Description                                                  | Default |
-|-----------------------|--------------------------------------------------------------|---------|
-| `--no-color`          | Disable colored output                                       | colored |
-| `--include <kinds>`   | Comma-separated event kinds to show (whitelist)              | all     |
-| `--exclude <kinds>`   | Comma-separated event kinds to hide (blacklist)              | none    |
-| `--version`           | Print the package version                                    | —       |
-| `--help`              | Print usage help                                             | —       |
-
-### Event kinds
-
-`--include` and `--exclude` match against an event's *kind*. The known kinds are:
-
-- `text` — streamed assistant text (both `text_delta` and legacy `message_delta`)
-- `tool_use`
-- `final_message`
-- `unknown`
-- any `stream_event` subtype: `message_start`, `message_stop`, `content_block_start`, `content_block_stop`, `message_delta`, …
-
-### Filter examples
-
-Show only the assistant's text, hiding all envelope events:
-
-```bash
-claude --output-format stream-json --verbose --include-partial-messages \
-       --permission-mode auto -p "explain quantum computing like I'm 5" \
-  | npx claude_stream_viewer@latest --include text
-```
-
-Show only tool calls (useful for auditing what the model is doing):
-
-```bash
-claude --output-format stream-json --verbose --include-partial-messages \
-       --permission-mode auto -p "list files in this repo" \
-  | npx claude_stream_viewer@latest --include tool_use
-```
-
-Hide the noisy start/stop envelopes, keep everything else:
-
-```bash
-claude --output-format stream-json --verbose --include-partial-messages \
-       --permission-mode auto -p "summarize this file" \
-  | npx claude_stream_viewer@latest --exclude message_start,message_stop,content_block_start,content_block_stop
-```
-
-Combine `--include` and `--exclude` (`--exclude` wins on conflicts):
-
-```bash
-… | npx claude_stream_viewer@latest --include text,tool_use --exclude tool_use
-# → only text
-```
+| Flag         | Description              | Default |
+|--------------|--------------------------|---------|
+| `--no-color` | Disable colored output   | colored |
+| `--version`  | Print the package version | —      |
+| `--help`     | Print usage help         | —       |
 
 ## Development
 

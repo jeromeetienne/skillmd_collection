@@ -2,6 +2,7 @@
 
 import ChildProcess from 'node:child_process';
 import Fs from 'node:fs';
+import Path from 'node:path';
 import Os from 'node:os';
 import path from 'node:path';
 
@@ -14,6 +15,9 @@ description: |
   - https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/fastbrowser_cli
 `;
 
+const __dirname = new URL('.', import.meta.url).pathname;
+const REPOSITORY_ROOT = path.join(__dirname, '../../..');
+
 export class BuildInPublicVideo {
 	static streamClaudeToViewer(userPrompt: string, cwd: string): Promise<void> {
 		return new Promise((resolve, reject) => {
@@ -23,13 +27,22 @@ export class BuildInPublicVideo {
 					'--output-format', 'stream-json',
 					'--verbose',
 					'--include-partial-messages',
+					'--allowed-tools', 'Bash,Read,Write,WebFetch',
 					'--permission-mode', 'auto',
 					'-p', userPrompt,
 				],
 				{ cwd, stdio: ['ignore', 'pipe', 'inherit'] },
 			);
+			// /Users/jetienne/webwork/skillmd_collection/packages/claude_stream_viewer/src/claude_stream_viewer.ts
+			// const streamViewerCmd = 'npx'
+			// const streamViewerArgs = ['claude_stream_viewer@latest'];
+			const streamViewerCmd = 'npx'
+			const streamViewerArgs = [
+				'tsx',
+				Path.join(REPOSITORY_ROOT, './packages/claude_stream_viewer/src/claude_stream_viewer.ts'),
+			];
 
-			const viewer = ChildProcess.spawn('npx', ['claude_stream_viewer@latest'], {
+			const viewer = ChildProcess.spawn(streamViewerCmd, streamViewerArgs, {
 				cwd,
 				stdio: ['pipe', 'inherit', 'inherit'],
 			});
