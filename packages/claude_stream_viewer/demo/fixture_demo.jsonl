@@ -1,0 +1,6 @@
+{"type": "stream_event", "event": {"type": "message_start", "message": {"model": "claude-opus-4-6", "id": "msg_demo", "role": "assistant", "content": [], "usage": {"input_tokens": 12, "output_tokens": 0}}}}
+{"type": "stream_event", "event": {"type": "content_block_delta", "index": 0, "delta": {"type": "text_delta", "text": "Quantum computing uses "}}}
+{"type": "stream_event", "event": {"type": "content_block_delta", "index": 0, "delta": {"type": "text_delta", "text": "qubits that can exist in superpositions of 0 and 1 "}}}
+{"type": "stream_event", "event": {"type": "content_block_delta", "index": 0, "delta": {"type": "text_delta", "text": "simultaneously, allowing certain computations to explore "}}}
+{"type": "stream_event", "event": {"type": "content_block_delta", "index": 0, "delta": {"type": "text_delta", "text": "many possibilities in parallel."}}}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Quantum computing uses qubits that can exist in superpositions of 0 and 1 simultaneously, allowing certain computations to explore many possibilities in parallel."}]}}
