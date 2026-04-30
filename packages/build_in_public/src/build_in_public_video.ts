@@ -5,15 +5,18 @@ import Fs from 'node:fs';
 import Path from 'node:path';
 import Os from 'node:os';
 import path from 'node:path';
+import * as Commander from 'commander';
 
-const USER_PROMPT = `Generate a build-in-public video
+const DEFAULT_TOPIC = 'why fastbrowser + a11y_parse are great to scrape the web with AI';
+const DEFAULT_DESCRIPTION = `Based on those 2 folders, in a monorepo
+- https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/a11y_parse
+- https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/fastbrowser_cli`;
 
-topic: why fastbrowser + a11y_parse are great to scrape the web with AI
-description: |
-  Based on those 2 folders, in a monorepo
-  - https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/a11y_parse
-  - https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/fastbrowser_cli
-`;
+type CliOptions = {
+	topic: string;
+	description: string;
+	outputDir: string;
+};
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const REPOSITORY_ROOT = path.join(__dirname, '../../..');
@@ -84,11 +87,34 @@ export class BuildInPublicVideo {
 ///////////////////////////////////////////////////////////////////////////////
 
 async function main(): Promise<void> {
-	const tmpDir = '/tmp';
+	const program = new Commander.Command();
+	program
+		.name('build_in_public_video')
+		.description('Scaffold a Remotion project and stream Claude Code to generate a build-in-public video.')
+		.option('-t, --topic <topic>', 'video topic', DEFAULT_TOPIC)
+		.option('-d, --description <description>', 'video description', DEFAULT_DESCRIPTION)
+		.option('-o, --output-dir <dir>', 'parent directory for the generated project', '/tmp')
+		.parse(process.argv);
+
+	const options = program.opts<CliOptions>();
+
+	const userPrompt = `Generate a build-in-public video
+
+topic: ${options.topic}
+description: |
+${options.description.split('\n').map((line) => `  ${line}`).join('\n')}
+`;
+
+	const tmpDir = options.outputDir;
 	const suffix = (new Date()).toISOString().replace(/[:.]/g, '-');
 	const projectName = `video_build_in_public_${suffix}`;
 	const projectDir = path.join(tmpDir, projectName);
 
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	Creating the folder
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
 	console.log(`Creating project in ${projectDir}...`);
 
@@ -96,6 +122,12 @@ async function main(): Promise<void> {
 		cwd: tmpDir,
 		stdio: 'inherit',
 	});
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	Add the SKILL.md from remotion and build-in-public-video
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
 	console.log('Adding claude-code skill to project...');
 	ChildProcess.execSync('npx skills add remotion-dev/skills -a claude-code --yes', {
@@ -111,8 +143,14 @@ async function main(): Promise<void> {
 	const skillDest = path.join(projectDir, '.claude/skills/build-in-public-video');
 	Fs.cpSync(skillSource, skillDest, { recursive: true, preserveTimestamps: true });
 
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	Launch claude
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
 	console.log('Streaming Claude output to viewer...');
-	await BuildInPublicVideo.streamClaudeToViewer(USER_PROMPT, projectDir);
+	await BuildInPublicVideo.streamClaudeToViewer(userPrompt, projectDir);
 
 	console.log('Done!');
 }
