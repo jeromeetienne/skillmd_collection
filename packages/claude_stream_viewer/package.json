@@ -10,6 +10,7 @@
         "dev": "tsx ./src/cli.ts",
         "sample:basic": "cat ./data/claude_events/basic.claude_events.jsonl | npm run dev",
         "sample:video_generation": "cat ./data/claude_events/video_generation.claude_events.jsonl | npm run dev",
+        "sample:video_build_in_public": "cat ./data/claude_events/video_build_in_public.claude_events.jsonl | npm run dev",
         "build": "tsc -p tsconfig.build.json",
         "postbuild": "chmod +x ./dist/cli.js",
         "version:bump": "npm version patch --no-git-tag-version && git commit -a -m \"feat: bump version in claude_stream_viewer package.json\"",
