@@ -38,7 +38,7 @@ The viewer consumes Claude Code's **consolidated event layer** (`system`, `assis
 | Event              | Output                                                                              |
 |--------------------|-------------------------------------------------------------------------------------|
 | `system` (`init`)  | `=== SESSION ===` header with model, cwd, tool count, session id, claude-code version |
-| `assistant`        | One block per content type: `--- thinking ---`, plain assistant text, or `→ <tool>` with input JSON |
+| `assistant`        | One block per content type: `--- thinking ---`, plain assistant text, or `→ <tool>` with a per-tool compact body (Bash → `$ <command>`, Read/Write/Edit → file path, Grep/Glob → pattern, TodoWrite → checkbox list, etc.). Unknown tools fall back to a JSON dump. |
 | `user`             | `← <tool> result` (or `← <tool> ERROR`) followed by the tool output, truncated past 40 lines |
 | `rate_limit_event` | One-line `[rate_limit] <status>` notice                                             |
 | `result`           | `=== RESULT ===` summary with terminal_reason, turns, duration, cost, token totals  |
