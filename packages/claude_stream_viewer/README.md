@@ -2,7 +2,7 @@
 
 Pretty-prints [Claude Code](https://claude.com/claude-code) `stream-json` events from stdin with colorized output. Drop it at the end of a `claude --output-format stream-json` pipe to read the stream as a human instead of as raw JSON.
 
-![claude_stream_viewer demo](demo/claude_stream_viewer.gif)
+![claude_stream_viewer demo](demo_vhs/claude_stream_viewer.gif)
 
 ## Requirements
 

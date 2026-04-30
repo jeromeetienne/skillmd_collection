@@ -171,7 +171,7 @@ async function main(): Promise<void> {
 	console.log('Copying build-in-public-video skill to project...');
 	const skillSource = path.join(
 		Os.homedir(),
-		'webwork/transformer_bitcoin_ai/.claude/skills-disabled/build-in-public-video',
+		'webwork/transformer_bitcoin_ai/packages/build_in_public/skills/build-in-public-video',
 	);
 	const skillDest = path.join(projectDir, '.claude/skills/build-in-public-video');
 	Fs.cpSync(skillSource, skillDest, { recursive: true, preserveTimestamps: true });
