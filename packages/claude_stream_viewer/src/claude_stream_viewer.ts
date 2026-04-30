@@ -55,6 +55,13 @@ type ClaudeEvent = {
 	};
 };
 
+type RenderFunction = () => void;
+
+type ClassifiedEvent = {
+	eventKind: string;
+	renderFunction: RenderFunction;
+};
+
 const colors = {
 	text: Chalk.white,
 	tool: Chalk.cyan,
@@ -88,25 +95,37 @@ class MainHelper {
 		console.log(colors.json(JSON.stringify(obj, null, 2)));
 	}
 
-	static classifyEvent(data: ClaudeEvent): { kind: string; render: () => void } {
-		// Newer SDKs wrap each event in a `stream_event` envelope.
-		if (data.type === 'stream_event' && data.event !== undefined) {
-			const evt = data.event;
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
-			const deltaText = evt.delta?.text;
-			if (evt.delta?.type === 'text_delta' && deltaText !== undefined && deltaText !== '') {
+	/**
+	 * Classifies a raw Claude event from the stream according to its shape, returning an event kind and a render function that knows how to pretty-print it.
+	 * 
+	 * @param claudeEvent 
+	 * @returns 
+	 */
+	static classifyEvent(claudeEvent: ClaudeEvent): ClassifiedEvent {
+		// Newer SDKs wrap each event in a `stream_event` envelope.
+		if (claudeEvent.type === 'stream_event' && claudeEvent.event !== undefined) {
+			const event = claudeEvent.event;
+
+			const deltaText = event.delta?.text;
+			if (event.delta?.type === 'text_delta' && deltaText !== undefined && deltaText !== '') {
 				return {
-					kind: 'text',
-					render: () => MainHelper.printText(deltaText),
+					eventKind: 'text',
+					renderFunction: () => MainHelper.printText(deltaText),
 				};
 			}
 
-			if (evt.type === 'tool_use') {
+			if (event.type === 'tool_use') {
 				return {
-					kind: 'tool_use',
-					render: () => {
+					eventKind: 'tool_use',
+					renderFunction: () => {
 						MainHelper.printHeader('TOOL USE');
-						MainHelper.printJSON(evt);
+						MainHelper.printJSON(event);
 					},
 				};
 			}
@@ -114,38 +133,38 @@ class MainHelper {
 			// `content_block_delta` is the parent envelope of `text_delta` —
 			// already rendered above, so skip it here to avoid duplicating
 			// the text stream as a JSON dump.
-			if (evt.type !== undefined && evt.type !== 'content_block_delta') {
-				const subtype = evt.type;
+			if (event.type !== undefined && event.type !== 'content_block_delta') {
+				const subtype = event.type;
 				return {
-					kind: subtype,
-					render: () => {
+					eventKind: subtype,
+					renderFunction: () => {
 						MainHelper.printHeader(`EVENT: ${subtype}`);
-						MainHelper.printJSON(evt);
+						MainHelper.printJSON(event);
 					},
 				};
 			}
 
-			return { kind: 'content_block_delta', render: () => {} };
+			return { eventKind: 'content_block_delta', renderFunction: () => { } };
 		}
 
 		// Legacy format: pre-`stream_event` SDKs emit raw `message_delta`
 		// events with the text delta hanging off the root.
-		if (data.type === 'message_delta') {
-			const text = data.delta?.text;
+		if (claudeEvent.type === 'message_delta') {
+			const text = claudeEvent.delta?.text;
 			if (text !== undefined && text !== '') {
 				return {
-					kind: 'text',
-					render: () => MainHelper.printText(text),
+					eventKind: 'text',
+					renderFunction: () => MainHelper.printText(text),
 				};
 			}
 		}
 
 		// Final assistant message bundling all content blocks for the turn.
-		const content = data.message?.content;
+		const content = claudeEvent.message?.content;
 		if (content !== undefined) {
 			return {
-				kind: 'final_message',
-				render: () => {
+				eventKind: 'final_message',
+				renderFunction: () => {
 					MainHelper.printHeader('FINAL MESSAGE');
 					for (const block of content) {
 						if (block.text !== undefined && block.text !== '') {
@@ -157,33 +176,56 @@ class MainHelper {
 		}
 
 		return {
-			kind: 'unknown',
-			render: () => {
+			eventKind: 'unknown',
+			renderFunction: () => {
 				MainHelper.printHeader('UNKNOWN EVENT');
-				MainHelper.printJSON(data);
+				MainHelper.printJSON(claudeEvent);
 			},
 		};
 	}
 
-	static shouldRenderKind(kind: string, filter: EventFilter): boolean {
-		if (filter.include !== undefined && filter.include.length > 0) {
-			if (filter.include.includes(kind) === false) return false;
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Determines whether an event of the given kind should be rendered according to the provided filter config.
+	 * 
+	 * @param eventKind 
+	 * @param eventFilter 
+	 * @returns 
+	 */
+	static shouldRenderKind(eventKind: string, eventFilter: EventFilter): boolean {
+		if (eventFilter.include !== undefined && eventFilter.include.length > 0) {
+			if (eventFilter.include.includes(eventKind) === false) return false;
 		}
-		if (filter.exclude !== undefined && filter.exclude.includes(kind)) {
+		if (eventFilter.exclude !== undefined && eventFilter.exclude.includes(eventKind)) {
 			return false;
 		}
 		return true;
 	}
 
-	static handleEvent(data: ClaudeEvent, filter: EventFilter) {
+	/**
+	 * Classifies and renders a Claude event according to its shape and the provided filter config.
+	 * 
+	 * @param claudeEvent 
+	 * @param eventFilter 
+	 * @returns 
+	 */
+	static handleEvent(claudeEvent: ClaudeEvent, eventFilter: EventFilter) {
 		try {
-			const { kind, render } = MainHelper.classifyEvent(data);
-			if (MainHelper.shouldRenderKind(kind, filter) === false) return;
-			render();
+			// Classify the event to determine its kind and how to render it.
+			const classifiedEvent: ClassifiedEvent = MainHelper.classifyEvent(claudeEvent);
+			// If the event kind is unknown, still render it so the user can see the shape and add it to their filter config if desired.
+			if (MainHelper.shouldRenderKind(classifiedEvent.eventKind, eventFilter) === false) return;
+			// Render the event according to its classified kind and shape.
+			classifiedEvent.renderFunction();
 		} catch (err) {
 			// Never let a single malformed event take down the stream — log and move on.
 			console.error(colors.error('Error processing event:'), err);
-			MainHelper.printJSON(data);
+			MainHelper.printJSON(claudeEvent);
 		}
 	}
 }
