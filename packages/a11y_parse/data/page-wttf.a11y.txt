@@ -1,0 +1,668 @@
+uid=s1 Page
+uid=s2 Page
+uid=s3 Console value="2 errors, 0 warnings"
+uid=e1 generic active
+  uid=e2 generic
+    uid=e3 banner
+      uid=e5 button "FR"
+        uid=e6 img
+        uid=s4 StaticText "FR"
+        uid=e8 img
+      uid=e10 generic
+        uid=e11 generic
+          uid=e12 link "Welcome to the jungle logo" url="https://www.welcometothejungle.com/fr/"
+            uid=e13 img "Welcome to the jungle logo"
+          uid=e15 navigation "Main navigation"
+            uid=e16 list
+              uid=e17 listitem
+                uid=e18 link "Trouver un job" url="https://www.welcometothejungle.com/fr/jobs-matches"
+              uid=e19 listitem
+                uid=e20 link "Explorer les entreprises" url="https://www.welcometothejungle.com/fr/companies"
+              uid=e21 listitem
+                uid=e22 button "Ressources"
+              uid=s5 listitem
+        uid=e23 generic
+          uid=s6 navigation "Navigation utilisateur"
+            uid=s7 list
+              uid=s8 listitem
+              uid=s9 listitem
+              uid=s10 listitem
+              uid=s11 listitem
+          uid=e24 button
+            uid=e25 img
+    uid=e27 main
+      uid=e28 generic
+        uid=e29 region
+          uid=e31 paragraph value="Filtrer"
+          uid=e32 generic
+            uid=e33 generic
+              uid=e34 article
+                uid=e35 paragraph value="Vos préférences"
+                uid=e38 generic
+                  uid=e40 generic
+                    uid=e41 button "informatique"
+                      uid=e42 img
+                      uid=e44 generic value="informatique"
+                    uid=e45 button "Senior (5-10 ans)"
+                      uid=e46 img
+                      uid=e48 generic value="Senior (5-10 ans)"
+                    uid=e49 button "Intermédiaire (3-5 ans)"
+                      uid=e50 img
+                      uid=e52 generic value="Intermédiaire (3-5 ans)"
+                    uid=e53 button "Expert & leadership (> 10 ans)"
+                      uid=e54 img
+                      uid=e56 generic value="Expert & leadership (> 10 ans)"
+                  uid=e58 generic
+                    uid=e59 button "Pas de télétravail"
+                      uid=e60 img
+                      uid=e62 generic value="Pas de télétravail"
+                    uid=e63 button "France"
+                      uid=e64 img
+                      uid=e66 generic value="France"
+                  uid=e68 generic
+                    uid=e69 button "Freelance"
+                      uid=e70 img
+                      uid=e72 generic value="Freelance"
+                    uid=e73 button "Temps partiel"
+                      uid=e74 img
+                      uid=e76 generic value="Temps partiel"
+                    uid=e77 button "CDI"
+                      uid=e78 img
+                      uid=e80 generic value="CDI"
+                    uid=e81 button "≥ 10K €par an"
+                      uid=e82 img
+                      uid=e84 generic value="≥ 10K €par an"
+              uid=e85 generic
+                uid=e86 heading "Modifier les préférences" level="3"
+                uid=e87 button "Rôle"
+                  uid=e88 generic
+                    uid=e89 img
+                    uid=e91 paragraph value="Rôle"
+                  uid=e92 img
+                uid=e94 button "Localisation"
+                  uid=e95 generic
+                    uid=e96 img
+                    uid=e98 paragraph value="Localisation"
+                  uid=e99 img
+                uid=e101 button "Contrat et salaire"
+                  uid=e102 generic
+                    uid=e103 img
+                    uid=e105 paragraph value="Contrat et salaire"
+                  uid=e106 img
+                uid=e108 button "Entreprise et culture"
+                  uid=e109 generic
+                    uid=e110 img
+                    uid=e112 paragraph value="Entreprise et culture"
+                  uid=e113 img
+            uid=e115 button "Enregistrer"
+        uid=e117 generic
+          uid=e118 generic
+            uid=e119 paragraph value="316 jobs"
+            uid=e121 combobox
+              uid=e122 generic
+                uid=e125 generic value="Toutes les dates"
+                uid=e127 button "open menu"
+                  uid=e128 img
+          uid=e130 link "OZITEM logo Technicien informatique H/F OZITEM Solutions cloud et infogérance pour la transformation digitale des entreprises. CDI Pas de télétravail Issy-les-Moulineaux 400 collaborateurs Conseil / Audit Tech 30 avril 2026 OZITEM banner OZITEM banner" url="/fr/companies/ozitem/jobs/technicien-informatique-h-f_issy-les-moulineaux_OZITE_balyP9b"
+            uid=e131 generic
+              uid=e132 generic
+                uid=e133 generic
+                  uid=e134 img "OZITEM logo"
+                  uid=e135 generic
+                    uid=e136 paragraph value="Technicien informatique H/F"
+                    uid=e137 paragraph value="OZITEM"
+                uid=e138 generic
+                  uid=e139 paragraph value="Solutions cloud et infogérance pour la transformation digitale des entreprises."
+                  uid=e140 generic
+                    uid=e141 generic
+                      uid=e142 img
+                      uid=e144 generic value="CDI"
+                    uid=e145 generic
+                      uid=e146 img
+                      uid=e148 generic value="Pas de télétravail"
+                    uid=e149 generic
+                      uid=e150 img
+                      uid=e152 generic value="Issy-les-Moulineaux"
+                    uid=e153 generic
+                      uid=e154 img
+                      uid=e156 generic value="400 collaborateurs"
+                    uid=e157 generic
+                      uid=e158 img
+                      uid=e160 generic value="Conseil / Audit"
+                    uid=e161 generic
+                      uid=e162 img
+                      uid=e164 generic value="Tech"
+                uid=e166 generic
+                  uid=e167 img
+                  uid=s12 StaticText "30 avril 2026"
+              uid=e169 generic
+                uid=e170 img "OZITEM banner"
+                uid=e171 img "OZITEM banner"
+          uid=e172 link "Koesio logo Consultant(e) informatique IT H/F Koesio Services numériques de proximité pour entreprises en France et en Europe. CDI Pas de télétravail 37K à 47K €par an Saint-Martin-d'Hères 3042 collaborateurs Conseil / Audit Tech Industrie 25 avril 2026 Koesio banner Koesio banner" url="/fr/companies/koesio-1/jobs/consultant-informatique-it-h-f_saint-martin-d-heres_KOESI_bRJ9XbN"
+            uid=e173 generic
+              uid=e174 generic
+                uid=e175 generic
+                  uid=e176 img "Koesio logo"
+                  uid=e177 generic
+                    uid=e178 paragraph value="Consultant(e) informatique IT H/F"
+                    uid=e179 paragraph value="Koesio"
+                uid=e180 generic
+                  uid=e181 paragraph value="Services numériques de proximité pour entreprises en France et en Europe."
+                  uid=e182 generic
+                    uid=e183 generic
+                      uid=e184 img
+                      uid=e186 generic value="CDI"
+                    uid=e187 generic
+                      uid=e188 img
+                      uid=e190 generic value="Pas de télétravail"
+                    uid=e191 generic
+                      uid=e192 img
+                      uid=e194 generic value="37K à 47K €par an"
+                    uid=e195 generic
+                      uid=e196 img
+                      uid=e198 generic value="Saint-Martin-d'Hères"
+                    uid=e199 generic
+                      uid=e200 img
+                      uid=e202 generic value="3042 collaborateurs"
+                    uid=e203 generic
+                      uid=e204 img
+                      uid=e206 generic value="Conseil / Audit"
+                    uid=e207 generic
+                      uid=e208 img
+                      uid=e210 generic value="Tech"
+                    uid=e211 generic
+                      uid=e212 img
+                      uid=e214 generic value="Industrie"
+                uid=e216 generic
+                  uid=e217 img
+                  uid=s13 StaticText "25 avril 2026"
+              uid=e219 generic
+                uid=e220 img "Koesio banner"
+                uid=e221 img "Koesio banner"
+          uid=e222 link "Civils de la Défense - Ministère des Armées logo TECHNICIEN EXPLOITATION SYSTEME INFORMATIQUE SUPERIEUR Civils de la Défense - Ministère des Armées Protection des citoyens et intérêts français via divers métiers. CDI Pas de télétravail Paris 64000 collaborateurs Conseil / Audit Tech Secteur public et administration 29 avril 2026 Civils de la Défense - Ministère des Armées banner Civils de la Défense - Ministère des Armées banner" url="/fr/companies/ministere-des-armees-fr/jobs/technicien-exploitation-systeme-informatique-superieur_paris_CDLDMDA_mKOaRKe"
+            uid=e223 generic
+              uid=e224 generic
+                uid=e225 generic
+                  uid=e226 img "Civils de la Défense - Ministère des Armées logo"
+                  uid=e227 generic
+                    uid=e228 paragraph value="TECHNICIEN EXPLOITATION SYSTEME INFORMATIQUE SUPERIEUR"
+                    uid=e229 paragraph value="Civils de la Défense - Ministère des Armées"
+                uid=e230 generic
+                  uid=e231 paragraph value="Protection des citoyens et intérêts français via divers métiers."
+                  uid=e232 generic
+                    uid=e233 generic
+                      uid=e234 img
+                      uid=e236 generic value="CDI"
+                    uid=e237 generic
+                      uid=e238 img
+                      uid=e240 generic value="Pas de télétravail"
+                    uid=e241 generic
+                      uid=e242 img
+                      uid=e244 generic value="Paris"
+                    uid=e245 generic
+                      uid=e246 img
+                      uid=e248 generic value="64000 collaborateurs"
+                    uid=e249 generic
+                      uid=e250 img
+                      uid=e252 generic value="Conseil / Audit"
+                    uid=e253 generic
+                      uid=e254 img
+                      uid=e256 generic value="Tech"
+                    uid=e257 generic
+                      uid=e258 img
+                      uid=e260 generic value="Secteur public et administration"
+                uid=e262 generic
+                  uid=e263 img
+                  uid=s14 StaticText "29 avril 2026"
+              uid=e265 generic
+                uid=e266 img "Civils de la Défense - Ministère des Armées banner"
+                uid=e267 img "Civils de la Défense - Ministère des Armées banner"
+          uid=e268 link "BATIBIG logo Technicien Support Informatique H/F BATIBIG Services techniques du bâtiment avec croissance externe. CDI Pas de télétravail ≥ 35Kpar an Clichy 1500 collaborateurs Conseil / Audit Industrie 28 avril 2026 BATIBIG banner BATIBIG banner" url="/fr/companies/batibig/jobs/technicien-support-informatique-h-f_clichy_BATIB_moQzL0J"
+            uid=e269 generic
+              uid=e270 generic
+                uid=e271 generic
+                  uid=e272 img "BATIBIG logo"
+                  uid=e273 generic
+                    uid=e274 paragraph value="Technicien Support Informatique H/F"
+                    uid=e275 paragraph value="BATIBIG"
+                uid=e276 generic
+                  uid=e277 paragraph value="Services techniques du bâtiment avec croissance externe."
+                  uid=e278 generic
+                    uid=e279 generic
+                      uid=e280 img
+                      uid=e282 generic value="CDI"
+                    uid=e283 generic
+                      uid=e284 img
+                      uid=e286 generic value="Pas de télétravail"
+                    uid=e287 generic
+                      uid=e288 img
+                      uid=e290 generic value="≥ 35Kpar an"
+                    uid=e291 generic
+                      uid=e292 img
+                      uid=e294 generic value="Clichy"
+                    uid=e295 generic
+                      uid=e296 img
+                      uid=e298 generic value="1500 collaborateurs"
+                    uid=e299 generic
+                      uid=e300 img
+                      uid=e302 generic value="Conseil / Audit"
+                    uid=e303 generic
+                      uid=e304 img
+                      uid=e306 generic value="Industrie"
+                uid=e308 generic
+                  uid=e309 img
+                  uid=s15 StaticText "28 avril 2026"
+              uid=e311 generic
+                uid=e312 img "BATIBIG banner"
+                uid=e313 img "BATIBIG banner"
+          uid=e314 link "Civils de la Défense - Ministère des Armées logo TECHNICIEN EXPLOITATION SYSTEME INFORMATIQUE SUPERIEUR Civils de la Défense - Ministère des Armées Protection des citoyens et intérêts français via divers métiers. CDI Pas de télétravail Paris 64000 collaborateurs Conseil / Audit Tech Secteur public et administration 15 avril 2026 Civils de la Défense - Ministère des Armées banner Civils de la Défense - Ministère des Armées banner" url="/fr/companies/ministere-des-armees-fr/jobs/technicien-exploitation-systeme-informatique-superieur_paris_CDLDMDA_2r8GwAm"
+            uid=e315 generic
+              uid=e316 generic
+                uid=e317 generic
+                  uid=e318 img "Civils de la Défense - Ministère des Armées logo"
+                  uid=e319 generic
+                    uid=e320 paragraph value="TECHNICIEN EXPLOITATION SYSTEME INFORMATIQUE SUPERIEUR"
+                    uid=e321 paragraph value="Civils de la Défense - Ministère des Armées"
+                uid=e322 generic
+                  uid=e323 paragraph value="Protection des citoyens et intérêts français via divers métiers."
+                  uid=e324 generic
+                    uid=e325 generic
+                      uid=e326 img
+                      uid=e328 generic value="CDI"
+                    uid=e329 generic
+                      uid=e330 img
+                      uid=e332 generic value="Pas de télétravail"
+                    uid=e333 generic
+                      uid=e334 img
+                      uid=e336 generic value="Paris"
+                    uid=e337 generic
+                      uid=e338 img
+                      uid=e340 generic value="64000 collaborateurs"
+                    uid=e341 generic
+                      uid=e342 img
+                      uid=e344 generic value="Conseil / Audit"
+                    uid=e345 generic
+                      uid=e346 img
+                      uid=e348 generic value="Tech"
+                    uid=e349 generic
+                      uid=e350 img
+                      uid=e352 generic value="Secteur public et administration"
+                uid=e354 generic
+                  uid=e355 img
+                  uid=s16 StaticText "15 avril 2026"
+              uid=e357 generic
+                uid=e358 img "Civils de la Défense - Ministère des Armées banner"
+                uid=e359 img "Civils de la Défense - Ministère des Armées banner"
+          uid=e362 iframe
+            uid=f1e1 generic active
+              uid=f1e9 progressbar "Form progress"
+              uid=f1e13 generic
+                uid=s17 generic
+                  uid=s18 generic
+                    uid=s19 img
+                uid=s20 generic
+                  uid=s21 generic
+                    uid=s22 generic
+                      uid=s23 generic
+                        uid=s24 generic
+                          uid=s25 generic
+                            uid=s26 generic
+                              uid=f1e14 group "Que pensez-vous de la pertinence des jobs obtenus aujourd'hui ?Cette question est requise"
+                                uid=f1e17 generic value="Que pensez-vous de la pertinence des jobs obtenus aujourd'hui ?*"
+                                uid=f1e20 radiogroup
+                                  uid=f1e21 generic
+                                    uid=f1e22 generic
+                                      uid=f1e23 radio "1"
+                                        uid=f1e24 generic value="1"
+                                      uid=f1e25 radio "2"
+                                        uid=f1e26 generic value="2"
+                                      uid=f1e27 radio "3"
+                                        uid=f1e28 generic value="3"
+                                      uid=f1e29 radio "4"
+                                        uid=f1e30 generic value="4"
+                                      uid=f1e31 radio "5"
+                                        uid=f1e32 generic value="5"
+                                    uid=f1e33 generic
+                                      uid=f1e34 radio "6"
+                                        uid=f1e35 generic value="6"
+                                      uid=f1e36 radio "7"
+                                        uid=f1e37 generic value="7"
+                                      uid=f1e38 radio "8"
+                                        uid=f1e39 generic value="8"
+                                      uid=f1e40 radio "9"
+                                        uid=f1e41 generic value="9"
+                                      uid=f1e42 radio "10"
+                                        uid=f1e43 generic value="10"
+                                  uid=f1e44 generic
+                                    uid=f1e45 generic
+                                      uid=f1e46 generic value="1"
+                                      uid=f1e48 img
+                                      uid=f1e50 generic value="Pas satisfaisante"
+                                    uid=f1e51 generic
+                                      uid=f1e52 generic value="10"
+                                      uid=f1e54 img
+                                      uid=f1e56 generic value="Très satisfaisante"
+                              uid=f1e57 group "Comment pourrions-nous améliorer leur pertinence selon vous ? Toutes vos idées nous intéressent !"
+                                uid=f1e58 generic
+                                  uid=f1e60 generic value="Comment pourrions-nous améliorer leur pertinence selon vous ?"
+                                  uid=f1e62 generic value="Toutes vos idées nous intéressent !"
+                                uid=f1e65 generic
+                                  uid=f1e66 textbox "Répondez ici..."
+                                  uid=f1e67 generic
+                                    uid=f1e68 strong value="Maj ⇧"
+                                    uid=s27 StaticText "+"
+                                    uid=f1e69 strong value="Entrée ↵"
+                                    uid=s28 StaticText "pour faire un saut de ligne"
+                uid=f1e73 button "Ok"
+                  uid=f1e74 generic value="Ok"
+          uid=e363 link "Civils de la Défense - Ministère des Armées logo TECHNICIEN EXPLOITATION SYSTEME INFORMATIQUE SUPERIEUR Civils de la Défense - Ministère des Armées Protection des citoyens et intérêts français via divers métiers. CDI Pas de télétravail Paris 64000 collaborateurs Conseil / Audit Tech Secteur public et administration 15 avril 2026 Civils de la Défense - Ministère des Armées banner Civils de la Défense - Ministère des Armées banner" url="/fr/companies/ministere-des-armees-fr/jobs/technicien-exploitation-systeme-informatique-superieur_paris_CDLDMDA_w3YlVoD"
+            uid=e364 generic
+              uid=e365 generic
+                uid=e366 generic
+                  uid=e367 img "Civils de la Défense - Ministère des Armées logo"
+                  uid=e368 generic
+                    uid=e369 paragraph value="TECHNICIEN EXPLOITATION SYSTEME INFORMATIQUE SUPERIEUR"
+                    uid=e370 paragraph value="Civils de la Défense - Ministère des Armées"
+                uid=e371 generic
+                  uid=e372 paragraph value="Protection des citoyens et intérêts français via divers métiers."
+                  uid=e373 generic
+                    uid=e374 generic
+                      uid=e375 img
+                      uid=e377 generic value="CDI"
+                    uid=e378 generic
+                      uid=e379 img
+                      uid=e381 generic value="Pas de télétravail"
+                    uid=e382 generic
+                      uid=e383 img
+                      uid=e385 generic value="Paris"
+                    uid=e386 generic
+                      uid=e387 img
+                      uid=e389 generic value="64000 collaborateurs"
+                    uid=e390 generic
+                      uid=e391 img
+                      uid=e393 generic value="Conseil / Audit"
+                    uid=e394 generic
+                      uid=e395 img
+                      uid=e397 generic value="Tech"
+                    uid=e398 generic
+                      uid=e399 img
+                      uid=e401 generic value="Secteur public et administration"
+                uid=e403 generic
+                  uid=e404 img
+                  uid=s29 StaticText "15 avril 2026"
+              uid=e406 generic
+                uid=e407 img "Civils de la Défense - Ministère des Armées banner"
+                uid=e408 img "Civils de la Défense - Ministère des Armées banner"
+          uid=e409 link "OVHcloud logo Technicien de maintenance informatique en Datacentre H/F/N OVHcloud Solutions d'hébergement et cloud sécurisées et accessibles. CDI Pas de télétravail Roubaix 3000 collaborateurs Tech 24 avril 2026 OVHcloud banner OVHcloud banner" url="/fr/companies/ovh/jobs/technicien-de-maintenance-informatique-en-datacentre-h-f-n_roubaix_OVHCL_bQ7wZpl"
+            uid=e410 generic
+              uid=e411 generic
+                uid=e412 generic
+                  uid=e413 img "OVHcloud logo"
+                  uid=e414 generic
+                    uid=e415 paragraph value="Technicien de maintenance informatique en Datacentre H/F/N"
+                    uid=e416 paragraph value="OVHcloud"
+                uid=e417 generic
+                  uid=e418 paragraph value="Solutions d'hébergement et cloud sécurisées et accessibles."
+                  uid=e419 generic
+                    uid=e420 generic
+                      uid=e421 img
+                      uid=e423 generic value="CDI"
+                    uid=e424 generic
+                      uid=e425 img
+                      uid=e427 generic value="Pas de télétravail"
+                    uid=e428 generic
+                      uid=e429 img
+                      uid=e431 generic value="Roubaix"
+                    uid=e432 generic
+                      uid=e433 img
+                      uid=e435 generic value="3000 collaborateurs"
+                    uid=e436 generic
+                      uid=e437 img
+                      uid=e439 generic value="Tech"
+                uid=e441 generic
+                  uid=e442 img
+                  uid=s30 StaticText "24 avril 2026"
+              uid=e444 generic
+                uid=e445 img "OVHcloud banner"
+                uid=e446 img "OVHcloud banner"
+          uid=e447 link "Ministère de l'Intérieur logo DIPN33 - Technicien de proximité en informatique et télécommunications Ministère de l'Intérieur Garantir libertés, droits et sécurité des citoyens. CDI Pas de télétravail Bordeaux 303000 collaborateurs Secteur public et administration 23 avril 2026 Ministère de l'Intérieur banner Ministère de l'Intérieur banner" url="/fr/companies/ministere-de-l-interieur/jobs/dipn33-technicien-de-proximite-en-informatique-et-telecommunications_bordeaux_MDL_qxj7p8q"
+            uid=e448 generic
+              uid=e449 generic
+                uid=e450 generic
+                  uid=e451 img "Ministère de l'Intérieur logo"
+                  uid=e452 generic
+                    uid=e453 paragraph value="DIPN33 - Technicien de proximité en informatique et télécommunications"
+                    uid=e454 paragraph value="Ministère de l'Intérieur"
+                uid=e455 generic
+                  uid=e456 paragraph value="Garantir libertés, droits et sécurité des citoyens."
+                  uid=e457 generic
+                    uid=e458 generic
+                      uid=e459 img
+                      uid=e461 generic value="CDI"
+                    uid=e462 generic
+                      uid=e463 img
+                      uid=e465 generic value="Pas de télétravail"
+                    uid=e466 generic
+                      uid=e467 img
+                      uid=e469 generic value="Bordeaux"
+                    uid=e470 generic
+                      uid=e471 img
+                      uid=e473 generic value="303000 collaborateurs"
+                    uid=e474 generic
+                      uid=e475 img
+                      uid=e477 generic value="Secteur public et administration"
+                uid=e479 generic
+                  uid=e480 img
+                  uid=s31 StaticText "23 avril 2026"
+              uid=e482 generic
+                uid=e483 img "Ministère de l'Intérieur banner"
+                uid=e484 img "Ministère de l'Intérieur banner"
+          uid=e485 link "The Adecco Group logo Ingénieur Informatique Industrielle H/F The Adecco Group Solutions en ressources humaines et gestion des talents. CDI Pas de télétravail Strasbourg 14750 collaborateurs Conseil / Audit Education / Formation / Recrutement 15 avril 2026 The Adecco Group banner The Adecco Group banner" url="/fr/companies/the-adecco-group/jobs/ingenieur-informatique-industrielle-h-f_strasbourg"
+            uid=e486 generic
+              uid=e487 generic
+                uid=e488 generic
+                  uid=e489 img "The Adecco Group logo"
+                  uid=e490 generic
+                    uid=e491 paragraph value="Ingénieur Informatique Industrielle H/F"
+                    uid=e492 paragraph value="The Adecco Group"
+                uid=e493 generic
+                  uid=e494 paragraph value="Solutions en ressources humaines et gestion des talents."
+                  uid=e495 generic
+                    uid=e496 generic
+                      uid=e497 img
+                      uid=e499 generic value="CDI"
+                    uid=e500 generic
+                      uid=e501 img
+                      uid=e503 generic value="Pas de télétravail"
+                    uid=e504 generic
+                      uid=e505 img
+                      uid=e507 generic value="Strasbourg"
+                    uid=e508 generic
+                      uid=e509 img
+                      uid=e511 generic value="14750 collaborateurs"
+                    uid=e512 generic
+                      uid=e513 img
+                      uid=e515 generic value="Conseil / Audit"
+                    uid=e516 generic
+                      uid=e517 img
+                      uid=e519 generic value="Education / Formation / Recrutement"
+                uid=e521 generic
+                  uid=e522 img
+                  uid=s32 StaticText "15 avril 2026"
+              uid=e524 generic
+                uid=e525 img "The Adecco Group banner"
+                uid=e526 img "The Adecco Group banner"
+          uid=e527 link "Eiffage Énergie Systèmes logo Ingénieur informatique industrielle F/H Eiffage Énergie Systèmes Solutions énergétiques innovantes pour transitions numérique et bas carbone. CDI Pas de télétravail 35K à 45K €par an Jonage 40000 collaborateurs Industrie 17 avril 2026 Eiffage Énergie Systèmes banner Eiffage Énergie Systèmes banner" url="/fr/companies/eiffageenergiesystemes/jobs/ingenieur-informatique-industrielle-f-h_jonage"
+            uid=e528 generic
+              uid=e529 generic
+                uid=e530 generic
+                  uid=e531 img "Eiffage Énergie Systèmes logo"
+                  uid=e532 generic
+                    uid=e533 paragraph value="Ingénieur informatique industrielle F/H"
+                    uid=e534 paragraph value="Eiffage Énergie Systèmes"
+                uid=e535 generic
+                  uid=e536 paragraph value="Solutions énergétiques innovantes pour transitions numérique et bas carbone."
+                  uid=e537 generic
+                    uid=e538 generic
+                      uid=e539 img
+                      uid=e541 generic value="CDI"
+                    uid=e542 generic
+                      uid=e543 img
+                      uid=e545 generic value="Pas de télétravail"
+                    uid=e546 generic
+                      uid=e547 img
+                      uid=e549 generic value="35K à 45K €par an"
+                    uid=e550 generic
+                      uid=e551 img
+                      uid=e553 generic value="Jonage"
+                    uid=e554 generic
+                      uid=e555 img
+                      uid=e557 generic value="40000 collaborateurs"
+                    uid=e558 generic
+                      uid=e559 img
+                      uid=e561 generic value="Industrie"
+                uid=e563 generic
+                  uid=e564 img
+                  uid=s33 StaticText "17 avril 2026"
+              uid=e566 generic
+                uid=e567 img "Eiffage Énergie Systèmes banner"
+                uid=e568 img "Eiffage Énergie Systèmes banner"
+          uid=e569 navigation "Jobs pagination"
+            uid=e570 list
+              uid=e571 listitem
+                uid=e572 button "Previous Page" disabled
+                  uid=e573 img
+              uid=e575 listitem
+                uid=e576 generic value="1"
+              uid=e577 listitem
+                uid=e578 generic value="2"
+              uid=e579 listitem
+                uid=e580 generic value="3"
+              uid=e581 listitem
+                uid=e582 generic value="4"
+              uid=e583 listitem
+                uid=e584 generic value="5"
+              uid=e585 listitem
+                uid=e586 button "Collapsed Pages" value="..."
+              uid=e587 listitem
+                uid=e588 generic value="32"
+              uid=e589 listitem
+                uid=e590 button "Next Page"
+                  uid=e591 img
+          uid=e594 generic
+            uid=e595 generic
+              uid=e597 generic
+                uid=e598 heading "Jobs prioritaires" level="2"
+                uid=e599 img
+              uid=e601 paragraph value="Ces offres similaires ont été identifiées comme prioritaires par nos recruteurs. Ça vous tente ?"
+            uid=e602 list
+              uid=e603 generic "1 of 1"
+                uid=e604 link "Evolucare logo Administrateur Systèmes et Réseaux (H/F) Evolucare Solutions numériques pour la transformation digitale des établissements de santé. CDI Pas de télétravail 25K à 35K € Amiens 500 collaborateurs Tech Santé / Social / Environnement 24 mars 2026" url="/fr/companies/evolucare-fr/jobs/administrateur-systemes-et-reseaux-h-f_amiens"
+                  uid=e606 generic
+                    uid=e607 generic
+                      uid=e608 img "Evolucare logo"
+                      uid=e609 generic
+                        uid=e610 paragraph value="Administrateur Systèmes et Réseaux (H/F)"
+                        uid=e611 paragraph value="Evolucare"
+                    uid=e612 generic
+                      uid=e613 paragraph value="Solutions numériques pour la transformation digitale des établissements de santé."
+                      uid=e614 generic
+                        uid=e615 generic
+                          uid=e616 img
+                          uid=e618 generic value="CDI"
+                        uid=e619 generic
+                          uid=e620 img
+                          uid=e622 generic value="Pas de télétravail"
+                        uid=e623 generic
+                          uid=e624 img
+                          uid=e626 generic value="25K à 35K €"
+                        uid=e627 generic
+                          uid=e628 img
+                          uid=e630 generic value="Amiens"
+                        uid=e631 generic
+                          uid=e632 img
+                          uid=e634 generic value="500 collaborateurs"
+                        uid=e635 generic
+                          uid=e636 img
+                          uid=e638 generic value="Tech"
+                        uid=e639 generic
+                          uid=e640 img
+                          uid=e642 generic value="Santé / Social / Environnement"
+                    uid=e644 generic
+                      uid=e645 img
+                      uid=s34 StaticText "24 mars 2026"
+    uid=e647 contentinfo
+      uid=e649 img "Welcome to the jungle symbol"
+      uid=e651 generic
+        uid=e652 heading "Vous cherchez un job" level="3"
+        uid=e653 list
+          uid=e654 listitem
+            uid=e655 link "Explorer les entreprises" url="https://www.welcometothejungle.com/fr/companies"
+          uid=e656 listitem
+            uid=e657 link "Jobs en France" url="https://www.welcometothejungle.com/fr/pages/offres-emploi-par-metiers-villes"
+          uid=e658 listitem
+            uid=e659 link "Jobs par type d’entreprise" url="https://www.welcometothejungle.com/fr/pages/offres-par-villes-metiers"
+          uid=e660 listitem
+            uid=e661 link "AI Candidate Coach" url="https://contact.welcometothejungle.com/candidate-coach"
+          uid=e662 listitem
+            uid=e663 link "Masterclasses" url="https://landings.welcometothejungle.com/fr/masterclass"
+          uid=e664 listitem
+            uid=e665 link "Besoin d'aide ?" url="https://help.welcometothejungle.com/je-suis-candidat"
+          uid=e666 listitem
+            uid=s35 unknown url="https://www.welcometothejungle.com/fr/authenticate/signin"
+      uid=e668 generic
+        uid=e669 heading "Vous recrutez" level="3"
+        uid=e670 list
+          uid=e671 listitem
+            uid=e672 link "Welcome Hiring Suite" url="https://solutions.welcometothejungle.com/"
+          uid=e673 listitem
+            uid=e674 link "Marque employeur" url="https://solutions.welcometothejungle.com/marque-employeur"
+          uid=e675 listitem
+            uid=e676 link "Nos tarifs" url="https://solutions.welcometothejungle.com/notre-offre"
+          uid=e677 listitem
+            uid=e678 link "Témoignages clients" url="https://solutions.welcometothejungle.com/etude-de-cas"
+          uid=e679 listitem
+            uid=e680 link "Ressources" url="https://www.notion.so/2a0f0de3673c8041af30edd270f49608?pvs=25"
+          uid=e681 listitem
+            uid=e682 link "Besoin d'aide ?" url="https://help.welcometothejungle.com/je-suis-client"
+          uid=e683 listitem
+            uid=s36 unknown url="https://myaccount.welcometothejungle.com/signin"
+      uid=e685 generic
+        uid=e686 heading "Qui sommes-nous ?" level="3"
+        uid=e687 list
+          uid=e688 listitem
+            uid=e689 link "Concept & histoire" url="https://about.welcometothejungle.com/"
+          uid=e690 listitem
+            uid=e691 link "On recrute" url="https://www.welcometothejungle.com/fr/companies/wttj"
+          uid=e692 listitem
+            uid=e693 link "Presse" url="https://press.welcometothejungle.com/"
+        uid=e694 list
+          uid=e695 listitem
+            uid=e696 link "Facebook" url="https://www.facebook.com/wttj.fr"
+              uid=e697 img "Facebook"
+          uid=e699 listitem
+            uid=e700 link "LinkedIn" url="https://www.linkedin.com/company/wttj-fr"
+              uid=e701 img "LinkedIn"
+          uid=e703 listitem
+            uid=e704 link "YouTube" url="https://www.youtube.com/channel/UCpJfUQ72fmt4qAbkDvz0iNQ"
+              uid=e705 img "YouTube"
+          uid=e707 listitem
+            uid=e708 link "Instagram" url="https://www.instagram.com/welcometothejungle_fr"
+              uid=e709 img "Instagram"
+      uid=e712 button "FR"
+        uid=e713 img
+        uid=s37 StaticText "FR"
+        uid=e715 img
+      uid=e717 generic
+        uid=e718 list
+          uid=e719 listitem
+            uid=e720 link "Mentions légales" url="https://www.welcometothejungle.com/fr/pages/legal"
+          uid=e721 listitem
+            uid=e722 link "CGU" url="https://www.welcometothejungle.com/fr/pages/terms"
+          uid=e723 listitem
+            uid=e724 link "Legal center" url="https://wttj.notion.site/legal-hub"
+          uid=e725 listitem
+            uid=e726 button "Gestion des cookies"
+        uid=e727 paragraph value="© 2026 Welcome to the Jungle"
+  uid=e728 alert
+  uid=e729 status
