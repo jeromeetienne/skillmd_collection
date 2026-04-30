@@ -1,6 +1,6 @@
 {
     "name": "claude_stream_viewer",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Claude Stream Viewer - Pretty-prints Claude API stream-json events from stdin with colorized output.",
     "main": "dist/src/claude-stream-viewer.js",
     "bin": {
