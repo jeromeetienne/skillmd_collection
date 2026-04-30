@@ -12,11 +12,6 @@ const DEFAULT_DESCRIPTION = `Based on those 2 folders, in a monorepo
 - https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/a11y_parse
 - https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/fastbrowser_cli`;
 
-type CliOptions = {
-	topic: string;
-	description: string;
-	outputDir: string;
-};
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const REPOSITORY_ROOT = path.join(__dirname, '../../..');
@@ -93,10 +88,23 @@ async function main(): Promise<void> {
 		.description('Scaffold a Remotion project and stream Claude Code to generate a build-in-public video.')
 		.option('-t, --topic <topic>', 'video topic', DEFAULT_TOPIC)
 		.option('-d, --description <description>', 'video description', DEFAULT_DESCRIPTION)
-		.option('-o, --output-dir <dir>', 'parent directory for the generated project', '/tmp')
+		.option('-td, --tmp-dir <dir>', 'parent directory for the generated project', '/tmp')
+		.option('-o, --output-dir <dir>', 'output directory for the generated video (mp4/pdf/log)', '/tmp')
 		.parse(process.argv);
 
+	type CliOptions = {
+		topic: string;
+		description: string;
+		tmpDir: string;
+		outputDir: string;
+	};
 	const options = program.opts<CliOptions>();
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
 	const userPrompt = `Generate a build-in-public video
 
@@ -105,7 +113,14 @@ description: |
 ${options.description.split('\n').map((line) => `  ${line}`).join('\n')}
 `;
 
-	const tmpDir = options.outputDir;
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+
+	const tmpDir = options.tmpDir;
 	const suffix = (new Date()).toISOString().replace(/[:.]/g, '-');
 	const projectName = `video_build_in_public_${suffix}`;
 	const projectDir = path.join(tmpDir, projectName);
@@ -151,6 +166,37 @@ ${options.description.split('\n').map((line) => `  ${line}`).join('\n')}
 
 	console.log('Streaming Claude output to viewer...');
 	await BuildInPublicVideo.streamClaudeToViewer(userPrompt, projectDir);
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	Copy output
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	// copy the generated video, pdf and log files to the output directory. Using async Fs
+	// {projectDir}/out/video.mp4
+	// {projectDir}/out/video.pdf
+	// {projectDir}/out/video.log
+	const outputFiles = ['video.mp4', 'video.pdf', 'video.log'];
+	for (const outputFile of outputFiles) {
+		const pathSrc = path.join(projectDir, 'out', outputFile);
+		const pathDest = path.join(options.outputDir, `${projectName}_${outputFile}`);
+
+		const fileExists = await Fs.promises.access(pathSrc, Fs.constants.F_OK).then(() => true).catch(() => false);
+		if (fileExists === false) {
+			console.warn(`Output file not found: ${pathSrc}`);
+			continue
+		}
+
+		// copy the file
+		await Fs.promises.copyFile(pathSrc, pathDest);
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
 	console.log('Done!');
 }
