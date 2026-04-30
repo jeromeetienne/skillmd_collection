@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Bash equivalent of build_in_public_video.ts
+# Bash equivalent of build_in_public_video.ts build
 # Creates a Remotion video project, adds skills, and streams Claude output through the viewer.
 
 set -euo pipefail

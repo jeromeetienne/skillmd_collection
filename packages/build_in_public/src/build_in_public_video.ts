@@ -22,7 +22,157 @@ const REPOSITORY_ROOT = path.join(__dirname, '../../..');
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-export class BuildInPublicVideo {
+export class MainHelper {
+
+	static async commandInstall(skillFolder: string): Promise<void> {
+		const sourceSkillsDir = Path.resolve(import.meta.dirname, '../../skills');
+		const targetSkillsDir = Path.resolve(skillFolder, 'skills');
+		try {
+			const entries = await Fs.promises.readdir(sourceSkillsDir, { withFileTypes: true });
+			const skillDirs = entries.filter((entry) => entry.isDirectory() === true);
+			if (skillDirs.length === 0) {
+				console.error(`fastbrowser-cli error: no skills found in ${sourceSkillsDir}`);
+				process.exit(1);
+			}
+			for (const skillDir of skillDirs) {
+				const sourceDir = Path.join(sourceSkillsDir, skillDir.name);
+				const targetDir = Path.join(targetSkillsDir, skillDir.name);
+				await Fs.promises.cp(sourceDir, targetDir, { recursive: true });
+				console.log(`Installed ${skillDir.name} skill at ${targetDir}`);
+			}
+		} catch (err) {
+			const message = err instanceof Error ? err.message : String(err);
+			console.error(`fastbrowser-cli error: ${message}`);
+			process.exit(1);
+		}
+	}
+
+
+	static async commandBuild(options: { tmpDir: string; outputDir: string }): Promise<void> {
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	Read user prompt from stdin
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		const userPrompt = (await MainHelper.readStdin()).trim();
+		if (userPrompt.length === 0) {
+			console.error('Error: no user prompt provided on stdin.');
+			console.error('Usage: echo "my prompt" | npx tsx build_in_public_video.ts build build');
+			process.exit(1);
+		}
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+
+		const tmpDir = options.tmpDir;
+		const suffix = (new Date()).toISOString().replace(/[:.]/g, '-');
+		const projectName = `video_build_in_public_${suffix}`;
+		const projectDir = path.join(tmpDir, projectName);
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	Creating the folder
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		console.log(`Creating project in ${projectDir}...`);
+
+		ChildProcess.execSync(`npx create-video@latest --yes --blank ${projectName}`, {
+			cwd: tmpDir,
+			stdio: 'inherit',
+		});
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	Add the SKILL.md from remotion and build-in-public-video
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		console.log('Adding claude-code skill to project...');
+		ChildProcess.execSync('npx skills add remotion-dev/skills -a claude-code --yes', {
+			cwd: projectDir,
+			stdio: 'inherit',
+		});
+
+		console.log('Copying build-in-public-video skill to project...');
+		const skillSource = path.join(
+			Os.homedir(),
+			'webwork/transformer_bitcoin_ai/packages/build_in_public/skills/build-in-public-video',
+		);
+		const skillDest = path.join(projectDir, '.claude/skills/build-in-public-video');
+		Fs.cpSync(skillSource, skillDest, { recursive: true, preserveTimestamps: true });
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	Launch claude
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		console.log('Streaming Claude output to viewer...');
+		const eventLogPath = path.join(projectDir, 'out', 'video.claude_events.jsonl');
+
+		// create the ./out directory if it doesn't exist, since claude will write the event log before the directory is created
+		Fs.mkdirSync(path.dirname(eventLogPath), { recursive: true });
+
+		// This will run the claude command with the user prompt, and stream the output to the viewer.
+		// - It will also save the raw event stream to a log file for later analysis.
+		await MainHelper.streamClaudeToViewer(userPrompt, projectDir, eventLogPath);
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	Copy output
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		// copy the generated video, pdf and log files to the output directory. Using async Fs
+		// {projectDir}/out/video.mp4
+		// {projectDir}/out/slides.pdf
+		// {projectDir}/out/video.claude_events.jsonl
+		const outputFiles = ['video.mp4', 'slides.pdf', 'video.claude_events.jsonl'];
+		for (const outputFile of outputFiles) {
+			const pathSrc = path.join(projectDir, 'out', outputFile);
+			const pathDest = path.join(options.outputDir, `${projectName}_${outputFile}`);
+
+			const fileExists = await Fs.promises.access(pathSrc, Fs.constants.F_OK).then(() => true).catch(() => false);
+			if (fileExists === false) {
+				console.warn(`Output file not found: ${pathSrc}`);
+				continue
+			}
+
+			// copy the file
+			await Fs.promises.copyFile(pathSrc, pathDest);
+
+			// log the copy
+			console.log(`Copied ${pathSrc} to ${pathDest}`);
+		}
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		console.log('Done!');
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Reads all data from stdin and returns it as a string. 
+	 * If stdin is a TTY, returns an empty string.
+	 * - it is used to read the user prompt for the claude agent from the command line.
+	 * 
+	 * @returns {Promise<string>} The data read from stdin.
+	 */
 	static async readStdin(): Promise<string> {
 		if (process.stdin.isTTY === true) {
 			return '';
@@ -34,6 +184,18 @@ export class BuildInPublicVideo {
 		return Buffer.concat(chunks).toString('utf8');
 	}
 
+	/**
+	 * Spawns the claude process with the given user prompt, and streams the output to the viewer.
+	 * - It also saves the raw event stream to a log file for later analysis.
+	 * 
+	 * @param userPrompt The prompt to send to the claude agent.
+	 * @param cwd The working directory to run the claude process in. This should be the root of the 
+	 * Remotion project, where the .claude folder is located.
+	 * @param eventLogPath The path to save the raw event stream from claude. This will be a JSONL file where 
+	 * each line is a JSON object representing an event.
+	 * @returns A promise that resolves when both the claude process and the viewer process have exited 
+	 * successfully, or rejects if either process exits with an error.
+	 */
 	static streamClaudeToViewer(userPrompt: string, cwd: string, eventLogPath: string): Promise<void> {
 		return new Promise((resolve, reject) => {
 			const claude = ChildProcess.spawn(
@@ -104,32 +266,32 @@ export class BuildInPublicVideo {
 ///////////////////////////////////////////////////////////////////////////////
 
 async function main(): Promise<void> {
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
 	const program = new Commander.Command();
 	program
 		.name('build_in_public_video')
-		.description('Scaffold a Remotion project and stream Claude Code to generate a build-in-public video.')
+		.description('Scaffold a Remotion project and stream Claude Code to generate a build-in-public video.');
+
+	program
+		.command('install [skill-folder]')
+		.description('Install all bundled skills into <skill-folder>/skills/ (default: .)')
+		.action(async (skillFolder: string | undefined) => {
+			await MainHelper.commandInstall(skillFolder ?? '.');
+		});
+
+	program
+		.command('build')
+		.description('Scaffold the Remotion project, run Claude, and copy the generated artifacts.')
 		.option('-t, --tmp-dir <dir>', 'parent directory for the generated project', '/tmp')
 		.option('-o, --output-dir <dir>', 'output directory for the generated video (mp4/pdf/log)', '/tmp')
-		.parse(process.argv);
-
-	type CliOptions = {
-		tmpDir: string;
-		outputDir: string;
-	};
-	const options = program.opts<CliOptions>();
-
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-	//	Read user prompt from stdin
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-
-	const userPrompt = (await BuildInPublicVideo.readStdin()).trim();
-	if (userPrompt.length === 0) {
-		console.error('Error: no user prompt provided on stdin.');
-		console.error('Usage: echo "my prompt" | npx tsx build_in_public_video.ts');
-		process.exit(1);
-	}
+		.action(async (options: { tmpDir: string; outputDir: string }) => {
+			await MainHelper.commandBuild(options);
+		});
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -137,96 +299,7 @@ async function main(): Promise<void> {
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
 
-
-	const tmpDir = options.tmpDir;
-	const suffix = (new Date()).toISOString().replace(/[:.]/g, '-');
-	const projectName = `video_build_in_public_${suffix}`;
-	const projectDir = path.join(tmpDir, projectName);
-
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-	//	Creating the folder
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-
-	console.log(`Creating project in ${projectDir}...`);
-
-	ChildProcess.execSync(`npx create-video@latest --yes --blank ${projectName}`, {
-		cwd: tmpDir,
-		stdio: 'inherit',
-	});
-
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-	//	Add the SKILL.md from remotion and build-in-public-video
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-
-	console.log('Adding claude-code skill to project...');
-	ChildProcess.execSync('npx skills add remotion-dev/skills -a claude-code --yes', {
-		cwd: projectDir,
-		stdio: 'inherit',
-	});
-
-	console.log('Copying build-in-public-video skill to project...');
-	const skillSource = path.join(
-		Os.homedir(),
-		'webwork/transformer_bitcoin_ai/packages/build_in_public/skills/build-in-public-video',
-	);
-	const skillDest = path.join(projectDir, '.claude/skills/build-in-public-video');
-	Fs.cpSync(skillSource, skillDest, { recursive: true, preserveTimestamps: true });
-
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-	//	Launch claude
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-
-	console.log('Streaming Claude output to viewer...');
-	const eventLogPath = path.join(projectDir, 'out', 'video.claude_events.jsonl');
-
-	// create the ./out directory if it doesn't exist, since claude will write the event log before the directory is created
-	Fs.mkdirSync(path.dirname(eventLogPath), { recursive: true });
-
-	// This will run the claude command with the user prompt, and stream the output to the viewer. 
-	// - It will also save the raw event stream to a log file for later analysis.
-	await BuildInPublicVideo.streamClaudeToViewer(userPrompt, projectDir, eventLogPath);
-
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-	//	Copy output
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-
-	// copy the generated video, pdf and log files to the output directory. Using async Fs
-	// {projectDir}/out/video.mp4
-	// {projectDir}/out/slides.pdf
-	// {projectDir}/out/video.claude_events.jsonl
-	const outputFiles = ['video.mp4', 'slides.pdf', 'video.claude_events.jsonl'];
-	for (const outputFile of outputFiles) {
-		const pathSrc = path.join(projectDir, 'out', outputFile);
-		const pathDest = path.join(options.outputDir, `${projectName}_${outputFile}`);
-
-		const fileExists = await Fs.promises.access(pathSrc, Fs.constants.F_OK).then(() => true).catch(() => false);
-		if (fileExists === false) {
-			console.warn(`Output file not found: ${pathSrc}`);
-			continue
-		}
-
-		// copy the file
-		await Fs.promises.copyFile(pathSrc, pathDest);
-
-		// log the copy
-		console.log(`Copied ${pathSrc} to ${pathDest}`);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-	//	
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-
-	console.log('Done!');
+	await program.parseAsync(process.argv);
 }
 
 void main()

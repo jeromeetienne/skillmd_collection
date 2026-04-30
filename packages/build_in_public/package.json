@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "typecheck": "tsc --noEmit",
-        "video": "tsx ./src/build_in_public_video.ts"
+        "video:build": "tsx ./src/build_in_public_video.ts build"
     },
     "type": "module",
     "devDependencies": {

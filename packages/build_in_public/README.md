@@ -68,14 +68,14 @@ The user prompt is read from **stdin**:
 
 ```bash
 echo "Generate a build-in-public video about my latest CLI release" \
-  | npx tsx src/build_in_public_video.ts
+  | npx tsx src/build_in_public_video.ts build
 
 # or pipe a prompt file
-cat prompt.txt | npx tsx src/build_in_public_video.ts
+cat prompt.txt | npx tsx src/build_in_public_video.ts build
 
 # with custom directories
 echo "my prompt" \
-  | npx tsx src/build_in_public_video.ts --tmp-dir /tmp --output-dir ~/Videos
+  | npx tsx src/build_in_public_video.ts build --tmp-dir /tmp --output-dir ~/Videos
 ```
 
 ```
@@ -90,12 +90,41 @@ description: |
 EOF
 )
 
-echo "$USER_PROMPT" | npx tsx src/build_in_public_video.ts
+echo "$USER_PROMPT" | npx tsx src/build_in_public_video.ts build
 ```
 
-### Options
+### Commands
 
-- `-td, --tmp-dir <dir>` — parent directory for the generated Remotion project (default: `/tmp`)
-- `-o, --output-dir <dir>` — output directory for the resulting `mp4`/`pdf`/`log` (default: `/tmp`)
+```
+Usage: build_in_public_video [options] [command]
 
-The script exits with an error if no prompt is piped on stdin.
+Scaffold a Remotion project and stream Claude Code to generate a build-in-public
+video.
+
+Options:
+  -h, --help              display help for command
+
+Commands:
+  install [skill-folder]  Install all bundled skills into <skill-folder>/skills/
+                          (default: .)
+  build [options]         Scaffold the Remotion project, run Claude, and copy
+                          the generated artifacts.
+  help [command]          display help for command
+```
+
+#### `build` options
+
+```
+Usage: build_in_public_video build [options]
+
+Scaffold the Remotion project, run Claude, and copy the generated artifacts.
+
+Options:
+  -t, --tmp-dir <dir>     parent directory for the generated project (default:
+                          "/tmp")
+  -o, --output-dir <dir>  output directory for the generated video (mp4/pdf/log)
+                          (default: "/tmp")
+  -h, --help              display help for command
+```
+
+The `build` command exits with an error if no prompt is piped on stdin.
