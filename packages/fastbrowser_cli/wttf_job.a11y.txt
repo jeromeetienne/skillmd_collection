@@ -1,0 +1,317 @@
+uid=e1 generic active
+  uid=e3 generic
+    uid=e29 generic
+      uid=e39 generic
+        uid=e40 generic
+          uid=e41 generic
+            uid=e43 generic
+              uid=e45 button
+                uid=e47 figure
+                  uid=e48 img "OZITEM"
+              uid=e49 link "OZITEM" url="/fr/companies/ozitem"
+                uid=e51 generic value="OZITEM"
+            uid=e52 heading "Technicien informatique H/F" level="2"
+            uid=e53 generic
+              uid=e56 generic
+                uid=e57 generic
+                  uid=e58 img
+                  uid=s6 StaticText "CDI"
+                uid=e60 generic
+                  uid=e61 img
+                  uid=e63 generic value="Issy-les-Moulineaux"
+                uid=e64 generic
+                  uid=e65 img
+                  uid=e67 generic value="Télétravail non autorisé"
+                  uid=e69 img
+                uid=e71 generic
+                  uid=e72 img
+                  uid=e74 generic value="Salaire :"
+                  uid=s7 StaticText "Non spécifié"
+                uid=e75 generic
+                  uid=e76 img
+                  uid=e78 generic value="Début :"
+                  uid=e79 generic value="10 février 2026"
+                uid=e80 generic
+                  uid=e81 img
+                  uid=e83 generic value="Expérience :"
+                  uid=s8 StaticText "> 2 ans"
+                uid=e84 generic
+                  uid=e85 img
+                  uid=e87 generic value="Éducation :"
+                  uid=s9 StaticText "Bac +2"
+              uid=e88 generic
+                uid=e89 generic
+                  uid=e90 link "Postuler" url="https://careers.flatchr.io/vacancy/gqayv9lorgon6lxe-technicien-vip-h-f/apply?partner=67"
+                    uid=e91 generic value="Postuler"
+                    uid=e92 img
+                  uid=e94 button "Sauvegarder"
+                    uid=e95 generic
+                      uid=e96 img
+                      uid=e98 img
+                    uid=e108 generic value="Sauvegarder"
+                uid=e109 generic
+                  uid=e110 generic
+                    uid=e111 img
+                    uid=e113 paragraph
+                      uid=e114 time value="il y a 13 heures"
+                  uid=e115 button "common.job-share-menu-trigger"
+                    uid=e116 paragraph value="Partager"
+                    uid=e117 img
+          uid=e119 generic
+            uid=e121 button
+              uid=e123 figure
+                uid=e124 img "OZITEM"
+            uid=e125 link "OZITEM" url="/fr/companies/ozitem"
+              uid=e126 generic value="OZITEM"
+            uid=e127 paragraph value="Cette offre vous tente ?"
+            uid=e128 generic
+              uid=e129 link "Postuler" url="https://careers.flatchr.io/vacancy/gqayv9lorgon6lxe-technicien-vip-h-f/apply?partner=67"
+                uid=e130 generic value="Postuler"
+                uid=e131 img
+              uid=e133 button "Sauvegarder"
+                uid=e134 generic
+                  uid=e135 img
+                  uid=e137 img
+                uid=e147 generic value="Sauvegarder"
+          uid=e148 generic
+            uid=e149 generic value="Questions et réponses sur l'offre"
+            uid=e151 button "Le télétravail est-il possible pour ce poste ?"
+              uid=e152 generic value="Le télétravail est-il possible pour ce poste ?"
+              uid=e154 img
+            uid=e157 button "Quel est le type de contrat pour ce poste ?"
+              uid=e158 generic value="Quel est le type de contrat pour ce poste ?"
+              uid=e160 img
+            uid=e163 button "Quelle est la date de début du contrat?"
+              uid=e164 generic value="Quelle est la date de début du contrat?"
+              uid=e166 img
+          uid=e169 generic
+            uid=e171 heading "Le poste" level="3"
+              uid=e172 generic value="Le poste"
+            uid=e173 generic
+              uid=e174 generic
+                uid=e175 heading "Descriptif du poste" level="4"
+                uid=e179 list
+                  uid=e180 listitem value="Résoudre de manière proactive les problèmes techniques rencontrés par les utilisateurs VIP et proposer des solutions de contournement adaptées."
+                  uid=e181 listitem value="Maintenir un haut niveau de connaissance sur les technologies Microsoft 365, Windows 11, macOS et les environnements mobiles Apple/Android."
+                  uid=e182 listitem value="Utiliser et administrer ServiceNow pour le suivi des tickets et l’application des procédures internes."
+                  uid=e183 listitem value="Exploiter Power Automate et PowerShell pour automatiser des tâches et améliorer l’efficacité du support."
+                  uid=e184 listitem value="Gérer et sécuriser l’usage de Microsoft Copilot, former les VIP et optimiser leur productivité sur Microsoft 365."
+                  uid=e185 listitem value="Administrer les comptes via Active Directory et Microsoft Entra."
+                  uid=e186 listitem value="Assurer le support avancé de Teams, SharePoint, OneDrive et de l’ensemble de la suite Microsoft 365."
+                  uid=e187 listitem value="Intervenir sur le hardware et garantir un diagnostic fiable des équipements."
+                  uid=e188 listitem value="Gérer et maintenir les postes via Intune (UEM)."
+              uid=e189 separator
+              uid=e190 generic
+                uid=e191 heading "Profil recherché" level="4"
+                uid=e194 generic
+                  uid=e195 list
+                    uid=e196 listitem value="Solide expertise technique sur Windows 11, macOS, Microsoft 365 et les environnements mobiles."
+                    uid=e197 listitem value="Maîtrise des outils d’automatisation (Power Automate, PowerShell, Zscaler)."
+                    uid=e198 listitem value="Connaissance de ServiceNow et des procédures ITIL."
+                    uid=e199 listitem value="Excellentes compétences en communication et sens du service VIP."
+                    uid=e200 listitem value="Anglais niveau B2."
+                  uid=e201 paragraph value="Ce poste est ouvert aux personnes disposant d’un droit au travail en France. Merci de préciser dans votre candidature si votre statut nécessite une autorisation de travail."
+          uid=e202 generic
+            uid=e204 heading "Envie d’en savoir plus ?" level="3"
+              uid=e205 generic value="Envie d’en savoir plus ?"
+            uid=e206 generic
+              uid=e207 button "modal-FullScreenVideo"
+                uid=e209 figure "Play Rencontrez Julie, Consultante ITSM"
+                  uid=e210 generic
+                    uid=e212 img "Play"
+                    uid=e214 paragraph value="Rencontrez Julie, Consultante ITSM"
+              uid=e215 button "modal-FullScreenVideo"
+                uid=e217 figure "Play Rencontrez Julien, Responsable Opérationnel Dédié"
+                  uid=e218 generic
+                    uid=e220 img "Play"
+                    uid=e222 paragraph value="Rencontrez Julien, Responsable Opérationnel Dédié"
+        uid=e223 complementary
+          uid=e224 generic
+            uid=e225 generic
+              uid=e226 button "modal-FullScreenImage"
+                uid=e227 img "OZITEM"
+              uid=e228 button "modal-FullScreenImage"
+                uid=e229 img "OZITEM"
+              uid=e230 button "modal-FullScreenImage"
+                uid=e231 img "OZITEM"
+              uid=e232 button "modal-FullScreenImage"
+                uid=e233 img "OZITEM"
+            uid=e234 generic
+              uid=e235 heading "Découvrez l'entreprise" level="5"
+              uid=e236 paragraph value="Explorez la vitrine de l’entreprise ou suivez-la pour savoir si elle vous correspond vraiment !"
+              uid=e237 generic
+                uid=e238 link "Explorer l’entreprise" url="/fr/companies/ozitem"
+                  uid=e239 generic value="Explorer l’entreprise"
+                  uid=e240 img
+                uid=e242 button "Suivre"
+          uid=e243 generic
+            uid=e245 generic value="Ils sont sociables"
+            uid=e246 generic
+              uid=e247 link "Facebook" url="https://www.facebook.com/Groupe-Ozitem-214935588593562"
+                uid=e248 img
+              uid=e250 link "Linkedin" url="https://www.linkedin.com/company/43074"
+                uid=e251 img
+              uid=e253 link "Twitter" url="https://www.twitter.com/GroupeOZITEM"
+                uid=e254 img
+              uid=e256 link "Youtube" url="https://www.youtube.com/groupeozitem"
+                uid=e257 img
+          uid=e260 generic
+            uid=e262 heading "L'entreprise" level="3"
+              uid=e263 generic value="L'entreprise"
+            uid=e264 generic
+              uid=e265 generic
+                uid=e267 button
+                  uid=e269 figure
+                    uid=e270 img "OZITEM"
+                uid=e271 link "OZITEM" url="/fr/companies/ozitem"
+                  uid=e273 generic value="OZITEM"
+              uid=e274 generic
+                uid=e275 generic
+                  uid=e276 img
+                  uid=e278 generic value="IT / Digital, SaaS / Cloud Services"
+                uid=e279 generic
+                  uid=e280 img
+                  uid=e282 generic value="400 collaborateurs"
+                uid=e283 generic
+                  uid=e284 img
+                  uid=e286 generic value="Créée en 1990"
+                uid=e287 generic
+                  uid=e288 img
+                  uid=e290 generic value="Âge moyen : 31 ans"
+                uid=e291 generic
+                  uid=e292 img
+                  uid=e294 generic value="Chiffre d'affaires : 46 M€"
+                uid=e295 generic
+                  uid=e296 img
+                  uid=e298 generic value="20%"
+                uid=e299 generic
+                  uid=e300 img
+                  uid=e302 generic value="80%"
+              uid=e303 list
+                uid=e304 listitem
+                  uid=e305 link "Voir le site" url="http://groupeozitem.com"
+                    uid=e306 generic value="Voir le site"
+                    uid=e307 img
+                  uid=s10 StaticText "•"
+                uid=e309 listitem
+                  uid=e310 link "Voir toutes les offres 19" url="/fr/companies/ozitem/jobs"
+                    uid=e311 generic value="Voir toutes les offres"
+                    uid=e312 generic value="19"
+              uid=e313 separator
+              uid=e314 generic
+                uid=e315 heading "Qui sont-ils ?" level="4"
+                uid=e316 generic
+                  uid=e318 generic
+                    uid=e319 paragraph
+                      uid=s11 StaticText "Chez Ozitem, nous accompagnons les entreprises dans leur transformation digitale, notamment au travers de notre expertise sur les solutions d’infrastructures & de cloud 💡🚀"
+                      uid=s12 StaticText "Entreprise de taille humaine et pérenne depuis plus de 30 ans, l’entreprise affiche une croissance régulière depuis notre création et un chiffre d’affaires de 46 Millions d’euros en 2024."
+                      uid=s13 StaticText "Ce sont 400 Ozitémiens, ingénieurs et consultants qui évoluent sur trois sites en France : Levallois (92), notre siège-social, Toulouse (31) et Lyon (69). 👨‍ 💻"
+                      uid=s14 StaticText "Avantages :"
+                    uid=e321 list
+                      uid=e322 listitem value="RTT"
+                      uid=e323 listitem value="Tickets restaurants"
+                      uid=e324 listitem value="Participation"
+                      uid=e325 listitem value="CSE"
+                      uid=e326 listitem value="75% transport"
+                  uid=e328 button "Voir plus"
+                    uid=e329 generic value="Voir plus"
+                    uid=e330 img
+              uid=e332 separator
+              uid=e333 generic
+                uid=e334 generic value="Les dimensions culturelles de l’entreprise"
+                uid=e335 generic
+                  uid=e336 generic
+                    uid=e338 img "illustration"
+                    uid=e339 generic
+                      uid=e340 paragraph value="Méthode de travail"
+                      uid=e341 generic value="Constance"
+                  uid=e342 generic
+                    uid=e344 img "illustration"
+                    uid=e345 generic
+                      uid=e346 paragraph value="Hiérarchie"
+                      uid=e347 generic value="Horizontalité"
+                  uid=e348 generic
+                    uid=e350 img "illustration"
+                    uid=e351 generic
+                      uid=e352 paragraph value="Innovation"
+                      uid=e353 generic value="Continuité"
+                  uid=e354 generic
+                    uid=e356 img "illustration"
+                    uid=e357 generic
+                      uid=e358 paragraph value="Philosophie"
+                      uid=e359 generic value="Formalisme"
+                uid=e361 button "Voir le bilan complet"
+                  uid=e362 generic value="Voir le bilan complet"
+              uid=e363 separator
+              uid=e364 generic
+                uid=e365 heading "Les avantages salariés" level="4"
+                uid=e366 list
+                  uid=e367 listitem value="RTT / Jour de repos"
+                  uid=e368 listitem value="Entre 1-2 jours de télétravail"
+                  uid=e369 listitem value="Prime de cooptation"
+                  uid=e370 listitem value="Afterworks, Déjeuners d'équipe, etc."
+                  uid=e371 listitem value="Remboursement au delà des 50%"
+                  uid=e372 listitem value="Participation"
+                uid=e373 generic
+                  uid=e374 button "Voir tous les avantages"
+                    uid=e375 generic value="Voir tous les avantages"
+                  uid=e376 generic value="16"
+              uid=e377 separator
+              uid=e378 generic
+                uid=e379 paragraph value="Index de l’égalité professionnelle"
+                uid=e380 paragraph value="Femmes-hommes"
+                uid=e381 generic
+                  uid=e382 paragraph value="93"
+                  uid=e383 paragraph value="sur 100 points"
+                uid=e388 list
+                  uid=e389 listitem
+                    uid=e390 paragraph value="Écart rémunération"
+                    uid=e391 paragraph value="38/40"
+                    uid=e392 img
+                  uid=e394 listitem
+                    uid=e395 paragraph value="Écart taux d'augmentation (hors promotion)"
+                    uid=e396 paragraph value="20/20"
+                    uid=e397 img
+                  uid=e399 listitem
+                    uid=e400 paragraph value="Écart taux de promotion"
+                    uid=e401 paragraph value="15/15"
+                    uid=e402 img
+                  uid=e404 listitem
+                    uid=e405 paragraph value="Retour congés maternité"
+                    uid=e406 paragraph value="15/15"
+                    uid=e407 img
+                  uid=e409 listitem
+                    uid=e410 paragraph value="Hautes rémunérations"
+                    uid=e411 paragraph value="5/10"
+                    uid=e412 img
+                uid=e414 generic
+                  uid=e416 img
+                  uid=e420 generic
+                    uid=s15 StaticText "Données issues de la"
+                    uid=e421 link "déclaration obligatoire" url="https://egapro.travail.gouv.fr/consulter-index"
+                    uid=s16 StaticText "faite par les entreprises de plus de 50 salaires, auprès du ministère du travail, qui permet de mettre en lumière les disparités salariales femmes/hommes."
+              uid=e422 separator
+              uid=e423 generic
+                uid=e424 heading "Engagements" level="4"
+                uid=e426 generic
+                  uid=e428 generic
+                    uid=e429 img "Certification ISO 14001"
+                    uid=e430 generic value="Certification ISO 14001"
+                  uid=e432 generic
+                    uid=e433 img "Certification ISO 9001"
+                    uid=e434 generic value="Certification ISO 9001"
+              uid=e435 separator
+              uid=e436 generic
+                uid=e437 heading "Le lieu de travail" level="4"
+                uid=e438 link "Issy-les-Moulineaux, Ile-de-France, France" url="http://maps.google.com/?q=Issy-les-Moulineaux, Ile-de-France, France"
+                  uid=e439 generic
+                    uid=e440 generic value="Issy-les-Moulineaux, Ile-de-France, France"
+                    uid=e441 img
+          uid=e443 generic
+            uid=e444 generic
+              uid=e446 img
+              uid=e448 heading "Besoin de plus d’infos ?" level="5"
+            uid=e449 paragraph value="Vie d’entreprise, ambiance, réalisations... On a encore plein de choses à vous dire !"
+            uid=e450 link "Découvrir" url="/fr/companies/ozitem/culture-1"
+              uid=e451 generic value="Découvrir"
+              uid=e452 img

@@ -17,6 +17,14 @@ const LINE_REGEXP =
 const ATTR_REGEXP = /(\w+)="((?:[^"\\]|\\.)*)"/g;
 
 export class A11yTree {
+	/**
+	 * Parses a string representation of an accessibility tree into an AxNode tree. 
+	 * - The input format is the one produced by the `stringifyTree` method, and is a line-based format where each line represents 
+	 *   a node with its attributes, and indentation represents the parent-child relationships between nodes.
+	 * 
+	 * @param input The string representation of the accessibility tree.
+	 * @returns The root node of the parsed accessibility tree.
+	 */
 	static parse(input: string): AxNode {
 		const lines = input.split('\n').filter((l) => l.trim().length > 0);
 		if (lines.length === 0) throw new Error('Empty input');
@@ -63,12 +71,61 @@ export class A11yTree {
 		return root;
 	}
 
-	static *walk(node: AxNode): Generator<AxNode> {
-		yield node;
-		for (const child of node.children) {
-			yield* A11yTree.walk(child);
+	/**
+	 * Walks the tree in depth-first order, yielding each node. The input node is also yielded.
+	 * 
+	 * @param rootNode The root of the subtree to walk.
+	 */
+	static *walk(rootNode: AxNode): Generator<AxNode> {
+		yield rootNode;
+		for (const childNode of rootNode.children) {
+			yield* A11yTree.walk(childNode);
 		}
 	}
+
+	/**
+	 * Creates a deep clone of the given AxNode and all its descendants. The parent of the cloned node is set to undefined.
+	 * 
+	 * @param axNode The node to clone.
+	 * @returns A deep clone of the given node.
+	 */
+	static clone(axNode: AxNode): AxNode {
+		const cloned: AxNode = {
+			uid: axNode.uid,
+			role: axNode.role,
+			name: axNode.name,
+			attributes: { ...axNode.attributes },
+			children: [],
+		};
+		for (const child of axNode.children) {
+			const clonedChild = A11yTree.clone(child);
+			clonedChild.parent = cloned;
+			cloned.children.push(clonedChild);
+		}
+		return cloned;
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Removes a node from the tree. The children of the removed node are also removed. If the removed node is the root, an error is thrown.
+	 * 
+	 * @param axTree The root of the tree.
+	 * @param axNodeToRemove The node to remove.
+	 */
+	static remove(axTree: AxNode, axNodeToRemove: AxNode): void {
+		if (axNodeToRemove.parent === undefined) {
+			throw new Error('Cannot remove the root node');
+		}
+		const parent = axNodeToRemove.parent;
+		parent.children = parent.children.filter((child) => child !== axNodeToRemove);
+		axNodeToRemove.parent = undefined;
+	}
+
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -154,10 +211,10 @@ export class A11yTree {
 		const write = (node: AxNode, depth: number) => {
 			const pad = '  '.repeat(depth);
 			const name = node.name !== undefined ? ` "${A11yTree.escape(node.name)}"` : '';
-			const attrs = Object.entries(node.attributes)
-				.map(([k, v]) => `${k}="${A11yTree.escape(v)}"`)
+			const attributes = Object.entries(node.attributes)
+				.map(([attrKey, attrValue]) => `${attrKey}="${A11yTree.escape(attrValue)}"`)
 				.join(' ');
-			out.push(`${pad}uid=${node.uid} ${node.role}${name}${attrs ? ' ' + attrs : ''}`);
+			out.push(`${pad}uid=${node.uid} ${node.role}${name}${attributes ? ' ' + attributes : ''}`);
 			for (const child of node.children) write(child, depth + 1);
 		};
 		write(root, 0);
@@ -166,10 +223,10 @@ export class A11yTree {
 
 	static stringifyNode(node: AxNode): string {
 		const name = node.name !== undefined ? ` "${A11yTree.escape(node.name)}"` : '';
-		const attrs = Object.entries(node.attributes)
-			.map(([k, v]) => `${k}="${A11yTree.escape(v)}"`)
+		const attributes = Object.entries(node.attributes)
+			.map(([attrKey, attrValue]) => `${attrKey}="${A11yTree.escape(attrValue)}"`)
 			.join(' ');
-		return `uid=${node.uid} ${node.role}${name}${attrs ? ' ' + attrs : ''}`;
+		return `uid=${node.uid} ${node.role}${name}${attributes ? ' ' + attributes : ''}`;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////

@@ -1,39 +1,39 @@
 import { execSync } from 'node:child_process';
 
 export class FastBrowserHelper {
-	static run(command: string): string {
+	static async run(command: string): Promise<string> {
 		const fullCommand = `npx fastbrowser_cli ${command}`;
 		console.log(`Running command: ${fullCommand}`);
 		return execSync(fullCommand, { encoding: 'utf8' });
 	}
 
-	static navigatePage(url: string): void {
-		FastBrowserHelper.run(`navigate_page --url '${url}'`);
+	static async navigatePage(url: string): Promise<void> {
+		await FastBrowserHelper.run(`navigate_page --url '${url}'`);
 	}
 
-	static fillForm(selector: string, value: string): void {
-		FastBrowserHelper.run(`fill_form --selector '${selector}' --value '${value}'`);
+	static async fillForm(selector: string, value: string): Promise<void> {
+		await FastBrowserHelper.run(`fill_form --selector '${selector}' --value '${value}'`);
 	}
 
-	static pressKeys(keys: string): void {
-		FastBrowserHelper.run(`press_keys --keys '${keys}'`);
+	static async pressKeys(keys: string): Promise<void> {
+		await FastBrowserHelper.run(`press_keys --keys '${keys}'`);
 	}
 
-	static click(selector: string): void {
-		FastBrowserHelper.run(`click -s '${selector}'`);
+	static async click(selector: string): Promise<void> {
+		await FastBrowserHelper.run(`click -s '${selector}'`);
 	}
 
-	static querySelectorsAll(selector: string, limit: number): string {
-		return FastBrowserHelper.run(`query_selectors_all --selector '${selector}' --limit ${limit}`);
+	static async querySelectorsAll(selector: string, limit: number): Promise<string> {
+		return await FastBrowserHelper.run(`query_selectors_all --selector '${selector}' --limit ${limit}`);
 	}
 
-	static takeSnapshot(): string {
-		return FastBrowserHelper.run('take_snapshot');
+	static async takeSnapshot(): Promise<string> {
+		return await FastBrowserHelper.run('take_snapshot');
 	}
 
-	static querySelectors(selector: string, withAncestors = true): string {
+	static async querySelectors(selector: string, withAncestors = true): Promise<string> {
 		const flag = withAncestors === false ? ' --no-with-ancestors' : '';
-		return FastBrowserHelper.run(`query_selectors --selector '${selector}'${flag}`);
+		return await FastBrowserHelper.run(`query_selectors --selector '${selector}'${flag}`);
 	}
 
 }

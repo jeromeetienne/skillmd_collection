@@ -1,159 +1,179 @@
 #!/usr/bin/env npx tsx
 // Usage: npx tsx extract-wttj-job.ts <job-url>
 
+import * as Commander from 'commander';
 import { FastBrowserHelper } from "./fastbrowser_helper.js";
+import { A11yTree, A11yQuery, AxNode } from 'a11y_parse';
+import { get } from 'node:http';
 
-///////////////////////////////////////////////////////////////////////////////
+type WttjJobOffer = {
+	url: string;
+	title: string;
 
-const ALL_STOPS = [
-	'Descriptif du poste',
-	'Missions clés',
-	'What you will do',
-	'Vos missions',
-	'Vos principales missions',
-	'Responsabilités',
-	'Profil recherché',
-	'About you',
-	'Votre profil',
-	'Le profil idéal',
-	'Qui êtes-vous ?',
-	'Location & Remote',
-	'What we offer',
-];
+	salaryStr?: string;
+	startDateStr?: string;
+	experienceStr?: string;
+	educationStr?: string;
 
-///////////////////////////////////////////////////////////////////////////////
-
-class SnapshotParser {
-	private lines: string[];
-
-	constructor(snapshot: string) {
-		this.lines = snapshot.split('\n');
-	}
-
-	private extractQuotedValue(line: string, token: string): string | null {
-		const idx = line.indexOf(`${token} "`);
-		if (idx === -1) return null;
-		const start = idx + token.length + 2;
-		const end = line.indexOf('"', start);
-		if (end === -1) return null;
-		return line.slice(start, end);
-	}
-
-	extractStaticTexts(): string[] {
-		return this.lines
-			.map(l => this.extractQuotedValue(l, 'StaticText'))
-			.filter((v): v is string => v !== null && v.trim() !== '');
-	}
-
-	extractAfterHeading(headingText: string): string[] {
-		const results: string[] = [];
-		let found = false;
-		for (const line of this.lines) {
-			if (line.includes('heading "')) {
-				const val = this.extractQuotedValue(line, 'heading');
-				if (found) break;
-				if (val === headingText) found = true;
-				continue;
-			}
-			if (!found) continue;
-			if (line.includes('StaticText "')) {
-				const val = this.extractQuotedValue(line, 'StaticText');
-				if (val === null || val.trim() === '') continue;
-				if (ALL_STOPS.includes(val)) break;
-				results.push(val);
-			}
-		}
-		return results;
-	}
-
-	extractAfterStaticText(startLabel: string): string[] {
-		const results: string[] = [];
-		let found = false;
-		for (const line of this.lines) {
-			if (line.includes('heading "') && found) break;
-			if (!line.includes('StaticText "')) continue;
-			const val = this.extractQuotedValue(line, 'StaticText');
-			if (val === null || val.trim() === '') continue;
-			if (found) {
-				if (ALL_STOPS.includes(val)) break;
-				results.push(val);
-			}
-			if (val === startLabel) found = true;
-		}
-		return results;
-	}
-
-	findFirstSection(labels: string[]): string[] {
-		for (const label of labels) {
-			const result = this.extractAfterStaticText(label);
-			if (result.length > 0) return result;
-		}
-		return [];
-	}
 }
 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//	
+///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
 class WttjExtractor {
-	static extractTitle(output: string): string {
-		const match = output.match(/heading "(.+?)" level/);
-		return match !== null ? match[1] : '(non trouvé)';
-	}
-
-	static printSection(title: string, lines: string[]): void {
-		console.log(`\n=== ${title} ===`);
-		if (lines.length === 0) {
-			console.log('(non trouvé)');
-			return;
-		}
-		console.log(lines.join('\n'));
-	}
-
 	static async run(jobUrl: string): Promise<void> {
-		FastBrowserHelper.navigatePage(jobUrl);
+		// Go to the job page
+		await FastBrowserHelper.navigatePage(jobUrl);
 
-		console.log('=== TITRE ===');
-		const selectorOutput = FastBrowserHelper.querySelectors('heading[level="2"]', false);
-		console.log(WttjExtractor.extractTitle(selectorOutput));
+		// Take an accessibility snapshot of the page and parse it into an AxNode tree
+		const a11ySnapshot = await FastBrowserHelper.takeSnapshot();
+		const axTree = A11yTree.parse(a11ySnapshot);
 
-		const snapshot = FastBrowserHelper.takeSnapshot();
-		const parser = new SnapshotParser(snapshot);
+		// Remove the banner node from the tree and print the modified tree
+		const axNodeBanner = A11yQuery.querySelector(axTree, 'banner');
+		if (axNodeBanner === undefined) throw new Error('No banner node found');
+		A11yTree.remove(axTree, axNodeBanner);
 
-		let descriptif = parser.extractAfterHeading('Descriptif du poste');
-		if (descriptif.length === 0) {
-			descriptif = parser.extractAfterStaticText('Descriptif du poste');
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		console.log('Accessibility Snapshot without banner:');
+		console.log(A11yTree.stringifyTree(axTree));
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		const jobOffer: Partial<WttjJobOffer> = {}
+		// Set the job URL
+		jobOffer.url = jobUrl;
+
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	jobOffer.title
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		if (true) {
+			// debugger
+			// find the axNode corresponding to the job title 'heading[level="2"]'
+			const axSelector = 'heading[level="2"]';
+			const axNodeHeading = A11yQuery.querySelector(axTree, axSelector);
+			if (axNodeHeading === undefined) throw new Error(`No jobTitle found - axSelector=${axSelector}`);
+			if (axNodeHeading.name === undefined) throw new Error(`Job title node has no name - axSelector=${axSelector}`);
+			// Set the job title
+			jobOffer.title = axNodeHeading.name;
 		}
-		WttjExtractor.printSection('DESCRIPTIF DU POSTE', descriptif);
 
-		const missions = parser.findFirstSection([
-			'Missions clés',
-			'What you will do',
-			'Vos missions',
-			'Vos principales missions',
-			'Responsabilités',
-		]);
-		WttjExtractor.printSection('MISSIONS CLÉS', missions);
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
 
-		const profil = parser.findFirstSection([
-			'Profil recherché',
-			'About you',
-			'Votre profil',
-			'Le profil idéal',
-			'Qui êtes-vous ?',
-		]);
-		WttjExtractor.printSection('PROFIL RECHERCHÉ', profil);
+		async function getJobTagKeyValueHelper(axTree: AxNode, jobTagName: string): Promise<string | undefined> {
+			// find the axNode corresponding to the job tag name 'generic[value="Salaire :"]'
+			const axSelector = `generic[value="${jobTagName}"] + StaticText`;
+			const axNode = A11yQuery.querySelector(axTree, axSelector);
+			if (axNode !== undefined && axNode.name !== undefined) {
+				return axNode.name;
+			}
+			return undefined;
+		}
+
+		if (true) {
+			const valueStr: string | undefined = await getJobTagKeyValueHelper(axTree, 'Salaire :');
+			if (valueStr !== undefined) {
+				jobOffer.salaryStr = valueStr;
+			} else {
+				console.warn('Salary not found');
+			}
+		}
+
+		if (true) {
+			const valueStr: string | undefined = await getJobTagKeyValueHelper(axTree, 'Début :');
+			if (valueStr !== undefined) {
+				jobOffer.startDateStr = valueStr;
+			} else {
+				console.warn('Start date not found');
+			}
+		}
+
+
+		if (true) {
+			const valueStr: string | undefined = await getJobTagKeyValueHelper(axTree, 'Expérience :');
+			if (valueStr !== undefined) {
+				jobOffer.experienceStr = valueStr;
+			} else {
+				console.warn('Experience not found');
+			}
+		}
+
+		if (true) {
+			const valueStr: string | undefined = await getJobTagKeyValueHelper(axTree, 'Éducation :');
+			if (valueStr !== undefined) {
+				jobOffer.educationStr = valueStr;
+			} else {
+				console.warn('Education not found');
+			}
+		}
+
+		console.log('Extracted job offer:', jobOffer);
 	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//	
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
-const jobUrl = process.argv[2];
-if (jobUrl === undefined || jobUrl === '') {
-	console.error('Usage: npx tsx extract-wttj-job.ts <job-url>');
-	process.exit(1);
+async function main() {
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	const program = new Commander.Command();
+	program
+		.argument('url', 'job page url')
+		.addOption(new Commander.Option('-f, --format <format>', 'output format: json or markdown').choices(['json', 'markdown']).default('markdown'))
+		.parse();
+
+	type CliOptions = {
+		format: 'json' | 'markdown';
+	};
+	const options: CliOptions = program.opts<CliOptions>();
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////	////////////////////////////////////
+
+	const jobUrl = program.args[0];
+	if (jobUrl === undefined || jobUrl === '') {
+		console.error('Usage: npx tsx wttj_job.ts <job-url>');
+		process.exit(1);
+	}
+
+	await WttjExtractor.run(jobUrl)
 }
 
-WttjExtractor.run(jobUrl).catch((err: unknown) => {
-	console.error('Error:', err);
-	process.exit(1);
-});
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//	
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+void main();

@@ -1,0 +1,652 @@
+uid=s1 Page
+uid=s2 Page
+uid=s3 Console value="5 errors, 2 warnings"
+uid=e1 generic active
+  uid=e3 generic
+    uid=e4 banner
+      uid=e5 generic
+        uid=e6 generic
+          uid=e7 link "Welcome to the jungle logo" url="/fr/"
+            uid=e8 img "Welcome to the jungle logo"
+          uid=e10 navigation "Main navigation"
+            uid=e11 list
+              uid=e12 listitem
+                uid=e13 link "Trouver un job" url="/fr/jobs-matches"
+              uid=e14 listitem
+                uid=e15 link "Explorer les entreprises" url="/fr/companies"
+              uid=e16 listitem
+                uid=e17 button "Ressources"
+              uid=s4 listitem
+        uid=e19 navigation "Navigation utilisateur"
+          uid=e20 list
+            uid=e21 listitem
+              uid=e22 link "Candidatures" url="/fr/me/application-tracker"
+            uid=e23 listitem
+              uid=e24 link "Messages" url="/fr/me/recruiter-proposals"
+            uid=e25 listitem
+              uid=e26 button "Mon espace"
+            uid=s5 listitem
+    uid=e29 generic
+      uid=e32 navigation
+        uid=e35 link "Retour" url="/fr/jobs"
+          uid=e36 img
+          uid=e38 generic value="Retour"
+      uid=e39 generic
+        uid=e40 generic
+          uid=e41 generic
+            uid=e43 generic
+              uid=e45 button
+                uid=e47 figure
+                  uid=e48 img "OZITEM"
+              uid=e49 link "OZITEM" url="/fr/companies/ozitem"
+                uid=e51 generic value="OZITEM"
+            uid=e52 heading "Technicien informatique H/F" level="2"
+            uid=e53 generic
+              uid=e56 generic
+                uid=e57 generic
+                  uid=e58 img
+                  uid=s6 StaticText "CDI"
+                uid=e60 generic
+                  uid=e61 img
+                  uid=e63 generic value="Issy-les-Moulineaux"
+                uid=e64 generic
+                  uid=e65 img
+                  uid=e67 generic value="Télétravail non autorisé"
+                  uid=e69 img
+                uid=e71 generic
+                  uid=e72 img
+                  uid=e74 generic value="Salaire :"
+                  uid=s7 StaticText "Non spécifié"
+                uid=e75 generic
+                  uid=e76 img
+                  uid=e78 generic value="Début :"
+                  uid=e79 generic value="10 février 2026"
+                uid=e80 generic
+                  uid=e81 img
+                  uid=e83 generic value="Expérience :"
+                  uid=s8 StaticText "> 2 ans"
+                uid=e84 generic
+                  uid=e85 img
+                  uid=e87 generic value="Éducation :"
+                  uid=s9 StaticText "Bac +2"
+              uid=e88 generic
+                uid=e89 generic
+                  uid=e90 link "Postuler" url="https://careers.flatchr.io/vacancy/gqayv9lorgon6lxe-technicien-vip-h-f/apply?partner=67"
+                    uid=e91 generic value="Postuler"
+                    uid=e92 img
+                  uid=e94 button "Sauvegarder"
+                    uid=e95 generic
+                      uid=e96 img
+                      uid=e98 img
+                    uid=e108 generic value="Sauvegarder"
+                uid=e109 generic
+                  uid=e110 generic
+                    uid=e111 img
+                    uid=e113 paragraph
+                      uid=e114 time value="il y a 13 heures"
+                  uid=e115 button "common.job-share-menu-trigger"
+                    uid=e116 paragraph value="Partager"
+                    uid=e117 img
+          uid=e119 generic
+            uid=e121 button
+              uid=e123 figure
+                uid=e124 img "OZITEM"
+            uid=e125 link "OZITEM" url="/fr/companies/ozitem"
+              uid=e126 generic value="OZITEM"
+            uid=e127 paragraph value="Cette offre vous tente ?"
+            uid=e128 generic
+              uid=e129 link "Postuler" url="https://careers.flatchr.io/vacancy/gqayv9lorgon6lxe-technicien-vip-h-f/apply?partner=67"
+                uid=e130 generic value="Postuler"
+                uid=e131 img
+              uid=e133 button "Sauvegarder"
+                uid=e134 generic
+                  uid=e135 img
+                  uid=e137 img
+                uid=e147 generic value="Sauvegarder"
+          uid=e148 generic
+            uid=e149 generic value="Questions et réponses sur l'offre"
+            uid=e151 button "Le télétravail est-il possible pour ce poste ?"
+              uid=e152 generic value="Le télétravail est-il possible pour ce poste ?"
+              uid=e154 img
+            uid=e157 button "Quel est le type de contrat pour ce poste ?"
+              uid=e158 generic value="Quel est le type de contrat pour ce poste ?"
+              uid=e160 img
+            uid=e163 button "Quelle est la date de début du contrat?"
+              uid=e164 generic value="Quelle est la date de début du contrat?"
+              uid=e166 img
+          uid=e169 generic
+            uid=e171 heading "Le poste" level="3"
+              uid=e172 generic value="Le poste"
+            uid=e173 generic
+              uid=e174 generic
+                uid=e175 heading "Descriptif du poste" level="4"
+                uid=e179 list
+                  uid=e180 listitem value="Résoudre de manière proactive les problèmes techniques rencontrés par les utilisateurs VIP et proposer des solutions de contournement adaptées."
+                  uid=e181 listitem value="Maintenir un haut niveau de connaissance sur les technologies Microsoft 365, Windows 11, macOS et les environnements mobiles Apple/Android."
+                  uid=e182 listitem value="Utiliser et administrer ServiceNow pour le suivi des tickets et l’application des procédures internes."
+                  uid=e183 listitem value="Exploiter Power Automate et PowerShell pour automatiser des tâches et améliorer l’efficacité du support."
+                  uid=e184 listitem value="Gérer et sécuriser l’usage de Microsoft Copilot, former les VIP et optimiser leur productivité sur Microsoft 365."
+                  uid=e185 listitem value="Administrer les comptes via Active Directory et Microsoft Entra."
+                  uid=e186 listitem value="Assurer le support avancé de Teams, SharePoint, OneDrive et de l’ensemble de la suite Microsoft 365."
+                  uid=e187 listitem value="Intervenir sur le hardware et garantir un diagnostic fiable des équipements."
+                  uid=e188 listitem value="Gérer et maintenir les postes via Intune (UEM)."
+              uid=e189 separator
+              uid=e190 generic
+                uid=e191 heading "Profil recherché" level="4"
+                uid=e194 generic
+                  uid=e195 list
+                    uid=e196 listitem value="Solide expertise technique sur Windows 11, macOS, Microsoft 365 et les environnements mobiles."
+                    uid=e197 listitem value="Maîtrise des outils d’automatisation (Power Automate, PowerShell, Zscaler)."
+                    uid=e198 listitem value="Connaissance de ServiceNow et des procédures ITIL."
+                    uid=e199 listitem value="Excellentes compétences en communication et sens du service VIP."
+                    uid=e200 listitem value="Anglais niveau B2."
+                  uid=e201 paragraph value="Ce poste est ouvert aux personnes disposant d’un droit au travail en France. Merci de préciser dans votre candidature si votre statut nécessite une autorisation de travail."
+          uid=e202 generic
+            uid=e204 heading "Envie d’en savoir plus ?" level="3"
+              uid=e205 generic value="Envie d’en savoir plus ?"
+            uid=e206 generic
+              uid=e207 button "modal-FullScreenVideo"
+                uid=e209 figure "Play Rencontrez Julie, Consultante ITSM"
+                  uid=e210 generic
+                    uid=e212 img "Play"
+                    uid=e214 paragraph value="Rencontrez Julie, Consultante ITSM"
+              uid=e215 button "modal-FullScreenVideo"
+                uid=e217 figure "Play Rencontrez Julien, Responsable Opérationnel Dédié"
+                  uid=e218 generic
+                    uid=e220 img "Play"
+                    uid=e222 paragraph value="Rencontrez Julien, Responsable Opérationnel Dédié"
+        uid=e223 complementary
+          uid=e224 generic
+            uid=e225 generic
+              uid=e226 button "modal-FullScreenImage"
+                uid=e227 img "OZITEM"
+              uid=e228 button "modal-FullScreenImage"
+                uid=e229 img "OZITEM"
+              uid=e230 button "modal-FullScreenImage"
+                uid=e231 img "OZITEM"
+              uid=e232 button "modal-FullScreenImage"
+                uid=e233 img "OZITEM"
+            uid=e234 generic
+              uid=e235 heading "Découvrez l'entreprise" level="5"
+              uid=e236 paragraph value="Explorez la vitrine de l’entreprise ou suivez-la pour savoir si elle vous correspond vraiment !"
+              uid=e237 generic
+                uid=e238 link "Explorer l’entreprise" url="/fr/companies/ozitem"
+                  uid=e239 generic value="Explorer l’entreprise"
+                  uid=e240 img
+                uid=e242 button "Suivre"
+          uid=e243 generic
+            uid=e245 generic value="Ils sont sociables"
+            uid=e246 generic
+              uid=e247 link "Facebook" url="https://www.facebook.com/Groupe-Ozitem-214935588593562"
+                uid=e248 img
+              uid=e250 link "Linkedin" url="https://www.linkedin.com/company/43074"
+                uid=e251 img
+              uid=e253 link "Twitter" url="https://www.twitter.com/GroupeOZITEM"
+                uid=e254 img
+              uid=e256 link "Youtube" url="https://www.youtube.com/groupeozitem"
+                uid=e257 img
+          uid=e260 generic
+            uid=e262 heading "L'entreprise" level="3"
+              uid=e263 generic value="L'entreprise"
+            uid=e264 generic
+              uid=e265 generic
+                uid=e267 button
+                  uid=e269 figure
+                    uid=e270 img "OZITEM"
+                uid=e271 link "OZITEM" url="/fr/companies/ozitem"
+                  uid=e273 generic value="OZITEM"
+              uid=e274 generic
+                uid=e275 generic
+                  uid=e276 img
+                  uid=e278 generic value="IT / Digital, SaaS / Cloud Services"
+                uid=e279 generic
+                  uid=e280 img
+                  uid=e282 generic value="400 collaborateurs"
+                uid=e283 generic
+                  uid=e284 img
+                  uid=e286 generic value="Créée en 1990"
+                uid=e287 generic
+                  uid=e288 img
+                  uid=e290 generic value="Âge moyen : 31 ans"
+                uid=e291 generic
+                  uid=e292 img
+                  uid=e294 generic value="Chiffre d'affaires : 46 M€"
+                uid=e295 generic
+                  uid=e296 img
+                  uid=e298 generic value="20%"
+                uid=e299 generic
+                  uid=e300 img
+                  uid=e302 generic value="80%"
+              uid=e303 list
+                uid=e304 listitem
+                  uid=e305 link "Voir le site" url="http://groupeozitem.com"
+                    uid=e306 generic value="Voir le site"
+                    uid=e307 img
+                  uid=s10 StaticText "•"
+                uid=e309 listitem
+                  uid=e310 link "Voir toutes les offres 19" url="/fr/companies/ozitem/jobs"
+                    uid=e311 generic value="Voir toutes les offres"
+                    uid=e312 generic value="19"
+              uid=e313 separator
+              uid=e314 generic
+                uid=e315 heading "Qui sont-ils ?" level="4"
+                uid=e316 generic
+                  uid=e318 generic
+                    uid=e319 paragraph
+                      uid=s11 StaticText "Chez Ozitem, nous accompagnons les entreprises dans leur transformation digitale, notamment au travers de notre expertise sur les solutions d’infrastructures & de cloud 💡🚀"
+                      uid=s12 StaticText "Entreprise de taille humaine et pérenne depuis plus de 30 ans, l’entreprise affiche une croissance régulière depuis notre création et un chiffre d’affaires de 46 Millions d’euros en 2024."
+                      uid=s13 StaticText "Ce sont 400 Ozitémiens, ingénieurs et consultants qui évoluent sur trois sites en France : Levallois (92), notre siège-social, Toulouse (31) et Lyon (69). 👨‍ 💻"
+                      uid=s14 StaticText "Avantages :"
+                    uid=e321 list
+                      uid=e322 listitem value="RTT"
+                      uid=e323 listitem value="Tickets restaurants"
+                      uid=e324 listitem value="Participation"
+                      uid=e325 listitem value="CSE"
+                      uid=e326 listitem value="75% transport"
+                  uid=e328 button "Voir plus"
+                    uid=e329 generic value="Voir plus"
+                    uid=e330 img
+              uid=e332 separator
+              uid=e333 generic
+                uid=e334 generic value="Les dimensions culturelles de l’entreprise"
+                uid=e335 generic
+                  uid=e336 generic
+                    uid=e338 img "illustration"
+                    uid=e339 generic
+                      uid=e340 paragraph value="Méthode de travail"
+                      uid=e341 generic value="Constance"
+                  uid=e342 generic
+                    uid=e344 img "illustration"
+                    uid=e345 generic
+                      uid=e346 paragraph value="Hiérarchie"
+                      uid=e347 generic value="Horizontalité"
+                  uid=e348 generic
+                    uid=e350 img "illustration"
+                    uid=e351 generic
+                      uid=e352 paragraph value="Innovation"
+                      uid=e353 generic value="Continuité"
+                  uid=e354 generic
+                    uid=e356 img "illustration"
+                    uid=e357 generic
+                      uid=e358 paragraph value="Philosophie"
+                      uid=e359 generic value="Formalisme"
+                uid=e361 button "Voir le bilan complet"
+                  uid=e362 generic value="Voir le bilan complet"
+              uid=e363 separator
+              uid=e364 generic
+                uid=e365 heading "Les avantages salariés" level="4"
+                uid=e366 list
+                  uid=e367 listitem value="RTT / Jour de repos"
+                  uid=e368 listitem value="Entre 1-2 jours de télétravail"
+                  uid=e369 listitem value="Prime de cooptation"
+                  uid=e370 listitem value="Afterworks, Déjeuners d'équipe, etc."
+                  uid=e371 listitem value="Remboursement au delà des 50%"
+                  uid=e372 listitem value="Participation"
+                uid=e373 generic
+                  uid=e374 button "Voir tous les avantages"
+                    uid=e375 generic value="Voir tous les avantages"
+                  uid=e376 generic value="16"
+              uid=e377 separator
+              uid=e378 generic
+                uid=e379 paragraph value="Index de l’égalité professionnelle"
+                uid=e380 paragraph value="Femmes-hommes"
+                uid=e381 generic
+                  uid=e382 paragraph value="93"
+                  uid=e383 paragraph value="sur 100 points"
+                uid=e388 list
+                  uid=e389 listitem
+                    uid=e390 paragraph value="Écart rémunération"
+                    uid=e391 paragraph value="38/40"
+                    uid=e392 img
+                  uid=e394 listitem
+                    uid=e395 paragraph value="Écart taux d'augmentation (hors promotion)"
+                    uid=e396 paragraph value="20/20"
+                    uid=e397 img
+                  uid=e399 listitem
+                    uid=e400 paragraph value="Écart taux de promotion"
+                    uid=e401 paragraph value="15/15"
+                    uid=e402 img
+                  uid=e404 listitem
+                    uid=e405 paragraph value="Retour congés maternité"
+                    uid=e406 paragraph value="15/15"
+                    uid=e407 img
+                  uid=e409 listitem
+                    uid=e410 paragraph value="Hautes rémunérations"
+                    uid=e411 paragraph value="5/10"
+                    uid=e412 img
+                uid=e414 generic
+                  uid=e416 img
+                  uid=e420 generic
+                    uid=s15 StaticText "Données issues de la"
+                    uid=e421 link "déclaration obligatoire" url="https://egapro.travail.gouv.fr/consulter-index"
+                    uid=s16 StaticText "faite par les entreprises de plus de 50 salaires, auprès du ministère du travail, qui permet de mettre en lumière les disparités salariales femmes/hommes."
+              uid=e422 separator
+              uid=e423 generic
+                uid=e424 heading "Engagements" level="4"
+                uid=e426 generic
+                  uid=e428 generic
+                    uid=e429 img "Certification ISO 14001"
+                    uid=e430 generic value="Certification ISO 14001"
+                  uid=e432 generic
+                    uid=e433 img "Certification ISO 9001"
+                    uid=e434 generic value="Certification ISO 9001"
+              uid=e435 separator
+              uid=e436 generic
+                uid=e437 heading "Le lieu de travail" level="4"
+                uid=e438 link "Issy-les-Moulineaux, Ile-de-France, France" url="http://maps.google.com/?q=Issy-les-Moulineaux, Ile-de-France, France"
+                  uid=e439 generic
+                    uid=e440 generic value="Issy-les-Moulineaux, Ile-de-France, France"
+                    uid=e441 img
+          uid=e443 generic
+            uid=e444 generic
+              uid=e446 img
+              uid=e448 heading "Besoin de plus d’infos ?" level="5"
+            uid=e449 paragraph value="Vie d’entreprise, ambiance, réalisations... On a encore plein de choses à vous dire !"
+            uid=e450 link "Découvrir" url="/fr/companies/ozitem/culture-1"
+              uid=e451 generic value="Découvrir"
+              uid=e452 img
+      uid=e455 generic
+        uid=e457 heading "D’autres offres vous correspondent !" level="2"
+        uid=e458 paragraph value="Ces entreprises recrutent aussi au poste de “Réparation électrique et électronique”."
+        uid=e459 list
+          uid=e460 listitem
+            uid=e462 generic
+              uid=e463 link "Consultez l'offre Technicien(ne) support informatique N2/N3" url="/fr/companies/perenne-it/jobs/technicien-ne-support-informatique-niveau-2_le-chesnay-rocquencourt"
+                uid=e464 img "PÉRENNE'IT"
+              uid=e465 generic
+                uid=e466 link "Technicien(ne) support informatique N2/N3" url="/fr/companies/perenne-it/jobs/technicien-ne-support-informatique-niveau-2_le-chesnay-rocquencourt"
+                  uid=e467 heading "Technicien(ne) support informatique N2/N3" level="2"
+                uid=e468 generic
+                  uid=e470 img "PÉRENNE'IT"
+                  uid=e471 generic value="PÉRENNE'IT"
+                uid=e472 generic
+                  uid=e473 generic
+                    uid=e474 img
+                    uid=s17 StaticText "CDI"
+                  uid=e476 generic
+                    uid=e477 img
+                    uid=e479 generic value="Le Chesnay-Rocquencourt"
+                  uid=e480 generic
+                    uid=e481 img
+                    uid=e483 generic value="Télétravail non autorisé"
+                    uid=e485 img
+                  uid=e487 generic
+                    uid=e488 img
+                    uid=e490 generic value="Salaire :"
+                    uid=s18 StaticText "30 à 35 €"
+                  uid=e491 generic
+                    uid=e492 img
+                    uid=e494 generic value="IT / Digital"
+                  uid=e495 generic
+                    uid=e496 img
+                    uid=e498 generic value="22 collaborateurs"
+                uid=e499 generic
+                  uid=e500 generic
+                    uid=e501 img
+                    uid=e503 paragraph
+                      uid=e504 time value="hier"
+                  uid=e506 button "Sauvegarder"
+                    uid=e507 generic
+                      uid=e508 img
+                      uid=e510 img
+          uid=e520 listitem
+            uid=e522 generic
+              uid=e523 link "Consultez l'offre TECHNICIEN DE SUIVI" url="/fr/companies/ministere-des-armees-fr/jobs/technicien-de-suivi_malakoff"
+                uid=e524 img "Civils de la Défense - Ministère des Armées"
+              uid=e525 generic
+                uid=e526 link "TECHNICIEN DE SUIVI" url="/fr/companies/ministere-des-armees-fr/jobs/technicien-de-suivi_malakoff"
+                  uid=e527 heading "TECHNICIEN DE SUIVI" level="2"
+                uid=e528 generic
+                  uid=e530 img "Civils de la Défense - Ministère des Armées"
+                  uid=e531 generic value="Civils de la Défense - Ministère des Armées"
+                uid=e532 generic
+                  uid=e533 generic
+                    uid=e534 img
+                    uid=s19 StaticText "CDI"
+                  uid=e536 generic
+                    uid=e537 img
+                    uid=e539 generic value="Malakoff"
+                  uid=e540 generic
+                    uid=e541 img
+                    uid=e543 generic value="Télétravail non autorisé"
+                    uid=e545 img
+                  uid=e547 generic
+                    uid=e548 img
+                    uid=e550 generic value="IT / Digital, Cybersécurité"
+                  uid=e551 generic
+                    uid=e552 img
+                    uid=e554 generic value="64 000 collaborateurs"
+                uid=e555 generic
+                  uid=e556 generic
+                    uid=e557 img
+                    uid=e559 paragraph
+                      uid=e560 time value="avant-hier"
+                  uid=e562 button "Sauvegarder"
+                    uid=e563 generic
+                      uid=e564 img
+                      uid=e566 img
+          uid=e576 listitem
+            uid=e578 generic
+              uid=e579 link "Consultez l'offre Technicien(ne) maintenance électronique F/H" url="/fr/companies/cgi-france/jobs/technicien-ne-maintenance-electronique-f-h_paris"
+                uid=e580 img "CGI"
+              uid=e581 generic
+                uid=e582 link "Technicien(ne) maintenance électronique F/H" url="/fr/companies/cgi-france/jobs/technicien-ne-maintenance-electronique-f-h_paris"
+                  uid=e583 heading "Technicien(ne) maintenance électronique F/H" level="2"
+                uid=e584 generic
+                  uid=e586 img "CGI"
+                  uid=e587 generic value="CGI"
+                uid=e588 generic
+                  uid=e589 generic
+                    uid=e590 img
+                    uid=s20 StaticText "CDI"
+                  uid=e592 generic
+                    uid=e593 img
+                    uid=e595 generic value="Paris"
+                  uid=e596 generic
+                    uid=e597 img
+                    uid=e599 generic value="Télétravail fréquent"
+                    uid=e601 img
+                  uid=e603 generic
+                    uid=e604 img
+                    uid=e606 generic value="IT / Digital, Transformation"
+                  uid=e607 generic
+                    uid=e608 img
+                    uid=e610 generic value="15 000 collaborateurs"
+                uid=e611 generic
+                  uid=e612 generic
+                    uid=e613 img
+                    uid=e615 paragraph
+                      uid=e616 time value="il y a 10 jours"
+                  uid=e618 button "Sauvegarder"
+                    uid=e619 generic
+                      uid=e620 img
+                      uid=e622 img
+          uid=e632 listitem
+            uid=e634 generic
+              uid=e635 link "Consultez l'offre Architecte E2E Cybersécurité Télécom" url="/fr/companies/capgemini/jobs/architecte-e2e-cybersecurite-telecom_issy-les-moulineaux_CAPGE_q9Wke5r"
+                uid=e636 img "Capgemini"
+              uid=e637 generic
+                uid=e638 link "Architecte E2E Cybersécurité Télécom" url="/fr/companies/capgemini/jobs/architecte-e2e-cybersecurite-telecom_issy-les-moulineaux_CAPGE_q9Wke5r"
+                  uid=e639 heading "Architecte E2E Cybersécurité Télécom" level="2"
+                uid=e640 generic
+                  uid=e642 img "Capgemini"
+                  uid=e643 generic value="Capgemini"
+                uid=e644 generic
+                  uid=e645 generic
+                    uid=e646 img
+                    uid=s21 StaticText "CDI"
+                  uid=e648 generic
+                    uid=e649 img
+                    uid=e651 generic value="Issy-les-Moulineaux"
+                  uid=e652 generic
+                    uid=e653 img
+                    uid=e655 generic value="IT / Digital, Organisation / Management"
+                  uid=e656 generic
+                    uid=e657 img
+                    uid=e659 generic value="340 000 collaborateurs"
+                uid=e660 generic
+                  uid=e661 generic
+                    uid=e662 img
+                    uid=e664 paragraph
+                      uid=e665 time value="il y a 10 jours"
+                  uid=e667 button "Sauvegarder"
+                    uid=e668 generic
+                      uid=e669 img
+                      uid=e671 img
+          uid=e681 listitem
+            uid=e683 generic
+              uid=e684 link "Consultez l'offre INGENIEUR GENIE ELECTRIQUE (H/F)" url="/fr/companies/agap2it/jobs/ingenieur-genie-electrique-h-f_boulogne-billancourt"
+                uid=e685 img "agap2IT"
+              uid=e686 generic
+                uid=e687 link "INGENIEUR GENIE ELECTRIQUE (H/F)" url="/fr/companies/agap2it/jobs/ingenieur-genie-electrique-h-f_boulogne-billancourt"
+                  uid=e688 heading "INGENIEUR GENIE ELECTRIQUE (H/F)" level="2"
+                uid=e689 generic
+                  uid=e691 img "agap2IT"
+                  uid=e692 generic value="agap2IT"
+                uid=e693 generic
+                  uid=e694 generic
+                    uid=e695 img
+                    uid=s22 StaticText "CDI"
+                  uid=e697 generic
+                    uid=e698 img
+                    uid=e700 generic value="Boulogne-Billancourt"
+                  uid=e701 generic
+                    uid=e702 img
+                    uid=e704 generic value="Télétravail occasionnel"
+                    uid=e706 img
+                  uid=e708 generic
+                    uid=e709 img
+                    uid=e711 generic value="Salaire :"
+                    uid=s23 StaticText "30K à 50K €"
+                  uid=e712 generic
+                    uid=e713 img
+                    uid=e715 generic value="Logiciels, IT / Digital"
+                  uid=e716 generic
+                    uid=e717 img
+                    uid=e719 generic value="950 collaborateurs"
+                uid=e720 generic
+                  uid=e721 generic
+                    uid=e722 img
+                    uid=e724 paragraph
+                      uid=e725 time value="il y a 15 jours"
+                  uid=e727 button "Sauvegarder"
+                    uid=e728 generic
+                      uid=e729 img
+                      uid=e731 img
+          uid=e741 listitem
+            uid=e743 generic
+              uid=e744 link "Consultez l'offre Technicien Support Telecom - IDF" url="/fr/companies/koesio-1/jobs/technicien-support-telecom-idf_nanterre"
+                uid=e745 img "Koesio"
+              uid=e746 generic
+                uid=e747 link "Technicien Support Telecom - IDF" url="/fr/companies/koesio-1/jobs/technicien-support-telecom-idf_nanterre"
+                  uid=e748 heading "Technicien Support Telecom - IDF" level="2"
+                uid=e749 generic
+                  uid=e751 img "Koesio"
+                  uid=e752 generic value="Koesio"
+                uid=e753 generic
+                  uid=e754 generic
+                    uid=e755 img
+                    uid=s24 StaticText "CDI"
+                  uid=e757 generic
+                    uid=e758 img
+                    uid=e760 generic value="Nanterre"
+                  uid=e761 generic
+                    uid=e762 img
+                    uid=e764 generic value="Télétravail non autorisé"
+                    uid=e766 img
+                  uid=e768 generic
+                    uid=e769 img
+                    uid=e771 generic value="Salaire :"
+                    uid=s25 StaticText "29K à 36K €"
+                  uid=e772 generic
+                    uid=e773 img
+                    uid=e775 generic value="IT / Digital, SaaS / Cloud Services"
+                  uid=e776 generic
+                    uid=e777 img
+                    uid=e779 generic value="3 042 collaborateurs"
+                uid=e780 generic
+                  uid=e781 generic
+                    uid=e782 img
+                    uid=e784 paragraph
+                      uid=e785 time value="il y a 22 jours"
+                  uid=e787 button "Sauvegarder"
+                    uid=e788 generic
+                      uid=e789 img
+                      uid=e791 img
+        uid=e801 link "Voir toutes les offres" url="/fr/jobs?aroundQuery=Issy-les-Moulineaux%2C%20France&aroundLatLng=48.82123%2C2.25161&aroundRadius=20000&refinementList%5Boffices.country_code%5D%5B%5D=FR&refinementList%5Bsectors.reference%5D%5B%5D=it-digital-1&refinementList%5Bnew_profession.sub_category_reference%5D%5B%5D=electrical-and-electronics-repair-wODVi&refinementList%5Bcontract_type%5D%5B%5D=full_time"
+          uid=e802 generic value="Voir toutes les offres"
+    uid=e803 contentinfo
+      uid=e804 generic
+        uid=e806 img "Welcome to the jungle symbol"
+        uid=e808 generic
+          uid=e809 heading "Vous cherchez un job" level="3"
+          uid=e810 list
+            uid=e811 listitem
+              uid=e812 link "Explorez les entreprises" url="/fr/companies"
+            uid=e813 listitem
+              uid=e814 link "Jobs en France" url="/fr/pages/offres-emploi-par-metiers-villes"
+            uid=e815 listitem
+              uid=e816 link "Jobs par type d'entreprise" url="/fr/pages/offres-par-villes-metiers"
+            uid=e817 listitem
+              uid=e818 link "AI Candidate Coach" url="https://contact.welcometothejungle.com/candidate-coach"
+            uid=e819 listitem
+              uid=e820 link "Masterclasses" url="https://landings.welcometothejungle.com/fr/masterclass"
+            uid=e821 listitem
+              uid=e822 link "Besoin d'aide ?" url="https://help.welcometothejungle.com/je-suis-candidat"
+            uid=e823 listitem
+              uid=s26 unknown url="/fr/authenticate/signin"
+        uid=e825 generic
+          uid=e826 heading "Vous recrutez" level="3"
+          uid=e827 list
+            uid=e828 listitem
+              uid=e829 link "Welcome Hiring Suite" url="https://solutions.welcometothejungle.com/"
+            uid=e830 listitem
+              uid=e831 link "Marque emmployeur" url="https://solutions.welcometothejungle.com/marque-employeur"
+            uid=e832 listitem
+              uid=e833 link "Nos tarifs" url="https://solutions.welcometothejungle.com/notre-offre"
+            uid=e834 listitem
+              uid=e835 link "Témoignages clients" url="https://solutions.welcometothejungle.com/etude-de-cas"
+            uid=e836 listitem
+              uid=e837 link "Ressources" url="https://www.notion.so/2a0f0de3673c8041af30edd270f49608?pvs=25"
+            uid=e838 listitem
+              uid=e839 link "Besoin d'aide ?" url="https://help.welcometothejungle.com/je-suis-client"
+            uid=e840 listitem
+              uid=s27 unknown url="https://myaccount.welcometothejungle.com/signin"
+        uid=e842 generic
+          uid=e843 heading "Qui sommes-nous ?" level="3"
+          uid=e844 list
+            uid=e845 listitem
+              uid=e846 link "Concept & histoire" url="https://about.welcometothejungle.com/"
+            uid=e847 listitem
+              uid=e848 link "On recrute" url="/fr/companies/wttj"
+            uid=e849 listitem
+              uid=e850 link "Presse" url="https://press.welcometothejungle.com/"
+          uid=e851 list
+            uid=e852 listitem
+              uid=e853 link "Facebook" url="https://www.facebook.com/wttj.fr"
+                uid=e854 img "Facebook"
+            uid=e856 listitem
+              uid=e857 link "LinkedIn" url="https://www.linkedin.com/company/wttj-fr"
+                uid=e858 img "LinkedIn"
+            uid=e860 listitem
+              uid=e861 link "YouTube" url="https://www.youtube.com/channel/UCpJfUQ72fmt4qAbkDvz0iNQ"
+                uid=e862 img "YouTube"
+            uid=e864 listitem
+              uid=e865 link "Instagram" url="https://www.instagram.com/welcometothejungle_fr"
+                uid=e866 img "Instagram"
+        uid=e869 button "FR"
+          uid=e870 img
+          uid=s28 StaticText "FR"
+          uid=e872 img
+        uid=e874 generic
+          uid=e875 list
+            uid=e876 listitem
+              uid=e877 link "Mentions légales" url="/fr/pages/legal"
+            uid=e878 listitem
+              uid=e879 link "CGU" url="/fr/pages/terms"
+            uid=e880 listitem
+              uid=e881 link "Legal center" url="https://wttj.notion.site/legal-hub"
+            uid=e882 listitem
+              uid=e883 button "Gestion des cookies"
+          uid=e884 paragraph value="© 2026 Welcome to the Jungle"
+  uid=e885 status
