@@ -1,17 +1,17 @@
 {
     "name": "claude_stream_viewer",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Claude Stream Viewer - Pretty-prints Claude API stream-json events from stdin with colorized output.",
-    "main": "dist/src/claude-stream-viewer.js",
+    "main": "dist/claude_stream_viewer.js",
     "bin": {
-        "claude_stream_viewer": "./dist/src/claude-stream-viewer.js"
+        "claude_stream_viewer": "./dist/claude_stream_viewer.js"
     },
     "scripts": {
-        "dev": "tsx ./src/claude-stream-viewer.ts",
+        "dev": "tsx ./src/claude_stream_viewer.ts",
         "build": "tsc -p tsconfig.build.json",
-        "postbuild": "chmod +x ./dist/src/claude-stream-viewer.js",
+        "postbuild": "chmod +x ./dist/claude_stream_viewer.js",
         "version:bump": "npm version patch --no-git-tag-version && git commit -a -m \"feat: bump version in claude_stream_viewer package.json\"",
-        "publish:all": "npm run version:bump &&npm run build && npm publish --access public",
+        "publish:all": "npm run version:bump && npm run build && npm publish --access public",
         "typecheck": "tsc --noEmit",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
