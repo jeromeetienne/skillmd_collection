@@ -7,17 +7,34 @@ import Os from 'node:os';
 import path from 'node:path';
 import * as Commander from 'commander';
 
-const DEFAULT_TOPIC = 'why fastbrowser + a11y_parse are great to scrape the web with AI';
-const DEFAULT_DESCRIPTION = `Based on those 2 folders, in a monorepo
-- https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/a11y_parse
-- https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/fastbrowser_cli`;
-
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//	Constants and utilities
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const REPOSITORY_ROOT = path.join(__dirname, '../../..');
 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//	
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
 export class BuildInPublicVideo {
-	static streamClaudeToViewer(userPrompt: string, cwd: string): Promise<void> {
+	static async readStdin(): Promise<string> {
+		if (process.stdin.isTTY === true) {
+			return '';
+		}
+		const chunks: Buffer[] = [];
+		for await (const chunk of process.stdin) {
+			chunks.push(chunk as Buffer);
+		}
+		return Buffer.concat(chunks).toString('utf8');
+	}
+
+	static streamClaudeToViewer(userPrompt: string, cwd: string, eventLogPath: string): Promise<void> {
 		return new Promise((resolve, reject) => {
 			const claude = ChildProcess.spawn(
 				'claude',
@@ -31,13 +48,13 @@ export class BuildInPublicVideo {
 				],
 				{ cwd, stdio: ['ignore', 'pipe', 'inherit'] },
 			);
-			// /Users/jetienne/webwork/skillmd_collection/packages/claude_stream_viewer/src/claude_stream_viewer.ts
+			// /Users/jetienne/webwork/skillmd_collection/packages/claude_stream_viewer/src/cli.ts
 			// const streamViewerCmd = 'npx'
 			// const streamViewerArgs = ['claude_stream_viewer@latest'];
 			const streamViewerCmd = 'npx'
 			const streamViewerArgs = [
 				'tsx',
-				Path.join(REPOSITORY_ROOT, './packages/claude_stream_viewer/src/claude_stream_viewer.ts'),
+				Path.join(REPOSITORY_ROOT, './packages/claude_stream_viewer/src/cli.ts'),
 			];
 
 			const viewer = ChildProcess.spawn(streamViewerCmd, streamViewerArgs, {
@@ -45,6 +62,11 @@ export class BuildInPublicVideo {
 				stdio: ['pipe', 'inherit', 'inherit'],
 			});
 
+			Fs.mkdirSync(Path.dirname(eventLogPath), { recursive: true });
+			const eventLog = Fs.createWriteStream(eventLogPath);
+			eventLog.on('error', reject);
+
+			claude.stdout.pipe(eventLog);
 			claude.stdout.pipe(viewer.stdin);
 
 			let claudeCode: number | null = null;
@@ -86,15 +108,11 @@ async function main(): Promise<void> {
 	program
 		.name('build_in_public_video')
 		.description('Scaffold a Remotion project and stream Claude Code to generate a build-in-public video.')
-		.option('-t, --topic <topic>', 'video topic', DEFAULT_TOPIC)
-		.option('-d, --description <description>', 'video description', DEFAULT_DESCRIPTION)
-		.option('-td, --tmp-dir <dir>', 'parent directory for the generated project', '/tmp')
+		.option('-t, --tmp-dir <dir>', 'parent directory for the generated project', '/tmp')
 		.option('-o, --output-dir <dir>', 'output directory for the generated video (mp4/pdf/log)', '/tmp')
 		.parse(process.argv);
 
 	type CliOptions = {
-		topic: string;
-		description: string;
 		tmpDir: string;
 		outputDir: string;
 	};
@@ -102,16 +120,16 @@ async function main(): Promise<void> {
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
-	//	
+	//	Read user prompt from stdin
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
 
-	const userPrompt = `Generate a build-in-public video
-
-topic: ${options.topic}
-description: |
-${options.description.split('\n').map((line) => `  ${line}`).join('\n')}
-`;
+	const userPrompt = (await BuildInPublicVideo.readStdin()).trim();
+	if (userPrompt.length === 0) {
+		console.error('Error: no user prompt provided on stdin.');
+		console.error('Usage: echo "my prompt" | npx tsx build_in_public_video.ts');
+		process.exit(1);
+	}
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -165,7 +183,14 @@ ${options.description.split('\n').map((line) => `  ${line}`).join('\n')}
 	///////////////////////////////////////////////////////////////////////////////
 
 	console.log('Streaming Claude output to viewer...');
-	await BuildInPublicVideo.streamClaudeToViewer(userPrompt, projectDir);
+	const eventLogPath = path.join(projectDir, 'out', 'video.claude_events.jsonl');
+
+	// create the ./out directory if it doesn't exist, since claude will write the event log before the directory is created
+	Fs.mkdirSync(path.dirname(eventLogPath), { recursive: true });
+
+	// This will run the claude command with the user prompt, and stream the output to the viewer. 
+	// - It will also save the raw event stream to a log file for later analysis.
+	await BuildInPublicVideo.streamClaudeToViewer(userPrompt, projectDir, eventLogPath);
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -175,9 +200,9 @@ ${options.description.split('\n').map((line) => `  ${line}`).join('\n')}
 
 	// copy the generated video, pdf and log files to the output directory. Using async Fs
 	// {projectDir}/out/video.mp4
-	// {projectDir}/out/video.pdf
-	// {projectDir}/out/video.log
-	const outputFiles = ['video.mp4', 'video.pdf', 'video.log'];
+	// {projectDir}/out/slides.pdf
+	// {projectDir}/out/video.claude_events.jsonl
+	const outputFiles = ['video.mp4', 'slides.pdf', 'video.claude_events.jsonl'];
 	for (const outputFile of outputFiles) {
 		const pathSrc = path.join(projectDir, 'out', outputFile);
 		const pathDest = path.join(options.outputDir, `${projectName}_${outputFile}`);
@@ -190,6 +215,9 @@ ${options.description.split('\n').map((line) => `  ${line}`).join('\n')}
 
 		// copy the file
 		await Fs.promises.copyFile(pathSrc, pathDest);
+
+		// log the copy
+		console.log(`Copied ${pathSrc} to ${pathDest}`);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////

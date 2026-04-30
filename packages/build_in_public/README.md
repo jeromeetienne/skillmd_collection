@@ -59,3 +59,43 @@ The agent will fetch your activity, analyze it, and present posts ready to copy-
 ## How it works
 
 See [skills/build-in-public/SKILL.md](skills/build-in-public/SKILL.md) for the full workflow — repo scanning, commit categorization, post templates (feature announcement, weekly progress, use-case suggestion, learning/reflection), and quality guidelines.
+
+## Video generator script
+
+The package also ships [src/build_in_public_video.ts](src/build_in_public_video.ts), a script that scaffolds a Remotion project and streams Claude Code to generate a build-in-public video.
+
+The user prompt is read from **stdin**:
+
+```bash
+echo "Generate a build-in-public video about my latest CLI release" \
+  | npx tsx src/build_in_public_video.ts
+
+# or pipe a prompt file
+cat prompt.txt | npx tsx src/build_in_public_video.ts
+
+# with custom directories
+echo "my prompt" \
+  | npx tsx src/build_in_public_video.ts --tmp-dir /tmp --output-dir ~/Videos
+```
+
+```
+USER_PROMPT=$(cat <<'EOF'
+Generate a build-in-public video
+
+topic: why fastbrowser + a11y_parse are great to scrape the web with AI
+description: |
+  Based on those 2 folders, in a monorepo
+  - https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/a11y_parse
+  - https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/fastbrowser_cli
+EOF
+)
+
+echo "$USER_PROMPT" | npx tsx src/build_in_public_video.ts
+```
+
+### Options
+
+- `-td, --tmp-dir <dir>` — parent directory for the generated Remotion project (default: `/tmp`)
+- `-o, --output-dir <dir>` — output directory for the resulting `mp4`/`pdf`/`log` (default: `/tmp`)
+
+The script exits with an error if no prompt is piped on stdin.
