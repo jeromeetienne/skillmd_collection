@@ -115,7 +115,39 @@ export class PlaywrightA11yConverter {
 			stack.push(node);
 		}
 
-		return allNodes.map((node) => PlaywrightA11yConverter._stringifyNode(node)).join('\n');
+		// Playwright's `browser_snapshot` response often interleaves the a11y tree with preamble lines like
+		// `- Page URL: ...`, `- Page Title: ...`, `- Console: 193 errors, 0 warnings`, plus trailing entries
+		// like `- New`. Each of those parses as a spurious top-level (indent=0) node. Downstream,
+		// `A11yParse.A11yTree.parse` silently overwrites `root` for every indent-0 line and returns only the
+		// LAST top-level subtree — so the real a11y page tree (usually a large `generic [active]` subtree
+		// in the middle) gets discarded and queries return zero hits even though the data is in the text.
+		// Pick the largest top-level subtree, which is reliably the actual page tree since the metadata
+		// subtrees are tiny (0–1 nodes).
+		const primary = PlaywrightA11yConverter._pickPrimarySubtree(allNodes);
+		return primary.map((node) => PlaywrightA11yConverter._stringifyNode(node)).join('\n');
+	}
+
+	private static _pickPrimarySubtree(allNodes: EmittedNode[]): EmittedNode[] {
+		if (allNodes.length === 0) return allNodes;
+
+		const topLevelIndices: number[] = [];
+		for (let i = 0; i < allNodes.length; i++) {
+			if (allNodes[i].indent === 0) topLevelIndices.push(i);
+		}
+		if (topLevelIndices.length <= 1) return allNodes;
+
+		let bestStart = topLevelIndices[0];
+		let bestSize = 0;
+		for (let k = 0; k < topLevelIndices.length; k++) {
+			const start = topLevelIndices[k];
+			const end = k + 1 < topLevelIndices.length ? topLevelIndices[k + 1] : allNodes.length;
+			const size = end - start;
+			if (size > bestSize) {
+				bestSize = size;
+				bestStart = start;
+			}
+		}
+		return allNodes.slice(bestStart, bestStart + bestSize);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
