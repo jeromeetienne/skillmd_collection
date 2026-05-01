@@ -147,6 +147,38 @@ describe('A11yQuery', () => {
 			);
 		});
 
+		it('throws on empty :is() argument list', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			assert.throws(
+				() => A11yQuery.querySelector(root, 'link:is()'),
+				/Expected selector/,
+			);
+		});
+
+		it('throws on empty :has() argument list', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			assert.throws(
+				() => A11yQuery.querySelector(root, 'link:has()'),
+				/Expected selector/,
+			);
+		});
+
+		it('throws on missing closing paren in :not(', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			assert.throws(
+				() => A11yQuery.querySelector(root, 'link:not('),
+				/Expected '\)' to close not\(/,
+			);
+		});
+
+		it('throws on missing closing paren in :is(button', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			assert.throws(
+				() => A11yQuery.querySelector(root, 'link:is(button'),
+				/Expected '\)' to close is\(/,
+			);
+		});
+
 		it('throws on non-integer inside nth-child()', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
 			assert.throws(
@@ -310,6 +342,96 @@ describe('A11yQuery', () => {
 			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
 			const found = A11yQuery.querySelector(root, 'link:first-child:nth-child(1)');
 			assert.equal(found?.uid, '12');
+		});
+	});
+
+	describe(':is() and :where() pseudo-classes', () => {
+		it(':is(heading, button) matches the union', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, ':is(heading, button)');
+			assert.deepEqual(all.map((n) => n.uid).sort(), ['3', '5']);
+		});
+
+		it(':where(heading, button) matches the same as :is()', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, ':where(heading, button)');
+			assert.deepEqual(all.map((n) => n.uid).sort(), ['3', '5']);
+		});
+
+		it('link:is([href^="https"], [href="/"]) matches both links', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, 'link:is([href^="https"], [href="/"])');
+			assert.deepEqual(all.map((n) => n.uid).sort(), ['4', '7']);
+		});
+
+		it('stacks with attribute filters: link:is([href])', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, 'link:is([href])');
+			assert.deepEqual(all.map((n) => n.uid).sort(), ['4', '7']);
+		});
+	});
+
+	describe(':not() pseudo-class', () => {
+		it('link:not(:first-child) excludes the first child', () => {
+			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, 'link:not(:first-child)');
+			assert.deepEqual(all.map((n) => n.uid), ['14', '15']);
+		});
+
+		it('*:not(link) excludes link nodes', () => {
+			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:not(link)');
+			assert.deepEqual(all.map((n) => n.uid), ['10', '11', '13']);
+		});
+
+		it('link:not([href="/a"]) excludes a specific href', () => {
+			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, 'link:not([href="/a"])');
+			assert.deepEqual(all.map((n) => n.uid), ['14', '15']);
+		});
+
+		it('main > *:not(button) returns non-button children of main', () => {
+			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, 'main > *:not(button)');
+			assert.deepEqual(all.map((n) => n.uid), ['12', '14', '15']);
+		});
+
+		it(':not(link, button) excludes links and buttons', () => {
+			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:not(link, button)');
+			assert.deepEqual(all.map((n) => n.uid), ['10', '11']);
+		});
+	});
+
+	describe(':has() pseudo-class', () => {
+		it('*:has(button) returns ancestors of the button', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:has(button)');
+			assert.deepEqual(all.map((n) => n.uid), ['1', '2']);
+		});
+
+		it('*:has(link[href="/"]) returns ancestors of the matching link', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:has(link[href="/"])');
+			assert.deepEqual(all.map((n) => n.uid), ['1', '6']);
+		});
+
+		it('*:has(heading) returns ancestors of the heading', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:has(heading)');
+			assert.deepEqual(all.map((n) => n.uid), ['1', '2']);
+		});
+
+		it('link:has(*) returns nothing because links are leaves', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, 'link:has(*)');
+			assert.deepEqual(all, []);
+		});
+
+		it('nested :not(:has(link)) returns nodes with no link descendant', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:not(:has(link))');
+			assert.deepEqual(all.map((n) => n.uid).sort(), ['3', '4', '5', '7']);
 		});
 	});
 });

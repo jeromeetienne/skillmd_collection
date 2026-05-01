@@ -23,6 +23,10 @@ import { A11yTree } from "./a11y_tree.js";
 // role:first-child            → node is the first child of its parent
 // role:last-child             → node is the last child of its parent
 // role:nth-child(n)           → node is the nth child (1-based)
+// role:is(s1, s2, ...)        → node matches any selector in the list
+// role:where(s1, s2, ...)     → alias of :is()
+// role:not(s1, s2, ...)       → node matches none of the selectors
+// role:has(s1, s2, ...)       → node has a descendant matching any selector
 // A, B                        → union
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -45,9 +49,13 @@ type AttrMatch = {
 };
 
 type PseudoClass =
-	| { kind: "first-child" }
-	| { kind: "last-child" }
-	| { kind: "nth-child"; index: number };
+	| { kind: 'first-child' }
+	| { kind: 'last-child' }
+	| { kind: 'nth-child'; index: number }
+	| { kind: 'is'; groups: CompoundSelector[] }
+	| { kind: 'where'; groups: CompoundSelector[] }
+	| { kind: 'not'; groups: CompoundSelector[] }
+	| { kind: 'has'; groups: CompoundSelector[] };
 
 interface SimpleSelector {
 	role?: string;
@@ -183,6 +191,17 @@ export class A11yQuery {
 
 	private static parseSelector(input: string): CompoundSelector[] {
 		const tokens = A11yQuery.tokenize(input);
+		return A11yQuery.parseGroups(tokens, input);
+	}
+
+	private static parseGroups(tokensIn: Token[], input: string): CompoundSelector[] {
+		const tokens = [...tokensIn];
+		while (tokens.length > 0 && tokens[0].kind === 'ws') tokens.shift();
+		while (tokens.length > 0 && tokens[tokens.length - 1].kind === 'ws') tokens.pop();
+		if (tokens.length === 0) {
+			throw A11yQuery.makeError('Expected selector', input, 0);
+		}
+
 		const groups: CompoundSelector[] = [];
 		let i = 0;
 
@@ -202,6 +221,8 @@ export class A11yQuery {
 				eat();
 			} else if (t?.kind === 'ident') {
 				sel.role = (eat() as { kind: 'ident'; value: string; pos: number }).value;
+			} else if (t?.kind === 'symbol' && (t.value === ':' || t.value === '[')) {
+				// allow leading pseudo-class like ":is(...)" or attribute filter like "[href]" with no role/uid/*
 			} else {
 				throw A11yQuery.makeError(`Expected role, *, or #uid; got ${JSON.stringify(t)}`, input, t?.pos ?? input.length);
 			}
@@ -251,6 +272,34 @@ export class A11yQuery {
 					if (close?.kind !== 'symbol' || (close as { kind: 'symbol'; value: string }).value !== ')')
 						throw A11yQuery.makeError('Expected \')\' after nth-child index', input, close?.pos ?? input.length);
 					sel.pseudos.push({ kind: 'nth-child', index: parseInt(num.value, 10) });
+				} else if (
+					nameTok.value === 'is' ||
+					nameTok.value === 'where' ||
+					nameTok.value === 'not' ||
+					nameTok.value === 'has'
+				) {
+					const open = eat();
+					if (open?.kind !== 'symbol' || (open as { kind: 'symbol'; value: string }).value !== '(') {
+						throw A11yQuery.makeError(`Expected '(' after ${nameTok.value}`, input, open?.pos ?? input.length);
+					}
+					const innerStart = i;
+					let depth = 1;
+					while (i < tokens.length && depth > 0) {
+						const tk = tokens[i];
+						if (tk.kind === 'symbol' && tk.value === '(') depth++;
+						else if (tk.kind === 'symbol' && tk.value === ')') {
+							depth--;
+							if (depth === 0) break;
+						}
+						i++;
+					}
+					if (depth !== 0) {
+						throw A11yQuery.makeError(`Expected ')' to close ${nameTok.value}(`, input, open.pos);
+					}
+					const innerTokens = tokens.slice(innerStart, i);
+					eat();
+					const groupsInner = A11yQuery.parseGroups(innerTokens, input);
+					sel.pseudos.push({ kind: nameTok.value, groups: groupsInner });
 				} else {
 					throw A11yQuery.makeError(`Unknown pseudo-class '${nameTok.value}'`, input, nameTok.pos);
 				}
@@ -342,12 +391,41 @@ export class A11yQuery {
 		}
 
 		for (const pseudo of sel.pseudos) {
-			const siblings = node.parent?.children;
-			if (siblings === undefined) return false;
-			const idx = siblings.indexOf(node);
-			if (pseudo.kind === 'first-child' && idx !== 0) return false;
-			if (pseudo.kind === 'last-child' && idx !== siblings.length - 1) return false;
-			if (pseudo.kind === 'nth-child' && idx !== pseudo.index - 1) return false;
+			if (pseudo.kind === 'first-child' || pseudo.kind === 'last-child' || pseudo.kind === 'nth-child') {
+				const siblings = node.parent?.children;
+				if (siblings === undefined) return false;
+				const idx = siblings.indexOf(node);
+				if (pseudo.kind === 'first-child' && idx !== 0) return false;
+				if (pseudo.kind === 'last-child' && idx !== siblings.length - 1) return false;
+				if (pseudo.kind === 'nth-child' && idx !== pseudo.index - 1) return false;
+				continue;
+			}
+
+			if (pseudo.kind === 'is' || pseudo.kind === 'where') {
+				const matched = pseudo.groups.some((g) => A11yQuery.matchCompound(node, g));
+				if (matched === false) return false;
+				continue;
+			}
+
+			if (pseudo.kind === 'not') {
+				const matched = pseudo.groups.some((g) => A11yQuery.matchCompound(node, g));
+				if (matched === true) return false;
+				continue;
+			}
+
+			if (pseudo.kind === 'has') {
+				let found = false;
+				const walker = A11yTree.walk(node);
+				walker.next();
+				for (const descendant of walker) {
+					if (pseudo.groups.some((g) => A11yQuery.matchCompound(descendant, g))) {
+						found = true;
+						break;
+					}
+				}
+				if (found === false) return false;
+				continue;
+			}
 		}
 
 		return true;

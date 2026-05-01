@@ -129,6 +129,34 @@ link:first-child:nth-child(1)
 
 ---
 
+## Functional pseudo-classes
+
+Functional pseudo-classes take a comma-separated selector list inside parentheses. The argument list itself supports the full selector language (combinators, attribute filters, other pseudo-classes), and may be nested.
+
+| Syntax | Meaning |
+|---|---|
+| `:is(s1, s2, …)` | node matches any selector in the list |
+| `:where(s1, s2, …)` | alias of `:is()` (this engine has no specificity) |
+| `:not(s1, s2, …)` | node matches none of the selectors |
+| `:has(s1, s2, …)` | node has a descendant matching any selector |
+
+`:has()` walks the descendants of the candidate node (excluding the node itself). Relative leading combinators inside `:has()` (e.g. `:has(> link)`) are not supported.
+
+When the simple selector consists only of functional pseudo-classes or attribute filters, the role/`*`/`#uid` prefix may be omitted.
+
+```
+:is(heading, button)
+:where(link, button)
+link:not(:first-child)
+link:not([href="/a"])
+*:has(button)
+*:has(link[href="/"])
+*:not(:has(link))
+main > *:not(button)
+```
+
+---
+
 ## Union (`,`)
 
 `A, B` — matches nodes that satisfy `A` **or** `B`. Evaluated left-to-right; results preserve document order.
@@ -191,4 +219,9 @@ A, B                     union (A or B)
 role:first-child         node is the first child of its parent
 role:last-child          node is the last child of its parent
 role:nth-child(n)        node is the nth child (1-based)
+
+role:is(s1, s2, …)       node matches any selector in the list
+role:where(s1, s2, …)    alias of :is()
+role:not(s1, s2, …)      node matches none of the selectors
+role:has(s1, s2, …)      node has a descendant matching any selector
 ```

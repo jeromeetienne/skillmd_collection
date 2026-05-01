@@ -93,6 +93,7 @@ Attribute selectors match values inside `node.attributes`. The special virtual a
 | `[attr^="prefix"]` | starts with |
 | `[attr$="suffix"]` | ends with |
 | `[attr*="sub"]` | contains substring |
+| `[attr~="word"]` | contains `word` as a whole space-separated word |
 
 ```
 link[href]
@@ -100,6 +101,7 @@ button[disabled="true"]
 link[href^="https"]
 link[href$=".com"]
 link[href*="example"]
+button[name~="Submit"]
 heading[name="Welcome"]
 link[name="Click \"here\""]
 ```
@@ -110,13 +112,54 @@ link[name="Click \"here\""]
 |--------|-----------|
 | `A B` | B is a descendant of A (any depth) |
 | `A > B` | B is a direct child of A |
+| `A + B` | B is the immediately following sibling of A |
+| `A ~ B` | B is any following sibling of A |
 | `A, B` | union — matches A or B |
 
 ```
 WebArea link
 main > button
+label + textbox
+link ~ link
 heading, button
 RootWebArea > link[href^="https"]
+```
+
+### Positional pseudo-classes
+
+Narrow a match by position within the parent's children array. Indexing is 1-based; the root node never matches a positional pseudo-class.
+
+| Syntax | Semantics |
+|--------|-----------|
+| `:first-child` | node is the first child of its parent |
+| `:last-child` | node is the last child of its parent |
+| `:nth-child(n)` | node is the nth child (1-based) |
+
+```
+link:first-child
+button:last-child
+menuitem:nth-child(2)
+```
+
+### Functional pseudo-classes
+
+Take a comma-separated selector list inside parentheses. The argument list itself supports the full selector language and may be nested.
+
+| Syntax | Semantics |
+|--------|-----------|
+| `:is(s1, s2, …)` | node matches any selector in the list |
+| `:where(s1, s2, …)` | alias of `:is()` (no specificity in this engine) |
+| `:not(s1, s2, …)` | node matches none of the selectors |
+| `:has(s1, s2, …)` | node has a descendant matching any selector |
+
+`:has()` walks descendants of the candidate node (excluding the node itself). Relative leading combinators (e.g. `:has(> link)`) are not supported.
+
+```
+:is(heading, button)
+link:not(:first-child)
+*:has(button)
+*:not(:has(link))
+main > *:not(button)
 ```
 
 ### Examples
@@ -136,12 +179,17 @@ uid=1 WebArea "Main Page"
 
 Example queries on it:
 - `link` matches all the links (uid=4, uid=7, uid=8)
-- 'navigation > link' matches only the links that are direct children of navigation (uid=7, uid=8)
+- `navigation > link` matches only the links that are direct children of navigation (uid=7, uid=8)
 - `link[href^="https"]` matches links with an external href (uid=4)
 - `button[name="Submit"]` matches the submit button by name (uid=5)
 - `*[disabled="true"]` matches any disabled element (uid=5)
 - `heading, button` matches both headings and buttons in one query (uid=3, uid=5)
 - `#7` matches a node by its UID (uid=7)
+- `link:first-child` matches uid=4 and uid=7 (first child of `main` and `navigation`)
+- `link + button` matches uid=5 (button immediately after a link)
+- `:is(heading, button)` is equivalent to `heading, button` (uid=3, uid=5)
+- `link:not([href^="https"])` matches the relative-href links (uid=7, uid=8)
+- `*:has(button)` matches ancestors of a button (uid=1, uid=2)
 
 ## Inspection
 
