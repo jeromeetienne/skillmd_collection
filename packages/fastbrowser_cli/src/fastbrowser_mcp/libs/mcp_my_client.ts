@@ -1,10 +1,19 @@
+
+
 // node import
+import { Logger } from "../../shared/logger.js"
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 import type { CallToolResult, Prompt, Resource, Tool } from "@modelcontextprotocol/sdk/types.js";
 import { FastBrowserMcpTarget } from "../fastbrowser_types.js";
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//	
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 export type StdioConfig = {
 	type: "stdio";
@@ -34,6 +43,10 @@ export interface McpClientOptions {
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+const logger = Logger.fromMetaUrl(import.meta.url, {
+	allToStderr: true,
+});
+
 // TODO remove this function - it seems to do vastly nothing - more confusing that helpful
 // - i use the McpServer directly, and i got a wrapper for the client... discrepancy is confusing
 export class McpMyClient {
@@ -57,9 +70,11 @@ export class McpMyClient {
 
 	async connect(): Promise<void> {
 		if (this.connected) return;
+		logger.warn(`McpMyClient:connect: Connecting to MCP with target ${this.mcpTarget}`);
 
 		this.transport = this.createTransport(this.options.transport);
 		await this.client.connect(this.transport);
+		logger.warn(`McpMyClient:connect: Connected to MCP with target ${this.mcpTarget}`);
 		this.connected = true;
 	}
 
@@ -72,6 +87,7 @@ export class McpMyClient {
 	async listTools(): Promise<Tool[]> {
 		this.assertConnected();
 		const { tools } = await this.client.listTools();
+		logger.warn(`McpMyClient:listTools: ${JSON.stringify(tools, null, 2)}`);
 		return tools;
 	}
 
@@ -80,6 +96,7 @@ export class McpMyClient {
 		args: Record<string, unknown> = {},
 	): Promise<CallToolResult> {
 		this.assertConnected();
+		logger.warn(`McpMyClient:callTool: name: ${name} args: ${JSON.stringify(args, null, 2)}`);
 		return this.client.callTool({ name, arguments: args }) as Promise<CallToolResult>;
 	}
 

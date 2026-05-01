@@ -11,6 +11,7 @@ import { z } from "zod";
 import * as A11yParse from "a11y_parse";
 
 // local imports
+import { Logger } from "../shared/logger.js"
 import { McpMyClient } from "./libs/mcp_my_client.js";
 import { McpProxy } from "./libs/mcp_proxy.js";
 import { ResponseFormatter } from "./libs/response_formatter.js";
@@ -39,6 +40,10 @@ export {
 	type QuerySelectorFirstInput,
 	type QuerySelectorsFirstInput,
 };
+
+const logger = Logger.fromMetaUrl(import.meta.url, {
+	allToStderr: true,
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -201,10 +206,16 @@ class MainHelper {
 				inputSchema: z.object({}),
 			},
 			async () => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.listPages}: listing pages`);
+
 				const toolConfig = await McpTargetHelper.targetToolListPages(mcpTarget);
 				const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
 				let outputStr = await ResponseFormatter.formatListPages(mcpTarget, callToolResult);
 
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.listPages}: output:`)
+				logger.warn(`${outputStr}`);
 				return {
 					content: [{ type: "text", text: outputStr }],
 				};
@@ -234,11 +245,18 @@ class MainHelper {
 				// const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
 				// let outputStr = await ResponseFormatter.formatNewPage(mcpTarget, callToolResult, url);
 
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.newPage}: url=${url}`);
+
+
 				// so working around this by calling the navigate_page tool instead of new_page when the target is playwright
 				const toolConfig = await McpTargetHelper.targetToolNavigatePage(mcpTarget, url);
 				const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
 				let outputStr = await ResponseFormatter.formatNavigatePage(mcpTarget, callToolResult);
 
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.newPage}: output:`)
+				logger.warn(`${outputStr}`);
 
 				return {
 					content: [{ type: "text", text: outputStr }],
@@ -261,9 +279,16 @@ class MainHelper {
 				}),
 			},
 			async ({ pageId }: { pageId: number }) => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.closePage}: pageId=${pageId}`);
+
 				const toolConfig = await McpTargetHelper.targetToolClosePage(mcpTarget, pageId);
 				const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
 				let outputStr = await ResponseFormatter.formatClosePage(mcpTarget, callToolResult, pageId);
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.closePage}: output:`)
+				logger.warn(`${outputStr}`);
 
 				return {
 					content: [{ type: "text", text: outputStr }],
@@ -286,9 +311,16 @@ class MainHelper {
 				}),
 			},
 			async ({ url }: { url: string }) => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.navigatePage}: url=${url}`);
+
 				const toolConfig = await McpTargetHelper.targetToolNavigatePage(mcpTarget, url);
 				const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
 				let outputStr = await ResponseFormatter.formatNavigatePage(mcpTarget, callToolResult);
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.navigatePage}: output:`)
+				logger.warn(`${outputStr}`);
 
 				return {
 					content: [{ type: "text", text: outputStr }],
@@ -309,8 +341,15 @@ class MainHelper {
 				inputSchema: z.object({}),
 			},
 			async () => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.takeSnapshot}: taking snapshot`);
+
 				const a11yText: string = await MainHelper._getA11yText(mcpClient);
 				let outputStr = a11yText
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.takeSnapshot}: output:`);
+				logger.warn(`${outputStr}`);
 
 				return {
 					content: [{ type: "text", text: outputStr }],
@@ -348,8 +387,15 @@ class MainHelper {
 				inputSchema: QuerySelectorsInputSchema,
 			},
 			async (querySelectorsInput: QuerySelectorsInput) => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.querySelectorsAll}: querying selectors: ${JSON.stringify(querySelectorsInput)}`);
+
 				// query the accessibility tree with the provided selector
 				const outputText: string = await MainHelper.querySelectorsAll(mcpClient, querySelectorsInput);
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.querySelectorsAll}: output:`);
+				logger.warn(`${outputText}`);
 
 				return {
 					content: [{ type: "text", text: outputText }],
@@ -373,7 +419,15 @@ class MainHelper {
 				inputSchema: QuerySelectorsFirstInputSchema,
 			},
 			async (querySelectorsInput: QuerySelectorsFirstInput) => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.querySelectors}: querying selectors: ${JSON.stringify(querySelectorsInput)}`);
+
 				const outputText: string = await MainHelper.querySelectors(mcpClient, querySelectorsInput);
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.querySelectors}: output:`);
+				logger.warn(`${outputText}`);
+
 				return {
 					content: [{ type: "text", text: outputText }],
 				};
@@ -395,6 +449,9 @@ class MainHelper {
 				}),
 			},
 			async ({ keys }: { keys: string }) => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.pressKeys}: pressing keys: ${keys}`);
+
 				// Build the list of keys to send, splitting regular characters into individual key presses, but keeping special keys as-is
 				const keysToSend: string[] = [];
 				const keysSplit = keys.split(',').map((key) => key.trim());
@@ -425,6 +482,10 @@ class MainHelper {
 
 				let outputText = await ResponseFormatter.formatPressKeys(mcpTarget, keysToSend);
 
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.pressKeys}: output:`);
+				logger.warn(`${outputText}`);
+
 				// return a response indicating which keys were pressed
 				return {
 					content: [{ type: "text", text: outputText }],
@@ -450,11 +511,16 @@ class MainHelper {
 				},
 			},
 			async ({ selector }: { selector: string }) => {
-				const uid = await MainHelper._resolveSelectorToUid(mcpClient, selector);
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.click}: clicking selector: ${selector}`);
 
+				const uid = await MainHelper._resolveSelectorToUid(mcpClient, selector);
 				const toolConfig = await McpTargetHelper.targetToolClick(mcpTarget, uid);
 				const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
 				let outputText = await ResponseFormatter.formatClick(mcpTarget, callToolResult);
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.click}: output:`);
 
 				return {
 					content: [{ type: "text", text: outputText }],
@@ -483,6 +549,9 @@ class MainHelper {
 				},
 			},
 			async ({ elements }: { elements: { selector: string; value: string }[] }) => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.fillForm}: filling form with elements: ${JSON.stringify(elements)}`);
+
 				const resolved = [];
 				for (const element of elements) {
 					const uid = await MainHelper._resolveSelectorToUid(mcpClient, element.selector);
@@ -491,11 +560,10 @@ class MainHelper {
 						value: element.value,
 					});
 				}
+				let callToolResult: CallToolResult;
 				if (mcpTarget === 'chrome_devtools') {
 					const toolConfig = await McpTargetHelper.targetToolFillForm(mcpTarget, resolved);
-					const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
-					// const callToolResult = await mcpClient.callTool('fill_form', { elements: resolved });
-					return callToolResult
+					callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
 				} else if (mcpTarget === 'playwright') {
 					type Field = {
 						name: string; // Human readable name for the field, e.g. "Email address"
@@ -512,11 +580,16 @@ class MainHelper {
 						target: element.uid,
 						value: element.value,
 					}));
-					const callToolResult = await mcpClient.callTool('browser_fill_form', { fields: fields });
-					return callToolResult
+					callToolResult = await mcpClient.callTool('browser_fill_form', { fields: fields });
 				} else {
 					throw new Error(`Unsupported MCP target: ${mcpTarget}`);
 				}
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.fillForm}: output:`);
+				logger.warn(`${JSON.stringify(callToolResult)}`);
+
+				return callToolResult
 			}
 		);
 
@@ -536,6 +609,10 @@ class MainHelper {
 				inputSchema: timezoneSchema,
 			},
 			async ({ timezone }) => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.getCurrentDateTime}: getting current date and time with timezone: ${timezone ?? 'local system timezone'}`);
+
+
 				const date = new Date();
 				const options: Intl.DateTimeFormatOptions = {
 					timeZone: timezone,
@@ -548,6 +625,10 @@ class MainHelper {
 					timeZoneName: "short",
 				};
 				const formatted = new Intl.DateTimeFormat("en-US", options).format(date);
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.getCurrentDateTime}: output: ${formatted}`);
+
 				return {
 					content: [{ type: "text", text: formatted }],
 				};
@@ -657,15 +738,15 @@ class MainHelper {
 		for (const toolName of toolsToProxys) {
 			await mcpProxy.proxyToolCall(mcpClient, toolName)
 		}
+
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
 		//	.querySelectorsAll tool implementation
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
+
 		const mcpServer = await mcpProxy.getMcpServer();
-
 		await MainHelper.initExternalTools(mcpServer, mcpClient);
-
 
 		// Connect the MCP proxy server to start accepting connections from MCP clients (e.g. LLM agents).
 		await mcpProxy.connect();
