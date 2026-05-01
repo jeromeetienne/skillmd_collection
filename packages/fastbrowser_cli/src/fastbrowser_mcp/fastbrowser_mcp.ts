@@ -123,11 +123,11 @@ class MainHelper {
 			if (withAncestors) {
 				const ancestorTree = A11yParse.A11yTree.buildAncestorTree(selectedNodes);
 				if (text.length > 0) text += '\n';
-				text += A11yParse.A11yTree.stringifyTree(ancestorTree);
+				text += A11yParse.A11yDisplay.stringifyTree(ancestorTree);
 			} else {
 				for (const selectedNode of selectedNodes) {
 					if (text.length > 0) text += '\n';
-					text += A11yParse.A11yTree.stringifyNode(selectedNode);
+					text += A11yParse.A11yDisplay.stringifyNode(selectedNode);
 				}
 			}
 		}

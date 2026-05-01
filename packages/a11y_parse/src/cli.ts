@@ -9,6 +9,7 @@ import { Command } from 'commander';
 // local imports
 import { A11yTree, AxNode } from './libs/a11y_tree.js';
 import { A11yQuery } from './libs/a11y_selector.js';
+import { A11yDisplay } from './libs/a11y_display.js';
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -103,10 +104,10 @@ async function main(): Promise<void> {
 		}
 		if (options.withAncestor === true) {
 			const ancestorTree = A11yTree.buildAncestorTree(nodes);
-			process.stdout.write(A11yTree.stringifyTree(ancestorTree) + '\n');
+			process.stdout.write(A11yDisplay.stringifyTree(ancestorTree) + '\n');
 		} else {
 			for (const node of nodes) {
-				process.stdout.write(A11yTree.stringifyNode(node) + '\n');
+				process.stdout.write(A11yDisplay.stringifyNode(node) + '\n');
 			}
 		}
 	} else {
@@ -115,7 +116,7 @@ async function main(): Promise<void> {
 		if (node === undefined) {
 			process.exit(1);
 		}
-		process.stdout.write(A11yTree.stringifyNode(node) + '\n');
+		process.stdout.write(A11yDisplay.stringifyNode(node) + '\n');
 	}
 }
 

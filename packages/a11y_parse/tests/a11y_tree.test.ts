@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import { A11yTree } from '../src/libs/a11y_tree.js';
 import type { AxNode } from '../src/libs/a11y_tree.js';
 import { SAMPLE_TREE_TEXT } from './test-fixtures.js';
+import { A11yDisplay } from '../src/index.js';
 
 const collectUids = (root: AxNode): string[] => {
 	const uids: string[] = [];
@@ -144,7 +145,7 @@ describe('A11yTree', () => {
 	describe('stringifyTree', () => {
 		it('round-trips through parse', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
-			const text = A11yTree.stringifyTree(root);
+			const text = A11yDisplay.stringifyTree(root);
 			const reparsed = A11yTree.parse(text);
 
 			const normalize = (n: AxNode): unknown => ({
@@ -166,7 +167,7 @@ describe('A11yTree', () => {
 				attributes: { data: 'a"b\\c' },
 				children: [],
 			};
-			const text = A11yTree.stringifyTree(root);
+			const text = A11yDisplay.stringifyTree(root);
 			const reparsed = A11yTree.parse(text);
 			assert.equal(reparsed.name, 'He said "hi"\\there');
 			assert.equal(reparsed.attributes.data, 'a"b\\c');

@@ -3,7 +3,7 @@
 
 import * as Commander from 'commander';
 import { FastBrowserHelper } from "./fastbrowser_helper.js";
-import { A11yTree, A11yQuery, AxNode } from 'a11y_parse';
+import { A11yTree, A11yQuery, AxNode, A11yDisplay } from 'a11y_parse';
 import { get } from 'node:http';
 
 type WttjJobOffer = {
@@ -45,7 +45,7 @@ class WttjExtractor {
 		///////////////////////////////////////////////////////////////////////////////
 
 		console.log('Accessibility Snapshot without banner:');
-		console.log(A11yTree.stringifyTree(axTree));
+		console.log(A11yDisplay.stringifyTree(axTree));
 
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////

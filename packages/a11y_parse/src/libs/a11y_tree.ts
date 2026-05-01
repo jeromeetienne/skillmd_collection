@@ -203,25 +203,31 @@ export class A11yTree {
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
-	//	
+	//	backwards compatibility with the old A11yDisplay API, to avoid having to change the CLI code
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
 
-	/**
-	 * Converts an AxNode tree (the given node and all its descendants) back to its string representation.
-	 * This is the inverse of the parse method, and the output can be parsed back to an identical tree.
-	 * For a single node without its descendants, use `stringifyNode` instead.
-	 *
-	 * @param root The root of the tree to stringify.
-	 * @returns The string representation of the tree.
-	 */
-	static stringifyTree(root: AxNode): string {
-		return A11yDisplay.stringifyTree(root);
-	}
+	// /**
+	//  * Converts an AxNode tree (the given node and all its descendants) back to its string representation.
+	//  * This is the inverse of the parse method, and the output can be parsed back to an identical tree.
+	//  * For a single node without its descendants, use `stringifyNode` instead.
+	//  * @deprecated Use `A11yDisplay.stringifyTree` instead.
+	//  * @param root The root of the tree to stringify.
+	//  * @returns The string representation of the tree.
+	//  */
+	// static stringifyTree(root: AxNode): string {
+	// 	return A11yDisplay.stringifyTree(root);
+	// }
 
-	static stringifyNode(node: AxNode): string {
-		return A11yDisplay.stringifyNode(node);
-	}
+	// /**
+	//  * Converts a single AxNode (without its descendants) to its one-line string representation.
+	//  * @deprecated Use `A11yDisplay.stringifyNode` instead.
+	//  * @param node The node to stringify.
+	//  * @returns The one-line string representation of the node.
+	//  */
+	// static stringifyNode(node: AxNode): string {
+	// 	return A11yDisplay.stringifyNode(node);
+	// }
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -238,8 +244,10 @@ export class A11yTree {
 	 * @returns The root of the new tree containing only the specified nodes and their ancestors.
 	 */
 	static buildAncestorTree(axNodes: AxNode[]): AxNode {
+		// sanity check - all nodes must belong to the same tree, so they should have the same root
 		if (axNodes.length === 0) throw new Error('axNodes must not be empty');
 
+		// Collect the uids of all nodes to keep (the specified nodes and all their ancestors)
 		const keptUids = new Set<string>();
 		for (const node of axNodes) {
 			let current: AxNode | undefined = node;
@@ -249,6 +257,7 @@ export class A11yTree {
 			}
 		}
 
+		// Find the root of the original tree (all nodes in axNodes should belong to the same tree, so they should have the same root)
 		let root: AxNode = axNodes[0];
 		while (root.parent !== undefined) {
 			root = root.parent;

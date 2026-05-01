@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 
 import { A11yTree } from '../src/libs/a11y_tree.js';
 import { A11yQuery } from '../src/libs/a11y_selector.js';
+import { A11yDisplay } from '../src/index.js';
 
 async function usageExample() {
 	const treeText = [
@@ -62,7 +63,7 @@ async function usageExample() {
 	}
 
 	// Serialize back
-	const treeTextNew = A11yTree.stringifyTree(axTree);
+	const treeTextNew = A11yDisplay.stringifyTree(axTree);
 	console.log("Serialized tree:");
 	console.log(treeTextNew);
 }
