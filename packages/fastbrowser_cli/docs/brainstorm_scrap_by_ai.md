@@ -29,4 +29,4 @@
   - possible by selector language ? yes
 - get link with an url starting with "https://www.welcometothejungle.com/fr/companies/"
   - on a https://www.welcometothejungle.com/fr/jobs?refinementList%5Boffices.country_code%5D%5B%5D=FR&query=machine%20learning&page=7
-  - `npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts query_selectors_all --selector 'RootWebArea > link[url^="https://www.welcometothejungle.com/fr/companies/"]'`
+  - `npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts query_selectors --all --selector 'RootWebArea > link[url^="https://www.welcometothejungle.com/fr/companies/"]'`

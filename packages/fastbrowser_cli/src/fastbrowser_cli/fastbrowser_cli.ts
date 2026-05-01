@@ -300,43 +300,30 @@ async function main(): Promise<void> {
 		});
 
 	program
-		.command('query_selectors_all')
-		.description('Query the accessibility tree with CSS-like selectors')
+		.command('query_selectors')
+		.description('Query the accessibility tree with CSS-like selectors. By default returns the first match per selector; use --all to return every match.')
 		.option('-s, --selector <selector>', 'CSS-like selector (repeatable)', (value: string, prev: string[] = []) => {
 			prev.push(value);
 			return prev;
 		})
-		.option('--limit <number>', 'Max nodes per selector (0 = unlimited)', '0')
+		.option('-a, --all', 'Return all matches per selector (default: first match only)', false)
+		.option('--limit <number>', 'Max nodes per selector when --all is set (0 = unlimited)', '0')
 		.option('--wa, --with-ancestors', 'Include ancestor nodes', false)
 		.option('--wc, --with-children', 'Include descendant nodes (subtree) of each matched node', false)
-		.option('--selectors-json <json>', 'JSON array of {selector,limit,withAncestors,withChildren} for per-selector control')
+		.option('--selectors-json <json>', 'JSON array of {selector,limit?,withAncestors,withChildren} for per-selector control')
 		.action(async (opts: {
 			selector?: string[];
+			all?: boolean;
 			limit?: string;
 			withAncestors?: boolean;
 			withChildren?: boolean;
 			selectorsJson?: string;
 		}, cmd: Command) => {
-			const body = QueryBuilder.buildQuerySelectorsBody(opts);
-			await MainHelper.runTool(cmd, 'query_selectors_all', body);
-		});
-
-	program
-		.command('query_selectors')
-		.description('Query the accessibility tree with CSS-like selectors and, for each, return the first matching node')
-		.option('-s, --selector <selector>', 'CSS-like selector (repeatable)', (value: string, prev: string[] = []) => {
-			prev.push(value);
-			return prev;
-		})
-		.option('--wa, --with-ancestors', 'Include ancestor nodes', false)
-		.option('--wc, --with-children', 'Include descendant nodes (subtree) of each matched node', false)
-		.option('--selectors-json <json>', 'JSON array of {selector,withAncestors,withChildren} for per-selector control')
-		.action(async (opts: {
-			selector?: string[];
-			withAncestors?: boolean;
-			withChildren?: boolean;
-			selectorsJson?: string;
-		}, cmd: Command) => {
+			if (opts.all === true) {
+				const body = QueryBuilder.buildQuerySelectorsBody(opts);
+				await MainHelper.runTool(cmd, 'query_selectors_all', body);
+				return;
+			}
 			const body = QueryBuilder.buildQuerySelectorFirstBody(opts);
 			await MainHelper.runTool(cmd, 'query_selectors', body);
 		});

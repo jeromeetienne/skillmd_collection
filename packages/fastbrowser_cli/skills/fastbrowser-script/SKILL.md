@@ -30,7 +30,7 @@ Always follow this order — guessing selectors without checking the page wastes
    the user wants to parameterize (query, message, page count), and output format (stdout text,
    JSON, Markdown, file).
 2. **Probe the live page.** Open it and find selectors that actually match. Prefer
-   `query_selectors` / `query_selectors_all` over `take_snapshot` (cheaper, less noise).
+   `query_selectors` (use `-a, --all` to get every match) over `take_snapshot` (cheaper, less noise).
    ```bash
    npx fastbrowser_cli new_page --url https://example.com
    npx fastbrowser_cli query_selectors -s 'searchbox' -s 'button[name*="Search"]'
@@ -72,12 +72,12 @@ Hard-coded selectors are the fragile part of any scraper — choose stable ones.
 - Use **scoping** when a role is ambiguous: `dialog textbox`, `navigation > link`.
 - **Never** use uid selectors (`#1_42`, `#4`) in a script. They are session-local and change on
   every page rebuild. See the hard rule at the top.
-- If you need every match (e.g. a list of results), use `query_selectors_all --limit N` with a
-  reasonable cap; the default returns everything and is expensive.
+- If you need every match (e.g. a list of results), use `query_selectors --all --limit N` with a
+  reasonable cap; without `--limit` it returns everything and is expensive.
 
 ## Output parsing
 
-`query_selectors` / `query_selectors_all` print one indented line per node:
+`query_selectors` prints one indented line per node:
 
 ```
 uid=1_12 heading "Welcome" level="1"

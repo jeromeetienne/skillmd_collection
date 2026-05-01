@@ -106,8 +106,7 @@ npx fastbrowser_cli click -s 'link[name="More information..."]'
 | `close_page` | Close a page by id | `--page-id` |
 | `navigate_page` | Navigate current page to a URL | `--url` |
 | `take_snapshot` | Dump the full accessibility tree (expensive — prefer targeted queries) | — |
-| `query_selectors` | Query the a11y tree, returning the first match per selector | `--selector` or `--selectors-json` |
-| `query_selectors_all` | Query the a11y tree, returning every match per selector | `--selector` or `--selectors-json` |
+| `query_selectors` | Query the a11y tree (first match per selector by default; pass `-a, --all` for every match, with optional `--limit`) | `--selector` or `--selectors-json` |
 | `click` | Click an element by accessibility selector | `-s, --selector` |
 | `fill_form` | Fill a form field by accessibility selector | `-s, --selector`, `--value` |
 | `press_keys` | Press a comma-separated key sequence | `--keys` |

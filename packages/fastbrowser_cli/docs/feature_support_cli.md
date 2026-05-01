@@ -56,14 +56,6 @@ fastbrowser-cli click -s 'button[name="Submit"]'
 # Fill a form field by accessibility selector
 fastbrowser-cli fill_form -s 'textbox[name="Email"]' --value "hello@example.com"
 
-# Query the accessibility tree — --selector can be repeated for multiple selectors.
-# --limit and --with-ancestors apply to all selectors equally.
-fastbrowser-cli query_selectors_all --selector "button" --selector "link" --limit 5 --with-ancestors
-fastbrowser-cli query_selectors_all --selector 'heading[level="1"]' --no-with-ancestors
-
-# For per-selector control over limit/withAncestors, pass a JSON array directly:
-fastbrowser-cli query_selectors_all --selectors-json '[{"selector":"button","limit":3,"withAncestors":true},{"selector":"link","limit":0,"withAncestors":false}]'
-
 # Query the accessibility tree for the first matching element per selector (mirrors DOM querySelector).
 # --selector can be repeated for multiple selectors; --with-ancestors applies to all.
 fastbrowser-cli query_selectors --selector "button"
@@ -71,6 +63,13 @@ fastbrowser-cli query_selectors --selector "button" --selector "link" --no-with-
 
 # For per-selector control over withAncestors, pass a JSON array directly:
 fastbrowser-cli query_selectors --selectors-json '[{"selector":"button","withAncestors":true},{"selector":"link","withAncestors":false}]'
+
+# Pass -a/--all to return every match per selector. --limit caps results per selector (0 = unlimited).
+fastbrowser-cli query_selectors --all --selector "button" --selector "link" --limit 5 --with-ancestors
+fastbrowser-cli query_selectors --all --selector 'heading[level="1"]' --no-with-ancestors
+
+# For per-selector control over limit/withAncestors with --all, pass a JSON array directly:
+fastbrowser-cli query_selectors --all --selectors-json '[{"selector":"button","limit":3,"withAncestors":true},{"selector":"link","limit":0,"withAncestors":false}]'
 
 # Press a sequence of keys
 fastbrowser-cli press_keys --keys "Tab, Tab, Enter"

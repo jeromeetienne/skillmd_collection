@@ -20,7 +20,7 @@ npx fastbrowser_cli <command> [flags]
 
 ## Typical Workflow
 
-1. **Query** the accessibility tree for specific nodes: `query_selectors` (first match per selector) or `query_selectors_all` (every match per selector).
+1. **Query** the accessibility tree for specific nodes with `query_selectors` (first match per selector by default; pass `-a, --all` for every match).
 2. **Act** on an element by its accessibility selector: `click`, `fill_form`, `press_keys`. The selector can be a direct uid reference (e.g. `#1_42`, fastest path) or any CSS-like selector (e.g. `button[name="Submit"]`), which is resolved to a uid internally.
 
 Snapshot output looks like:
@@ -145,8 +145,8 @@ Example queries on it:
 
 ## Inspection
 
-- `query_selectors` and `query_selectors_all` are the most efficient way to get specific elements or data from the page. Use them instead of `take_snapshot` whenever possible.
-- Prefer `query_selectors` when you only need the first match per selector (cheaper, less output); use `query_selectors_all` when you need every match or want to cap with `--limit`.
+- `query_selectors` is the most efficient way to get specific elements or data from the page. Use it instead of `take_snapshot` whenever possible.
+- By default, `query_selectors` returns the first match per selector (cheaper, less output). Pass `-a, --all` when you need every match — pair it with `--limit` to cap results per selector.
 
 ```bash
 # Query the accessibility tree returning the FIRST match per selector (--selector is repeatable)
@@ -159,14 +159,14 @@ npx fastbrowser_cli query_selectors --selector 'heading[level="1"]' --no-with-an
 npx fastbrowser_cli query_selectors \
   --selectors-json '[{"selector":"button","withAncestors":true},{"selector":"link","withAncestors":false}]'
 
-# Query the accessibility tree returning ALL matches per selector (--selector is repeatable)
-npx fastbrowser_cli query_selectors_all --selector "button" --selector "link" --limit 5
+# Pass --all to return every match per selector; --limit caps results per selector (0 = unlimited)
+npx fastbrowser_cli query_selectors --all --selector "button" --selector "link" --limit 5
 
 # Exclude ancestor nodes from the result
-npx fastbrowser_cli query_selectors_all --selector 'heading[level="1"]' --no-with-ancestors
+npx fastbrowser_cli query_selectors --all --selector 'heading[level="1"]' --no-with-ancestors
 
-# Per-selector control over limit / withAncestors via JSON
-npx fastbrowser_cli query_selectors_all \
+# Per-selector control over limit / withAncestors via JSON (with --all)
+npx fastbrowser_cli query_selectors --all \
   --selectors-json '[{"selector":"button","limit":3,"withAncestors":true},{"selector":"link","limit":0,"withAncestors":false}]'
 
 # Take an accessibility-tree full page snapshot of the current page - very expensive, prefer targeted queries when possible
@@ -233,9 +233,8 @@ press_keys --keys "Tab, Enter"
 | `new_page` | Open a new page at a URL | `--url` |
 | `close_page` | Close a page by id | `--page-id` |
 | `navigate_page` | Navigate current page to a URL | `--url` |
-| `take_snapshot` | Dump the accessibility tree of the whole page - very expensive, prefer targeted queries (`query_selectors` / `query_selectors_all`) when possible | — |
-| `query_selectors` | Query a11y tree by CSS-like selector, returning the first match per selector | `--selector` or `--selectors-json` |
-| `query_selectors_all` | Query a11y tree by CSS-like selector, returning every match per selector | `--selector` or `--selectors-json` |
+| `take_snapshot` | Dump the accessibility tree of the whole page - very expensive, prefer targeted queries (`query_selectors`) when possible | — |
+| `query_selectors` | Query a11y tree by CSS-like selector (first match per selector by default; pass `-a, --all` for every match, with optional `--limit`) | `--selector` or `--selectors-json` |
 | `click` | Click an element by accessibility selector | `--selector` / `-s` |
 | `fill_form` | Fill a form field by accessibility selector | `--selector` / `-s`, `--value` |
 | `press_keys` | Press a comma-separated key sequence | `--keys` |

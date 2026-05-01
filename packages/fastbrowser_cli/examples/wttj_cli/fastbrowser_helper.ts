@@ -24,7 +24,7 @@ export class FastBrowserHelper {
 	}
 
 	static async querySelectorsAll(selector: string, limit: number): Promise<string> {
-		return await FastBrowserHelper.run(`query_selectors_all --selector '${selector}' --limit ${limit}`);
+		return await FastBrowserHelper.run(`query_selectors --all --selector '${selector}' --limit ${limit}`);
 	}
 
 	static async takeSnapshot(): Promise<string> {
