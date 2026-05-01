@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 // node imports
-import * as Assert from 'node:assert/strict';
 import Fs from 'node:fs';
 import Path from 'node:path';
 
@@ -52,22 +51,62 @@ const logger = Logger.fromMetaUrl(import.meta.url, {
 ///////////////////////////////////////////////////////////////////////////////
 
 class MainHelper {
+	/**
+	 * Multiple retry... not sure it is actually useful - https://github.com/jeromeetienne/skillmd_collection/issues/47
+	 * 
+	 * @param mcpClient 
+	 * @returns 
+	 */
 	private static async _getA11yText(mcpClient: McpMyClient): Promise<string> {
 		const mcpTarget = await mcpClient.getMcpTarget();
 		const toolConfig = await McpTargetHelper.targetToolTakeSnapshot(mcpTarget);
 
-		// FIXME: the first take_snapshot call after connecting to the MCP target often returns an empty snapshot for unknown reasons 
-		// — working around this by calling it once and discarding the result before calling it again to get the actual snapshot text
-		// - not working all the time
-		await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
+		// `take_snapshot` is racy — for reasons we haven't traced (could be playwright's a11y serializer, the
+		// `@playwright/mcp` extension transport, or the chrome extension itself), back-to-back calls on an unchanged
+		// page sometimes return incomplete or empty trees. Stabilize by taking snapshots in pairs and only returning
+		// once two consecutive ones agree on node count within STABLE_TOLERANCE. On exhaustion, return best-effort
+		// rather than throw, so legitimately tiny pages don't break workflows.
+		const MAX_ATTEMPTS = 6;
+		const RETRY_DELAY_MS = 250;
+		const STABLE_TOLERANCE = 2;
 
-		const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
-		const snapshotText = await ResponseFormatter.formatTakeSnapshot(mcpTarget, callToolResult);
-		// sanity check
-		Assert.ok(snapshotText !== undefined, "Snapshot text is empty");
+		let prev: { text: string; nodeCount: number } | undefined = undefined;
+		let last: { text: string; nodeCount: number } = { text: '', nodeCount: 0 };
 
-		// return the snapshot text
-		return snapshotText;
+		for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+			const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
+			const text = await ResponseFormatter.formatTakeSnapshot(mcpTarget, callToolResult);
+			const nodeCount = MainHelper._countSnapshotNodes(text);
+			last = { text, nodeCount };
+
+			if (prev !== undefined && Math.abs(nodeCount - prev.nodeCount) <= STABLE_TOLERANCE) {
+				if (nodeCount === 0) {
+					logger.warn(`${mcpTarget}:take_snapshot: settled at empty after ${attempt} attempt(s) — returning empty snapshot`);
+				}
+				return text;
+			}
+
+			logger.warn(`${mcpTarget}:take_snapshot: attempt ${attempt}/${MAX_ATTEMPTS}: nodeCount=${nodeCount}, prev=${prev === undefined ? 'n/a' : prev.nodeCount} — not stable, retrying`);
+
+			prev = last;
+			if (attempt < MAX_ATTEMPTS) {
+				await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY_MS));
+			}
+		}
+
+		logger.warn(`${mcpTarget}:take_snapshot: exhausted ${MAX_ATTEMPTS} attempts without stabilizing — returning best-effort (nodeCount=${last.nodeCount})`);
+		return last.text;
+	}
+
+	private static _countSnapshotNodes(snapshotText: string): number {
+		if (snapshotText.trim().length === 0) return 0;
+		let count = 0;
+		for (const line of snapshotText.split('\n')) {
+			if (line.trim().startsWith('uid=')) {
+				count += 1;
+			}
+		}
+		return count;
 	}
 
 	/**
