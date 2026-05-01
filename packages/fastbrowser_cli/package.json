@@ -21,6 +21,7 @@
         "prepublish:check": "test -z \"$(git status --porcelain)\" || (echo 'Working tree dirty — commit or stash first' && exit 1)",
         "version:bump": "npm version patch --no-git-tag-version && git add package.json && git commit -m \"feat: bump version in fastbrowser_cli package.json\"",
         "publish:all": "pnpm run prepublish:check && pnpm run build && pnpm run version:bump && pnpm publish --access public",
+        "clean:output:log": "rm -f outputs/*.log",
         "typecheck": "tsc -p tsconfig.json --noEmit",
         "test": "npx tsx --test 'tests/**/*.test.ts'"
     },
