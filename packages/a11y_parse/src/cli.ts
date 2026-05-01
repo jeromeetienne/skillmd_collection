@@ -109,7 +109,7 @@ async function main(): Promise<void> {
 		if (options.withAncestor === true) {
 			const subsetTree = A11yTree.buildSubsetTree(nodes, {
 				withAncestors: true,
-				withDescendants: options.withChildren === true,
+				withChildren: options.withChildren === true,
 			});
 			process.stdout.write(A11yDisplay.stringifyTree(subsetTree) + '\n');
 		} else if (options.withChildren === true) {

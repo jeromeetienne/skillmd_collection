@@ -250,9 +250,9 @@ export class A11yTree {
 	 * @param options Flags controlling whether ancestors and/or descendants are included. Defaults to `{ withAncestors: true, withDescendants: false }`.
 	 * @returns The root of the new tree.
 	 */
-	static buildSubsetTree(axNodes: AxNode[], { withAncestors, withDescendants }: {
+	static buildSubsetTree(axNodes: AxNode[], { withAncestors, withChildren }: {
 		withAncestors: boolean;
-		withDescendants: boolean;
+		withChildren: boolean;
 	}): AxNode {
 		// sanity check - all nodes must belong to the same tree, so they should have the same root
 		if (axNodes.length === 0) throw new Error('axNodes must not be empty');
@@ -270,7 +270,7 @@ export class A11yTree {
 				}
 			}
 
-			if (withDescendants === true) {
+			if (withChildren === true) {
 				for (const descendant of A11yTree.walk(node)) {
 					keptUids.add(descendant.uid);
 				}
@@ -310,7 +310,7 @@ export class A11yTree {
 	static buildAncestorTree(axNodes: AxNode[]): AxNode {
 		return this.buildSubsetTree(axNodes, {
 			withAncestors: true,
-			withDescendants: false,
+			withChildren: false,
 		});
 	}
 

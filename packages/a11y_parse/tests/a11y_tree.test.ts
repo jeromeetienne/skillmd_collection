@@ -217,29 +217,25 @@ describe('A11yTree', () => {
 
 	describe('buildSubsetTree', () => {
 		it('throws on empty input', () => {
-			assert.throws(() => A11yTree.buildSubsetTree([]), /must not be empty/);
+			assert.throws(
+				() => A11yTree.buildSubsetTree([], { withAncestors: true, withChildren: false }),
+				/must not be empty/,
+			);
 		});
 
-		it('with no options is identical to buildAncestorTree', () => {
+		it('{ withAncestors: true, withDescendants: false } produces the same tree as buildAncestorTree', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
 			const button = A11yTree.findOne(root, A11yTree.filterByUid('5')) as AxNode;
-			const subset = A11yTree.buildSubsetTree([button]);
+			const subset = A11yTree.buildSubsetTree([button], { withAncestors: true, withChildren: false });
 			assert.deepEqual(collectUids(subset), ['1', '2', '5']);
 			assert.equal(subset.uid, '1');
 			assert.equal(subset.parent, undefined);
 		});
 
-		it('{ withAncestors: true, withDescendants: false } is identical to no-options', () => {
-			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
-			const button = A11yTree.findOne(root, A11yTree.filterByUid('5')) as AxNode;
-			const subset = A11yTree.buildSubsetTree([button], { withAncestors: true, withDescendants: false });
-			assert.deepEqual(collectUids(subset), ['1', '2', '5']);
-		});
-
 		it('{ withAncestors: true, withDescendants: true } keeps matched nodes\' descendants in addition to ancestors', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
 			const main = A11yTree.findOne(root, A11yTree.filterByUid('2')) as AxNode;
-			const subset = A11yTree.buildSubsetTree([main], { withAncestors: true, withDescendants: true });
+			const subset = A11yTree.buildSubsetTree([main], { withAncestors: true, withChildren: true });
 			assert.deepEqual(collectUids(subset), ['1', '2', '3', '4', '5']);
 			assert.equal(subset.uid, '1');
 			assert.equal(subset.parent, undefined);
@@ -249,7 +245,7 @@ describe('A11yTree', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
 			const main = A11yTree.findOne(root, A11yTree.filterByUid('2')) as AxNode;
 			const navigation = A11yTree.findOne(root, A11yTree.filterByUid('6')) as AxNode;
-			const subset = A11yTree.buildSubsetTree([main, navigation], { withAncestors: false, withDescendants: false });
+			const subset = A11yTree.buildSubsetTree([main, navigation], { withAncestors: false, withChildren: false });
 
 			assert.equal(subset.role, 'FakeRoot');
 			assert.equal(subset.parent, undefined);
@@ -264,7 +260,7 @@ describe('A11yTree', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
 			const main = A11yTree.findOne(root, A11yTree.filterByUid('2')) as AxNode;
 			const navigation = A11yTree.findOne(root, A11yTree.filterByUid('6')) as AxNode;
-			const subset = A11yTree.buildSubsetTree([main, navigation], { withAncestors: false, withDescendants: true });
+			const subset = A11yTree.buildSubsetTree([main, navigation], { withAncestors: false, withChildren: true });
 
 			assert.equal(subset.role, 'FakeRoot');
 			assert.equal(subset.parent, undefined);
@@ -276,7 +272,7 @@ describe('A11yTree', () => {
 		it('FakeRoot child clones wire parent to the FakeRoot and share no references with the original tree', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
 			const main = A11yTree.findOne(root, A11yTree.filterByUid('2')) as AxNode;
-			const subset = A11yTree.buildSubsetTree([main], { withAncestors: false, withDescendants: true });
+			const subset = A11yTree.buildSubsetTree([main], { withAncestors: false, withChildren: true });
 
 			const clonedMain = subset.children[0];
 			assert.equal(clonedMain.parent, subset);
