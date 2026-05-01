@@ -1,16 +1,19 @@
 #!/bin/bash
 
-# Goto linkedin messaging page using the CLI commands below:
-npx fastbrowser_cli navigate_page --url https://www.linkedin.com/messaging/
+# Restart the server to clear any previous state
+NODE_OPTIONS='' NPM_CONFIG_LOGLEVEL=silent npm run dev:cli -- server restart  
 
-# list[name="Conversation list"] > listitem > heading
-npx fastbrowser_cli query_selectors -s 'list[name="Conversation List"] > listitem heading' -a
+# Goto linkedin messaging page using the CLI commands below:
+NODE_OPTIONS='' NPM_CONFIG_LOGLEVEL=silent npm run dev:cli -- navigate_page --url https://www.linkedin.com/messaging/
+
+# list all the threads conversations in the left sidebar
+NODE_OPTIONS='' NPM_CONFIG_LOGLEVEL=silent npm run dev:cli -- query_selectors -s 'list[name="Conversation List"] > listitem heading' -a
 
 # Select the conversation with Eric Defiez
-npx fastbrowser_cli click -s 'list[name="Conversation List"] > listitem heading[name^="Eric Defiez"]' 
+NODE_OPTIONS='' NPM_CONFIG_LOGLEVEL=silent npm run dev:cli -- click -s 'list[name="Conversation List"] > listitem heading[name^="Eric Defiez"]' 
 
 # Fill the message content
-npx fastbrowser_cli fill_form -s 'textbox[name^="Write"]' -v "Hello"
+NODE_OPTIONS='' NPM_CONFIG_LOGLEVEL=silent npm run dev:cli -- fill_form -s 'textbox[name^="Write"]' -v "Hello"
 
 # Click the "Send" button to send the message
-npx fastbrowser_cli click -s 'button[name^="Send"]'
+NODE_OPTIONS='' NPM_CONFIG_LOGLEVEL=silent npm run dev:cli -- click -s 'button[name^="Send"]'
