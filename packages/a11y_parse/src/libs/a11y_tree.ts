@@ -1,5 +1,7 @@
 // axtree.ts
 
+import { A11yDisplay } from './a11y_display.js';
+
 export interface AxNode {
 	uid: string;
 	role: string;
@@ -112,7 +114,14 @@ export class A11yTree {
 	///////////////////////////////////////////////////////////////////////////////
 
 	/**
+	 * TODO add the others modification operations that we need
+	 * - copy the one from the DOM
+	 * - .appendChild, .insertBefore, .removeChild, .replaceChild
+	 */
+
+	/**
 	 * Removes a node from the tree. The children of the removed node are also removed. If the removed node is the root, an error is thrown.
+	 * - inspired by `domElement.remove()` - https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
 	 * 
 	 * @param axTree The root of the tree.
 	 * @param axNodeToRemove The node to remove.
@@ -207,26 +216,11 @@ export class A11yTree {
 	 * @returns The string representation of the tree.
 	 */
 	static stringifyTree(root: AxNode): string {
-		const out: string[] = [];
-		const write = (node: AxNode, depth: number) => {
-			const pad = '  '.repeat(depth);
-			const name = node.name !== undefined ? ` "${A11yTree.escape(node.name)}"` : '';
-			const attributes = Object.entries(node.attributes)
-				.map(([attrKey, attrValue]) => `${attrKey}="${A11yTree.escape(attrValue)}"`)
-				.join(' ');
-			out.push(`${pad}uid=${node.uid} ${node.role}${name}${attributes ? ' ' + attributes : ''}`);
-			for (const child of node.children) write(child, depth + 1);
-		};
-		write(root, 0);
-		return out.join('\n');
+		return A11yDisplay.stringifyTree(root);
 	}
 
 	static stringifyNode(node: AxNode): string {
-		const name = node.name !== undefined ? ` "${A11yTree.escape(node.name)}"` : '';
-		const attributes = Object.entries(node.attributes)
-			.map(([attrKey, attrValue]) => `${attrKey}="${A11yTree.escape(attrValue)}"`)
-			.join(' ');
-		return `uid=${node.uid} ${node.role}${name}${attributes ? ' ' + attributes : ''}`;
+		return A11yDisplay.stringifyNode(node);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -291,9 +285,5 @@ export class A11yTree {
 
 	private static unescape(s: string): string {
 		return s.replace(/\\(.)/g, '$1');
-	}
-
-	private static escape(s: string): string {
-		return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 	}
 }

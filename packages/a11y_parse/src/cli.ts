@@ -48,24 +48,6 @@ class MainHelper {
 		return axTree;
 	}
 
-	/**
-	 * Outputs matched nodes to stdout.
-	 * @param axNodes - Array of matched nodes
-	 * @param withAncestor - If true, outputs ancestor tree; otherwise outputs individual nodes
-	 */
-	static outputNodes(axNodes: AxNode[], withAncestor: boolean): void {
-		if (axNodes.length === 0) {
-			process.exit(1);
-		}
-		if (withAncestor) {
-			const ancestorTree = A11yTree.buildAncestorTree(axNodes);
-			process.stdout.write(A11yTree.stringifyTree(ancestorTree) + '\n');
-		} else {
-			for (const node of axNodes) {
-				process.stdout.write(A11yTree.stringifyNode(node) + '\n');
-			}
-		}
-	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -116,7 +98,17 @@ async function main(): Promise<void> {
 	// Query based on --all flag
 	if (options.all) {
 		const nodes = A11yQuery.querySelectorAll(axTree, selector);
-		MainHelper.outputNodes(nodes, options.withAncestor === true);
+		if (nodes.length === 0) {
+			process.exit(1);
+		}
+		if (options.withAncestor === true) {
+			const ancestorTree = A11yTree.buildAncestorTree(nodes);
+			process.stdout.write(A11yTree.stringifyTree(ancestorTree) + '\n');
+		} else {
+			for (const node of nodes) {
+				process.stdout.write(A11yTree.stringifyNode(node) + '\n');
+			}
+		}
 	} else {
 		// Single match mode
 		const node = A11yQuery.querySelector(axTree, selector);
