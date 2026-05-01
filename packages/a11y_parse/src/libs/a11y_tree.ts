@@ -236,34 +236,82 @@ export class A11yTree {
 	///////////////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Builds a new tree containing only the specified nodes and all their ancestors. The structure of the tree is 
-	 * preserved, but any node that is not an ancestor of one of the specified nodes is removed.
-	 * - `axNodes` is typically coming from selector queries
-	 * 
+	 * Builds a new tree containing the specified nodes and, optionally, their ancestors and/or descendants.
+	 * - When `options.withAncestors === true` (default): the original root is preserved and pruned so that
+	 *   only the matched nodes and their ancestors remain.
+	 * - When `options.withDescendants === true`: each matched node retains its full descendant subtree.
+	 * - When `options.withAncestors === false`: a synthetic `FakeRoot` node (`role: 'FakeRoot'`,
+	 *   `uid: 'fake-root'`) is created and the matched nodes (each cloned with its descendants if
+	 *   requested) are attached as its direct children. This keeps the return type a single AxNode
+	 *   even when the matches don't share a real ancestor in the result.
+	 * - `axNodes` is typically coming from selector queries.
+	 *
+	 * @param axNodes The list of matched nodes. Must be non-empty and all nodes must belong to the same tree.
+	 * @param options Flags controlling whether ancestors and/or descendants are included. Defaults to `{ withAncestors: true, withDescendants: false }`.
+	 * @returns The root of the new tree.
+	 */
+	static buildSubsetTree(axNodes: AxNode[], { withAncestors, withDescendants }: {
+		withAncestors: boolean;
+		withDescendants: boolean;
+	}): AxNode {
+		// sanity check - all nodes must belong to the same tree, so they should have the same root
+		if (axNodes.length === 0) throw new Error('axNodes must not be empty');
+
+		// Collect the uids of all nodes to keep (the matched nodes and, optionally, their ancestors and/or descendants)
+		const keptUids = new Set<string>();
+		for (const node of axNodes) {
+			keptUids.add(node.uid);
+
+			if (withAncestors === true) {
+				let current: AxNode | undefined = node.parent;
+				while (current !== undefined) {
+					keptUids.add(current.uid);
+					current = current.parent;
+				}
+			}
+
+			if (withDescendants === true) {
+				for (const descendant of A11yTree.walk(node)) {
+					keptUids.add(descendant.uid);
+				}
+			}
+		}
+
+		// Real-root path: clone the original tree from its root, pruning by keptUids.
+		if (withAncestors === true) {
+			let root: AxNode = axNodes[0];
+			while (root.parent !== undefined) {
+				root = root.parent;
+			}
+			return this._cloneNode(root, keptUids);
+		}
+
+		// FakeRoot path: synthesize a root and attach a clone of each matched node as a direct child.
+		const fakeRoot: AxNode = {
+			uid: 'fake-root',
+			role: 'FakeRoot',
+			attributes: {},
+			children: [],
+			parent: undefined,
+		};
+		for (const node of axNodes) {
+			fakeRoot.children.push(this._cloneNode(node, keptUids, fakeRoot));
+		}
+		return fakeRoot;
+	}
+
+	/**
+	 * Backward-compatible wrapper around `buildSubsetTree({ withAncestors: true })`.
+	 * Preserved so existing callers (e.g. fastbrowser_cli) keep working unchanged.
+	 *
 	 * @param axNodes The list of nodes to keep, along with all their ancestors. Must be non-empty and all nodes must belong to the same tree.
 	 * @returns The root of the new tree containing only the specified nodes and their ancestors.
 	 */
 	static buildAncestorTree(axNodes: AxNode[]): AxNode {
-		// sanity check - all nodes must belong to the same tree, so they should have the same root
-		if (axNodes.length === 0) throw new Error('axNodes must not be empty');
-
-		// Collect the uids of all nodes to keep (the specified nodes and all their ancestors)
-		const keptUids = new Set<string>();
-		for (const node of axNodes) {
-			let current: AxNode | undefined = node;
-			while (current !== undefined) {
-				keptUids.add(current.uid);
-				current = current.parent;
-			}
-		}
-
-		// Find the root of the original tree (all nodes in axNodes should belong to the same tree, so they should have the same root)
-		let root: AxNode = axNodes[0];
-		while (root.parent !== undefined) {
-			root = root.parent;
-		}
-
-		return this._cloneNode(root, keptUids);
+		return this.buildSubsetTree(axNodes, {
+			withAncestors: true,
+			withDescendants: false,
+		});
 	}
 
 	/**

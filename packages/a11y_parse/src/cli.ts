@@ -69,13 +69,16 @@ async function main(): Promise<void> {
 		.argument('<selector>', 'CSS-inspired selector (role, #uid, [attr*=val], combinators, pseudo-classes)')
 		.requiredOption('-f, --file <path>', 'Path to accessibility tree text file')
 		.option('-a, --all', 'Return all matches (default: first match only)')
-		.option('-w, --with-ancestor', 'Output ancestor tree containing all matched nodes')
+		.option('--wa, --with-ancestor', 'Output ancestor tree containing all matched nodes')
+		.option('--wc, --with-children', 'Include descendants of matched nodes in the output')
 		.addHelpText('after', [
 			'',
 			'Examples:',
 			'  npx a11y_parse --file page.a11y.txt button',
 			'  npx a11y_parse --file page.a11y.txt --all \'link[url*="example.com"]\'',
-			'  npx a11y_parse --file page.a11y.txt --all -w heading',
+			'  npx a11y_parse --file page.a11y.txt --all --wa heading',
+			'  npx a11y_parse --file page.a11y.txt --all --wc heading',
+			'  npx a11y_parse --file page.a11y.txt --all --wa --wc heading',
 		].join('\n'))
 		.parse(process.argv);
 
@@ -83,6 +86,7 @@ async function main(): Promise<void> {
 		file: string;
 		all: boolean;
 		withAncestor: boolean;
+		withChildren: boolean;
 	};
 	const options = program.opts<CliOptions>();
 	const selector: string = program.args[0];
@@ -103,8 +107,15 @@ async function main(): Promise<void> {
 			process.exit(1);
 		}
 		if (options.withAncestor === true) {
-			const ancestorTree = A11yTree.buildAncestorTree(nodes);
-			process.stdout.write(A11yDisplay.stringifyTree(ancestorTree) + '\n');
+			const subsetTree = A11yTree.buildSubsetTree(nodes, {
+				withAncestors: true,
+				withDescendants: options.withChildren === true,
+			});
+			process.stdout.write(A11yDisplay.stringifyTree(subsetTree) + '\n');
+		} else if (options.withChildren === true) {
+			for (const node of nodes) {
+				process.stdout.write(A11yDisplay.stringifyTree(node) + '\n');
+			}
 		} else {
 			for (const node of nodes) {
 				process.stdout.write(A11yDisplay.stringifyNode(node) + '\n');
@@ -116,7 +127,11 @@ async function main(): Promise<void> {
 		if (node === undefined) {
 			process.exit(1);
 		}
-		process.stdout.write(A11yDisplay.stringifyNode(node) + '\n');
+		if (options.withChildren === true) {
+			process.stdout.write(A11yDisplay.stringifyTree(node) + '\n');
+		} else {
+			process.stdout.write(A11yDisplay.stringifyNode(node) + '\n');
+		}
 	}
 }
 
