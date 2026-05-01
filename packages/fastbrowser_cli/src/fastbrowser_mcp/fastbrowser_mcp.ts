@@ -570,6 +570,11 @@ class MainHelper {
 		mcpTarget: FastBrowserMcpTarget,
 		verbose?: boolean
 	}): Promise<void> {
+		// Redirect process.stderr to a log file, so that the MCP communication is not polluted by logs.
+		const logFile = Path.resolve(import.meta.dirname, `../../outputs/fastbrowser_mcp_${new Date().toISOString()}.log`);
+		const logStream = Fs.createWriteStream(logFile, { flags: 'a' });
+		process.stderr.write = logStream.write.bind(logStream);
+
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
 		//	mcp client
@@ -665,6 +670,51 @@ class MainHelper {
 		// Connect the MCP proxy server to start accepting connections from MCP clients (e.g. LLM agents).
 		await mcpProxy.connect();
 	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	.commandTargetTools: connect to the target MCP and print each tool's name, description, and input schema.
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async commandTargetTools({
+		mcpTarget,
+	}: {
+		mcpTarget: FastBrowserMcpTarget,
+	}): Promise<void> {
+		const { command: mcpCommand, args: mcpArgs } = McpTargetHelper.mcpArgs(mcpTarget);
+
+		const mcpClient = new McpMyClient({
+			name: 'fastbrowser_target_tools_client',
+			version: '1.0.0',
+			mcpTarget,
+			transport: {
+				type: 'stdio',
+				command: mcpCommand,
+				args: mcpArgs,
+			},
+		});
+
+		await mcpClient.connect();
+		try {
+			const tools = await mcpClient.listTools();
+			console.log(`# Tools available on MCP target '${mcpTarget}' (${tools.length})\n`);
+			for (const tool of tools) {
+				console.log(`## ${tool.name}`);
+				console.log('');
+				console.log(`### Description`)
+				console.log(`${tool.description ?? '(no description)'}`);
+				console.log('');
+				console.log(`### Input schema`);
+				console.log("```");
+				console.log(JSON.stringify(tool.inputSchema, null, 2));
+				console.log("```");
+				console.log('');
+			}
+		} finally {
+			await mcpClient.close();
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -674,12 +724,6 @@ class MainHelper {
 ///////////////////////////////////////////////////////////////////////////////
 
 async function main() {
-	// Redirect process.stderr to a log file, so that the MCP communication is not polluted by logs.
-	const logFile = Path.resolve(import.meta.dirname, `../../outputs/fastbrowser_mcp_${new Date().toISOString()}.log`);
-	const logStream = Fs.createWriteStream(logFile, { flags: 'a' });
-	process.stderr.write = logStream.write.bind(logStream);
-
-
 	// throw Error("This entry point is not meant to be run directly. Please run one of the npm scripts defined in package.json, e.g. 'npm run start:fastbrowser_mcp' or 'npm run inspect:fastbrowser_mcp:chrome_devtools'");
 
 	const program = new Command();
@@ -696,6 +740,20 @@ async function main() {
 			await MainHelper.commandMcpServer({
 				mcpTarget: options.mcp_target,
 				verbose: options.verbose,
+			});
+		});
+
+	program
+		.command('target_tools')
+		.description('List the tools exposed by the target MCP (name, description, input schema)')
+		.addOption(
+			new Option('-b, --mcp_target <mcpTarget>', 'the MCP target to introspect')
+				.choices(['chrome_devtools', 'playwright'])
+				.default('playwright')
+		)
+		.action(async (options: { mcp_target: FastBrowserMcpTarget }) => {
+			await MainHelper.commandTargetTools({
+				mcpTarget: options.mcp_target,
 			});
 		});
 

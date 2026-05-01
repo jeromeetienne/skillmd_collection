@@ -182,9 +182,21 @@ export class McpTargetHelper {
 
 	static async targetToolClick(mcpTarget: FastBrowserMcpTarget, uid: string): Promise<TargetToolConfig> {
 		if (mcpTarget === 'chrome_devtools') {
-			return { toolName: 'click', toolArgs: { uid } };
+			const toolConfig: TargetToolConfig = {
+				toolName: 'click',
+				toolArgs: {
+					uid
+				}
+			};
+			return toolConfig;
 		} else if (mcpTarget === 'playwright') {
-			return { toolName: 'browser_click', toolArgs: { ref: uid } };
+			const toolConfig: TargetToolConfig = {
+				toolName: 'browser_click',
+				toolArgs: {
+					target: uid
+				}
+			};
+			return toolConfig;
 		} else {
 			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
 		}
@@ -194,6 +206,7 @@ export class McpTargetHelper {
 		if (mcpTarget === 'chrome_devtools') {
 			return { toolName: 'fill_form', toolArgs: { elements } };
 		} else if (mcpTarget === 'playwright') {
+			// FIXME browser_fill_form tool exist in playwright MCP... implement it later
 			throw new Error(`Fill form tool is not supported for Playwright MCP target yet`);
 		} else {
 			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
