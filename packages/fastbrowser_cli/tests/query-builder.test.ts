@@ -18,7 +18,7 @@ describe('QueryBuilder.buildQuerySelectorsBody', () => {
 				selector: ['button'],
 			});
 			assert.deepEqual(body, {
-				selectors: [{ selector: 'button', limit: 0, withAncestors: true }],
+				selectors: [{ selector: 'button', limit: 0, withAncestors: true, withChildren: false }],
 			});
 		});
 
@@ -29,8 +29,8 @@ describe('QueryBuilder.buildQuerySelectorsBody', () => {
 			});
 			assert.deepEqual(body, {
 				selectors: [
-					{ selector: 'button', limit: 5, withAncestors: true },
-					{ selector: 'link', limit: 5, withAncestors: true },
+					{ selector: 'button', limit: 5, withAncestors: true, withChildren: false },
+					{ selector: 'link', limit: 5, withAncestors: true, withChildren: false },
 				],
 			});
 		});
@@ -48,6 +48,31 @@ describe('QueryBuilder.buildQuerySelectorsBody', () => {
 				selector: ['button'],
 			});
 			assert.equal(body.selectors[0].withAncestors, true);
+		});
+
+		it('treats omitted withChildren as false (default)', () => {
+			const body = QueryBuilder.buildQuerySelectorsBody({
+				selector: ['button'],
+			});
+			assert.equal(body.selectors[0].withChildren, false);
+		});
+
+		it('honors --with-children (withChildren === true)', () => {
+			const body = QueryBuilder.buildQuerySelectorsBody({
+				selector: ['button'],
+				withChildren: true,
+			});
+			assert.equal(body.selectors[0].withChildren, true);
+		});
+
+		it('combines withAncestors and withChildren independently', () => {
+			const body = QueryBuilder.buildQuerySelectorsBody({
+				selector: ['button'],
+				withAncestors: false,
+				withChildren: true,
+			});
+			assert.equal(body.selectors[0].withAncestors, false);
+			assert.equal(body.selectors[0].withChildren, true);
 		});
 
 		it('parses --limit as an integer', () => {
@@ -69,20 +94,20 @@ describe('QueryBuilder.buildQuerySelectorsBody', () => {
 	describe('--selectors-json input', () => {
 		it('parses a JSON array and uses it verbatim', () => {
 			const body = QueryBuilder.buildQuerySelectorsBody({
-				selectorsJson: '[{"selector":"button","limit":3,"withAncestors":false}]',
+				selectorsJson: '[{"selector":"button","limit":3,"withAncestors":false,"withChildren":true}]',
 			});
 			assert.deepEqual(body, {
-				selectors: [{ selector: 'button', limit: 3, withAncestors: false }],
+				selectors: [{ selector: 'button', limit: 3, withAncestors: false, withChildren: true }],
 			});
 		});
 
 		it('takes precedence over --selector when both are given', () => {
 			const body = QueryBuilder.buildQuerySelectorsBody({
 				selector: ['ignored'],
-				selectorsJson: '[{"selector":"button","limit":1,"withAncestors":true}]',
+				selectorsJson: '[{"selector":"button","limit":1,"withAncestors":true,"withChildren":false}]',
 			});
 			assert.deepEqual(body.selectors, [
-				{ selector: 'button', limit: 1, withAncestors: true },
+				{ selector: 'button', limit: 1, withAncestors: true, withChildren: false },
 			]);
 		});
 
@@ -135,12 +160,12 @@ describe('QueryBuilder.buildQuerySelectorsBody', () => {
 
 describe('QueryBuilder.buildQuerySelectorFirstBody', () => {
 	describe('--selector list', () => {
-		it('builds a body with default withAncestors=true', () => {
+		it('builds a body with default withAncestors=true and withChildren=false', () => {
 			const body = QueryBuilder.buildQuerySelectorFirstBody({
 				selector: ['button'],
 			});
 			assert.deepEqual(body, {
-				selectors: [{ selector: 'button', withAncestors: true }],
+				selectors: [{ selector: 'button', withAncestors: true, withChildren: false }],
 			});
 		});
 
@@ -150,6 +175,21 @@ describe('QueryBuilder.buildQuerySelectorFirstBody', () => {
 				withAncestors: false,
 			});
 			assert.equal(body.selectors[0].withAncestors, false);
+		});
+
+		it('honors --with-children (withChildren === true)', () => {
+			const body = QueryBuilder.buildQuerySelectorFirstBody({
+				selector: ['button'],
+				withChildren: true,
+			});
+			assert.equal(body.selectors[0].withChildren, true);
+		});
+
+		it('treats omitted withChildren as false (default)', () => {
+			const body = QueryBuilder.buildQuerySelectorFirstBody({
+				selector: ['button'],
+			});
+			assert.equal(body.selectors[0].withChildren, false);
 		});
 
 		it('builds a multi-selector body preserving order', () => {
@@ -163,10 +203,10 @@ describe('QueryBuilder.buildQuerySelectorFirstBody', () => {
 	describe('--selectors-json input', () => {
 		it('parses a JSON array verbatim', () => {
 			const body = QueryBuilder.buildQuerySelectorFirstBody({
-				selectorsJson: '[{"selector":"button","withAncestors":false}]',
+				selectorsJson: '[{"selector":"button","withAncestors":false,"withChildren":true}]',
 			});
 			assert.deepEqual(body, {
-				selectors: [{ selector: 'button', withAncestors: false }],
+				selectors: [{ selector: 'button', withAncestors: false, withChildren: true }],
 			});
 		});
 

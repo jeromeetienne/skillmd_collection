@@ -16,12 +16,14 @@ export type BuildQuerySelectorsAllOpts = {
 	selector?: string[];
 	limit?: string;
 	withAncestors?: boolean;
+	withChildren?: boolean;
 	selectorsJson?: string;
 };
 
 export type BuildQuerySelectorFirstOpts = {
 	selector?: string[];
 	withAncestors?: boolean;
+	withChildren?: boolean;
 	selectorsJson?: string;
 };
 
@@ -50,11 +52,13 @@ export class QueryBuilder {
 			throw new Error(`Invalid --limit: ${opts.limit}`);
 		}
 		const withAncestors = opts.withAncestors !== false;
+		const withChildren = opts.withChildren === true;
 
 		const selectors: QuerySelectorInput[] = selectorList.map((selector) => ({
 			selector,
 			limit,
 			withAncestors,
+			withChildren,
 		}));
 		return { selectors };
 	}
@@ -79,10 +83,12 @@ export class QueryBuilder {
 		}
 
 		const withAncestors = opts.withAncestors !== false;
+		const withChildren = opts.withChildren === true;
 
 		const selectors: QuerySelectorFirstInput[] = selectorList.map((selector) => ({
 			selector,
 			withAncestors,
+			withChildren,
 		}));
 		return { selectors };
 	}

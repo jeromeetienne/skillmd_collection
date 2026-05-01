@@ -111,24 +111,32 @@ class MainHelper {
 		selector: string,
 		selectedNodes: A11yParse.AxNode[],
 		withAncestors: boolean,
+		withChildren: boolean,
 	): string {
 		const nodeCount = selectedNodes.length;
 		const pluralS = nodeCount > 1 ? 's' : '';
 		const ancestorsText = withAncestors ? ', with ancestors' : '';
-		let text: string = `## Node${pluralS} found for selector '${selector}' (${nodeCount} node${pluralS}${ancestorsText}):`;
+		const childrenText = withChildren ? ', with children' : '';
+		let text: string = `## Node${pluralS} found for selector '${selector}' (${nodeCount} node${pluralS}${ancestorsText}${childrenText}):`;
 		if (selectedNodes.length === 0) {
 			if (text.length > 0) text += '\n';
 			text += "No node found";
-		} else {
-			if (withAncestors) {
-				const ancestorTree = A11yParse.A11yTree.buildAncestorTree(selectedNodes);
+		} else if (withAncestors === true) {
+			const subsetTree = A11yParse.A11yTree.buildSubsetTree(selectedNodes, {
+				withAncestors: true,
+				withChildren,
+			});
+			if (text.length > 0) text += '\n';
+			text += A11yParse.A11yDisplay.stringifyTree(subsetTree);
+		} else if (withChildren === true) {
+			for (const selectedNode of selectedNodes) {
 				if (text.length > 0) text += '\n';
-				text += A11yParse.A11yDisplay.stringifyTree(ancestorTree);
-			} else {
-				for (const selectedNode of selectedNodes) {
-					if (text.length > 0) text += '\n';
-					text += A11yParse.A11yDisplay.stringifyNode(selectedNode);
-				}
+				text += A11yParse.A11yDisplay.stringifyTree(selectedNode);
+			}
+		} else {
+			for (const selectedNode of selectedNodes) {
+				if (text.length > 0) text += '\n';
+				text += A11yParse.A11yDisplay.stringifyNode(selectedNode);
 			}
 		}
 		text += '\n';
@@ -155,7 +163,7 @@ class MainHelper {
 				selectedNodes.splice(querySelector.limit);
 			}
 
-			responseTexts.push(this._formatSelectedNodes(querySelector.selector, selectedNodes, querySelector.withAncestors));
+			responseTexts.push(this._formatSelectedNodes(querySelector.selector, selectedNodes, querySelector.withAncestors, querySelector.withChildren));
 		}
 
 		// join the response texts for all selectors and return
@@ -178,7 +186,7 @@ class MainHelper {
 		for (const querySelector of querySelectors.selectors) {
 			const selectedNodes = A11yParse.A11yQuery.querySelectorAll(a11yTree, querySelector.selector);
 			const firstNode = selectedNodes.length > 0 ? [selectedNodes[0]] : [];
-			responseTexts.push(this._formatSelectedNodes(querySelector.selector, firstNode, querySelector.withAncestors));
+			responseTexts.push(this._formatSelectedNodes(querySelector.selector, firstNode, querySelector.withAncestors, querySelector.withChildren));
 		}
 
 		return responseTexts.join('\n');
@@ -708,11 +716,13 @@ class MainHelper {
 					{
 						selector: "link, button",
 						withAncestors: true,
+						withChildren: false,
 						limit: 0,
 					},
 					{
 						selector: 'heading[level="1"]',
 						withAncestors: false,
+						withChildren: false,
 						limit: 0,
 					},
 				],

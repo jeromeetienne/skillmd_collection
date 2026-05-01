@@ -18,6 +18,9 @@ export const QuerySelectorInputSchema = z.object({
 	withAncestors: z.boolean()
 		.describe("Whether to include ancestor nodes in the result")
 		.default(false),
+	withChildren: z.boolean()
+		.describe("Whether to include descendant nodes (subtree) of each matched node in the result")
+		.default(false),
 });
 
 export const QuerySelectorsInputSchema = z.object({
@@ -30,6 +33,9 @@ export const QuerySelectorFirstInputSchema = z.object({
 		.describe("CSS-like selector to query the accessibility tree"),
 	withAncestors: z.boolean()
 		.describe("Whether to include ancestor nodes in the result")
+		.default(false),
+	withChildren: z.boolean()
+		.describe("Whether to include descendant nodes (subtree) of each matched node in the result")
 		.default(false),
 });
 

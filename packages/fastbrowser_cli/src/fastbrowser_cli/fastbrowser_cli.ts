@@ -307,13 +307,14 @@ async function main(): Promise<void> {
 			return prev;
 		})
 		.option('--limit <number>', 'Max nodes per selector (0 = unlimited)', '0')
-		.option('--with-ancestors', 'Include ancestor nodes', false)
-		.option('--no-with-ancestors', 'Exclude ancestor nodes')
-		.option('--selectors-json <json>', 'JSON array of {selector,limit,withAncestors} for per-selector control')
+		.option('--wa, --with-ancestors', 'Include ancestor nodes', false)
+		.option('--wc, --with-children', 'Include descendant nodes (subtree) of each matched node', false)
+		.option('--selectors-json <json>', 'JSON array of {selector,limit,withAncestors,withChildren} for per-selector control')
 		.action(async (opts: {
 			selector?: string[];
 			limit?: string;
 			withAncestors?: boolean;
+			withChildren?: boolean;
 			selectorsJson?: string;
 		}, cmd: Command) => {
 			const body = QueryBuilder.buildQuerySelectorsBody(opts);
@@ -327,12 +328,13 @@ async function main(): Promise<void> {
 			prev.push(value);
 			return prev;
 		})
-		.option('--with-ancestors', 'Include ancestor nodes', false)
-		.option('--no-with-ancestors', 'Exclude ancestor nodes')
-		.option('--selectors-json <json>', 'JSON array of {selector,withAncestors} for per-selector control')
+		.option('--wa, --with-ancestors', 'Include ancestor nodes', false)
+		.option('--wc, --with-children', 'Include descendant nodes (subtree) of each matched node', false)
+		.option('--selectors-json <json>', 'JSON array of {selector,withAncestors,withChildren} for per-selector control')
 		.action(async (opts: {
 			selector?: string[];
 			withAncestors?: boolean;
+			withChildren?: boolean;
 			selectorsJson?: string;
 		}, cmd: Command) => {
 			const body = QueryBuilder.buildQuerySelectorFirstBody(opts);
