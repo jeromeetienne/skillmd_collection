@@ -1,0 +1,44 @@
+uid=s1 Page
+uid=s2 Page
+uid=e1 generic
+  uid=e2 generic
+    uid=s3 StaticText "This is just a demo of TodoMVC for testing, not the"
+    uid=e3 link "real TodoMVC app." url="https://todomvc.com/"
+  uid=e5 generic
+    uid=e6 generic
+      uid=e7 heading "todos" level="1"
+      uid=e8 textbox "What needs to be done?"
+    uid=e15 generic
+      uid=e16 checkbox "❯Mark all as complete"
+      uid=e17 generic value="❯Mark all as complete"
+      uid=e18 list
+        uid=e19 listitem
+          uid=e20 generic
+            uid=e21 checkbox "Toggle Todo" checked
+            uid=e22 generic value="walk outside"
+            uid=s4 StaticText "×"
+        uid=e33 listitem
+          uid=e34 generic
+            uid=e35 checkbox "Toggle Todo" active
+            uid=e36 generic value="eat in the morning"
+            uid=s5 StaticText "×"
+    uid=e23 generic
+      uid=e24 generic
+        uid=e25 strong value="1"
+        uid=s6 StaticText "item left"
+      uid=e26 list
+        uid=e27 listitem
+          uid=e28 link "All" url="\"#/\""
+        uid=e29 listitem
+          uid=e30 link "Active" url="\"#/active\""
+        uid=e31 listitem
+          uid=e32 link "Completed" url="\"#/completed\""
+      uid=e37 button "Clear completed"
+  uid=e9 contentinfo
+    uid=e10 paragraph value="Double-click to edit a todo"
+    uid=e11 paragraph
+      uid=s7 StaticText "Created by"
+      uid=e12 link "Remo H. Jansen" url="http://github.com/remojansen/"
+    uid=e13 paragraph
+      uid=s8 StaticText "Part of"
+      uid=e14 link "TodoMVC" url="http://todomvc.com"

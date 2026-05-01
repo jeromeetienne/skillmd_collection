@@ -1,0 +1,1245 @@
+
+> fastbrowser_cli@1.0.31 dev:cli
+> npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts take_snapshot
+
+uid=s1 Page
+uid=s2 Page
+uid=s3 Console value="201 errors, 0 warnings"
+uid=e2 generic
+  uid=e353 heading "0 notifications" level="2"
+  uid=e354 generic
+    uid=s4 generic
+      uid=e355 button
+        uid=e357 generic value="Skip to main content"
+      uid=e358 button
+        uid=e360 img
+    uid=e362 generic
+      uid=e364 banner
+        uid=e367 generic
+          uid=e368 button "LinkedIn"
+            uid=e369 img "LinkedIn"
+          uid=e371 generic
+            uid=e372 status
+            uid=e373 search
+              uid=e374 generic
+                uid=e376 img
+                uid=e378 textbox "Search"
+          uid=e380 generic
+            uid=e385 figure
+            uid=e388 navigation
+              uid=e389 list
+                uid=e390 listitem
+                  uid=e391 button "Home, 1 new notification" active
+                    uid=e393 img
+                    uid=e396 generic value="Home"
+                uid=e397 listitem
+                  uid=e398 link "My Network, 0 new notifications" url="https://www.linkedin.com/mynetwork"
+                    uid=e400 img
+                    uid=e403 generic value="My Network"
+                uid=e404 listitem
+                  uid=e405 link "Jobs, 0 new notifications" url="https://www.linkedin.com/jobs/"
+                    uid=e407 img
+                    uid=e410 generic value="Jobs"
+                uid=e411 listitem
+                  uid=e412 link "Messaging, 0 new notifications" url="https://www.linkedin.com/messaging/"
+                    uid=e414 img
+                    uid=e417 generic value="Messaging"
+                uid=e418 listitem
+                  uid=e419 link "Notifications, 2 new notifications" url="https://www.linkedin.com/notifications/"
+                    uid=e421 img
+                    uid=e424 generic value="Notifications"
+                uid=e425 listitem
+                  uid=e426 button "Me"
+                    uid=e428 figure
+                    uid=e430 generic
+                      uid=s5 StaticText "Me"
+                      uid=e431 img
+            uid=e434 generic
+              uid=e435 navigation
+                uid=e436 list
+                  uid=e437 listitem
+                    uid=e438 button "For Business"
+                      uid=e440 img
+                      uid=e443 generic
+                        uid=s6 StaticText "For Business"
+                        uid=e444 img
+              uid=e447 link "Retry for €0" url="https://www.linkedin.com/feed/"
+                uid=e448 generic
+                  uid=e449 img
+                  uid=e455 paragraph value="Retry for €0"
+      uid=e456 main
+        uid=e458 main
+          uid=e460 generic
+            uid=e464 generic
+              uid=e468 generic
+                uid=e469 link url="https://www.linkedin.com/in/jeromeetienne/"
+                  uid=e470 generic
+                    uid=e472 figure
+                    uid=e474 figure
+                      uid=e475 img "Jerome Etienne"
+                uid=e476 generic
+                  uid=e477 link "Jerome Etienne, Your social media 10x faster with ContentMagick.ai 🧠✨, France, Verified profile" url="https://www.linkedin.com/in/jeromeetienne/"
+                    uid=e478 generic "Jerome Etienne, Your social media 10x faster with ContentMagick.ai 🧠✨, France, Verified profile"
+                      uid=e479 generic
+                        uid=e481 paragraph value="Jerome Etienne"
+                        uid=e482 img "Verified profile"
+                      uid=e485 paragraph value="Your social media 10x faster with ContentMagick.ai 🧠✨"
+                      uid=e486 paragraph value="France"
+                  uid=e487 link "ContentMagickAi" url="https://www.linkedin.com/in/jeromeetienne/"
+                    uid=e488 generic
+                      uid=e489 figure
+                      uid=e490 paragraph value="ContentMagickAi"
+              uid=e493 menu
+                uid=e495 link "Profile viewers 90" url="https://www.linkedin.com/me/profile-views/"
+                  uid=e496 generic "Profile viewers 90"
+                    uid=e498 paragraph value="Profile viewers"
+                    uid=e499 paragraph value="90"
+                uid=e501 link "Post impressions 947" url="https://www.linkedin.com/analytics/creator/content/"
+                  uid=e502 generic "Post impressions 947"
+                    uid=e504 paragraph value="Post impressions"
+                    uid=e505 paragraph value="947"
+              uid=e509 menu
+                uid=e510 link "My pages (4)" url="https://www.linkedin.com/feed/"
+                  uid=e511 generic
+                    uid=e512 paragraph value="My pages (4)"
+                    uid=e513 img
+                uid=e516 link "Learning Three.js" url="https://www.linkedin.com/company/11044858/admin/"
+                  uid=e518 generic
+                    uid=e519 figure
+                      uid=e520 img "Learning Three.js logo"
+                    uid=e524 paragraph value="Learning Three.js"
+                uid=e525 link "Activity 0" url="https://www.linkedin.com/company/11044858/admin/notifications/"
+                  uid=e526 generic
+                    uid=e527 paragraph value="Activity"
+                    uid=e528 paragraph value="0"
+                uid=e530 link "AR.js" url="https://www.linkedin.com/company/27105426/admin/"
+                  uid=e532 generic
+                    uid=e533 figure
+                      uid=e534 img "AR.js logo"
+                    uid=e538 paragraph value="AR.js"
+                uid=e539 link "Activity 0" url="https://www.linkedin.com/company/27105426/admin/notifications/"
+                  uid=e540 generic
+                    uid=e541 paragraph value="Activity"
+                    uid=e542 paragraph value="0"
+                uid=e544 link "WeBoostAI" url="https://www.linkedin.com/company/96241193/admin/"
+                  uid=e546 generic
+                    uid=e547 figure
+                      uid=e548 img "WeBoostAI logo"
+                    uid=e552 paragraph value="WeBoostAI"
+                uid=e553 link "Activity 0" url="https://www.linkedin.com/company/96241193/admin/notifications/"
+                  uid=e554 generic
+                    uid=e555 paragraph value="Activity"
+                    uid=e556 paragraph value="0"
+                uid=e559 paragraph value="Grow your business faster"
+                uid=e561 button "Try Premium Page"
+                  uid=e562 generic
+                    uid=e563 img
+                    uid=e566 paragraph
+                      uid=e567 strong value="Try Premium Page"
+                uid=e568 link "Advertise on LinkedIn" url="https://www.linkedin.com/campaignmanager/accounts/"
+                  uid=e569 generic
+                    uid=e570 img
+                    uid=e572 paragraph value="Advertise on LinkedIn"
+              uid=e575 menu
+                uid=e576 link "Saved items" url="https://www.linkedin.com/my-items/saved-posts/"
+                  uid=e577 generic
+                    uid=e578 img
+                    uid=e580 paragraph value="Saved items"
+                uid=e581 link "Groups" url="https://www.linkedin.com/groups/"
+                  uid=e582 generic
+                    uid=e583 img
+                    uid=e589 paragraph value="Groups"
+                uid=e590 link "Newsletters" url="https://www.linkedin.com/mynetwork/network-manager/newsletters/"
+                  uid=e591 generic
+                    uid=e592 img
+                    uid=e594 paragraph value="Newsletters"
+                uid=e595 link "Events" url="https://www.linkedin.com/events/"
+                  uid=e596 generic
+                    uid=e597 img
+                    uid=e599 paragraph value="Events"
+            uid=e601 list
+              uid=e603 generic
+                uid=e604 generic
+                  uid=e605 link url="https://www.linkedin.com/in/jeromeetienne/"
+                    uid=e606 figure
+                  uid=e608 button "Start a post"
+                    uid=e609 generic "Start a post"
+                      uid=e611 generic
+                        uid=e612 paragraph value="Start a post"
+                        uid=s7 generic
+                          uid=s8 paragraph
+                uid=e613 generic
+                  uid=e614 button "Video"
+                    uid=e615 generic
+                      uid=e616 img
+                      uid=e618 paragraph value="Video"
+                  uid=e619 button "Photo"
+                    uid=e620 generic
+                      uid=e621 img
+                      uid=e623 paragraph value="Photo"
+                  uid=e624 link "Write article" url="/article/new/"
+                    uid=e625 generic
+                      uid=e626 img
+                      uid=e628 paragraph value="Write article"
+              uid=s9 unknown
+                uid=e631 generic
+                  uid=e632 paragraph
+                    uid=s10 StaticText "Select feed view:"
+                    uid=e633 strong value="Most relevant first"
+                  uid=e634 img
+              uid=e2009 button "New posts"
+                uid=e2010 generic
+                  uid=e2011 img
+                  uid=e2013 generic value="New posts"
+              uid=e639 listitem
+                uid=e641 generic
+                  uid=s11 heading "Feed post" level="2"
+                    uid=e642 generic value="Feed post"
+                  uid=e643 generic
+                    uid=e644 link url="https://www.linkedin.com/in/paulbakaus/"
+                      uid=e645 figure
+                        uid=e646 img "View Paul Bakaus’ profile"
+                    uid=s12 unknown url="https://www.linkedin.com/in/paulbakaus/"
+                      uid=e648 generic
+                        uid=e649 generic "Paul Bakaus Premium Profile 1st"
+                          uid=e652 paragraph value="Paul Bakaus"
+                          uid=e654 paragraph
+                            uid=e656 img
+                            uid=s13 StaticText "• 1st"
+                        uid=e659 paragraph value="Tech exec who somehow still ships code. Created jQuery UI · ex-Google · ex-Zynga"
+                        uid=e661 link "Visit my website" url="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fpaulbakaus%2Ecom&urlhash=UQTM&mt=os-EV81Jf4sKm2W2M4PgIgh1R5zUjrLg_jN2BxfXmtmG8MmoVikh-al9LJE1UQLadtlK_raBiLwez4QT7ItwYD3zJhHY2o_5WAuM&isSdui=true"
+                          uid=e662 paragraph value="Visit my website"
+                        uid=e664 paragraph
+                          uid=s14 StaticText "6h •"
+                          uid=s15 unknown
+                    uid=e667 button "Open control menu for post by Paul Bakaus"
+                      uid=e669 img
+                    uid=e671 button "Hide post by Paul Bakaus"
+                      uid=e673 img
+                  uid=e675 paragraph
+                    uid=e676 generic
+                      uid=s16 StaticText "I was fortunate to get to attend (and demo Impeccable)"
+                      uid=e677 link "Jeffrey Veen" url="https://www.linkedin.com/in/jeffreyveen/"
+                        uid=e679 strong value="Jeffrey Veen"
+                      uid=s17 StaticText "'s"
+                      uid=s18 StaticText "excellent Design Futures Assembly yesterday."
+                      uid=s19 StaticText "Sadly no recordings or attributions due to Chatham House rules, but some highlights for me:"
+                      uid=s20 StaticText "- in panels and conversations, pretty even divide between 'woah new AI tools are exciting, more of it, designers should all be making tools for themselves' and 'no, less tools, more human input, intent, design thinking'. My take on this is 'why not both?' 🤷‍♂️"
+                      uid=s21 StaticText "- the idea of design living in your production codebase is becoming more common. i frankly thought my own design tool Impeccable was a little crazy to attempt this, but others are trying as well! That being said, there's clearly no answer for 'this is how designers will design going forward' yet. Many ideas, many good thoughts, many explorations."
+                      uid=s22 StaticText "- some challenged the idea that LLM models won't have 'taste', and I buy that models will become better and better at superficial prettyness. Taste is maybe not the moat. The last mile, and an opiniated, clear point of view, is. AI can now make pretty looking websites, but making things pretty is the smallest aspect of design."
+                      uid=e681 link "Tony Fadell" url="https://www.linkedin.com/in/tonyfadell/"
+                        uid=e683 strong value="Tony Fadell"
+                      uid=s23 StaticText "'s greatest achievement might be what he *didn't* put into the iPod."
+                      uid=s24 StaticText "- both in education and in enterprise org design, hot topics were the need to flatten structures, simplify handoff processes, create a shared 'substrate' to communicate better, teach people how to use AI as thought partner (cognitive delegation vs cognitive surrender) and how performance reviews, hiring practices, comp has not caught up with new realities (for example, designers getting paid less than eng even though they're submitting PRs now). It's understandable that especially design students and junior designers live in fear about their current or future job security, but we also had some optimistic voices that talked about the transition from traditional graphic design in the 90s to digital design, and how the job transformed with new tools but became exciting in its own way...that the same shift might be happening again with AI for those who embrace their newfound AI superpowers. Like with anything, I think all these things will be somewhat true; some jobs will cease to exist, others will transform, new ones we can't imagine yet will emerge."
+                      uid=s25 StaticText "Incredible to hear directly from industry legends on where design is heading, from folks like"
+                      uid=e684 link "Ian Silber" url="https://www.linkedin.com/in/iansilber/"
+                        uid=e686 strong value="Ian Silber"
+                      uid=s26 StaticText ","
+                      uid=e687 link "Joel Lewenstein" url="https://www.linkedin.com/in/joel-lewenstein/"
+                        uid=e689 strong value="Joel Lewenstein"
+                      uid=s27 StaticText ","
+                      uid=e690 link "Liz Danzico" url="https://www.linkedin.com/in/bobulate/"
+                        uid=e692 strong value="Liz Danzico"
+                      uid=s28 StaticText ","
+                      uid=e693 link "Noah Levin" url="https://www.linkedin.com/in/noahlewislevin/"
+                        uid=e695 strong value="Noah Levin"
+                      uid=s29 StaticText ","
+                      uid=e696 link "Nad Chishtie" url="https://www.linkedin.com/in/nad-chishtie/"
+                        uid=e698 strong value="Nad Chishtie"
+                      uid=s30 StaticText ","
+                      uid=e699 link "Eric Snowden" url="https://www.linkedin.com/in/ericsnowden/"
+                        uid=e701 strong value="Eric Snowden"
+                      uid=s31 StaticText ","
+                      uid=e702 link "Rachel Been" url="https://www.linkedin.com/in/rachel-been-a9000a3/"
+                        uid=e704 strong value="Rachel Been"
+                      uid=s32 StaticText ","
+                      uid=e705 link "Josh Clark" url="https://www.linkedin.com/in/joshclark/"
+                        uid=e707 strong value="Josh Clark"
+                      uid=s33 StaticText ","
+                      uid=e708 link "Ben Blumenrose" url="https://www.linkedin.com/in/benblumenrose/"
+                        uid=e710 strong value="Ben Blumenrose"
+                      uid=s34 StaticText ","
+                      uid=e711 link "Sarah Stein Greenberg" url="https://www.linkedin.com/in/sarahsteingreenberg/"
+                        uid=e713 strong value="Sarah Stein Greenberg"
+                      uid=s35 StaticText ","
+                      uid=e714 link "Helen Maria Nugent" url="https://www.linkedin.com/in/haelodesign/"
+                        uid=e716 strong value="Helen Maria Nugent"
+                      uid=s36 StaticText ","
+                      uid=e717 link "Amelia Wattenberger" url="https://www.linkedin.com/in/wattenberger/"
+                        uid=e719 strong value="Amelia Wattenberger"
+                      uid=s37 StaticText ","
+                      uid=e720 link "Luke Wroblewski" url="https://www.linkedin.com/in/lukew/"
+                        uid=e722 strong value="Luke Wroblewski"
+                      uid=s38 StaticText "and many others, and to see powerful tool demos by my peers."
+                      uid=s39 StaticText "It was impeccably curated, organized and executed. Fantastic job, Jeff and team."
+                      uid=s40 button
+                        uid=e724 generic value="… more"
+                  uid=e726 link url="https://www.linkedin.com/feed/"
+                    uid=e727 figure
+                      uid=e728 img "View image"
+                  uid=e729 generic
+                    uid=e730 link "13 reactions" url="https://www.linkedin.com/feed/"
+                      uid=e731 generic
+                        uid=e732 img
+                        uid=e738 img
+                        uid=e745 paragraph
+                          uid=e746 generic value="13 reactions"
+                          uid=s41 StaticText "13"
+                    uid=e748 button "1 comment"
+                      uid=e749 paragraph
+                        uid=e750 generic value="1 comment"
+                        uid=e751 generic value="1 comment"
+                  uid=e752 generic
+                    uid=e753 link "Open actor selection screen" url="https://www.linkedin.com/feed/"
+                      uid=e754 generic "Open actor selection screen"
+                        uid=e755 figure
+                        uid=e756 img
+                    uid=e758 generic
+                      uid=e759 generic
+                        uid=s42 unknown
+                          uid=e763 generic
+                            uid=e764 img
+                            uid=e766 generic value="Like"
+                        uid=s43 button "Open reactions menu"
+                          uid=e768 img
+                      uid=e770 button "Comment"
+                        uid=e771 generic
+                          uid=e772 img
+                          uid=e774 generic value="Comment"
+                      uid=e775 button "Repost"
+                        uid=e776 generic
+                          uid=e777 img
+                          uid=e779 generic value="Repost"
+                      uid=e780 link "Send" url="https://www.linkedin.com/feed/"
+                        uid=e781 generic
+                          uid=e782 img
+                          uid=e784 generic value="Send"
+              uid=e788 listitem
+                uid=e790 generic
+                  uid=s44 heading "Feed post" level="2"
+                    uid=e791 generic value="Feed post"
+                  uid=e792 generic
+                    uid=e793 link url="https://www.linkedin.com/company/datadog/posts/"
+                      uid=e794 figure
+                        uid=s45 unknown
+                    uid=e796 link "Datadog 523,384 followers Promoted" url="https://www.linkedin.com/company/datadog/posts/"
+                      uid=e797 generic
+                        uid=e801 paragraph value="Datadog"
+                        uid=e803 paragraph value="523,384 followers"
+                        uid=e805 paragraph value="Promoted"
+                    uid=e806 button "Open control menu for post by Datadog"
+                      uid=e808 img
+                  uid=e810 paragraph
+                    uid=e811 generic
+                      uid=s46 StaticText "We're hiring Software Engineers!"
+                      uid=s47 StaticText "Help shape what’s next in cloud technology by building impactful solutions that solve complex challenges."
+                      uid=s48 StaticText "👉 Explore our open roles today:"
+                      uid=e813 link "https://lnkd.in/eEgdsMqi" url="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Flnkd%2Ein%2FeEgdsMqi%3Fli_fat_id%3Daa1efdc6-f76b-478a-bb7d-51d9db60b8ff&urlhash=Sjtk&mt=InFhZaMTwZ2WsTpxzlppBYCv4lqjUUt_NkgLtBE_QXY3kbse8YDVzqFTe5mhrpy1urbiAOgp5nM8WvkwEW_Sw4BImBTt9S-w7XwZzz9fD6zRmPfX4ZNN8mXRzEHgvGjgSeJIvBa0dUZIebSySvfm00-DZTrvMCr2mfEnZP-czo1CFOWCUGD4LX-5UXZgKj2EmsX4klhSu_lY&isSdui=true"
+                        uid=e815 strong value="https://lnkd.in/eEgdsMqi"
+                      uid=s49 button
+                        uid=e817 generic value="… more"
+                  uid=e818 generic
+                    uid=e820 link url="https://careers.datadoghq.com/engineering/?region_EMEA%5B0%5D=EMEA&utm_source=linkedin&utm_medium=paid-social&utm_campaign=ebm-tech-engineerall-emea-2026-gm-retargeting-hiring-image-people-orange&gh_src=e632f8301us&li_fat_id=aa1efdc6-f76b-478a-bb7d-51d9db60b8ff"
+                      uid=e821 figure
+                        uid=e822 img "View Sponsored Content"
+                    uid=e823 link "We're Hiring Software Engineers! careers.datadoghq.com Learn more" url="https://careers.datadoghq.com/engineering/?region_EMEA%5B0%5D=EMEA&utm_source=linkedin&utm_medium=paid-social&utm_campaign=ebm-tech-engineerall-emea-2026-gm-retargeting-hiring-image-people-orange&gh_src=e632f8301us&li_fat_id=aa1efdc6-f76b-478a-bb7d-51d9db60b8ff"
+                      uid=e824 generic
+                        uid=e825 generic
+                          uid=e827 paragraph
+                            uid=e828 generic value="We're Hiring Software Engineers!"
+                            uid=s50 StaticText "We're Hiring Software Engineers!"
+                          uid=e830 paragraph value="careers.datadoghq.com"
+                        uid=e831 link "Learn more" url="https://careers.datadoghq.com/engineering/?region_EMEA%5B0%5D=EMEA&utm_source=linkedin&utm_medium=paid-social&utm_campaign=ebm-tech-engineerall-emea-2026-gm-retargeting-hiring-image-people-orange&gh_src=e632f8301us&li_fat_id=aa1efdc6-f76b-478a-bb7d-51d9db60b8ff"
+                          uid=e833 generic value="Learn more"
+                  uid=e835 link "24 reactions" url="https://www.linkedin.com/feed/"
+                    uid=e836 generic
+                      uid=e837 img
+                      uid=e843 img
+                      uid=e858 paragraph
+                        uid=e859 generic value="24 reactions"
+                        uid=s51 StaticText "24"
+                  uid=e860 generic
+                    uid=e861 link "Open actor selection screen" url="https://www.linkedin.com/feed/"
+                      uid=e862 generic "Open actor selection screen"
+                        uid=e863 figure
+                        uid=e864 img
+                    uid=e866 generic
+                      uid=e867 generic
+                        uid=s52 unknown
+                          uid=e871 generic
+                            uid=e872 img
+                            uid=e874 generic value="Like"
+                        uid=s53 button "Open reactions menu"
+                          uid=e876 img
+                      uid=e878 button "Comment"
+                        uid=e879 generic
+                          uid=e880 img
+                          uid=e882 generic value="Comment"
+                      uid=e883 button "Repost"
+                        uid=e884 generic
+                          uid=e885 img
+                          uid=e887 generic value="Repost"
+                      uid=e888 link "Send" url="https://www.linkedin.com/feed/"
+                        uid=e889 generic
+                          uid=e890 img
+                          uid=e892 generic value="Send"
+              uid=e896 listitem
+                uid=e898 generic
+                  uid=s54 heading "Feed post" level="2"
+                    uid=e899 generic value="Feed post"
+                  uid=e900 generic
+                    uid=e901 link url="https://www.linkedin.com/in/jontwigge/"
+                      uid=e902 figure
+                        uid=e903 img "View Jon Twigge’s profile"
+                    uid=s55 unknown url="https://www.linkedin.com/in/jontwigge/"
+                      uid=e905 generic
+                        uid=e906 generic "Jon Twigge Premium Profile 1st"
+                          uid=e909 paragraph value="Jon Twigge"
+                          uid=e911 paragraph
+                            uid=e913 img
+                            uid=s56 StaticText "• 1st"
+                        uid=e916 paragraph value="Founder, Potentialisation | Helping people find their way in the new world"
+                        uid=e918 paragraph
+                          uid=s57 StaticText "6d •"
+                          uid=s58 unknown
+                    uid=e921 button "Open control menu for post by Jon Twigge"
+                      uid=e923 img
+                    uid=e925 button "Hide post by Jon Twigge"
+                      uid=e927 img
+                  uid=e929 paragraph
+                    uid=e930 generic
+                      uid=s59 StaticText "I love this kind of thing. I always want to know why - not just what. With why we can we be really aware and go under the hood and change things. With the world of employment changing quickly we are going to need a lot more meta why about our own learning and understanding to adapt effectively."
+                      uid=s60 button
+                        uid=e932 generic value="… more"
+                  uid=e933 generic
+                    uid=e934 link url="https://www.linkedin.com/pulse/structure-magic-darren-stevens-phd-s002e/"
+                      uid=e935 figure
+                        uid=e936 img "The Structure of The Structure of Magic"
+                    uid=e937 link "Exceptional Leadership Subscribe to Exceptional Leadership The Structure of The Structure of Magic Darren Stevens, PhD" url="https://www.linkedin.com/pulse/structure-magic-darren-stevens-phd-s002e/"
+                      uid=e938 generic
+                        uid=e939 link "Exceptional Leadership Subscribe to Exceptional Leadership" url="https://www.linkedin.com/newsletters/exceptional-leadership-7265293037520445440/"
+                          uid=e940 generic
+                            uid=e941 figure
+                            uid=e943 paragraph value="Exceptional Leadership"
+                            uid=e945 button "Subscribe to Exceptional Leadership"
+                              uid=e946 generic
+                                uid=e947 img
+                                uid=e949 generic value="Subscribe"
+                        uid=e951 paragraph value="The Structure of The Structure of Magic"
+                        uid=e953 paragraph value="Darren Stevens, PhD"
+                  uid=e954 generic
+                    uid=e955 link "Open actor selection screen" url="https://www.linkedin.com/feed/"
+                      uid=e956 generic "Open actor selection screen"
+                        uid=e957 figure
+                        uid=e958 img
+                    uid=e960 generic
+                      uid=e961 generic
+                        uid=s61 unknown
+                          uid=e965 generic
+                            uid=e966 img
+                            uid=e968 generic value="Like"
+                        uid=s62 button "Open reactions menu"
+                          uid=e970 img
+                      uid=e972 button "Comment"
+                        uid=e973 generic
+                          uid=e974 img
+                          uid=e976 generic value="Comment"
+                      uid=e977 button "Repost"
+                        uid=e978 generic
+                          uid=e979 img
+                          uid=e981 generic value="Repost"
+                      uid=e982 link "Send" url="https://www.linkedin.com/feed/"
+                        uid=e983 generic
+                          uid=e984 img
+                          uid=e986 generic value="Send"
+              uid=e990 listitem
+                uid=e992 generic
+                  uid=s63 heading "Feed post" level="2"
+                    uid=e993 generic value="Feed post"
+                  uid=e994 generic
+                    uid=e995 generic
+                      uid=e996 link url="https://www.linkedin.com/in/godefroy/"
+                        uid=e997 figure
+                          uid=e998 img "View Godefroy de Compreignac’s profile"
+                      uid=e1000 paragraph
+                        uid=e1001 link "Godefroy de Compreignac" url="https://www.linkedin.com/in/godefroy/"
+                          uid=e1002 strong value="Godefroy de Compreignac"
+                        uid=s64 StaticText "likes this"
+                    uid=e1003 button "Open control menu for post by Jean de Bailliencourt"
+                      uid=e1005 img
+                    uid=e1007 button "Hide post by Jean de Bailliencourt"
+                      uid=e1009 img
+                  uid=e1011 generic
+                    uid=e1012 link url="https://www.linkedin.com/in/jeandebailliencourt/"
+                      uid=e1013 figure
+                        uid=e1014 img "View Jean de Bailliencourt’s profile"
+                    uid=s65 unknown url="https://www.linkedin.com/in/jeandebailliencourt/"
+                      uid=e1016 generic
+                        uid=e1017 generic "Jean de Bailliencourt Verified Profile 2nd"
+                          uid=e1020 paragraph value="Jean de Bailliencourt"
+                          uid=e1022 paragraph
+                            uid=e1024 img
+                            uid=s66 StaticText "• 2nd"
+                        uid=e1027 paragraph value="Working @ COBALT - The Retro Smartwatch"
+                        uid=e1029 paragraph
+                          uid=s67 StaticText "2d •"
+                          uid=s68 unknown
+                    uid=e1035 button "Follow Jean de Bailliencourt"
+                      uid=e1036 generic
+                        uid=e1037 img
+                        uid=e1040 generic value="Follow"
+                  uid=e1043 paragraph
+                    uid=e1044 generic
+                      uid=s69 StaticText "⌚️ Je ne trouvais pas de montre connectée à mon goût."
+                      uid=s70 StaticText "Trop grandes, trop chères, à recharger chaque soir, et surtout : un écran de plus à regarder!"
+                      uid=s71 StaticText "J'ai commencé à construire une réponse à ce problème : la montre Cobalt."
+                      uid=s72 StaticText "💡"
+                      uid=e1046 link "Cobalt Watch" url="https://www.linkedin.com/company/cobalt-watch/"
+                        uid=e1048 strong value="Cobalt Watch"
+                      uid=s73 StaticText "est un bracelet vocal construit à l'intérieur d'un boîtier Casio F-91W, la montre iconique à 20€ que beaucoup d'entre nous ont portée."
+                      uid=s74 StaticText "Seule la carte électronique est remplacée, le reste est identique : même boîtier, même bracelet, même pile."
+                      uid=s75 StaticText "Bouton PTT : ▶️ Appuyez, 🔴 Parlez :"
+                      uid=s76 StaticText "- Enregistrer une note vocale"
+                      uid=s77 StaticText "- Lancer une musique"
+                      uid=s78 StaticText "- Créer un RDV"
+                      uid=s79 StaticText "- Poser une alarme"
+                      uid=s80 StaticText "- Envoyer un message (Android uniquement)"
+                      uid=s81 StaticText "sans sortir votre téléphone."
+                      uid=s82 StaticText "📆 Le 1er juin nous lançons le Kickstarter."
+                      uid=s83 StaticText "-> Prix de lancement : 90€"
+                      uid=s84 StaticText "Si le projet vous parle, une seule chose à faire : laisser votre adresse sur notre site, le lien est dans les commentaires."
+                      uid=s85 StaticText "Ou pour toutes autres questions ! 🫡"
+                      uid=s86 StaticText "- Jean, cofondateur Cobalt"
+                      uid=e1049 link "#casio" url="https://www.linkedin.com/search/results/all/?keywords=%23casio&origin=HASH_TAG_FROM_FEED"
+                        uid=e1051 strong value="#casio"
+                      uid=e1052 link "#f91w" url="https://www.linkedin.com/search/results/all/?keywords=%23f91w&origin=HASH_TAG_FROM_FEED"
+                        uid=e1054 strong value="#f91w"
+                      uid=e1055 link "#nrf52840" url="https://www.linkedin.com/search/results/all/?keywords=%23nrf52840&origin=HASH_TAG_FROM_FEED"
+                        uid=e1057 strong value="#nrf52840"
+                      uid=e1058 link "#nordic" url="https://www.linkedin.com/search/results/all/?keywords=%23nordic&origin=HASH_TAG_FROM_FEED"
+                        uid=e1060 strong value="#nordic"
+                      uid=e1061 link "#ble" url="https://www.linkedin.com/search/results/all/?keywords=%23ble&origin=HASH_TAG_FROM_FEED"
+                        uid=e1063 strong value="#ble"
+                      uid=e1064 link "#assistant" url="https://www.linkedin.com/search/results/all/?keywords=%23assistant&origin=HASH_TAG_FROM_FEED"
+                        uid=e1066 strong value="#assistant"
+                      uid=e1067 link "#retro" url="https://www.linkedin.com/search/results/all/?keywords=%23retro&origin=HASH_TAG_FROM_FEED"
+                        uid=e1069 strong value="#retro"
+                      uid=e1070 link "#tech" url="https://www.linkedin.com/search/results/all/?keywords=%23tech&origin=HASH_TAG_FROM_FEED"
+                        uid=e1072 strong value="#tech"
+                      uid=s87 button
+                        uid=e1074 generic value="… more"
+                  uid=e1076 button "Show translation"
+                    uid=e1078 generic value="Show translation"
+                  uid=e1080 link url="https://www.linkedin.com/feed/"
+                    uid=e1081 figure
+                      uid=e1082 img "View image"
+                  uid=e1083 generic
+                    uid=e1084 link "Cedric Pinson and 462 others reacted" url="https://www.linkedin.com/feed/"
+                      uid=e1085 generic
+                        uid=e1086 img
+                        uid=e1092 img
+                        uid=e1106 img
+                        uid=e1113 paragraph
+                          uid=e1114 generic value="Cedric Pinson and 462 others reacted"
+                          uid=e1115 generic value="Cedric Pinson and 462 others"
+                    uid=e1116 generic
+                      uid=e1117 button "48 comments"
+                        uid=e1118 paragraph
+                          uid=e1119 generic value="48 comments"
+                          uid=e1120 generic value="48 comments"
+                      uid=e1121 paragraph value="•"
+                      uid=e1122 link "15 reposts" url="https://www.linkedin.com/feed/"
+                        uid=e1123 paragraph
+                          uid=e1124 generic value="15 reposts"
+                          uid=e1125 generic value="15 reposts"
+                  uid=e1126 generic
+                    uid=e1127 link "Open actor selection screen" url="https://www.linkedin.com/feed/"
+                      uid=e1128 generic "Open actor selection screen"
+                        uid=e1129 figure
+                        uid=e1130 img
+                    uid=e1132 generic
+                      uid=e1133 generic
+                        uid=s88 unknown
+                          uid=e1137 generic
+                            uid=e1138 img
+                            uid=e1140 generic value="Like"
+                        uid=s89 button "Open reactions menu"
+                          uid=e1142 img
+                      uid=e1144 button "Comment"
+                        uid=e1145 generic
+                          uid=e1146 img
+                          uid=e1148 generic value="Comment"
+                      uid=e1149 button "Repost"
+                        uid=e1150 generic
+                          uid=e1151 img
+                          uid=e1153 generic value="Repost"
+                      uid=e1154 link "Send" url="https://www.linkedin.com/feed/"
+                        uid=e1155 generic
+                          uid=e1156 img
+                          uid=e1158 generic value="Send"
+                uid=e1159 generic
+                  uid=e1164 generic
+                    uid=e1166 link url="https://www.linkedin.com/in/sadiknassim/"
+                      uid=e1167 figure
+                        uid=e1168 img "View Nassim Sadik’s profile"
+                    uid=e1174 generic
+                      uid=e1176 generic
+                        uid=e1177 link "Nassim Sadik 3rd+ Strategy and Management Consultant · Financial Services · Institutional Governance · Operational Execution · Published Researcher" url="https://www.linkedin.com/in/sadiknassim/"
+                          uid=e1178 generic
+                            uid=e1182 paragraph
+                              uid=e1183 generic value="Nassim Sadik 3rd+"
+                              uid=e1184 generic
+                                uid=s90 StaticText "Nassim Sadik"
+                                uid=e1185 generic value="• 3rd+"
+                            uid=e1187 paragraph value="Strategy and Management Consultant · Financial Services · Institutional Governance · Operational Execution · Published Researcher"
+                        uid=e1189 paragraph value="16h"
+                        uid=e1191 button "Follow Nassim Sadik"
+                          uid=e1194 generic value="Follow"
+                        uid=e1195 button "View more options for Nassim Sadik’s comment."
+                          uid=e1197 img
+                      uid=e1202 paragraph
+                        uid=e1203 generic
+                          uid=s91 StaticText "Clever and very cool niche product, but scaling this looks tough. Unless you either design a legal lookalike or secure licensing with Casio, you’ll likely run into compounding constraints: supply dependency, tight unit economics, manufacturing complexity, and after-sales issues . The onboarding path is another big friction point. If users have to buy the watch themselves, ship it, wait for modification, then get it back, that alone kills impulse adoption. Prebuilding inventory simplifies UX, but introduces brand/IP exposure and reliance on a product you don’t control. I’m curious though on how you’re thinking about de-risking supply and simplifying onboarding as you scale? Et surtout good luck."
+                          uid=s92 button
+                            uid=e1205 generic value="… more"
+                      uid=e1207 generic
+                        uid=e1208 generic
+                          uid=e1209 generic
+                            uid=s93 unknown
+                              uid=e1213 generic
+                                uid=s94 unknown
+                                uid=e1217 paragraph
+                                  uid=e1218 generic value="1 reaction"
+                                  uid=s95 StaticText "1"
+                            uid=s96 button "Open reactions menu"
+                              uid=e1220 img
+                          uid=e1222 generic
+                            uid=e1223 button "Reply"
+                              uid=e1225 img
+                            uid=e1228 paragraph
+                              uid=e1229 generic value="1"
+                              uid=s97 StaticText "1"
+                        uid=e1230 link url="https://www.linkedin.com/feed/"
+                          uid=e1231 img
+                  uid=e1238 button "Load more comments Load more comments"
+                    uid=e1239 generic
+                      uid=e1240 button "Load more comments"
+                        uid=e1242 img
+                      uid=e1244 button "Load more comments"
+                        uid=e1246 generic value="Load more comments"
+              uid=e1250 listitem
+                uid=e1252 generic
+                  uid=s98 heading "Feed post" level="2"
+                    uid=e1253 generic value="Feed post"
+                  uid=e1254 generic
+                    uid=e1255 generic
+                      uid=e1256 img
+                      uid=e1258 paragraph value="Reach more buyers"
+                      uid=e1259 paragraph value="Boost your best posts in minutes and drive measurable results"
+                      uid=e1260 link "Learn how" url="https://business.linkedin.com/content/dam/business/marketing-solutions/global/en_US/site/pdf/infographics/boosting-with-linkedin.pdf?mcid=7404249651555549184&src=li-ghom&trk=202512_GLOBAL_EN_BoostBestPractice3RC_CompanyPageAdmins_547"
+                        uid=e1262 generic value="Learn how"
+                    uid=e1263 generic
+                      uid=e1264 button "View more options"
+                        uid=e1266 img
+                      uid=e1268 link url="https://business.linkedin.com/content/dam/business/marketing-solutions/global/en_US/site/pdf/infographics/boosting-with-linkedin.pdf?mcid=7404249651555549184&src=li-ghom&trk=202512_GLOBAL_EN_BoostBestPractice3RC_CompanyPageAdmins_547"
+                        uid=e1269 figure
+                          uid=e1270 img "Learn how"
+              uid=e1274 listitem
+                uid=e1276 generic
+                  uid=s99 heading "Feed post" level="2"
+                    uid=e1277 generic value="Feed post"
+                  uid=e1278 generic
+                    uid=e1279 link url="https://www.linkedin.com/in/dylanbfox/"
+                      uid=e1280 figure
+                        uid=e1281 img "View Dylan Fox’s profile"
+                    uid=e1282 link "Dylan Fox 2nd Founder/CEO - AssemblyAI Promoted by AssemblyAI" url="https://www.linkedin.com/in/dylanbfox/"
+                      uid=e1283 generic
+                        uid=e1284 generic "Dylan Fox 2nd"
+                          uid=e1287 paragraph value="Dylan Fox"
+                          uid=e1289 paragraph value="• 2nd"
+                        uid=e1291 paragraph value="Founder/CEO - AssemblyAI"
+                        uid=e1293 paragraph
+                          uid=s100 StaticText "Promoted by"
+                          uid=e1294 link "AssemblyAI" url="https://www.linkedin.com/company/assemblyai/posts/"
+                            uid=e1295 strong value="AssemblyAI"
+                    uid=e1299 button "Follow Dylan Fox"
+                      uid=e1300 generic
+                        uid=e1301 img
+                        uid=e1304 generic value="Follow"
+                    uid=e1305 button "Open control menu for post by Dylan Fox"
+                      uid=e1307 img
+                  uid=e1309 paragraph
+                    uid=e1310 generic
+                      uid=s101 StaticText "We looked through 22 popular Voice AI datasets: VoxPopuli, Earnings-22, AfriSpeech. Datasets with 25K+ downloads/month. They're full of errors."
+                      uid=s102 StaticText "Wrong company names. Wrong people names. Entire languages dropped from multilingual audio. Hundreds of sections marked <inaudible>."
+                      uid=s103 StaticText "When we shipped Universal-3-Pro a few weeks ago, WER went up on some benchmarks. So we dug in. Listened to the audio. Read the transcripts side by side."
+                      uid=s104 StaticText "What we found was very surprising..."
+                      uid=s105 StaticText "Our model was beating the human ground truth. And getting penalized for it!"
+                      uid=s106 StaticText "I wrote up everything we found with real audio examples you can listen to yourself."
+                      uid=s107 StaticText "Full post:"
+                      uid=e1311 link "https://lnkd.in/ePfY-ZXw" url="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Flnkd%2Ein%2FePfY-ZXw%3Fli_fat_id%3Daa1efdc6-f76b-478a-bb7d-51d9db60b8ff&urlhash=1jLv&mt=m1OCaqB580vx0iiKXU7qgADy9sTBpGilt1OWfIqzdguva8V3Wm0ahT0r7nsnlm8zfL7A2S9ByCpfSwO_EPnWvsPxxiDVP2H-owD8DDZqIkj7GdxdHl-4IIVEfjnJDlwfWi4jeMf779TsXXGerLm4ll_jqLcNUwTEjqPqMf6rnYviSFeBJF6sRIe-kx7QC3URVSrs2FCs4C43&isSdui=true"
+                        uid=e1313 strong value="https://lnkd.in/ePfY-ZXw"
+                      uid=s108 button
+                        uid=e1315 generic value="… more"
+                  uid=e1316 generic
+                    uid=e1318 link url="https://www.dylanbfox.com/blog/beyond-wer?li_fat_id=aa1efdc6-f76b-478a-bb7d-51d9db60b8ff"
+                      uid=e1319 figure
+                        uid=e1320 img "View Sponsored Content"
+                    uid=e1321 link "Beyond WER — Dylan Fox dylanbfox.com" url="https://www.dylanbfox.com/blog/beyond-wer?li_fat_id=aa1efdc6-f76b-478a-bb7d-51d9db60b8ff"
+                      uid=e1322 generic
+                        uid=e1323 generic
+                          uid=e1325 paragraph
+                            uid=e1326 generic value="Beyond WER — Dylan Fox"
+                            uid=s109 StaticText "Beyond WER — Dylan Fox"
+                          uid=e1328 paragraph value="dylanbfox.com"
+                        uid=e1329 img
+                  uid=e1331 generic
+                    uid=e1332 link "173 reactions" url="https://www.linkedin.com/feed/"
+                      uid=e1333 generic
+                        uid=e1334 img
+                        uid=e1340 img
+                        uid=e1346 img
+                        uid=e1355 paragraph
+                          uid=e1356 generic value="173 reactions"
+                          uid=s110 StaticText "173"
+                    uid=e1357 generic
+                      uid=e1358 button "24 comments"
+                        uid=e1359 paragraph
+                          uid=e1360 generic value="24 comments"
+                          uid=e1361 generic value="24 comments"
+                      uid=e1362 paragraph value="•"
+                      uid=e1363 link "9 reposts" url="https://www.linkedin.com/feed/"
+                        uid=e1364 paragraph
+                          uid=e1365 generic value="9 reposts"
+                          uid=e1366 generic value="9 reposts"
+                  uid=e1367 generic
+                    uid=e1368 link "Open actor selection screen" url="https://www.linkedin.com/feed/"
+                      uid=e1369 generic "Open actor selection screen"
+                        uid=e1370 figure
+                        uid=e1371 img
+                    uid=e1373 generic
+                      uid=e1374 generic
+                        uid=s111 unknown
+                          uid=e1378 generic
+                            uid=e1379 img
+                            uid=e1381 generic value="Like"
+                        uid=s112 button "Open reactions menu"
+                          uid=e1383 img
+                      uid=e1385 button "Comment"
+                        uid=e1386 generic
+                          uid=e1387 img
+                          uid=e1389 generic value="Comment"
+                      uid=e1390 button "Repost"
+                        uid=e1391 generic
+                          uid=e1392 img
+                          uid=e1394 generic value="Repost"
+                      uid=e1395 link "Send" url="https://www.linkedin.com/feed/"
+                        uid=e1396 generic
+                          uid=e1397 img
+                          uid=e1399 generic value="Send"
+              uid=e1403 listitem
+                uid=e1405 generic
+                  uid=s113 heading "Feed post" level="2"
+                    uid=e1406 generic value="Feed post"
+                  uid=e1407 generic
+                    uid=e1410 paragraph value="Suggested"
+                    uid=e1411 button "Open control menu for post by Andrey Sirota"
+                      uid=e1413 img
+                    uid=e1415 button "Hide post by Andrey Sirota"
+                      uid=e1417 img
+                  uid=e1419 generic
+                    uid=e1420 link url="https://www.linkedin.com/in/andreysirota/"
+                      uid=e1421 figure
+                        uid=e1422 img "View Andrey Sirota’s profile"
+                    uid=s114 unknown url="https://www.linkedin.com/in/andreysirota/"
+                      uid=e1424 generic
+                        uid=e1425 generic "Andrey Sirota Verified Profile 2nd"
+                          uid=e1428 paragraph value="Andrey Sirota"
+                          uid=e1430 paragraph
+                            uid=e1432 img
+                            uid=s115 StaticText "• 2nd"
+                        uid=e1435 paragraph value="Unity Developer – Sharing Game Dev Tips & Tutorials on C#, AR, Mobile, Web – Asset Store Publisher"
+                        uid=e1437 paragraph
+                          uid=s116 StaticText "1d •"
+                          uid=s117 unknown
+                    uid=e1443 button "Follow Andrey Sirota"
+                      uid=e1444 generic
+                        uid=e1445 img
+                        uid=e1448 generic value="Follow"
+                  uid=e1449 paragraph
+                    uid=e1450 generic
+                      uid=s118 StaticText "Unity and AI for 3D — Generate Game Models using UModeler X + PicoBerry:"
+                      uid=s119 StaticText "The Unity Plugin is now free and provides real-time 3D modeling, UV editing, texturing, mesh optimization, and rigging directly inside the Unity Editor. It introduces a new AI generation tool (PicoBerry) for creating Images and 3D Models with just a few clicks."
+                      uid=s120 StaticText "In this video example, I experimented with creating a cartoon version of the Donald Trump character and got a low-poly result in about a minute."
+                      uid=s121 StaticText "Each Month, you can generate several models for free and accelerate your game development."
+                      uid=s122 StaticText "⭐ HOW IT WORKS"
+                      uid=s123 StaticText "Generate production-ready 3D assets with PicoBerry AI:"
+                      uid=s124 StaticText "1. Describe Your Asset using text or image as prompts."
+                      uid=s125 StaticText "2. AI creates your 3D model in 30–90 seconds."
+                      uid=s126 StaticText "3. Refine with UModeler X and AI: remeshing, texturing, and rigging."
+                      uid=s127 StaticText "4. Ship It: Game-ready assets, straight into your project."
+                      uid=s128 StaticText "⭐ SMART REMESHING"
+                      uid=s129 StaticText "AI-powered topology optimization automatically cleans up mesh geometry. Get game-ready polygon counts without manual retopology work."
+                      uid=s130 StaticText "⭐ AI RIGGING (coming soon)"
+                      uid=s131 StaticText "Automatically generate bone structures and skin weights for your characters. Go from static mesh to animation-ready model in a single click."
+                      uid=s132 StaticText "⭐ AI TEXTURING"
+                      uid=s133 StaticText "Generate and apply high-quality textures with AI. PBR-ready materials created from text descriptions — seamlessly mapped to your 3D models."
+                      uid=s134 StaticText "🧶 Stay Tuned to Learn more Unity Tips"
+                      uid=s135 StaticText "Affiliate Links:"
+                      uid=s136 StaticText "⭐ Unity UModeler X + PicoBerry AI:"
+                      uid=e1452 link "https://makaka.org/o/umx" url="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fmakaka%2Eorg%2Fo%2Fumx&urlhash=SmYk&mt=2FrPU9ec_hm0RsM8qGecyF-EJ4elhrTCyt4WGb3Wh2lS6CmG6Ci52ZRZ-XDSgCRyrVDIJYksh6YdlH3Z02-CgwQtYL4Wi3JUNzSwxLmhSLgE7hytprDsv48&isSdui=true"
+                        uid=e1454 strong value="https://makaka.org/o/umx"
+                      uid=s137 StaticText "⁣⭐ My Unity Assets:"
+                      uid=e1455 link "https://makaka.org/o/uas" url="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fmakaka%2Eorg%2Fo%2Fuas&urlhash=QCEu&mt=7ZCI51DElSj_1p_kllZ2F87RFmFtt2l_AWDGerVsbqxePfItt70N3upkmuuw_40fGn2zS1A6Xjm0_BwwmxUM2fSH_IjmDMW-acQNrbdoArmS-RKCQZV2BYA&isSdui=true"
+                        uid=e1457 strong value="https://makaka.org/o/uas"
+                      uid=s138 StaticText "⭐ Fresh Bundle for GameDevs:"
+                      uid=e1458 link "https://lnkd.in/epT9u49w" url="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Flnkd%2Ein%2FepT9u49w&urlhash=ILtJ&mt=bch6KHmg8uTraJFiTk_Bh1cRRuJqIlB1XdhX3P-xX1YdqbgAoK89cmA2qQlGNyg2NWe8aEG5gRKSa-iHai3Oj7oX4PSKQ3ChCx05Izn3Xhd1iJlCFdBdBbk&isSdui=true"
+                        uid=e1460 strong value="https://lnkd.in/epT9u49w"
+                      uid=e1461 link "#GameDev" url="https://www.linkedin.com/search/results/all/?keywords=%23gamedev&origin=HASH_TAG_FROM_FEED"
+                        uid=e1463 strong value="#GameDev"
+                      uid=e1464 link "#Unity3D" url="https://www.linkedin.com/search/results/all/?keywords=%23unity3d&origin=HASH_TAG_FROM_FEED"
+                        uid=e1466 strong value="#Unity3D"
+                      uid=e1467 link "#Unity" url="https://www.linkedin.com/search/results/all/?keywords=%23unity&origin=HASH_TAG_FROM_FEED"
+                        uid=e1469 strong value="#Unity"
+                      uid=s139 button
+                        uid=e1471 generic value="… more"
+                  uid=e1474 generic
+                    uid=e1476 region "Video Player" value="             "
+                    uid=e1481 button "Play video"
+                      uid=e1483 img
+                  uid=e1485 generic
+                    uid=e1486 link "119 reactions" url="https://www.linkedin.com/feed/"
+                      uid=e1487 generic
+                        uid=e1488 img
+                        uid=e1494 img
+                        uid=e1502 img
+                        uid=e1517 paragraph
+                          uid=e1518 generic value="119 reactions"
+                          uid=s140 StaticText "119"
+                    uid=e1519 generic
+                      uid=e1520 button "9 comments"
+                        uid=e1521 paragraph
+                          uid=e1522 generic value="9 comments"
+                          uid=e1523 generic value="9 comments"
+                      uid=e1524 paragraph value="•"
+                      uid=e1525 link "9 reposts" url="https://www.linkedin.com/feed/"
+                        uid=e1526 paragraph
+                          uid=e1527 generic value="9 reposts"
+                          uid=e1528 generic value="9 reposts"
+                  uid=e1529 generic
+                    uid=e1530 link "Open actor selection screen" url="https://www.linkedin.com/feed/"
+                      uid=e1531 generic "Open actor selection screen"
+                        uid=e1532 figure
+                        uid=e1533 img
+                    uid=e1535 generic
+                      uid=e1536 generic
+                        uid=s141 unknown
+                          uid=e1540 generic
+                            uid=e1541 img
+                            uid=e1543 generic value="Like"
+                        uid=s142 button "Open reactions menu"
+                          uid=e1545 img
+                      uid=e1547 button "Comment"
+                        uid=e1548 generic
+                          uid=e1549 img
+                          uid=e1551 generic value="Comment"
+                      uid=e1552 button "Repost"
+                        uid=e1553 generic
+                          uid=e1554 img
+                          uid=e1556 generic value="Repost"
+                      uid=e1557 link "Send" url="https://www.linkedin.com/feed/"
+                        uid=e1558 generic
+                          uid=e1559 img
+                          uid=e1561 generic value="Send"
+              uid=e1565 listitem
+                uid=e1567 generic
+                  uid=s143 heading "Feed post" level="2"
+                    uid=e1568 generic value="Feed post"
+                  uid=e1569 generic
+                    uid=e1570 generic
+                      uid=e1571 link url="https://www.linkedin.com/in/stanamsellem/"
+                        uid=e1572 figure
+                          uid=e1573 img "View Stan Amsellem’s profile"
+                      uid=e1575 paragraph
+                        uid=e1576 link "Stan Amsellem" url="https://www.linkedin.com/in/stanamsellem/"
+                          uid=e1577 strong value="Stan Amsellem"
+                        uid=s144 StaticText "celebrates this"
+                    uid=e1578 button "Open control menu for post by Hassine Achour"
+                      uid=e1580 img
+                    uid=e1582 button "Hide post by Hassine Achour"
+                      uid=e1584 img
+                  uid=e1586 generic
+                    uid=e1587 link url="https://www.linkedin.com/in/hassineachour/"
+                      uid=e1588 figure
+                        uid=e1589 img "View Hassine Achour’s profile"
+                    uid=s145 unknown url="https://www.linkedin.com/in/hassineachour/"
+                      uid=e1591 generic
+                        uid=e1592 generic "Hassine Achour Premium Profile 2nd"
+                          uid=e1595 paragraph value="Hassine Achour"
+                          uid=e1597 paragraph
+                            uid=e1599 img
+                            uid=s146 StaticText "• 2nd"
+                        uid=e1602 paragraph value="Founder @artikle | We Find the Deals You’re Missing | Proven Results across 100+ organizations"
+                        uid=e1604 link "Visit my website" url="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fwww%2Eartikle%2Eio&urlhash=A89R&mt=BjDnTvEDNYiBHLvIAnz_-r5NDHc3ngXdGPeqhF9bBcrXy0r_6bE6DRW118w17Ttjvl1jq9sC7u41JorZQt_PyJsVUNcRbkhOWGN8AZA&isSdui=true"
+                          uid=e1605 paragraph value="Visit my website"
+                        uid=e1607 paragraph
+                          uid=s147 StaticText "6d •"
+                          uid=s148 unknown
+                    uid=e1613 button "Invite Hassine Achour to connect"
+                      uid=e1614 generic
+                        uid=e1615 img
+                        uid=e1618 generic value="Connect"
+                  uid=e1621 paragraph
+                    uid=e1622 generic
+                      uid=s149 StaticText "Notre IA tourne désormais entièrement sur notre propre matériel, en France, dans le 18ème arrondissement de Paris! Les données de nos clients ne quittent plus jamais la France. On ne dépend d'aucun fournisseur externe. Et nos coûts ont chuté de plus de 95%."
+                      uid=s150 StaticText "🛠️ Le setup :"
+                      uid=s151 StaticText "On fait tourner les meilleurs modèles open-source du moment, sortis cette semaine et notamment:"
+                      uid=s152 StaticText "- Qwen3.6-27B (sorti hier) sur une Nvidia RTX 4090 achetée ~2 000€ HT. Un seul GPU."
+                      uid=s153 StaticText "> Coût d'électricité : 50€/mois. Performance niveau GPT-5/Claude Opus."
+                      uid=s154 StaticText "La vraie barrière aujourd'hui, ce n'est plus le prix du matériel, c'est de savoir quoi faire tourner dessus. Vous pouvez utiliser"
+                      uid=e1623 link "https://www.llmfit.org/" url="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fwww%2Ellmfit%2Eorg%2F&urlhash=yxBX&mt=FJX0_kDIPwpUfSEKGcbPttNITw9ysy8nlxNTXjeRjMP-LhPXc6kLcVrittUhnzTTFvHbVKxplSiQOme4iewMXoZeSyZkGlCzGJjHrGWnZD2b8N3PtQeKcBo&isSdui=true"
+                        uid=e1625 strong value="https://www.llmfit.org/"
+                      uid=s155 StaticText "pour savoir ce qui peut tourner sur votre confi."
+                      uid=s156 StaticText "L'IA souveraine n'est plus réservée aux grands groupes avec des budgets data center. C'est accessible maintenant, pour des équipes de notre taille."
+                      uid=s157 StaticText "Des questions sur comment on a monté ça? On répond en commentaires 👇"
+                      uid=e1626 link "#IA" url="https://www.linkedin.com/search/results/all/?keywords=%23ia&origin=HASH_TAG_FROM_FEED"
+                        uid=e1628 strong value="#IA"
+                      uid=e1629 link "#Souveraineté" url="https://www.linkedin.com/search/results/all/?keywords=%23souverainet%C3%A9&origin=HASH_TAG_FROM_FEED"
+                        uid=e1631 strong value="#Souveraineté"
+                      uid=e1632 link "#OpenSource" url="https://www.linkedin.com/search/results/all/?keywords=%23opensource&origin=HASH_TAG_FROM_FEED"
+                        uid=e1634 strong value="#OpenSource"
+                      uid=e1635 link "#Artikle" url="https://www.linkedin.com/search/results/all/?keywords=%23artikle&origin=HASH_TAG_FROM_FEED"
+                        uid=e1637 strong value="#Artikle"
+                      uid=e1638 link "#DeepSeek" url="https://www.linkedin.com/search/results/all/?keywords=%23deepseek&origin=HASH_TAG_FROM_FEED"
+                        uid=e1640 strong value="#DeepSeek"
+                      uid=e1641 link "#Qwen" url="https://www.linkedin.com/search/results/all/?keywords=%23qwen&origin=HASH_TAG_FROM_FEED"
+                        uid=e1643 strong value="#Qwen"
+                      uid=e1644 link "#Innovation" url="https://www.linkedin.com/search/results/all/?keywords=%23innovation&origin=HASH_TAG_FROM_FEED"
+                        uid=e1646 strong value="#Innovation"
+                      uid=s158 button
+                        uid=e1648 generic value="… more"
+                  uid=e1650 button "Show translation"
+                    uid=e1652 generic value="Show translation"
+                  uid=e1654 link url="https://www.linkedin.com/feed/"
+                    uid=e1655 figure
+                      uid=e1656 img "View image"
+                  uid=e1657 generic
+                    uid=e1658 link "Stan Amsellem and 107 others reacted" url="https://www.linkedin.com/feed/"
+                      uid=e1659 generic
+                        uid=e1660 img
+                        uid=e1666 img
+                        uid=e1680 img
+                        uid=e1689 paragraph
+                          uid=e1690 generic value="Stan Amsellem and 107 others reacted"
+                          uid=e1691 generic value="Stan Amsellem and 107 others"
+                    uid=e1693 button "28 comments"
+                      uid=e1694 paragraph
+                        uid=e1695 generic value="28 comments"
+                        uid=e1696 generic value="28 comments"
+                  uid=e1697 generic
+                    uid=e1698 link "Open actor selection screen" url="https://www.linkedin.com/feed/"
+                      uid=e1699 generic "Open actor selection screen"
+                        uid=e1700 figure
+                        uid=e1701 img
+                    uid=e1703 generic
+                      uid=e1704 generic
+                        uid=s159 unknown
+                          uid=e1708 generic
+                            uid=e1709 img
+                            uid=e1711 generic value="Like"
+                        uid=s160 button "Open reactions menu"
+                          uid=e1713 img
+                      uid=e1715 button "Comment"
+                        uid=e1716 generic
+                          uid=e1717 img
+                          uid=e1719 generic value="Comment"
+                      uid=e1720 button "Repost"
+                        uid=e1721 generic
+                          uid=e1722 img
+                          uid=e1724 generic value="Repost"
+                      uid=e1725 link "Send" url="https://www.linkedin.com/feed/"
+                        uid=e1726 generic
+                          uid=e1727 img
+                          uid=e1729 generic value="Send"
+                uid=e1730 generic
+                  uid=e1735 generic
+                    uid=e1737 link url="https://www.linkedin.com/in/benoit-hautot/"
+                      uid=e1738 figure
+                        uid=e1739 img "View Benoit Hautot’s profile"
+                    uid=e1740 generic
+                      uid=e1742 generic
+                        uid=e1743 link "Benoit Hautot Premium Profile 3rd+ 🛠️ Développeur 👨‍💻 Formateur 🤝 Consultant | Spécialiste en IA conversationnelle" url="https://www.linkedin.com/in/benoit-hautot/"
+                          uid=e1744 generic
+                            uid=e1748 paragraph
+                              uid=e1749 generic value="Benoit Hautot Premium Profile 3rd+"
+                              uid=e1750 generic
+                                uid=s161 StaticText "Benoit Hautot"
+                                uid=e1752 img
+                                uid=e1754 generic value="• 3rd+"
+                            uid=e1756 paragraph value="🛠️ Développeur 👨‍💻 Formateur 🤝 Consultant | Spécialiste en IA conversationnelle"
+                        uid=e1758 paragraph value="4d"
+                        uid=e1760 button "Follow Benoit Hautot"
+                          uid=e1763 generic value="Follow"
+                        uid=e1764 button "View more options for Benoit Hautot’s comment."
+                          uid=e1766 img
+                      uid=e1771 paragraph
+                        uid=e1772 generic
+                          uid=s162 StaticText "L'équivalent d'IA grand public sur une 4090 ? Je suis rarement catégorique mais là j'ai envie de dire -impossible-. Après, reste à voir l'objectif à atteindre et les critères d'évaluation. Si c'est pour rédiger un mail par minute sans contexte, ça doit tourner en effet."
+                          uid=s163 button
+                            uid=e1774 generic value="… more"
+                      uid=e1776 generic
+                        uid=e1777 generic
+                          uid=e1778 generic
+                            uid=s164 unknown
+                              uid=e1782 generic
+                                uid=s165 unknown
+                                uid=e1786 paragraph
+                                  uid=e1787 generic value="1 reaction"
+                                  uid=s166 StaticText "1"
+                            uid=s167 button "Open reactions menu"
+                              uid=e1789 img
+                          uid=e1791 generic
+                            uid=e1792 button "Reply"
+                              uid=e1794 img
+                            uid=e1797 paragraph
+                              uid=e1798 generic value="2"
+                              uid=s168 StaticText "2"
+                        uid=e1799 link url="https://www.linkedin.com/feed/"
+                          uid=e1800 img
+                  uid=e1807 button "Load more comments Load more comments"
+                    uid=e1808 generic
+                      uid=e1809 button "Load more comments"
+                        uid=e1811 img
+                      uid=e1813 button "Load more comments"
+                        uid=e1815 generic value="Load more comments"
+            uid=e1817 generic
+              uid=e1818 generic
+                uid=e1821 generic
+                  uid=e1822 paragraph value="Today’s puzzles"
+                  uid=e1823 generic
+                    uid=e1825 link "Play Patches" url="https://www.linkedin.com/games/patches/"
+                      uid=e1826 generic "Play Patches"
+                        uid=e1827 generic
+                          uid=e1828 figure
+                          uid=e1829 generic
+                            uid=e1830 paragraph
+                              uid=e1831 strong value="Patches"
+                              uid=s169 StaticText "#44"
+                            uid=e1832 paragraph value="Piece it together"
+                        uid=e1833 img
+                    uid=e1836 link "Play Zip" url="https://www.linkedin.com/games/zip/"
+                      uid=e1837 generic "Play Zip"
+                        uid=e1838 generic
+                          uid=e1839 figure
+                          uid=e1840 generic
+                            uid=e1841 paragraph
+                              uid=e1842 strong value="Zip"
+                              uid=s170 StaticText "#409"
+                            uid=e1843 paragraph value="1 connection played"
+                        uid=e1844 img
+                    uid=e1847 link "Play MiniSudoku" url="/games/mini-sudoku/"
+                      uid=e1848 generic "Play MiniSudoku"
+                        uid=e1849 generic
+                          uid=e1850 figure
+                          uid=e1851 generic
+                            uid=e1852 paragraph
+                              uid=e1853 strong value="Mini Sudoku"
+                              uid=s171 StaticText "#262"
+                            uid=e1854 paragraph value="The classic game, made mini"
+                        uid=e1855 img
+                    uid=e1858 link "Play Tango" url="https://www.linkedin.com/games/tango/"
+                      uid=e1859 generic "Play Tango"
+                        uid=e1860 generic
+                          uid=e1861 figure
+                          uid=e1862 generic
+                            uid=e1863 paragraph
+                              uid=e1864 strong value="Tango"
+                              uid=s172 StaticText "#570"
+                            uid=e1865 paragraph value="11 connections played"
+                        uid=e1866 img
+                    uid=e1869 button "Show more"
+                      uid=e1870 generic
+                        uid=e1871 img
+                        uid=e1873 generic value="Show more"
+                uid=e1875 generic
+                  uid=e1876 paragraph value="Add to your feed"
+                  uid=e1877 link "Ana Robakidze Built AI for API docs before ChatGPT| 17,000+ companies | Backed by Y Combinator, Atlassian | Forbes 30u30 | Web Summit Winner Follow Ana Robakidze" url="https://www.linkedin.com/in/robakidzeana/"
+                    uid=e1878 generic
+                      uid=e1879 figure
+                        uid=e1880 img "View profile"
+                      uid=e1881 generic
+                        uid=e1884 paragraph value="Ana Robakidze"
+                        uid=e1886 paragraph value="Built AI for API docs before ChatGPT| 17,000+ companies | Backed by Y Combinator, Atlassian | Forbes 30u30 | Web Summit Winner"
+                        uid=e1889 button "Follow Ana Robakidze"
+                          uid=e1890 generic
+                            uid=e1891 img
+                            uid=e1894 generic value="Follow"
+                  uid=e1895 link "Sundar Pichai CEO at Google Follow Sundar Pichai" url="https://www.linkedin.com/in/sundarpichai/"
+                    uid=e1896 generic
+                      uid=e1897 figure
+                        uid=e1898 img "View profile"
+                      uid=e1899 generic
+                        uid=e1902 paragraph value="Sundar Pichai"
+                        uid=e1904 paragraph value="CEO at Google"
+                        uid=e1907 button "Follow Sundar Pichai"
+                          uid=e1908 generic
+                            uid=e1909 img
+                            uid=e1912 generic value="Follow"
+                  uid=e1913 link "Claude Company • Technology, Information and Internet Follow Claude" url="https://www.linkedin.com/showcase/claude/"
+                    uid=e1914 generic
+                      uid=e1915 figure
+                        uid=e1916 img "View company"
+                      uid=e1917 generic
+                        uid=e1920 paragraph value="Claude"
+                        uid=e1922 paragraph value="Company • Technology, Information and Internet"
+                        uid=e1925 button "Follow Claude"
+                          uid=e1926 generic
+                            uid=e1927 img
+                            uid=e1930 generic value="Follow"
+                  uid=e1931 link "View all recommendations" url="/mynetwork/discover-hub/"
+                    uid=e1932 generic
+                      uid=e1933 img
+                      uid=e1935 generic value="View all recommendations"
+              uid=e1937 generic
+                uid=e1940 iframe
+                  uid=f32e3 main "Work With Us Container"
+                    uid=f32e4 generic
+                      uid=f32e6 img
+                      uid=f32e7 generic
+                        uid=f32e8 img "Jerome"
+                        uid=f32e9 link "Inato" url="https://www.linkedin.com/li/tscp/sct?destinationUrl=http%3A%2F%2Fwww.linkedin.com%2Fcompany%2F10544541%2Flife&trackingEvent=%5B%7B%22eventInfo%22%3A%7B%22appId%22%3A%22com.linkedin.ads.rendering.d_web%22%2C%22eventName%22%3A%22SponsoredRightRailContentActionEvent%22%2C%22topicName%22%3A%22SponsoredRightRailContentActionEvent%22%7D%2C%22eventBody%22%3A%7B%22sponsoredEventHeader%22%3A%7B%22encryptedTrackingData%22%3A%22CwEAAAGd4Y9XgEn5Ki4HogggTRktDmuZyiJEmBq3z-86v8IjXCJ8KxHYFQDr3AoxOwrrTaHf3bTkxYtBqQnY3oAMnOiE5RCnJ1Vjk_3fPzg-CBT32wixdqn8PWBnis10p8JJN3QoOwiOKukktfwxiguJpNqPEjclUrNH46CzZN-Osq87NB9Y0Mop9pwmLnixfZ7zedNeTSuS8N7ZhVOw8nx5GFt6MT3y2buO54W8NOe_dqwkbrR5cS7kpee7L4lBL5WD6sRGzVjp7pLLh78F0NElVLhOanX7oAh2YhtyWRliOHIcrdAuDS5QwwdCW2_kkfQhSKqQLPEDbY_JXcHC_yMLUq4UqG5VJ_y8LIwUwzQZ1NcrpVmRQOiJCmMsYujYHRv66ms1TA2N1h-ClRG7IGcHhIxAuOmeBIIi3TFiO4K9TZlXimmIY1vyvmY6uNVrIIfhEgfF4eQnqUTWIzpraK_Wb18fG1kJpFcVCsRJF6c0FvXrbnG6d9e_14ZMyNVYo9bOOWPnxoU-JN1vsfrxa42cO7pubP8qv1hCLRgfR2b5JZ1A3GV5XMh3zkfX8JEyCxSJwXZeeRfx6vKzZK7YA4PqVz9AuGQr57V9PTTGpx1Vtr2ngJ5sQL_1uD-lChflVmw5FHxgFKI6db1pNJipyMuARF7EzkJvIbIsr3Nwq3vqLOXaPOuCj1mA74PNy0dGpYSjWsSIB4nrSLurL6ZX2Sg1koFz0db-xvkJy73V2YGoS7NmQGcycH5KJjvIZ07ZavddKEmCmSOdy8CkwoRAytSptHXJqqyu4s36y5g4Q1nmYnte2aOqWNQWthy-IludxYVZsHOucK1MVJNZKh9Q27E3U8vOcwiYInBNwTjTofNDIAK8mcnOJa3KGCETsrTr9ZfpZ7kIdt4HAvArK88CYlDNW18n8IblKGaM93LCSH0kvx_ivYIcnfxauoWduxD6_hhsxSlU0U0hb9wE31F-5XtohJaIZ7gwdjq_pzsyn5EK96za9Vk3PhkYHZ1EYgrxMBJumHgI_O7ZaHqY4mOcFQ5Z9IlZRwHCf7tico122e7XyEEPFvoy7uuEYA5x6WfXDKLYvCs9gCVy8OA8w7kRN4Asqn4GhwSGWaZXKHLLqZm8Y3M0I_CyrUSpNL-ZkIEjHlsy-QpPcqaYt8HSHZPULm12KVmsNiDkDH8Kg7yrMhvRCN46brp97UE%22%7D%2C%22header%22%3A%7B%22pageInstance%22%3A%7B%22pageUrn%22%3A%22urn%3Ali%3Apage%3Ad_flagship3_feed%22%2C%22trackingId%22%3A%228fbc74e6-35be-42ba-b858-100f3e3b7b66%22%7D%2C%22time%22%3A1777605760867%2C%22version%22%3A%220.0.0%22%7D%2C%22requestHeader%22%3A%7B%22pageKey%22%3A%22d_flagship3_feed%22%2C%22interfaceLocale%22%3A%22en-US%22%7D%7D%7D%5D&csrfToken=ajax%3A5544974620789791545"
+                          uid=f32e10 img "Inato"
+                    uid=f32e11 generic
+                      uid=f32e12 generic
+                        uid=f32e13 paragraph value="Jerome, explore relevant opportunities with Inato"
+                        uid=f32e14 paragraph value="Get the latest jobs and industry news"
+                      uid=f32e15 link "Follow" url="https://www.linkedin.com/li/tscp/sct?destinationUrl=http%3A%2F%2Fwww.linkedin.com%2Fcompany%2F10544541%2Flife%3FisFollowingPage%3Dtrue&trackingEvent=%5B%7B%22eventInfo%22%3A%7B%22appId%22%3A%22com.linkedin.ads.rendering.d_web%22%2C%22eventName%22%3A%22SponsoredRightRailContentActionEvent%22%2C%22topicName%22%3A%22SponsoredRightRailContentActionEvent%22%7D%2C%22eventBody%22%3A%7B%22sponsoredEventHeader%22%3A%7B%22encryptedTrackingData%22%3A%22CwEAAAGd4Y9XgPKcEnk01piMe2xZ26fJtbKsazftB5-v4rQT6sWJO6Q96lhww59y1CAmI-VXYq2dAXYXdnMZgLvUJ5FgRqIRAH5NmR6iljGbKk9mk95gwQOUcylgWIwnaAnJNgDaINunf--ElBbKM7RyE3UuaZ9c0sC0ADGBL167PbVfS9mbgE1924i6MBXTQTxiwJc_dyr_GPanV7Sa0oet8EBRd0TuY1AsPP91eMcI-4s_NYHzU_qjoR26EI2t6Cz20aEg5V8u_FofXYzL7UCdbkqFV-GdRhLRA_n6vy4HXzbgycTLk6Wj2o-yBo2c2CtUz60syGG1BAsiJ4NHQ56qRHIabnavEJrQb-MtWTCHCuXtki0pZSJ5-zqU3_q-Lv0bpiNqER7zO2-ebge8kQ8QhXYlp-0kDGvL9zlECXGG2uiyMmA5nmJ7lFsLdigy39D476owTxi275UUpD8umaEEKHjDU62cX8oy5an0mgYYgZ-3sZzFQ_RlNPPBZ354WWEraPkuGDGaA7Z-k0ur7lr7ENixcMgisha6LUITG1O8WV2DICXqTcMlTawwWilp_9tOgCkFFfhBh3XUb1P64ho7nusU9slwVXeiq7sDHfHTtDCmF9jkyRltOide_2hTZHKeZPvRGXQUe5TvMsl9Ij8b0nJ6bJRrhmAIBaxm-K5Apif2VTcoT4fmvaAETnIND13rtpPuBhgrxwp83GtHzhvh49JtxQbh1QtrRrx1YV_SzCjPwywG_TA0tkkca5Pf5EEftV-FDFY6rVtp-JRlb6YPpNy1CoMZAryAfowvc2uIrpoy2MwYQmixBkUqB9BCqcYczRaUqRm-XQR7GJ-QvBFA7qaUjmpfCvVDONEbYTc8s0tTJP38yRWS4F11jJFU3Jd2svlKyhkEbBYs1LwybTWxtvOhg-wUYe9fwKhEj96r94Az843SdV5lq_uSniXljJmcAvExfXYp7OU6SjauAdQt11kENjwvW9iF7Td3tBiu1rmoszbxfbV9YnDfvUG0Ggwo9SaQlzEOlos8b0b2NrXWglTmfBzvG-XEwZgfL4ez1RArxLdYXh4i79KcQlZ54L1jaD9EsQ76H76oC6P7vlrBfE5vpO694LiPRSLRHaUsos9fmr1-LACY4veXiIKBIygbw8cFr26VNeAV1-f_S2ZH-3SDsKWjKfSYYMmYtuNk-L5bZZCCQvmdhi2CSanrHy1Gh17yenF4frYHtshcVWP8GxE24K9vbsg%22%7D%2C%22header%22%3A%7B%22pageInstance%22%3A%7B%22pageUrn%22%3A%22urn%3Ali%3Apage%3Ad_flagship3_feed%22%2C%22trackingId%22%3A%2237a4e312-d2bb-4946-b702-180a709e8691%22%7D%2C%22time%22%3A1777605760867%2C%22version%22%3A%220.0.0%22%7D%2C%22requestHeader%22%3A%7B%22pageKey%22%3A%22d_flagship3_feed%22%2C%22interfaceLocale%22%3A%22en-US%22%7D%7D%7D%5D&csrfToken=ajax%3A5544974620789791545"
+                    uid=f32e16 generic
+                      uid=f32e17 paragraph value="Promoted"
+                      uid=f32e18 button "Ad Options"
+                        uid=f32e19 img
+                        uid=f32e23 generic value="Ad Options"
+                uid=e1941 generic
+                  uid=e1942 generic
+                    uid=e1943 link "About" url="https://about.linkedin.com/"
+                      uid=e1944 paragraph value="About"
+                    uid=e1945 link "Accessibility" url="https://www.linkedin.com/accessibility/"
+                      uid=e1946 paragraph value="Accessibility"
+                    uid=e1947 link "Help Center" url="https://www.linkedin.com/help/linkedin/"
+                      uid=e1948 paragraph value="Help Center"
+                    uid=e1949 button "Privacy & Terms"
+                      uid=e1950 generic
+                        uid=e1951 paragraph value="Privacy & Terms"
+                        uid=e1952 img
+                    uid=e1954 link "Ad Choices" url="https://www.linkedin.com/help/linkedin/answer/62931/"
+                      uid=e1955 paragraph value="Ad Choices"
+                    uid=e1956 link "Advertising" url="https://www.linkedin.com/ad/start/?trk=n_nav_ads_rr"
+                      uid=e1957 paragraph value="Advertising"
+                    uid=e1958 button "Business Services"
+                      uid=e1959 generic
+                        uid=e1960 paragraph value="Business Services"
+                        uid=e1961 img
+                    uid=e1963 link "Get the LinkedIn app" url="https://www.linkedin.com/mobile/"
+                      uid=e1964 paragraph value="Get the LinkedIn app"
+                    uid=e1965 link "More" url="https://www.linkedin.com/feed/"
+                      uid=e1966 paragraph value="More"
+                  uid=e1967 generic
+                    uid=e1968 img
+                    uid=e1970 paragraph value="LinkedIn Corporation © 2026"
+  uid=s173 generic
+    uid=s174 generic
+      uid=s175 generic
+        uid=s176 generic
+          uid=s177 complementary
+            uid=e1971 generic
+              uid=e1972 generic
+                uid=e1974 generic
+                  uid=e1975 generic
+                    uid=e1976 img "Jerome Etienne"
+                    uid=e1978 generic value="Status is online"
+                  uid=e1979 button "You are on the messaging overlay. Press enter to open the list of conversations."
+                    uid=e1980 generic
+                      uid=e1981 generic value="Messaging"
+                      uid=e1982 generic value="You are on the messaging overlay. Press enter to open the list of conversations."
+                uid=e1983 generic
+                  uid=e1985 button "Open messenger dropdown menu"
+                    uid=e1986 img "Open messenger dropdown menu"
+                  uid=e1989 button "Compose message"
+                    uid=e1990 img
+                    uid=e1992 generic value="Compose message"
+                  uid=e1993 button "You are on the messaging overlay. Press enter to open the list of conversations."
+                    uid=e1994 img
+                    uid=e1996 generic value="You are on the messaging overlay. Press enter to open the list of conversations."
+              uid=e1997 generic
+                uid=e1999 heading "Page inboxes" level="3"
+                uid=e2000 generic
+                  uid=e2001 generic value="Click to see affiliated inboxes"
+                  uid=e2002 button "Page inboxes"
+                    uid=e2003 img
+          uid=s178 complementary "AI-powered assistant to get help with your career, jobs etc"
+  uid=e2005 iframe
+    uid=f3e1 generic active
+      uid=s179 generic
+        uid=s180 region "Toast message"
+          uid=f3e3 heading "0 notifications total" level="2"
+          uid=s181 alert
+      uid=f3e4 region
+      uid=f3e5 generic
+        uid=f3e7 generic
+          uid=f3e8 button "Skip to search"
+            uid=f3e9 generic value="Skip to search"
+          uid=f3e10 button "Skip to main content"
+            uid=f3e11 generic value="Skip to main content"
+          uid=f3e12 button "Keyboard shortcuts"
+            uid=f3e13 generic value="Keyboard shortcuts"
+          uid=f3e14 button "Close jump menu"
+            uid=f3e15 img
+            uid=f3e17 generic value="Close jump menu"
+        uid=f3e18 banner "Global Navigation"
+          uid=f3e19 generic
+            uid=f3e20 link "LinkedIn" url="https://www.linkedin.com/feed/?nis=true"
+              uid=f3e23 img "LinkedIn"
+                uid=f3e24 img
+            uid=f3e28 generic
+              uid=f3e29 combobox "Search"
+              uid=s182 generic
+                uid=s183 img
+            uid=f3e30 navigation "Primary Navigation"
+              uid=f3e31 list
+                uid=f3e32 listitem
+                  uid=f3e33 link "Home" url="https://www.linkedin.com/feed/"
+                    uid=f3e37 img
+                    uid=f3e39 generic "Home"
+                uid=f3e40 listitem
+                  uid=f3e41 link "My Network" url="https://www.linkedin.com/mynetwork/?"
+                    uid=f3e45 img
+                    uid=f3e47 generic "My Network"
+                uid=f3e48 listitem
+                  uid=f3e49 link "Jobs" url="https://www.linkedin.com/jobs/?"
+                    uid=f3e53 img
+                    uid=f3e55 generic "Jobs"
+                uid=f3e56 listitem
+                  uid=f3e57 link "Messaging" url="https://www.linkedin.com/messaging/?"
+                    uid=f3e61 img
+                    uid=f3e63 generic "Messaging"
+                uid=f3e64 listitem
+                  uid=f3e65 link "Notifications" url="https://www.linkedin.com/notifications/?"
+                    uid=f3e69 img
+                    uid=f3e71 generic "Notifications"
+                uid=f3e72 listitem
+                  uid=f3e74 button "Jerome Etienne Me"
+                    uid=f3e75 img "Jerome Etienne"
+                    uid=f3e76 generic
+                      uid=s184 StaticText "Me"
+                      uid=f3e77 img
+                uid=f3e79 listitem
+                  uid=f3e81 button "For Business"
+                    uid=f3e85 img
+                    uid=f3e87 generic "For Business"
+                      uid=s185 StaticText "For Business"
+                      uid=f3e88 img
+                uid=f3e90 listitem
+                  uid=f3e92 link "Retry for €0" url="javascript:void(0)"
+                    uid=f3e93 generic
+                      uid=f3e94 img
+                      uid=f3e96 generic value="Retry for €0"
