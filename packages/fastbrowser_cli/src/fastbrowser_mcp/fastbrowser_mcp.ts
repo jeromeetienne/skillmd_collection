@@ -58,6 +58,7 @@ class MainHelper {
 
 		// FIXME: the first take_snapshot call after connecting to the MCP target often returns an empty snapshot for unknown reasons 
 		// — working around this by calling it once and discarding the result before calling it again to get the actual snapshot text
+		// - not working all the time
 		await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
 
 		const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
