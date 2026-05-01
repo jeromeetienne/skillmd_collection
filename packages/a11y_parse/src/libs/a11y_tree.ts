@@ -86,7 +86,7 @@ export class A11yTree {
 	}
 
 	/**
-	 * Creates a deep clone of the given AxNode and all its descendants. The parent of the cloned node is set to undefined.
+	 * Creates a deep clone of the given AxNode and all its children. The parent of the cloned node is set to undefined.
 	 * 
 	 * @param axNode The node to clone.
 	 * @returns A deep clone of the given node.
@@ -208,9 +208,9 @@ export class A11yTree {
 	///////////////////////////////////////////////////////////////////////////////
 
 	// /**
-	//  * Converts an AxNode tree (the given node and all its descendants) back to its string representation.
+	//  * Converts an AxNode tree (the given node and all its children) back to its string representation.
 	//  * This is the inverse of the parse method, and the output can be parsed back to an identical tree.
-	//  * For a single node without its descendants, use `stringifyNode` instead.
+	//  * For a single node without its children, use `stringifyNode` instead.
 	//  * @deprecated Use `A11yDisplay.stringifyTree` instead.
 	//  * @param root The root of the tree to stringify.
 	//  * @returns The string representation of the tree.
@@ -220,7 +220,7 @@ export class A11yTree {
 	// }
 
 	// /**
-	//  * Converts a single AxNode (without its descendants) to its one-line string representation.
+	//  * Converts a single AxNode (without its children) to its one-line string representation.
 	//  * @deprecated Use `A11yDisplay.stringifyNode` instead.
 	//  * @param node The node to stringify.
 	//  * @returns The one-line string representation of the node.
@@ -236,18 +236,18 @@ export class A11yTree {
 	///////////////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Builds a new tree containing the specified nodes and, optionally, their ancestors and/or descendants.
+	 * Builds a new tree containing the specified nodes and, optionally, their ancestors and/or children.
 	 * - When `options.withAncestors === true` (default): the original root is preserved and pruned so that
 	 *   only the matched nodes and their ancestors remain.
-	 * - When `options.withDescendants === true`: each matched node retains its full descendant subtree.
+	 * - When `options.withChildren === true`: each matched node retains its full children subtree.
 	 * - When `options.withAncestors === false`: a synthetic `FakeRoot` node (`role: 'FakeRoot'`,
-	 *   `uid: 'fake-root'`) is created and the matched nodes (each cloned with its descendants if
+	 *   `uid: 'fake-root'`) is created and the matched nodes (each cloned with its children if
 	 *   requested) are attached as its direct children. This keeps the return type a single AxNode
 	 *   even when the matches don't share a real ancestor in the result.
 	 * - `axNodes` is typically coming from selector queries.
 	 *
 	 * @param axNodes The list of matched nodes. Must be non-empty and all nodes must belong to the same tree.
-	 * @param options Flags controlling whether ancestors and/or descendants are included. Defaults to `{ withAncestors: true, withDescendants: false }`.
+	 * @param options Flags controlling whether ancestors and/or children are included. Defaults to `{ withAncestors: true, withChildren: false }`.
 	 * @returns The root of the new tree.
 	 */
 	static buildSubsetTree(axNodes: AxNode[], { withAncestors, withChildren }: {
@@ -257,7 +257,7 @@ export class A11yTree {
 		// sanity check - all nodes must belong to the same tree, so they should have the same root
 		if (axNodes.length === 0) throw new Error('axNodes must not be empty');
 
-		// Collect the uids of all nodes to keep (the matched nodes and, optionally, their ancestors and/or descendants)
+		// Collect the uids of all nodes to keep (the matched nodes and, optionally, their ancestors and/or children)
 		const keptUids = new Set<string>();
 		for (const node of axNodes) {
 			keptUids.add(node.uid);
@@ -304,6 +304,7 @@ export class A11yTree {
 	 * Backward-compatible wrapper around `buildSubsetTree({ withAncestors: true })`.
 	 * Preserved so existing callers (e.g. fastbrowser_cli) keep working unchanged.
 	 *
+	 * @deprecated Use `buildSubsetTree` with `withAncestors: true` instead, which is more flexible and can also include children if needed.
 	 * @param axNodes The list of nodes to keep, along with all their ancestors. Must be non-empty and all nodes must belong to the same tree.
 	 * @returns The root of the new tree containing only the specified nodes and their ancestors.
 	 */
