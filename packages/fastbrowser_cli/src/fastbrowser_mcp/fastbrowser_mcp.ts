@@ -502,14 +502,14 @@ class MainHelper {
 						// type can be textbox, checkbox, radio, combobox, or slider
 						type: 'textbox' | 'checkbox' | 'radio' | 'combobox' | 'slider';
 						// the uid of the field's corresponding node in the accessibility tree
-						ref: string;
+						target: string;
 						// the value to fill into the field - for checkboxes this can be "checked" or "unchecked", for radio buttons this can be "selected", for comboboxes this can be the option to select, and for sliders this can be the value to set the slider to
 						value: string
 					};
 					const fields: Field[] = resolved.map((element, index) => ({
 						name: `Field ${index + 1}`,
 						type: 'textbox', // for simplicity, we assume all fields are textboxes in this example
-						ref: element.uid,
+						target: element.uid,
 						value: element.value,
 					}));
 					const callToolResult = await mcpClient.callTool('browser_fill_form', { fields: fields });
