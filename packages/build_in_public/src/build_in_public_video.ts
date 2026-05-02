@@ -99,6 +99,7 @@ export class MainHelper {
 			stdio: 'inherit',
 		});
 
+		// FIXME use --install
 		console.log('Copying build-in-public-video skill to project...');
 		const skillSource = path.join(
 			Os.homedir(),

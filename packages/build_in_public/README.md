@@ -1,8 +1,10 @@
 # build_in_public
 
-A Claude Code agent skill that turns your recent GitHub activity into ready-to-post `#buildInPublic` updates for Twitter/X, Bluesky, and LinkedIn.
+A Claude Code agent SKILL.md that turns your recent GitHub activity into ready-to-post `#buildInPublic` updates for 
+Twitter/X, Bluesky, and LinkedIn.
 
-This package is skill-only — it ships a [SKILL.md](skills/build-in-public/SKILL.md) and no CLI. The agent uses your local `gh` (GitHub CLI) to scan recent commits and releases, then drafts posts in an authentic developer voice.
+This package is skill-only — it ships a [SKILL.md](skills/build-in-public/SKILL.md) and no CLI. The agent uses your 
+local `gh` (GitHub CLI) to scan recent commits and releases, then drafts posts in an authentic developer voice.
 
 ## Usage Example
 - *"Generate build-in-public linkedin posts for github user 'jeromeetienne'"*
