@@ -1,1 +1,0 @@
-../../../packages/build_in_public/skills/build-in-public/SKILL.md
