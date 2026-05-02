@@ -16,7 +16,7 @@ All three resolve to the same DOM element on the same page, on a good day. They 
 
 **Playwright locators** operate on a **hybrid**. Under the hood they resolve against the live DOM, but the recommended locator API — `getByRole`, `getByLabel`, `getByText`, `getByAltText`, `getByPlaceholder`, `getByTitle`, `getByTestId` — is computed from accessibility properties. Playwright also accepts raw CSS, XPath, and chained `.filter()` / `.nth()` calls. So the "Playwright selector" is really a layered API with two stories: an accessibility-first story (use roles and names) and a fallback story (use CSS or test ids when the markup is poor).
 
-**The `a11y_parse` selector language** operates on the **accessibility tree** only. No DOM, no styles, no layout. Selectors match by role, name, ARIA attributes, UID, and tree position. The grammar is CSS-shaped — descendant, child, sibling, attribute matchers, unions, `:nth-child` — but the substrate underneath is the same one screen readers see.
+**The `a11y_parse` selector language** operates on the **accessibility tree** only. No DOM, no styles, no layout. Selectors match by role, name, ARIA attributes, UID, and tree position. The grammar is CSS-shaped — descendant, child, sibling, attribute matchers, unions, `:nth-child`, and the functional pseudo-classes `:is` / `:where` / `:not` / `:has` — but the substrate underneath is the same one screen readers see.
 
 | Language    | Substrate         | Vocabulary                          | Lives where         |
 |-------------|-------------------|-------------------------------------|---------------------|
@@ -41,7 +41,7 @@ a11y:        button[name="Submit"]
 ```
 CSS:         a[href^="https://"]
 Playwright:  page.locator('a[href^="https://"]')   // CSS fallback
-a11y:        link[href^="https"]
+a11y:        link[url^="https"]
 ```
 
 **The third item in a nav menu.**
@@ -58,6 +58,14 @@ a11y:        navigation link:nth-child(3)                            // 1-indexe
 CSS:         (not really possible — CSS can't match text)
 Playwright:  page.getByRole('heading', { name: /^Learn/ })
 a11y:        heading[name^="Learn"]
+```
+
+**A list item that contains an external link.**
+
+```
+CSS:         li:has(a[href^="https://"])
+Playwright:  page.getByRole('listitem').filter({ has: page.locator('a[href^="https://"]') })
+a11y:        listitem:has(link[url^="https"])
 ```
 
 The pattern: where CSS runs out (text content, semantic role), Playwright and a11y pick up. Where Playwright is verbose chained calls, a11y stays declarative — a single string you can log, ship over the wire, or paste into a CLI.
@@ -100,7 +108,7 @@ There's one axis where a11y selectors quietly win, and it's worth a short detour
 A 60-character a11y selector fits in a function-call argument:
 
 ```
-'navigation link[href^="https"]'
+'navigation link[url^="https"]'
 ```
 
 A Playwright locator chain is multi-line code that has to round-trip through a JavaScript runtime:
@@ -142,5 +150,4 @@ Pointers:
 
 - [Playwright Locators](https://playwright.dev/docs/locators)
 - [MDN — CSS Selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-- [`a11y_parse` selector spec](../spec_a11y_selector_language.md)
-- Companion article: [Accessibility Trees for AI Browsing](./a11y_and_browsing_by_ai.md)
+- [`a11y_parse` selector spec](https://github.com/jeromeetienne/skillmd_collection/blob/main/packages/a11y_parse/docs/spec_a11y_selector_language.md)
