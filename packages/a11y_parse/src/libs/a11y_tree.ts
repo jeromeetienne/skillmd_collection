@@ -135,6 +135,36 @@ export class A11yTree {
 		axNodeToRemove.parent = undefined;
 	}
 
+	/**
+	 * Returns the previous sibling of the given node, or undefined if there is no previous sibling. If the given node has no parent, undefined is returned.
+	 * - inspired by `domElement.previousSibling` - https://developer.mozilla.org/en-US/docs/Web/API/Node/previousSibling
+	 * 
+	 * @param axNode The node whose previous sibling is to be found.
+	 * @returns The previous sibling node, or undefined if there is no previous sibling.
+	 */
+	static previousSibling(axNode: AxNode): AxNode | undefined {
+		if (axNode.parent === undefined) return undefined;
+		const axNodeParent = axNode.parent;
+		const index = axNodeParent.children.findIndex((child) => child.uid === axNode.uid);
+		if (index === -1 || index === 0) return undefined;
+		return axNodeParent.children[index - 1];
+	}
+
+	/**
+	 * Returns the next sibling of the given node, or undefined if there is no next sibling. If the given node has no parent, undefined is returned.
+	 * - inspired by `domElement.nextSibling` - https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling
+	 * 
+	 * @param axNode The node whose next sibling is to be found.
+	 * @returns The next sibling node, or undefined if there is no next sibling.
+	 */
+	static nextSibling(axNode: AxNode): AxNode | undefined {
+		if (axNode.parent === undefined) return undefined;
+		const axNodeParent = axNode.parent;
+		const index = axNodeParent.children.findIndex((child) => child.uid === axNode.uid);
+		if (index === -1 || index === axNodeParent.children.length - 1) return undefined;
+		return axNodeParent.children[index + 1];
+	}
+
 
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
