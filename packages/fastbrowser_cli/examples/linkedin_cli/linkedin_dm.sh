@@ -26,8 +26,12 @@ eval "$FASTBROWSER_CLI" navigate_page --url https://www.linkedin.com/messaging/
 # list all the threads conversations in the left sidebar
 eval "$FASTBROWSER_CLI" query_selectors -s 'list[name="Conversation List"] > listitem heading' -a
 
+#######################################################################################
+
 # Select the conversation with Eric Defiez
 eval "$FASTBROWSER_CLI" click -s 'list[name="Conversation List"] > listitem heading[name^="Eric Defiez"]'
+
+#######################################################################################
 
 # Fill the message content
 eval "$FASTBROWSER_CLI" fill_form -s 'textbox[name^="Write"]' -v "Hello"

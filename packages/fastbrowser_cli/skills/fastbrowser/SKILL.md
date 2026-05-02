@@ -15,7 +15,7 @@ maps 1-to-1 to a FastBrowser tool and returns the tool's response on stdout.
 Run the CLI directly via `tsx`:
 
 ```bash
-npx fastbrowser_cli <command> [flags]
+npx fastbrowser_cli@latest <command> [flags]
 ```
 
 ## Typical Workflow
@@ -35,20 +35,20 @@ uid=1_0 RootWebArea "Example Domain" url="https://example.com/"
 
 ```bash
 # List all open browser pages
-npx fastbrowser_cli list_pages
+npx fastbrowser_cli@latest list_pages
 
 # Open a new page at a URL
-npx fastbrowser_cli new_page --url https://example.com
+npx fastbrowser_cli@latest new_page --url https://example.com
 
 # Close a page by its numeric id
-npx fastbrowser_cli close_page --page-id 1
+npx fastbrowser_cli@latest close_page --page-id 1
 
 # Navigate the current page to a URL
-npx fastbrowser_cli navigate_page --url https://example.com
+npx fastbrowser_cli@latest navigate_page --url https://example.com
 
 # Restart the daemon - run this if pages opened by the bridge were closed manually
 # and the MCP connection has broken
-npx fastbrowser_cli server restart
+npx fastbrowser_cli@latest server restart
 ```
 
 
@@ -66,10 +66,10 @@ The daemon binds to one backend at startup. If it is already running with a diff
 
 ```bash
 # Use chrome-devtools-mcp for one command
-npx fastbrowser_cli --mcp-target chrome_devtools list_pages
+npx fastbrowser_cli@latest --mcp-target chrome_devtools list_pages
 
 # Switch the running daemon to a different backend
-npx fastbrowser_cli --mcp-target chrome_devtools server restart
+npx fastbrowser_cli@latest --mcp-target chrome_devtools server restart
 ```
 
 
@@ -224,47 +224,47 @@ Example queries on it:
 
 ```bash
 # Query the accessibility tree returning the FIRST match per selector (--selector is repeatable)
-npx fastbrowser_cli query_selectors --selector "button" --selector "link"
+npx fastbrowser_cli@latest query_selectors --selector "button" --selector "link"
 
 # Include ancestor nodes in the result
-npx fastbrowser_cli query_selectors --selector 'heading[level="1"]' --with-ancestors
+npx fastbrowser_cli@latest query_selectors --selector 'heading[level="1"]' --with-ancestors
 
 # Include the descendant subtree of each match
-npx fastbrowser_cli query_selectors --selector 'main' --with-children
+npx fastbrowser_cli@latest query_selectors --selector 'main' --with-children
 
 # Per-selector control over withAncestors / withChildren via JSON
-npx fastbrowser_cli query_selectors \
+npx fastbrowser_cli@latest query_selectors \
   --selectors-json '[{"selector":"button","withAncestors":true},{"selector":"link","withChildren":true}]'
 
 # Pass --all to return every match per selector; --limit caps results per selector (0 = unlimited)
-npx fastbrowser_cli query_selectors --all --selector "button" --selector "link" --limit 5
+npx fastbrowser_cli@latest query_selectors --all --selector "button" --selector "link" --limit 5
 
 # Include ancestor nodes in the result
-npx fastbrowser_cli query_selectors --all --selector 'heading[level="1"]' --with-ancestors
+npx fastbrowser_cli@latest query_selectors --all --selector 'heading[level="1"]' --with-ancestors
 
 # Per-selector control over limit / withAncestors / withChildren via JSON (with --all)
-npx fastbrowser_cli query_selectors --all \
+npx fastbrowser_cli@latest query_selectors --all \
   --selectors-json '[{"selector":"button","limit":3,"withAncestors":true},{"selector":"link","limit":0,"withChildren":true}]'
 
 # Take an accessibility-tree full page snapshot of the current page - very expensive, prefer targeted queries when possible
-npx fastbrowser_cli take_snapshot
+npx fastbrowser_cli@latest take_snapshot
 ```
 
 ## Interaction
 
 ```bash
 # Click by a direct uid reference (fast path - no accessibility-tree lookup)
-npx fastbrowser_cli click --selector "#1_42"
+npx fastbrowser_cli@latest click --selector "#1_42"
 
 # Click by any CSS-like selector - resolved to a uid internally
-npx fastbrowser_cli click -s 'button[name="Submit"]'
+npx fastbrowser_cli@latest click -s 'button[name="Submit"]'
 
 # Fill a single form field - selector can be a uid (#1_7) or any CSS-like selector
-npx fastbrowser_cli fill_form -s 'textbox[name="Email"]' -v "hello@example.com"
+npx fastbrowser_cli@latest fill_form -s 'textbox[name="Email"]' -v "hello@example.com"
 
 # Press a comma-separated sequence of keys (literals and named keys both work)
-npx fastbrowser_cli press_keys --keys "Tab, Tab, Enter"
-npx fastbrowser_cli press_keys --keys "Hello, Tab, Enter"
+npx fastbrowser_cli@latest press_keys --keys "Tab, Tab, Enter"
+npx fastbrowser_cli@latest press_keys --keys "Hello, Tab, Enter"
 ```
 
 ## Batch Execution
@@ -281,16 +281,16 @@ By default, the batch stops at the first failing line (shell `set -e` semantics)
 
 ```bash
 # From a file
-npx fastbrowser_cli batch ./demo.fbs
+npx fastbrowser_cli@latest batch ./demo.fbs
 
 # Piped on stdin
-cat demo.fbs | npx fastbrowser_cli batch
+cat demo.fbs | npx fastbrowser_cli@latest batch
 
 # Inline script
-npx fastbrowser_cli batch --script $'press_keys --keys "Enter"\nclick -s \'button[name^="Tout effacer"]\''
+npx fastbrowser_cli@latest batch --script $'press_keys --keys "Enter"\nclick -s \'button[name^="Tout effacer"]\''
 
 # Continue through failures
-npx fastbrowser_cli batch --no-stop-on-error ./demo.fbs
+npx fastbrowser_cli@latest batch --no-stop-on-error ./demo.fbs
 ```
 
 Example `demo.fbs`:
