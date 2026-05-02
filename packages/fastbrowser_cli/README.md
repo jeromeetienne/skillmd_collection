@@ -13,7 +13,8 @@ A lighter alternative to Chrome DevTools MCP or Puppeteer, designed for AI agent
 - **Lean output** — reduces LLM input size, parsing complexity, and iteration cost while improving response quality
 
 
-## How to install the CLI tool for claude
+## How to Install it
+### How to install the CLI tool for claude terminal
 
 fastbrowser can be used at the cli level, with a SKILL.md that maps CLI commands to tools. To install the SKILL.md into a claude agent folder:
 
@@ -24,8 +25,8 @@ cd ~/.claude
 npx fastbrowser_cli install
 ```
 
-### How to include Playwright chrome extension 
-It is use by fastbrowser_mcp to ontrol the browser.
+### How to install Playwright chrome extension 
+It is used by fastbrowser_mcp to control the browser.
 
 [Playwright MCP Bridge](
 https://chromewebstore.google.com/detail/playwright-mcp-bridge/mmlmfjhmonkocbjadbfplnigmagldckm)
@@ -35,7 +36,7 @@ https://chromewebstore.google.com/detail/playwright-mcp-bridge/mmlmfjhmonkocbjad
 How to launch the MCP server that the CLI relies on to control the browser:
 
 ```bash
-npx -p fastbrowser_cli fastbrowser_mcp mcp_server
+npx -p fastbrowser_cli@latest fastbrowser_mcp mcp_server
 ```
 
 how to install it in [Claude Desktop](https://code.claude.com/docs/en/desktop) - [more details](https://modelcontextprotocol.io/docs/develop/connect-local-servers#installing-the-filesystem-server)
@@ -51,12 +52,32 @@ how to install it in [Claude Desktop](https://code.claude.com/docs/en/desktop) -
     "fastbrowser_mcp": {
       "command": "npx",
       "args": [
-        "-p", "fastbrowser_cli", "fastbrowser_mcp", "mcp_server"
+        "-p", "fastbrowser_cli@latest", "fastbrowser_mcp", "mcp_server"
       ]
     }
   }
 }
 ```
+
+### Check it is properly installed ?
+Just ask to claude `hat fastbrowser skill can do for me ?`
+
+## Warning
+
+**Never manually close pages opened by Playwright MCP Bridge.** These pages maintain the MCP connection.
+
+### Proper cleanup
+- Use `npx fastbrowser_cli close_page` to close individual pages
+- Use `npx fastbrowser_cli server stop` to shut down the daemon
+
+### If pages are manually closed
+The MCP connection will break. To recover:
+
+```bash
+npx npx fastbrowser_cli server restart
+```
+
+This re-establishes the MCP connection and opens a new control page.
 
 ## Architecture
 

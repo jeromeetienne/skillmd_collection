@@ -45,6 +45,31 @@ npx fastbrowser_cli close_page --page-id 1
 
 # Navigate the current page to a URL
 npx fastbrowser_cli navigate_page --url https://example.com
+
+# Restart the daemon - run this if pages opened by the bridge were closed manually
+# and the MCP connection has broken
+npx fastbrowser_cli server restart
+```
+
+
+## Configuration
+
+Global flags accepted by every command:
+
+| Flag / env | Purpose | Default |
+|---|---|---|
+| `--server <url>` / `FASTBROWSER_SERVER` | URL of the `fastbrowser_httpd` daemon | `http://localhost:8787` |
+| `--autostart` / `--no-autostart` | Auto-start the daemon if it is not already running | `--autostart` |
+| `--mcp-target <target>` / `FASTBROWSER_MCP_TARGET` | Browser backend: `playwright` or `chrome_devtools` | `playwright` |
+
+The daemon binds to one backend at startup. If it is already running with a different backend, the CLI refuses the request and prints the exact restart command to switch.
+
+```bash
+# Use chrome-devtools-mcp for one command
+npx fastbrowser_cli --mcp-target chrome_devtools list_pages
+
+# Switch the running daemon to a different backend
+npx fastbrowser_cli --mcp-target chrome_devtools server restart
 ```
 
 
@@ -59,7 +84,7 @@ Matches nodes by their accessibility role.
 ```
 button
 link
-comboxbox
+combobox
 searchbox
 heading
 WebArea
@@ -195,27 +220,31 @@ Example queries on it:
 
 - `query_selectors` is the most efficient way to get specific elements or data from the page. Use it instead of `take_snapshot` whenever possible.
 - By default, `query_selectors` returns the first match per selector (cheaper, less output). Pass `-a, --all` when you need every match — pair it with `--limit` to cap results per selector.
+- Use `--wa, --with-ancestors` to include each match's ancestor chain in the result, and `--wc, --with-children` to include the descendant subtree of each match.
 
 ```bash
 # Query the accessibility tree returning the FIRST match per selector (--selector is repeatable)
 npx fastbrowser_cli query_selectors --selector "button" --selector "link"
 
-# Exclude ancestor nodes from the result
-npx fastbrowser_cli query_selectors --selector 'heading[level="1"]' --no-with-ancestors
+# Include ancestor nodes in the result
+npx fastbrowser_cli query_selectors --selector 'heading[level="1"]' --with-ancestors
 
-# Per-selector control over withAncestors via JSON
+# Include the descendant subtree of each match
+npx fastbrowser_cli query_selectors --selector 'main' --with-children
+
+# Per-selector control over withAncestors / withChildren via JSON
 npx fastbrowser_cli query_selectors \
-  --selectors-json '[{"selector":"button","withAncestors":true},{"selector":"link","withAncestors":false}]'
+  --selectors-json '[{"selector":"button","withAncestors":true},{"selector":"link","withChildren":true}]'
 
 # Pass --all to return every match per selector; --limit caps results per selector (0 = unlimited)
 npx fastbrowser_cli query_selectors --all --selector "button" --selector "link" --limit 5
 
-# Exclude ancestor nodes from the result
-npx fastbrowser_cli query_selectors --all --selector 'heading[level="1"]' --no-with-ancestors
+# Include ancestor nodes in the result
+npx fastbrowser_cli query_selectors --all --selector 'heading[level="1"]' --with-ancestors
 
-# Per-selector control over limit / withAncestors via JSON (with --all)
+# Per-selector control over limit / withAncestors / withChildren via JSON (with --all)
 npx fastbrowser_cli query_selectors --all \
-  --selectors-json '[{"selector":"button","limit":3,"withAncestors":true},{"selector":"link","limit":0,"withAncestors":false}]'
+  --selectors-json '[{"selector":"button","limit":3,"withAncestors":true},{"selector":"link","limit":0,"withChildren":true}]'
 
 # Take an accessibility-tree full page snapshot of the current page - very expensive, prefer targeted queries when possible
 npx fastbrowser_cli take_snapshot
@@ -287,9 +316,11 @@ press_keys --keys "Tab, Enter"
 | `fill_form` | Fill a form field by accessibility selector | `--selector` / `-s`, `--value` |
 | `press_keys` | Press a comma-separated key sequence | `--keys` |
 | `batch` | Run multiple commands from a file, piped stdin, or `--script` inline | one of: `<file>`, `--script`, or piped stdin |
+| `install [skill-folder]` | Install bundled skills into `<skill-folder>/skills/` (default: `.`) | — |
 | `server start` | Start the HTTP server daemon | — |
 | `server status` | Report server running/stopped | — |
 | `server stop` | Stop the HTTP server | — |
+| `server restart` | Restart the HTTP server (re-establishes the MCP connection) | — |
 
 ## Output & Errors
 
