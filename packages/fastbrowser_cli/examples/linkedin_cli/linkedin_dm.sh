@@ -2,8 +2,8 @@
 
 # export NODE_OPTIONS='' 
 # export NPM_CONFIG_LOGLEVEL=silent
-# FASTBROWSER_CLI="npm run dev:cli --"
-FASTBROWSER_CLI="npx fastbrowser_cli"
+FASTBROWSER_CLI="npm run dev:cli --"
+# FASTBROWSER_CLI="npx fastbrowser_cli"
 
 # Function to sleep for a random duration between delayBase - delayRange/2 and delayBase + delayRange/2
 # Usage: random_sleep <delayBase> <delayRange>

@@ -1,3 +1,7 @@
+
+> fastbrowser_cli@1.0.37 dev:cli
+> npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts click -s list[name=Conversation List] heading[name^=Eric Defiez]
+
 Expected ] at column 22:
   list[name=Conversation List]
                         ^

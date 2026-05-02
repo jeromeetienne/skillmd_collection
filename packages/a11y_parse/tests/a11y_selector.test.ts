@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 // local imports
 import { A11yTree } from '../src/libs/a11y_tree.js';
 import { A11yQuery } from '../src/libs/a11y_selector.js';
-import { SAMPLE_TREE_TEXT, SIBLINGS_TREE_TEXT } from './test-fixtures.js';
+import { SAMPLE_TREE_TEXT, SIBLINGS_TREE_TEXT, RELATIVE_HAS_TREE_TEXT } from './test-fixtures.js';
 
 describe('A11yQuery', () => {
 	describe('simple selectors', () => {
@@ -432,6 +432,66 @@ describe('A11yQuery', () => {
 			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
 			const all = A11yQuery.querySelectorAll(root, '*:not(:has(link))');
 			assert.deepEqual(all.map((n) => n.uid).sort(), ['3', '4', '5', '7']);
+		});
+	});
+
+	describe(':has() with relative selectors', () => {
+		it('*:has(> button) matches only nodes with a direct button child', () => {
+			const root = A11yTree.parse(RELATIVE_HAS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:has(> button)');
+			assert.deepEqual(all.map((n) => n.uid), ['2', '8']);
+		});
+
+		it('*:has(button) still matches all ancestors of a button (regression)', () => {
+			const root = A11yTree.parse(RELATIVE_HAS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:has(button)');
+			assert.deepEqual(all.map((n) => n.uid), ['1', '2', '6', '8']);
+		});
+
+		it('*:has(+ button) matches nodes whose next sibling is a button', () => {
+			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:has(+ button)');
+			assert.deepEqual(all.map((n) => n.uid), ['12']);
+		});
+
+		it('*:has(~ button) matches nodes with any following sibling that is a button', () => {
+			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:has(~ button)');
+			assert.deepEqual(all.map((n) => n.uid), ['12']);
+		});
+
+		it('link:has(+ link) matches a link whose next sibling is a link', () => {
+			const root = A11yTree.parse(SIBLINGS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, 'link:has(+ link)');
+			assert.deepEqual(all.map((n) => n.uid), ['14']);
+		});
+
+		it('WebArea *:has(> button) > link returns only the direct link child of the direct-button parent', () => {
+			const root = A11yTree.parse(RELATIVE_HAS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, 'WebArea *:has(> button) > link');
+			assert.deepEqual(all.map((n) => n.uid), ['4']);
+		});
+
+		it(':has() accepts mixed relative and absolute groups', () => {
+			const root = A11yTree.parse(RELATIVE_HAS_TREE_TEXT);
+			const all = A11yQuery.querySelectorAll(root, '*:has(> button, heading)');
+			assert.deepEqual(all.map((n) => n.uid), ['1', '2', '8']);
+		});
+
+		it('throws when :is() receives a leading combinator', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			assert.throws(
+				() => A11yQuery.querySelector(root, '*:is(> button)'),
+				/Expected role, \*, or #uid/,
+			);
+		});
+
+		it('throws when :not() receives a leading combinator', () => {
+			const root = A11yTree.parse(SAMPLE_TREE_TEXT);
+			assert.throws(
+				() => A11yQuery.querySelector(root, '*:not(> button)'),
+				/Expected role, \*, or #uid/,
+			);
 		});
 	});
 });

@@ -1,0 +1,252 @@
+              uid=e481 list
+                uid=s46 listitem
+                uid=e482 listitem
+                  uid=e483 time value="Apr 14"
+                  uid=e484 generic value="Julien Guézennec sent the following messages at 3:52 PM"
+                  uid=e485 generic
+                    uid=s47 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e487 generic value="View Julien’s profile"
+                      uid=s48 unknown
+                    uid=e489 generic
+                      uid=e490 generic
+                        uid=e491 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e492 generic value="Julien Guézennec"
+                        uid=e493 img "LinkedIn Verified"
+                      uid=e495 time value="• 3:52 PM"
+                    uid=e499 paragraph value="😝🙃😅 je suis dyschromatique ! On se moque pas des handicaps !"
+                uid=e500 listitem
+                  uid=e501 generic
+                    uid=s49 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e503 generic value="View Julien’s profile"
+                      uid=s50 unknown
+                    uid=e505 generic
+                      uid=e506 generic
+                        uid=e507 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e508 generic value="Julien Guézennec"
+                        uid=e509 img "LinkedIn Verified"
+                      uid=e511 time value="• 4:12 PM"
+                    uid=e515 paragraph value="Just for you i have send my futur newsletter ! Full of flying colors for reaching the contact i have scrapped around my town with Claude ! Unfortunatly, see in attached image"
+                    uid=e520 button "Click or press enter to display in the image preview"
+                      uid=e521 generic value="Click or press enter to display in the image preview"
+                      uid=e522 img
+                uid=e523 listitem
+                  uid=e524 generic
+                    uid=s51 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e526 generic value="View Julien’s profile"
+                      uid=s52 unknown
+                    uid=e528 generic
+                      uid=e529 generic
+                        uid=e530 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e531 generic value="Julien Guézennec"
+                        uid=e532 img "LinkedIn Verified"
+                      uid=e534 time value="• 4:13 PM"
+                    uid=e538 paragraph
+                      uid=s53 StaticText "Is that a good path ?"
+                      uid=e539 link "https://julienweb.fr/blog/dashboard-local-node-claude-sqlite/9555/" url="https://julienweb.fr/blog/dashboard-local-node-claude-sqlite/9555/"
+                    uid=e544 generic
+                      uid=s54 unknown url="https://julienweb.fr/blog/dashboard-local-node-claude-sqlite/9555/"
+                      uid=e551 link "J'ai construit mon dashboard local avec Claude — Node.js + SQLite" url="https://julienweb.fr/blog/dashboard-local-node-claude-sqlite/9555/"
+                        uid=e554 generic
+                          uid=e556 generic value="J'ai construit mon dashboard local avec Claude — Node.js + SQLite"
+                          uid=e557 generic value="julienweb.fr"
+                uid=e558 listitem
+                  uid=e559 generic
+                    uid=e563 paragraph
+                      uid=e564 link "https://julienweb.fr/wp-content/uploads/claude-dashboard-julienweb-fr-ia-2026-2.png" url="https://julienweb.fr/wp-content/uploads/claude-dashboard-julienweb-fr-ia-2026-2.png"
+                    uid=e569 generic
+                      uid=s55 unknown url="https://julienweb.fr/wp-content/uploads/claude-dashboard-julienweb-fr-ia-2026-2.png"
+                      uid=e576 link "Web Link" url="https://julienweb.fr/wp-content/uploads/claude-dashboard-julienweb-fr-ia-2026-2.png"
+                        uid=e579 generic
+                          uid=e580 generic value="Web Link"
+                          uid=e581 generic value="julienweb.fr"
+                uid=e582 listitem
+                  uid=e583 generic
+                    uid=s56 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e585 generic value="View Julien’s profile"
+                      uid=s57 unknown
+                    uid=e587 generic
+                      uid=e588 generic
+                        uid=e589 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e590 generic value="Julien Guézennec"
+                        uid=e591 img "LinkedIn Verified"
+                      uid=e593 time value="• 4:18 PM"
+                    uid=e597 paragraph
+                      uid=s58 StaticText "Regarde ca :)"
+                      uid=e598 link "https://passerelles.economie.gouv.fr/offre-de-emploi/emploi-chef-de-projet-cafe-ia-relations-territoriales-sen-cian-219-h-f_29182.aspx" url="https://passerelles.economie.gouv.fr/offre-de-emploi/emploi-chef-de-projet-cafe-ia-relations-territoriales-sen-cian-219-h-f_29182.aspx"
+                      uid=s59 StaticText "Je suis un ouf j'ai candidaté ^^ CV full IA ^^ LOL"
+                    uid=e603 generic
+                      uid=s60 unknown url="https://passerelles.economie.gouv.fr/offre-de-emploi/emploi-chef-de-projet-cafe-ia-relations-territoriales-sen-cian-219-h-f_29182.aspx"
+                      uid=e610 link "Chef de projet Café IA - Relations territoriales SEN-CIAN-219 H/F" url="https://passerelles.economie.gouv.fr/offre-de-emploi/emploi-chef-de-projet-cafe-ia-relations-territoriales-sen-cian-219-h-f_29182.aspx"
+                        uid=e613 generic
+                          uid=e615 generic value="Chef de projet Café IA - Relations territoriales SEN-CIAN-219 H/F"
+                          uid=e616 generic value="passerelles.economie.gouv.fr"
+                uid=e617 listitem
+                  uid=e622 button "PDF CV Julien Guézennec — Chef de projet Café IA.pdf 1 MB Download"
+                    uid=e623 generic
+                      uid=s61 StaticText "PDF"
+                      uid=e624 generic
+                        uid=e625 paragraph value="CV Julien Guézennec — Chef de projet Café IA.pdf"
+                        uid=e626 paragraph value="1 MB"
+                      uid=e627 generic
+                        uid=e628 img
+                        uid=e630 paragraph value="Download"
+                uid=e631 listitem
+                  uid=e632 generic value="Jerome Etienne sent the following messages at 6:42 PM"
+                  uid=e633 generic
+                    uid=e634 link "View Jerome’s profile Jerome Etienne" url="https://www.linkedin.com/in/ACoAAABV1ZYB_x7AQ_K0oe15LPzT32jClDzkqjQ"
+                      uid=e635 generic value="View Jerome’s profile"
+                      uid=e636 img "Jerome Etienne"
+                    uid=e637 generic
+                      uid=e638 generic
+                        uid=e639 link "Jerome Etienne" url="https://www.linkedin.com/in/ACoAAABV1ZYB_x7AQ_K0oe15LPzT32jClDzkqjQ"
+                          uid=e640 generic value="Jerome Etienne"
+                        uid=e641 img "LinkedIn Verified"
+                      uid=e643 time value="• 6:42 PM"
+                    uid=e647 paragraph value="Se déplacer sur l’ensemble du territoire français pour rencontrer les collectivités, les conseillers numériques, et assurer notre présence lors d’événements dédiés à l’inclusion numérique et animer des cafés IA partout en France – déplacements réguliers à prévoir – environ 1 par semaine <- tu as vu ca ?"
+                    uid=e648 list
+                      uid=e649 listitem
+                        uid=e650 button "React with 👍 1"
+                          uid=e651 generic
+                            uid=e652 generic value="React with"
+                            uid=s62 generic value="👍"
+                            uid=s63 generic value="1"
+                      uid=e653 listitem
+                        uid=e656 button "Open Emoji Keyboard"
+                uid=e657 listitem
+                  uid=e662 paragraph value="tiens moi aussi je dois refaire un resume"
+                uid=e663 listitem
+                  uid=e668 paragraph value="faudra que tu mexplique comment tu as fait"
+                uid=e669 listitem
+                  uid=e670 generic value="Julien Guézennec sent the following messages at 6:59 PM"
+                  uid=e671 generic
+                    uid=s64 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e673 generic value="View Julien’s profile"
+                      uid=s65 unknown
+                    uid=e675 generic
+                      uid=e676 generic
+                        uid=e677 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e678 generic value="Julien Guézennec"
+                        uid=e679 img "LinkedIn Verified"
+                      uid=e681 time value="• 6:59 PM"
+                    uid=e685 paragraph value="👍"
+                uid=e686 listitem
+                  uid=e687 generic
+                    uid=s66 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e689 generic value="View Julien’s profile"
+                      uid=s67 unknown
+                    uid=e691 generic
+                      uid=e692 generic
+                        uid=e693 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e694 generic value="Julien Guézennec"
+                        uid=e695 img "LinkedIn Verified"
+                      uid=e697 time value="• 7:38 PM"
+                    uid=e701 paragraph
+                      uid=e702 link "https://www.instagram.com/p/ChcTUsoD1rZ/" url="https://www.instagram.com/p/ChcTUsoD1rZ/"
+                      uid=s68 StaticText "Go :)"
+                    uid=e710 link "Julien Guézennec on Instagram" url="https://www.instagram.com/julienweb.fr/p/ChcTUsoD1rZ/"
+                      uid=e712 generic
+                        uid=e713 generic
+                          uid=e715 generic value="Julien Guézennec on Instagram"
+                          uid=e716 generic value="instagram.com"
+                        uid=e717 generic value="27 likes, 3 comments - julienweb.fr on August 19, 2022"
+                uid=e718 listitem
+                  uid=e719 generic value="Jerome Etienne sent the following messages at 8:16 PM"
+                  uid=e720 generic
+                    uid=e721 link "View Jerome’s profile Jerome Etienne" url="https://www.linkedin.com/in/ACoAAABV1ZYB_x7AQ_K0oe15LPzT32jClDzkqjQ"
+                      uid=e722 generic value="View Jerome’s profile"
+                      uid=e723 img "Jerome Etienne"
+                    uid=e724 generic
+                      uid=e725 generic
+                        uid=e726 link "Jerome Etienne" url="https://www.linkedin.com/in/ACoAAABV1ZYB_x7AQ_K0oe15LPzT32jClDzkqjQ"
+                          uid=e727 generic value="Jerome Etienne"
+                        uid=e728 img "LinkedIn Verified"
+                      uid=e730 time value="• 8:16 PM"
+                    uid=e734 paragraph value="hehe"
+                uid=e735 listitem
+                  uid=e740 paragraph value="et tu te vois represente letat ?"
+                uid=e741 listitem
+                  uid=e742 generic value="Julien Guézennec sent the following messages at 8:18 PM"
+                  uid=e743 generic
+                    uid=s69 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e745 generic value="View Julien’s profile"
+                      uid=s70 unknown
+                    uid=e747 generic
+                      uid=e748 generic
+                        uid=e749 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e750 generic value="Julien Guézennec"
+                        uid=e751 img "LinkedIn Verified"
+                      uid=e753 time value="• 8:18 PM"
+                    uid=e757 paragraph value="Yes ! Je suis :)"
+                uid=e758 listitem
+                  uid=e759 time value="Apr 16"
+                  uid=e760 generic
+                    uid=s71 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e762 generic value="View Julien’s profile"
+                      uid=s72 unknown
+                    uid=e764 generic
+                      uid=e765 generic
+                        uid=e766 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e767 generic value="Julien Guézennec"
+                        uid=e768 img "LinkedIn Verified"
+                      uid=e770 time value="• 10:25 PM"
+                    uid=e774 paragraph
+                      uid=s73 StaticText "Je crois que j'ai trouvé mes tarifs ;)"
+                      uid=e775 link "https://julienweb.fr/services-julienweb-fr/intervention-durgence-piratage-incident-de-securite/" url="https://julienweb.fr/services-julienweb-fr/intervention-durgence-piratage-incident-de-securite/"
+                      uid=s74 StaticText "Aussi bientôt validé \""
+                      uid=e776 link "https://www.cybermalveillance.gouv.fr/" url="https://www.cybermalveillance.gouv.fr/"
+                      uid=s75 StaticText "\""
+                    uid=e781 button "Click or press enter to display in the image preview"
+                      uid=e782 generic value="Click or press enter to display in the image preview"
+                      uid=e783 img
+                uid=e784 listitem
+                  uid=e785 generic
+                    uid=s76 unknown url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                      uid=e787 generic value="View Julien’s profile"
+                      uid=s77 unknown
+                    uid=e789 generic
+                      uid=e790 generic
+                        uid=e791 link "Julien Guézennec" url="https://www.linkedin.com/in/ACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                          uid=e792 generic value="Julien Guézennec"
+                        uid=e793 img "LinkedIn Verified"
+                      uid=e795 time value="• 10:27 PM"
+                    uid=e799 paragraph value=":p"
+                    uid=e804 button "Click or press enter to display in the image preview"
+                      uid=e805 generic value="Click or press enter to display in the image preview"
+                      uid=e806 img
+                uid=e807 listitem
+                  uid=e808 time value="Apr 18"
+                  uid=e809 generic value="Jerome Etienne sent the following messages at 1:17 PM"
+                  uid=e810 generic
+                    uid=e811 link "View Jerome’s profile Jerome Etienne" url="https://www.linkedin.com/in/ACoAAABV1ZYB_x7AQ_K0oe15LPzT32jClDzkqjQ"
+                      uid=e812 generic value="View Jerome’s profile"
+                      uid=e813 img "Jerome Etienne"
+                    uid=e814 generic
+                      uid=e815 generic
+                        uid=e816 link "Jerome Etienne" url="https://www.linkedin.com/in/ACoAAABV1ZYB_x7AQ_K0oe15LPzT32jClDzkqjQ"
+                          uid=e817 generic value="Jerome Etienne"
+                        uid=e818 img "LinkedIn Verified"
+                      uid=e820 time value="• 1:17 PM"
+                    uid=e824 paragraph value="youpi!"
+                uid=e825 listitem
+                  uid=e830 paragraph
+                    uid=s78 StaticText "dit moi tu as whatapps ?"
+                    uid=s79 StaticText "je passe pas si souvent que ca sur linkedin"
+                uid=e831 listitem
+                  uid=e836 paragraph value="ca fluidifirai la communication :)"
+                uid=e837 listitem
+                  uid=e838 generic
+                    uid=e839 link "View Jerome’s profile Jerome Etienne" url="https://www.linkedin.com/in/ACoAAABV1ZYB_x7AQ_K0oe15LPzT32jClDzkqjQ"
+                      uid=e840 generic value="View Jerome’s profile"
+                      uid=e841 img "Jerome Etienne"
+                    uid=e842 generic
+                      uid=e843 generic
+                        uid=e844 link "Jerome Etienne" url="https://www.linkedin.com/in/ACoAAABV1ZYB_x7AQ_K0oe15LPzT32jClDzkqjQ"
+                          uid=e845 generic value="Jerome Etienne"
+                        uid=e846 img "LinkedIn Verified"
+                      uid=e848 time value="• 1:20 PM"
+                    uid=e852 paragraph
+                      uid=s80 StaticText "jai trouve sur ton site"
+                      uid=s81 StaticText "je tai envoye un message :)"
+                  uid=e854 img "Seen by Julien Guézennec at 2:04 PM."
+                uid=e855 listitem
+                uid=s82 listitem

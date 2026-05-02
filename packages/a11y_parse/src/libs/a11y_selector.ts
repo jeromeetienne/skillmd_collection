@@ -27,6 +27,9 @@ import { A11yTree } from "./a11y_tree.js";
 // role:where(s1, s2, ...)     → alias of :is()
 // role:not(s1, s2, ...)       → node matches none of the selectors
 // role:has(s1, s2, ...)       → node has a descendant matching any selector
+// role:has(> s)               → node has a direct child matching s
+// role:has(+ s)               → node's next sibling matches s
+// role:has(~ s)               → node has any following sibling matching s
 // A, B                        → union
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -48,6 +51,11 @@ type AttrMatch = {
 	value?: string;
 };
 
+type RelativeGroup = {
+	leading: Combinator | null;
+	compound: CompoundSelector;
+};
+
 type PseudoClass =
 	| { kind: 'first-child' }
 	| { kind: 'last-child' }
@@ -55,7 +63,7 @@ type PseudoClass =
 	| { kind: 'is'; groups: CompoundSelector[] }
 	| { kind: 'where'; groups: CompoundSelector[] }
 	| { kind: 'not'; groups: CompoundSelector[] }
-	| { kind: 'has'; groups: CompoundSelector[] };
+	| { kind: 'has'; groups: RelativeGroup[] };
 
 interface SimpleSelector {
 	role?: string;
@@ -298,8 +306,13 @@ export class A11yQuery {
 					}
 					const innerTokens = tokens.slice(innerStart, i);
 					eat();
-					const groupsInner = A11yQuery.parseGroups(innerTokens, input);
-					sel.pseudos.push({ kind: nameTok.value, groups: groupsInner });
+					if (nameTok.value === 'has') {
+						const groupsInner = A11yQuery.parseRelativeGroups(innerTokens, input);
+						sel.pseudos.push({ kind: 'has', groups: groupsInner });
+					} else {
+						const groupsInner = A11yQuery.parseGroups(innerTokens, input);
+						sel.pseudos.push({ kind: nameTok.value, groups: groupsInner });
+					}
 				} else {
 					throw A11yQuery.makeError(`Unknown pseudo-class '${nameTok.value}'`, input, nameTok.pos);
 				}
@@ -355,6 +368,51 @@ export class A11yQuery {
 		}
 
 		return groups;
+	}
+
+	private static parseRelativeGroups(tokensIn: Token[], input: string): RelativeGroup[] {
+		const tokens = [...tokensIn];
+		while (tokens.length > 0 && tokens[0].kind === 'ws') tokens.shift();
+		while (tokens.length > 0 && tokens[tokens.length - 1].kind === 'ws') tokens.pop();
+		if (tokens.length === 0) {
+			throw A11yQuery.makeError('Expected selector', input, 0);
+		}
+
+		const segments: Token[][] = [];
+		let depth = 0;
+		let cur: Token[] = [];
+		for (const t of tokens) {
+			if (t.kind === 'symbol' && t.value === '(') {
+				depth++;
+			} else if (t.kind === 'symbol' && t.value === ')') {
+				depth--;
+			}
+			if (depth === 0 && t.kind === 'symbol' && t.value === ',') {
+				segments.push(cur);
+				cur = [];
+				continue;
+			}
+			cur.push(t);
+		}
+		segments.push(cur);
+
+		const result: RelativeGroup[] = [];
+		for (const seg of segments) {
+			const segTokens = [...seg];
+			while (segTokens.length > 0 && segTokens[0].kind === 'ws') segTokens.shift();
+			let leading: Combinator | null = null;
+			const head = segTokens[0];
+			if (head?.kind === 'symbol' && (head.value === '>' || head.value === '+' || head.value === '~')) {
+				leading = head.value;
+				segTokens.shift();
+			}
+			const compounds = A11yQuery.parseGroups(segTokens, input);
+			if (compounds.length !== 1) {
+				throw A11yQuery.makeError('Expected single compound selector in :has() segment', input, 0);
+			}
+			result.push({ leading, compound: compounds[0] });
+		}
+		return result;
 	}
 
 	private static getAttr(node: AxNode, name: string): string | undefined {
@@ -415,13 +473,14 @@ export class A11yQuery {
 
 			if (pseudo.kind === 'has') {
 				let found = false;
-				const walker = A11yTree.walk(node);
-				walker.next();
-				for (const descendant of walker) {
-					if (pseudo.groups.some((g) => A11yQuery.matchCompound(descendant, g))) {
-						found = true;
-						break;
+				for (const { leading, compound } of pseudo.groups) {
+					for (const candidate of A11yQuery.relativeCandidates(node, leading)) {
+						if (A11yQuery.matchCompound(candidate, compound)) {
+							found = true;
+							break;
+						}
 					}
+					if (found === true) break;
 				}
 				if (found === false) return false;
 				continue;
@@ -429,6 +488,31 @@ export class A11yQuery {
 		}
 
 		return true;
+	}
+
+	private static *relativeCandidates(node: AxNode, leading: Combinator | null): Generator<AxNode> {
+		if (leading === null || leading === ' ') {
+			const walker = A11yTree.walk(node);
+			walker.next();
+			for (const descendant of walker) yield descendant;
+			return;
+		}
+		if (leading === '>') {
+			for (const child of node.children) yield child;
+			return;
+		}
+		const parent = node.parent;
+		if (parent === undefined) return;
+		const siblings = parent.children;
+		const idx = siblings.indexOf(node);
+		if (leading === '+') {
+			const next = siblings[idx + 1];
+			if (next !== undefined) yield next;
+			return;
+		}
+		if (leading === '~') {
+			for (let k = idx + 1; k < siblings.length; k++) yield siblings[k];
+		}
 	}
 
 	private static matchCompound(node: AxNode, compound: CompoundSelector): boolean {
