@@ -16,6 +16,21 @@ npx fastbrowser_cli query_selectors --selector 'listitem:has(link[name="user ava
 npx fastbrowser_cli query_selectors --selector 'listitem:has(link[name="user avatar"])' -a --wc
 ```
 
+Each listitem is one conversation, see the example output below.
+```
+uid=e360 listitem
+  uid=s15 unknown url="/i/chat/10142-10162102"
+    uid=e363 generic
+      uid=e365 link "user avatar" url="https://x.com/JamesCorbett"
+        uid=e366 img "user avatar"
+      uid=e367 generic
+        uid=e368 generic
+          uid=e371 generic value="James Corbett"
+          uid=e373 generic value="387w"
+        uid=e376 generic value="You: Sounds good"
+```
+
+
 
 ## command 'dm_select' - to select given conversation and get the whole info about it
 ```

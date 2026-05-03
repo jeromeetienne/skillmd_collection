@@ -153,6 +153,14 @@ async function main(): Promise<void> {
 		.description('LinkedIn DM CLI - command line tool to interact with LinkedIn using the FastBrowser CLI');
 
 	program
+		.command('post <content>')
+		.description('Create a post on the LinkedIn feed')
+		.action(async (content: string) => {
+			await MainHelper.gotoPageFeed();
+			await MainHelper.createPost(content);
+		});
+
+	program
 		.command('dm_page')
 		.description('Navigate to the LinkedIn messaging page')
 		.action(async () => {
@@ -184,14 +192,6 @@ async function main(): Promise<void> {
 			await MainHelper.selectConversation(targetUser);
 			const transcript = await MainHelper.getMessagesTranscript();
 			console.log(transcript);
-		});
-
-	program
-		.command('post <content>')
-		.description('Create a post on the LinkedIn feed')
-		.action(async (content: string) => {
-			await MainHelper.gotoPageFeed();
-			await MainHelper.createPost(content);
 		});
 
 	await program.parseAsync();

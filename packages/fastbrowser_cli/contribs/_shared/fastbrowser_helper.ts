@@ -28,6 +28,10 @@ export class FastBrowserHelper {
 		return await FastBrowserHelper.run(`query_selectors --all --selector '${selector}' --limit ${limit}`);
 	}
 
+	static async querySelectorsAllWithChildren(selector: string, limit: number): Promise<string> {
+		return await FastBrowserHelper.run(`query_selectors --all --selector '${selector}' --limit ${limit} --with-ancestors --with-children`);
+	}
+
 	static async takeSnapshot(): Promise<string> {
 		return await FastBrowserHelper.run('take_snapshot');
 	}
