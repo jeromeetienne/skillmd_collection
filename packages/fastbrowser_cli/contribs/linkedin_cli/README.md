@@ -24,6 +24,7 @@ npx tsx ./src/cli.ts <command> [args]
 | `dm_list` | List the names of people you have conversations with. |
 | `dm_send <target_user> <message>` | Send a message in an existing conversation with `target_user`. |
 | `dm_thread <target_user>` | Print the message thread of a conversation with `target_user`. |
+| `profile <slug>` | Export a LinkedIn profile by slug (the path component of `/in/<slug>/`). Use `-f json` for JSON output. |
 
 `target_user` is matched against the conversation heading via a prefix match (e.g. `"Jerome"` matches `"Jerome Etienne"`).
 
@@ -60,7 +61,20 @@ Send a reply:
 npx tsx ./src/cli.ts dm_send "Jerome Etienne" "Sure, Thursday afternoon works."
 ```
 
+Export a profile as markdown (default):
+
+```bash
+npx tsx ./src/cli.ts profile jeromeetienne
+```
+
+Export the same profile as JSON:
+
+```bash
+npx tsx ./src/cli.ts profile jeromeetienne -f json
+```
+
 ## Layout
 
 - [src/cli.ts](src/cli.ts) — Commander entry point, defines the commands and orchestrates browser actions through `FastBrowserHelper`.
 - [src/libs/linkedin_thread_helper.ts](src/libs/linkedin_thread_helper.ts) — Parses the LinkedIn message thread from an accessibility tree snapshot into timestamped lines.
+- [src/libs/linkedin_profile_helper.ts](src/libs/linkedin_profile_helper.ts) — Parses a LinkedIn profile snapshot into a typed `LinkedinProfile` (header, About, Experience, Education) with markdown rendering.

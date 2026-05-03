@@ -7,6 +7,7 @@ import { A11yQuery, A11yTree, AxNode } from 'a11y_parse';
 // local imports
 import { FastBrowserHelper } from '../../_shared/fastbrowser_helper.js';
 import { LinkedinThreadHelper } from './libs/linkedin_thread_helper.js';
+import { LinkedinProfile, LinkedinProfileHelper } from './libs/linkedin_profile_helper.js';
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -36,6 +37,31 @@ class MainHelper {
 	static async gotoPageFeed(): Promise<void> {
 		await FastBrowserHelper.run('check');
 		await FastBrowserHelper.navigatePage('https://www.linkedin.com/feed/');
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async gotoPageProfile(slug: string): Promise<void> {
+		if (slug.length === 0) {
+			throw new Error('slug is required');
+		}
+		await FastBrowserHelper.run('check');
+		await FastBrowserHelper.navigatePage(`https://www.linkedin.com/in/${slug}/`);
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async exportProfile(slug: string): Promise<LinkedinProfile> {
+		const snapshot = await FastBrowserHelper.takeSnapshot();
+		return LinkedinProfileHelper.parseProfile(snapshot, slug);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -192,6 +218,23 @@ async function main(): Promise<void> {
 			await MainHelper.selectConversation(targetUser);
 			const transcript = await MainHelper.getMessagesTranscript();
 			console.log(transcript);
+		});
+
+	program
+		.command('profile <slug>')
+		.description('Export a LinkedIn profile by slug (path component of /in/<slug>/)')
+		.option('-f, --format <format>', 'output format: markdown or json', 'markdown')
+		.action(async (slug: string, opts: { format: string; }) => {
+			if (opts.format !== 'markdown' && opts.format !== 'json') {
+				throw new Error(`unknown format '${opts.format}', expected 'markdown' or 'json'`);
+			}
+			await MainHelper.gotoPageProfile(slug);
+			const profile = await MainHelper.exportProfile(slug);
+			if (opts.format === 'json') {
+				console.log(JSON.stringify(profile));
+				return;
+			}
+			console.log(LinkedinProfileHelper.formatMarkdown(profile));
 		});
 
 	await program.parseAsync();
