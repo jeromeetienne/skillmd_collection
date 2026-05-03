@@ -504,7 +504,42 @@ class MainHelper {
 				const keysToSend: string[] = [];
 				const keysSplit = keys.split(',').map((key) => key.trim());
 				for (const key of keysSplit) {
-					const specialKeys = ['Tab', 'Enter', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Escape', 'Backspace', 'Delete'];
+					// from chatgpt
+					const specialKeys = [
+						// Control / navigation
+						'Enter',
+						'Tab',
+						'Escape',
+						'Backspace',
+						'Delete',
+						'Insert',
+
+						// Arrows
+						'ArrowUp',
+						'ArrowDown',
+						'ArrowLeft',
+						'ArrowRight',
+
+						// Navigation keys
+						'Home',
+						'End',
+						'PageUp',
+						'PageDown',
+
+						// Function keys
+						'F1',
+						'F2',
+						'F3',
+						'F4',
+						'F5',
+						'F6',
+						'F7',
+						'F8',
+						'F9',
+						'F10',
+						'F11',
+						'F12',
+					];
 					if (specialKeys.includes(key)) {
 						keysToSend.push(key);
 					} else {
