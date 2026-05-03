@@ -17,7 +17,7 @@ npx fastbrowser_cli query_selectors --selector 'listitem:has(link[name="user ava
 ```
 
 
-## command 'dm_thread' partial - to select given conversation and get the whole info about it
+## command 'dm_select' - to select given conversation and get the whole info about it
 ```
 uid=e360 listitem
   uid=s15 unknown url="/i/chat/10142-10162102"
