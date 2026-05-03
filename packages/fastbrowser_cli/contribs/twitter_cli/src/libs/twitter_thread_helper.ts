@@ -44,6 +44,7 @@ export class TwitterThreadHelper {
 
 		const lines: string[] = [];
 		let currentDate: Date | null = null;
+		const pending: string[] = [];
 
 		for (const item of items) {
 			const valueGenerics = A11yQuery.querySelectorAll(item, 'generic[value]');
@@ -57,12 +58,20 @@ export class TwitterThreadHelper {
 				continue;
 			}
 
-			const timestampNode = TwitterThreadHelper.findTimestampNode(valueGenerics);
-			if (timestampNode === null) {
+			const timestampNodes = TwitterThreadHelper.findTimestampNodes(valueGenerics);
+			if (timestampNodes.length === 0) {
+				const text = TwitterThreadHelper.collectText(valueGenerics, new Set());
+				if (text.length > 0) {
+					pending.push(text);
+				}
 				continue;
 			}
-			const time = TwitterThreadHelper.parseTimeOfDay(timestampNode.attributes['value']);
+
+			const time = TwitterThreadHelper.parseTimeOfDay(timestampNodes[0].attributes['value']);
 			if (time === null) {
+				continue;
+			}
+			if (currentDate === null) {
 				continue;
 			}
 
@@ -70,33 +79,41 @@ export class TwitterThreadHelper {
 				? 'You'
 				: otherHandle;
 
-			const textParts: string[] = [];
-			for (const node of valueGenerics) {
-				if (node.uid === timestampNode.uid) {
-					continue;
-				}
-				const value = node.attributes['value'];
-				if (value === undefined) {
-					continue;
-				}
-				const trimmed = value.trim();
-				if (trimmed.length === 0) {
-					continue;
-				}
-				textParts.push(trimmed);
-			}
-			if (textParts.length === 0) {
-				continue;
-			}
-			if (currentDate === null) {
-				continue;
-			}
-
+			const timestampUids = new Set(timestampNodes.map((n) => n.uid));
+			const text = TwitterThreadHelper.collectText(valueGenerics, timestampUids);
 			const iso = TwitterThreadHelper.combineDateTime(currentDate, time);
-			lines.push(`${iso}:${sender}:${textParts.join(' ')}`);
+
+			for (const pendingText of pending) {
+				lines.push(`${iso}:${sender}:${pendingText}`);
+			}
+			pending.length = 0;
+
+			if (text.length === 0) {
+				continue;
+			}
+			lines.push(`${iso}:${sender}:${text}`);
 		}
 
 		return lines.join('\n');
+	}
+
+	private static collectText(valueGenerics: AxNode[], excludeUids: Set<string>): string {
+		const parts: string[] = [];
+		for (const node of valueGenerics) {
+			if (excludeUids.has(node.uid) === true) {
+				continue;
+			}
+			const value = node.attributes['value'];
+			if (value === undefined) {
+				continue;
+			}
+			const trimmed = value.trim();
+			if (trimmed.length === 0) {
+				continue;
+			}
+			parts.push(trimmed);
+		}
+		return parts.join(' ');
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -115,17 +132,18 @@ export class TwitterThreadHelper {
 		return lines.join('\n');
 	}
 
-	private static findTimestampNode(valueGenerics: AxNode[]): AxNode | null {
-		for (let i = valueGenerics.length - 1; i >= 0; i--) {
-			const value = valueGenerics[i].attributes['value'];
+	private static findTimestampNodes(valueGenerics: AxNode[]): AxNode[] {
+		const result: AxNode[] = [];
+		for (const node of valueGenerics) {
+			const value = node.attributes['value'];
 			if (value === undefined) {
 				continue;
 			}
 			if (TIME_OF_DAY_REGEXP.test(value) === true) {
-				return valueGenerics[i];
+				result.push(node);
 			}
 		}
-		return null;
+		return result;
 	}
 
 	private static detectDateMarker(
@@ -133,7 +151,7 @@ export class TwitterThreadHelper {
 		valueGenerics: AxNode[],
 		fallbackYear: number,
 	): Date | null {
-		const hasTimestamp = TwitterThreadHelper.findTimestampNode(valueGenerics) !== null;
+		const hasTimestamp = TwitterThreadHelper.findTimestampNodes(valueGenerics).length > 0;
 		if (hasTimestamp === true) {
 			return null;
 		}
