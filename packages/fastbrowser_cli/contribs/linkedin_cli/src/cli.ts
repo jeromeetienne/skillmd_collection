@@ -5,7 +5,7 @@ import { Command } from 'commander';
 import { A11yQuery, A11yTree, AxNode } from 'a11y_parse';
 
 // local imports
-import { FastBrowserHelper } from './libs/fastbrowser_helper.js';
+import { FastBrowserHelper } from '../../_shared/fastbrowser_helper.js';
 import { LinkedinThreadHelper } from './libs/linkedin_thread_helper.js';
 
 ///////////////////////////////////////////////////////////////////////////////
