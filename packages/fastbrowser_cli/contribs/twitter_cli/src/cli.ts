@@ -8,6 +8,7 @@ import { A11yQuery, A11yTree } from 'a11y_parse';
 import { FastBrowserHelper } from '../../_shared/fastbrowser_helper.js';
 import { TwitterThreadHelper } from './libs/twitter_thread_helper.js';
 import { TwitterProfile, TwitterProfileHelper } from './libs/twitter_profile_helper.js';
+import { TwitterPost, TwitterRecentPostsHelper } from './libs/twitter_recent_posts_helper.js';
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -66,6 +67,31 @@ class MainHelper {
 			profile.website = await TwitterProfileHelper.resolveWebsite(profile.website);
 		}
 		return profile;
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async exportRecentPosts(handle: string, limit: number): Promise<TwitterPost[]> {
+		let posts: TwitterPost[] = [];
+		const maxAttempts = 8;
+		for (let attempt = 0; attempt < maxAttempts; attempt++) {
+			const snapshot = await FastBrowserHelper.takeSnapshot();
+			posts = TwitterRecentPostsHelper.parsePosts(snapshot, handle);
+			if (posts.length > 0) {
+				break;
+			}
+			if (attempt < maxAttempts - 1) {
+				await new Promise((resolve) => setTimeout(resolve, 1500));
+			}
+		}
+		if (limit > 0 && posts.length > limit) {
+			return posts.slice(0, limit);
+		}
+		return posts;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -251,6 +277,28 @@ async function main(): Promise<void> {
 				return;
 			}
 			console.log(TwitterProfileHelper.formatMarkdown(profile));
+		});
+
+	program
+		.command('recent_posts <handle>')
+		.description('Export the recent posts visible on a twitter handle\'s profile')
+		.option('-f, --format <format>', 'output format: markdown or json', 'markdown')
+		.option('-l, --limit <limit>', 'max number of posts to return (0 = all visible)', '0')
+		.action(async (handle: string, opts: { format: string; limit: string; }) => {
+			if (opts.format !== 'markdown' && opts.format !== 'json') {
+				throw new Error(`unknown format '${opts.format}', expected 'markdown' or 'json'`);
+			}
+			const limit = parseInt(opts.limit, 10);
+			if (Number.isNaN(limit) === true || limit < 0) {
+				throw new Error(`invalid limit '${opts.limit}', expected a non-negative integer`);
+			}
+			await MainHelper.gotoPageProfile(handle);
+			const posts = await MainHelper.exportRecentPosts(handle, limit);
+			if (opts.format === 'json') {
+				console.log(JSON.stringify(posts));
+				return;
+			}
+			console.log(TwitterRecentPostsHelper.formatMarkdown(posts));
 		});
 
 	program
