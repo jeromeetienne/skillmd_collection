@@ -17,8 +17,8 @@ random_sleep() {
 
 #######################################################################################
 
-# Restart the server to clear any previous state
-eval "$FASTBROWSER_CLI" server restart
+# Check if the CLI is working properly
+eval "$FASTBROWSER_CLI" check
 
 # Goto linkedin messaging page using the CLI commands below:
 eval "$FASTBROWSER_CLI" navigate_page --url https://www.linkedin.com/messaging/

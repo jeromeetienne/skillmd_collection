@@ -253,6 +253,48 @@ async function main(): Promise<void> {
 		});
 
 	program
+		.command('check')
+		.description('Verify the connection with the browser; restart the server once if it looks desynched')
+		.action(async (_opts, cmd: Command) => {
+			const serverUrl = MainHelper.getServerUrlFromCmd(cmd);
+			const mcpTarget = MainHelper.getMcpTargetFromCmd(cmd);
+
+			const hasPages = (response: { content: Array<{ text: string }> }): boolean => {
+				const joined = response.content.map((part) => part.text).join('\n');
+				const lines = joined.split('\n');
+				for (const line of lines) {
+					if (/^\s*\d+:/.test(line) === true) {
+						return true;
+					}
+				}
+				return false;
+			};
+
+			if (MainHelper.getAutostartFromCmd(cmd) === true) {
+				await ServerManager.ensureRunning(serverUrl, mcpTarget);
+			}
+
+			const firstResponse = await HttpClient.postTool(serverUrl, 'list_pages', {});
+			if (hasPages(firstResponse) === true) {
+				console.log('It is properly connected to the browser');
+				return;
+			}
+
+			console.log('Connection with the browser is desynched, relaunching the server');
+			await ServerManager.stop(serverUrl);
+			await ServerManager.start(serverUrl, mcpTarget);
+
+			const secondResponse = await HttpClient.postTool(serverUrl, 'list_pages', {});
+			if (hasPages(secondResponse) === true) {
+				console.log('It is properly connected to the browser');
+				return;
+			}
+
+			console.error('Connection with the browser is still broken after server restart');
+			process.exit(1);
+		});
+
+	program
 		.command('new_page')
 		.description('Open a new browser page')
 		.requiredOption('--url <url>', 'URL to open')

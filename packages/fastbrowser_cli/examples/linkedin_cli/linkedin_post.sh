@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Check if the CLI is working properly
+NODE_OPTIONS='' NPM_CONFIG_LOGLEVEL=silent npm run dev:cli -- check
+
 # Goto linkedin feed page using the CLI commands below:
 NODE_OPTIONS='' NPM_CONFIG_LOGLEVEL=silent npm run dev:cli -- navigate_page --url https://www.linkedin.com/feed/
 
