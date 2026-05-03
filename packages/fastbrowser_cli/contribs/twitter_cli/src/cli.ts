@@ -61,7 +61,11 @@ class MainHelper {
 
 	static async exportProfile(handle: string): Promise<TwitterProfile> {
 		const snapshot = await FastBrowserHelper.takeSnapshot();
-		return TwitterProfileHelper.parseProfile(snapshot, handle);
+		const profile = TwitterProfileHelper.parseProfile(snapshot, handle);
+		if (profile.website !== null) {
+			profile.website = await TwitterProfileHelper.resolveWebsite(profile.website);
+		}
+		return profile;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -208,7 +212,7 @@ async function main(): Promise<void> {
 
 	program
 		.command('dm_list')
-		.description('List the handles of people you have conversations with. (assume you did \'dm_page\' first)')
+		.description('List the handles of people you have conversations with. (assume you did "dm_page" first)')
 		.action(async () => {
 			const handles = await MainHelper.listConversationHandles();
 			for (const handle of handles) {
@@ -218,14 +222,14 @@ async function main(): Promise<void> {
 
 	program
 		.command('dm_select <handle>')
-		.description('Select an existing conversation by handle. (assume you did \'dm_page\' first)')
+		.description('Select an existing conversation by handle. (assume you did "dm_page" first)')
 		.action(async (handle: string) => {
 			await MainHelper.selectConversation(handle);
 		});
 
 	program
 		.command('dm_thread <handle>')
-		.description('Get the message thread of a conversation. (assume you did \'dm_page\' first)')
+		.description('Get the message thread of a conversation. (assume you did "dm_page" first)')
 		.action(async (handle: string) => {
 			await MainHelper.selectConversation(handle);
 			const transcript = await MainHelper.getMessagesTranscript(handle);

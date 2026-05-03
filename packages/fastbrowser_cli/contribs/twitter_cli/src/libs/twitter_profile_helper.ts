@@ -80,11 +80,29 @@ export class TwitterProfileHelper {
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
 
+	static async resolveWebsite(url: string): Promise<string> {
+		if (url.startsWith('https://t.co/') === false) {
+			return url;
+		}
+		try {
+			const response = await fetch(url, { redirect: 'follow' });
+			await response.body?.cancel();
+			return response.url;
+		} catch {
+			return url;
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
 	static formatMarkdown(profile: TwitterProfile): string {
 		const headerName = profile.displayName !== null ? profile.displayName : profile.handle;
 		const lines: string[] = [];
-		lines.push(`${headerName} (@${profile.handle})`);
-		lines.push('');
+		lines.push(`# ${headerName} (@${profile.handle})`);
 		const fields: { label: string; value: string | null; }[] = [
 			{ label: 'Bio', value: profile.bio },
 			{ label: 'Location', value: profile.location },
@@ -98,7 +116,7 @@ export class TwitterProfileHelper {
 			if (field.value === null) {
 				continue;
 			}
-			lines.push(`  - ${field.label}: ${field.value}`);
+			lines.push(`- ${field.label}: ${field.value}`);
 		}
 		return lines.join('\n');
 	}
@@ -155,19 +173,41 @@ export class TwitterProfileHelper {
 		if (handleNode === undefined) {
 			return null;
 		}
-		const prev = A11yTree.previousSibling(handleNode);
-		if (prev === undefined) {
-			return null;
+		const handleValue = `@${escapedHandle}`;
+		let cursor: AxNode | undefined = handleNode;
+		for (let level = 0; level < 5; level++) {
+			if (cursor === undefined) {
+				break;
+			}
+			const prev = A11yTree.previousSibling(cursor);
+			if (prev !== undefined) {
+				const found = TwitterProfileHelper.findFirstValue(prev, handleValue);
+				if (found !== null) {
+					return found;
+				}
+			}
+			cursor = cursor.parent;
 		}
-		const value = prev.attributes['value'];
-		if (value === undefined) {
-			return null;
+		return null;
+	}
+
+	private static findFirstValue(node: AxNode, exclude: string): string | null {
+		for (const descendant of A11yTree.walk(node)) {
+			const value = descendant.attributes['value'];
+			if (value !== undefined) {
+				const trimmed = value.trim();
+				if (trimmed.length > 0 && trimmed !== exclude) {
+					return trimmed;
+				}
+			}
+			if (descendant.role === 'StaticText' && descendant.name !== undefined) {
+				const trimmed = descendant.name.trim();
+				if (trimmed.length > 0 && trimmed !== exclude) {
+					return trimmed;
+				}
+			}
 		}
-		const trimmed = value.trim();
-		if (trimmed.length === 0) {
-			return null;
-		}
-		return trimmed;
+		return null;
 	}
 
 	private static extractLocation(root: AxNode, escapedHandle: string): string | null {
