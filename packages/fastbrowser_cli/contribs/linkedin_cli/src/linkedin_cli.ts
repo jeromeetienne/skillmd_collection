@@ -1,10 +1,12 @@
 #!/usr/bin/env npx tsx
 
+// npm imports
 import { Command } from 'commander';
-
 import { A11yQuery, A11yTree, AxNode } from 'a11y_parse';
+
+// local imports
 import { FastBrowserHelper } from './libs/fastbrowser_helper.js';
-import { LinkedinDmThreadHelper } from './libs/linkedin_dm_thread_helper.js';
+import { LinkedinThreadHelper } from './libs/linkedin_thread_helper.js';
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -20,9 +22,32 @@ class MainHelper {
 	///////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////
 
-	static async gotoMessaging(): Promise<void> {
+	static async gotoPageMessaging(): Promise<void> {
 		await FastBrowserHelper.run('check');
 		await FastBrowserHelper.navigatePage('https://www.linkedin.com/messaging/');
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async gotoPageFeed(): Promise<void> {
+		await FastBrowserHelper.run('check');
+		await FastBrowserHelper.navigatePage('https://www.linkedin.com/feed/');
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async createPost(content: string): Promise<void> {
+		await FastBrowserHelper.click('button[name^="Start a post"]');
+		await FastBrowserHelper.fillForm('textbox[name^="Text editor"]', content);
+		await FastBrowserHelper.click('button[name^="Post"]');
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -84,7 +109,7 @@ class MainHelper {
 		const output = await FastBrowserHelper.takeSnapshot();
 		const axTree = A11yTree.parse(output);
 		const threadNode = MainHelper.findThreadNode(axTree);
-		return await LinkedinDmThreadHelper.parseMessagesThread(threadNode);
+		return await LinkedinThreadHelper.parseMessagesThread(threadNode);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -124,19 +149,19 @@ async function main(): Promise<void> {
 	const program = new Command();
 
 	program
-		.name('linkedin_dm')
-		.description('LinkedIn DM CLI');
+		.name('linkedin_cli')
+		.description('LinkedIn DM CLI - command line tool to interact with LinkedIn using the FastBrowser CLI');
 
 	program
-		.command('goto_messaging')
+		.command('dm_page')
 		.description('Navigate to the LinkedIn messaging page')
 		.action(async () => {
-			await MainHelper.gotoMessaging();
+			await MainHelper.gotoPageMessaging();
 		});
 
 	program
-		.command('list')
-		.description('List the names of people you have conversations with')
+		.command('dm_list')
+		.description('List the names of people you have conversations with. (assume you did \'dm_page\' first)')
 		.action(async () => {
 			const names = await MainHelper.listConvoNames();
 			for (const name of names) {
@@ -145,20 +170,28 @@ async function main(): Promise<void> {
 		});
 
 	program
-		.command('send <target_user> <message>')
-		.description('Send a message in an existing conversation')
+		.command('dm_send <target_user> <message>')
+		.description('Send a message in an existing conversation. (assume you did \'dm_page\' first)')
 		.action(async (targetUser: string, message: string) => {
 			await MainHelper.selectConversation(targetUser);
 			await MainHelper.fillAndSendMessage(message);
 		});
 
 	program
-		.command('thread <target_user>')
-		.description('Get the message thread of a conversation')
+		.command('dm_thread <target_user>')
+		.description('Get the message thread of a conversation. (assume you did \'dm_page\' first)')
 		.action(async (targetUser: string) => {
 			await MainHelper.selectConversation(targetUser);
 			const transcript = await MainHelper.getMessagesTranscript();
 			console.log(transcript);
+		});
+
+	program
+		.command('post <content>')
+		.description('Create a post on the LinkedIn feed')
+		.action(async (content: string) => {
+			await MainHelper.gotoPageFeed();
+			await MainHelper.createPost(content);
 		});
 
 	await program.parseAsync();

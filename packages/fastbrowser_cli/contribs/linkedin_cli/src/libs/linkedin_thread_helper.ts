@@ -1,5 +1,5 @@
 // npm imports
-import { A11yQuery, A11yTree, AxNode } from 'a11y_parse';
+import { A11yQuery, AxNode } from 'a11y_parse';
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -7,7 +7,7 @@ import { A11yQuery, A11yTree, AxNode } from 'a11y_parse';
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-export class LinkedinDmThreadHelper {
+export class LinkedinThreadHelper {
 	static async parseMessagesThread(
 		axNodeThread: AxNode,
 		overrideYear?: number,
@@ -29,7 +29,7 @@ export class LinkedinDmThreadHelper {
 					&& c.attributes['value'].startsWith('•') === false,
 			);
 			if (dateChild !== undefined && dateChild.attributes['value'] !== undefined) {
-				currentDate = LinkedinDmThreadHelper.parseDateMarker(dateChild.attributes['value'], year);
+				currentDate = LinkedinThreadHelper.parseDateMarker(dateChild.attributes['value'], year);
 			}
 
 			const headerChild = item.children.find(
@@ -38,10 +38,10 @@ export class LinkedinDmThreadHelper {
 					&& / sent the following messages at /.test(c.attributes['value']),
 			);
 			if (headerChild !== undefined && headerChild.attributes['value'] !== undefined) {
-				const parsed = LinkedinDmThreadHelper.extractSenderFromHeader(headerChild.attributes['value']);
+				const parsed = LinkedinThreadHelper.extractSenderFromHeader(headerChild.attributes['value']);
 				if (parsed !== null) {
 					currentSender = parsed.sender;
-					currentTime = LinkedinDmThreadHelper.parseTimeOfDay(parsed.time);
+					currentTime = LinkedinThreadHelper.parseTimeOfDay(parsed.time);
 				}
 			}
 
@@ -50,7 +50,7 @@ export class LinkedinDmThreadHelper {
 				(t) => t.attributes['value'] !== undefined && t.attributes['value'].startsWith('•'),
 			);
 			if (bulletTime !== undefined && bulletTime.attributes['value'] !== undefined) {
-				currentTime = LinkedinDmThreadHelper.parseTimeOfDay(bulletTime.attributes['value']);
+				currentTime = LinkedinThreadHelper.parseTimeOfDay(bulletTime.attributes['value']);
 			}
 
 			if (headerChild === undefined) {
@@ -66,9 +66,9 @@ export class LinkedinDmThreadHelper {
 			}
 
 			const paragraphs = A11yQuery.querySelectorAll(item, 'paragraph')
-				.filter((p) => LinkedinDmThreadHelper.hasButtonAncestor(p, item) === false);
+				.filter((p) => LinkedinThreadHelper.hasButtonAncestor(p, item) === false);
 			const texts = paragraphs
-				.map((p) => LinkedinDmThreadHelper.extractParagraphText(p))
+				.map((p) => LinkedinThreadHelper.extractParagraphText(p))
 				.filter((t) => t.length > 0);
 			if (texts.length === 0) {
 				continue;
@@ -77,12 +77,18 @@ export class LinkedinDmThreadHelper {
 				continue;
 			}
 
-			const iso = LinkedinDmThreadHelper.combineDateTime(currentDate, currentTime);
+			const iso = LinkedinThreadHelper.combineDateTime(currentDate, currentTime);
 			lines.push(`${iso}:${currentSender}: ${texts.join(' ')}`);
 		}
 
 		return lines.join('\n');
 	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//	
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 
 	private static parseDateMarker(value: string, fallbackYear: number): Date {
 		const months: Record<string, number> = {

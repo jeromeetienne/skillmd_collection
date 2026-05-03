@@ -2,8 +2,9 @@ import { execSync } from 'node:child_process';
 
 export class FastBrowserHelper {
 	static async run(command: string): Promise<string> {
-		const fullCommand = `npx fastbrowser_cli ${command}`;
-		console.log(`Running command: ${fullCommand}`);
+		// const fullCommand = `npx fastbrowser_cli ${command}`;
+		const fullCommand = `npx tsx ./src/fastbrowser_cli/fastbrowser_cli.ts  ${command}`;
+		console.error(`Running command: ${fullCommand}`);
 		return execSync(fullCommand, { encoding: 'utf8' });
 	}
 
