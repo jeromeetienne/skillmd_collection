@@ -2,7 +2,7 @@
 
 Command-line tool to interact with X (twitter.com) through a real browser session, driven by `fastbrowser_cli`.
 
-It lets you create posts and manage direct-message conversations (list, read, send) from the terminal.
+It lets you create posts, manage direct-message conversations (list, read, send), and export public profiles from the terminal.
 
 ## Requirements
 
@@ -20,6 +20,7 @@ npx tsx ./src/cli.ts <command> [args]
 | Command | Description |
 |---------|-------------|
 | `post <content>` | Create a post on x.com. |
+| `profile <handle> [-f markdown\|json]` | Export the profile of a twitter handle (default: `markdown`). |
 | `dm_page` | Navigate to the x.com direct messages page. Run this first before any `dm_*` command. |
 | `dm_list` | List the handles of people you have conversations with. |
 | `dm_select <handle>` | Open an existing conversation by handle. |
@@ -34,6 +35,13 @@ Create a post:
 
 ```bash
 npx tsx ./src/cli.ts post "Hello X from the CLI"
+```
+
+Export a profile:
+
+```bash
+npx tsx ./src/cli.ts profile jerome_etienne
+npx tsx ./src/cli.ts profile jerome_etienne -f json
 ```
 
 List your conversations:
@@ -67,4 +75,5 @@ npx tsx ./src/cli.ts dm_send JamesCorbett "Sounds good"
 
 - [src/cli.ts](src/cli.ts) — Commander entry point, defines the commands and orchestrates browser actions through `FastBrowserHelper`.
 - [src/libs/twitter_thread_helper.ts](src/libs/twitter_thread_helper.ts) — Parses the X message thread from an accessibility tree snapshot into timestamped lines.
-- [NOTES.md](NOTES.md) — Raw `fastbrowser_cli` selectors and accessibility-tree snippets used while reverse-engineering the X UI.
+- [src/libs/twitter_profile_helper.ts](src/libs/twitter_profile_helper.ts) — Parses a public X profile page snapshot into a `TwitterProfile` object and renders it as markdown.
+- [NOTES_dm.md](NOTES_dm.md), [NOTES_profile.md](NOTES_profile.md) — Raw `fastbrowser_cli` selectors and accessibility-tree snippets used while reverse-engineering the X UI.

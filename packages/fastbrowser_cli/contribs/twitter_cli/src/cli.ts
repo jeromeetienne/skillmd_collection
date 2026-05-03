@@ -7,6 +7,7 @@ import { A11yQuery, A11yTree } from 'a11y_parse';
 // local imports
 import { FastBrowserHelper } from '../../_shared/fastbrowser_helper.js';
 import { TwitterThreadHelper } from './libs/twitter_thread_helper.js';
+import { TwitterProfile, TwitterProfileHelper } from './libs/twitter_profile_helper.js';
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -36,6 +37,31 @@ class MainHelper {
 	static async gotoPageDm(): Promise<void> {
 		await FastBrowserHelper.run('check');
 		await FastBrowserHelper.navigatePage('https://x.com/i/chat/');
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async gotoPageProfile(handle: string): Promise<void> {
+		if (handle.length === 0) {
+			throw new Error('handle is required');
+		}
+		await FastBrowserHelper.run('check');
+		await FastBrowserHelper.navigatePage(`https://x.com/${handle}`);
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async exportProfile(handle: string): Promise<TwitterProfile> {
+		const snapshot = await FastBrowserHelper.takeSnapshot();
+		return TwitterProfileHelper.parseProfile(snapshot, handle);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -204,6 +230,23 @@ async function main(): Promise<void> {
 			await MainHelper.selectConversation(handle);
 			const transcript = await MainHelper.getMessagesTranscript(handle);
 			console.log(transcript);
+		});
+
+	program
+		.command('profile <handle>')
+		.description('Export the profile of a twitter handle')
+		.option('-f, --format <format>', 'output format: markdown or json', 'markdown')
+		.action(async (handle: string, opts: { format: string; }) => {
+			if (opts.format !== 'markdown' && opts.format !== 'json') {
+				throw new Error(`unknown format '${opts.format}', expected 'markdown' or 'json'`);
+			}
+			await MainHelper.gotoPageProfile(handle);
+			const profile = await MainHelper.exportProfile(handle);
+			if (opts.format === 'json') {
+				console.log(JSON.stringify(profile));
+				return;
+			}
+			console.log(TwitterProfileHelper.formatMarkdown(profile));
 		});
 
 	program
