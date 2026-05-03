@@ -1,9 +1,9 @@
-## to go to the messages page
+## command 'dm_page' - to go to the messages page
 ```
 npx fastbrowser_cli navigate_page --url 'https://x.com/i/chat/'
 ```
 
-## To get the profile url of all the users im talking with
+## command 'dm_list' - To get the profile url of all the users im talking with
 ```
 npx fastbrowser_cli query_selectors --selector 'listitem:has(link[name="user avatar"]) link[name="user avatar"]' -a     
 ```
@@ -17,7 +17,7 @@ npx fastbrowser_cli query_selectors --selector 'listitem:has(link[name="user ava
 ```
 
 
-## to select given conversation and get the whole info about it
+## command 'dm_thread' partial - to select given conversation and get the whole info about it
 ```
 uid=e360 listitem
   uid=s15 unknown url="/i/chat/10142-10162102"
@@ -36,7 +36,7 @@ click on the listem from the previous command that has the profile url of the us
 npx fastbrowser_cli click -s "#e360"    
 ```
 
-## To get messages from the selected conversation
+## command 'dm_thread' partial - To get messages from the selected conversation
 The simplest one — grab each message bubble subtree:
 
 ```
@@ -71,4 +71,15 @@ npx fastbrowser_cli query_selectors --all --limit 0 \
 output the messages in this format:
 ```
 {dateIso}:{myName|otherName}:{messageText}
+```
+
+## command 'dm_send' - To send a message in the selected conversation
+To set the message content, fill the textbox with the name "Unencrypted message":
+```
+npx fastbrowser_cli fill_form -s 'textbox[name="Unencrypted message"]' -v 'hello Julien'
+```
+
+To send the message, click on the button that is a sibling of the textbox:
+```
+npx fastbrowser_cli click -s 'generic:has(> textbox[name="Unencrypted message"]) > button'
 ```
