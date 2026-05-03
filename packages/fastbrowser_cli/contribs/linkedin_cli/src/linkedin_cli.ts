@@ -1,0 +1,167 @@
+#!/usr/bin/env npx tsx
+
+import { Command } from 'commander';
+
+import { A11yQuery, A11yTree, AxNode } from 'a11y_parse';
+import { FastBrowserHelper } from './libs/fastbrowser_helper.js';
+import { LinkedinDmThreadHelper } from './libs/linkedin_dm_thread_helper.js';
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+class MainHelper {
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async gotoMessaging(): Promise<void> {
+		await FastBrowserHelper.run('check');
+		await FastBrowserHelper.navigatePage('https://www.linkedin.com/messaging/');
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async listConvoNames(): Promise<string[]> {
+		const output = await FastBrowserHelper.querySelectorsAll(
+			'list[name="Conversation List"] > listitem heading',
+			0,
+		);
+		const names: string[] = [];
+		for (const line of output.split('\n')) {
+			if (/^uid=\S+\s+heading\s+"/.test(line) === false) {
+				continue;
+			}
+			const axNode = A11yTree.parse(line);
+			if (axNode.name === undefined) {
+				continue;
+			}
+			names.push(axNode.name);
+		}
+		return names;
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async selectConversation(targetUser: string): Promise<void> {
+		const escaped = targetUser.replace(/"/g, '\\"');
+		await FastBrowserHelper.click(
+			`list[name="Conversation List"] > listitem heading[name^="${escaped}"]`,
+		);
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async fillAndSendMessage(message: string): Promise<void> {
+		await FastBrowserHelper.fillForm('textbox[name^="Write"]', message);
+		await FastBrowserHelper.click('button[name^="Send"]');
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async getMessagesTranscript(): Promise<string> {
+		const output = await FastBrowserHelper.takeSnapshot();
+		const axTree = A11yTree.parse(output);
+		const threadNode = MainHelper.findThreadNode(axTree);
+		return await LinkedinDmThreadHelper.parseMessagesThread(threadNode);
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	private static findThreadNode(axTree: AxNode): AxNode {
+		const convList = A11yQuery.querySelector(axTree, 'list[name="Conversation List"]');
+		if (convList === undefined) {
+			throw new Error('Could not find conversation list node');
+		}
+		const convListParent = convList.parent;
+		if (convListParent === undefined) {
+			throw new Error('Conversation list node has no parent');
+		}
+		const convDetails = A11yTree.nextSibling(convListParent);
+		if (convDetails === undefined) {
+			throw new Error('Could not find conversation details node');
+		}
+		const threadNode = A11yQuery.querySelector(convDetails, 'list');
+		if (threadNode === undefined) {
+			throw new Error('Could not find thread node');
+		}
+		return threadNode;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//	Entry point
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+async function main(): Promise<void> {
+	const program = new Command();
+
+	program
+		.name('linkedin_dm')
+		.description('LinkedIn DM CLI');
+
+	program
+		.command('goto_messaging')
+		.description('Navigate to the LinkedIn messaging page')
+		.action(async () => {
+			await MainHelper.gotoMessaging();
+		});
+
+	program
+		.command('list')
+		.description('List the names of people you have conversations with')
+		.action(async () => {
+			const names = await MainHelper.listConvoNames();
+			for (const name of names) {
+				console.log(name);
+			}
+		});
+
+	program
+		.command('send <target_user> <message>')
+		.description('Send a message in an existing conversation')
+		.action(async (targetUser: string, message: string) => {
+			await MainHelper.selectConversation(targetUser);
+			await MainHelper.fillAndSendMessage(message);
+		});
+
+	program
+		.command('thread <target_user>')
+		.description('Get the message thread of a conversation')
+		.action(async (targetUser: string) => {
+			await MainHelper.selectConversation(targetUser);
+			const transcript = await MainHelper.getMessagesTranscript();
+			console.log(transcript);
+		});
+
+	await program.parseAsync();
+}
+
+void main();

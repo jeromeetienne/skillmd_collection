@@ -20,6 +20,7 @@
         "src/**/*",
         "tests/**/*",
         "examples/**/*",
+        "contribs/**/*",
     ],
     "exclude": [
         "node_modules",
