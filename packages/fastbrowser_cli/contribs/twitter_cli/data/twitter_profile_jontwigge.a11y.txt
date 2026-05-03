@@ -1,0 +1,484 @@
+uid=e1 generic active
+  uid=e2 generic
+    uid=s4 generic
+      uid=s5 generic
+        uid=e3 heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" level="2"
+          uid=e4 generic value="To view keyboard shortcuts, press question mark"
+          uid=e5 link "View keyboard shortcuts" url="/i/keyboard_shortcuts"
+        uid=e6 generic
+          uid=e7 button "Skip to home timeline"
+          uid=e9 button "Skip to trending"
+          uid=e11 banner
+            uid=e13 generic
+              uid=e14 generic
+                uid=e16 heading "X" level="1"
+                  uid=e17 link "X" url="/home"
+                    uid=e19 img
+                uid=e23 navigation "Primary"
+                  uid=e24 link "Home" url="/home"
+                    uid=e27 img
+                  uid=e30 link "Search and explore" url="/explore"
+                    uid=e33 img
+                  uid=e36 link "Notifications" url="/notifications"
+                    uid=e39 img
+                  uid=e42 link "Direct Messages" url="/i/chat"
+                    uid=e45 img
+                  uid=e48 link "Grok" url="/i/grok"
+                    uid=e51 img
+                  uid=e54 link "Bookmarks" url="/i/bookmarks"
+                    uid=e57 img
+                  uid=e60 link "Creator Studio" url="/i/jf/creators/studio"
+                    uid=e63 img
+                  uid=e66 link "Premium" url="/i/premium_sign_up"
+                    uid=e69 img
+                  uid=e72 link "Profile" url="/jerome_etienne"
+                    uid=e75 img
+                  uid=e78 button "More menu items"
+                    uid=e81 img
+                uid=e85 link "Post" url="/compose/post"
+                  uid=e87 img
+              uid=e92 button "Account menu"
+                uid=e100 generic
+                  uid=s6 generic
+                    uid=s7 generic
+                      uid=s8 generic
+                        uid=s9 unknown
+                          uid=s10 unknown
+          uid=e103 main
+            uid=e108 generic "Home timeline"
+              uid=e109 generic
+                uid=e115 generic
+                  uid=e117 button "Back"
+                    uid=e119 img
+                  uid=e123 generic
+                    uid=e124 heading "Jon Twigge Verified account" level="2"
+                      uid=e128 generic
+                        uid=e130 generic value="Jon Twigge"
+                        uid=e133 img "Verified account"
+                    uid=e136 generic value="4,016 posts"
+                  uid=e138 generic
+                    uid=e139 button "Profile Summary"
+                      uid=e141 img
+                    uid=e144 button "Search"
+                      uid=e146 img
+                uid=s11 generic
+                  uid=s12 generic
+                    uid=s13 status
+                      uid=s14 button
+                        uid=s15 generic
+                          uid=s16 img
+                          uid=s17 generic value="See new posts"
+              uid=e151 generic
+                uid=e157 generic
+                  uid=e158 generic
+                    uid=e166 link "Opens profile photo" url="/jontwigge/photo"
+                      uid=s18 generic
+                        uid=s19 generic
+                          uid=s20 generic
+                            uid=s21 generic "Opens profile photo"
+                              uid=s22 img "Opens profile photo"
+                    uid=e169 generic
+                      uid=e170 button "More"
+                        uid=e172 img
+                      uid=e175 button "Message"
+                        uid=e177 img
+                      uid=e181 button "Turn on post notifications"
+                        uid=e183 img
+                      uid=e188 button "Following @jontwigge"
+                        uid=e191 generic value="Following"
+                  uid=e195 generic
+                    uid=e199 generic
+                      uid=s23 StaticText "Jon Twigge"
+                      uid=e204 button "Provides details about verified accounts."
+                        uid=e205 img "Verified account"
+                    uid=e208 generic
+                      uid=e211 generic value="@jontwigge"
+                      uid=e213 generic value="Follows you"
+                  uid=e216 generic value="Aiming to increase global capacity for reaching our potential..."
+                  uid=e218 generic
+                    uid=e219 img
+                    uid=e222 button "Software developer/Programmer/Software engineer"
+                    uid=e223 img
+                    uid=e226 generic value="Stockport, Manchester, England"
+                    uid=e227 link "linktr.ee/potx" url="https://t.co/wgyY10cLyl"
+                      uid=e228 img
+                      uid=s24 StaticText "linktr.ee/potx"
+                    uid=e232 link "Joined May 2009" url="/jontwigge/about"
+                      uid=e233 img
+                      uid=s25 StaticText "Joined May 2009"
+                      uid=e236 img
+                  uid=e239 generic
+                    uid=e241 link "1,358 Following" url="/jontwigge/following"
+                      uid=e242 generic value="1,358"
+                      uid=e243 generic value="Following"
+                    uid=e245 link "1,644 Followers" url="/jontwigge/verified_followers"
+                      uid=e246 generic value="1,644"
+                      uid=e247 generic value="Followers"
+                  uid=e253 generic value="Not followed by anyone you’re following"
+                uid=e255 navigation "Profile timelines"
+                  uid=e256 generic
+                    uid=s26 generic
+                      uid=s27 button "Previous" disabled
+                        uid=s28 generic
+                          uid=s29 img
+                    uid=e258 tablist
+                      uid=e259 tab "Posts" selected
+                        uid=e262 generic value="Posts"
+                      uid=e264 tab "Replies"
+                        uid=e267 generic value="Replies"
+                      uid=e268 tab "Highlights"
+                        uid=e271 generic value="Highlights"
+                      uid=e272 tab "Articles"
+                        uid=e275 generic value="Articles"
+                      uid=e276 tab "Media"
+                        uid=e279 generic value="Media"
+                    uid=s30 generic
+                      uid=s31 button "Next" disabled
+                        uid=s32 generic
+                          uid=s33 img
+                uid=e280 region "Jon Twigge’s posts"
+                  uid=e281 heading "Jon Twigge’s posts" level="1"
+                  uid=s34 unknown
+                    uid=e283 generic
+                      uid=e287 article "Pinned Jon Twigge Verified account @jontwigge Feb 17 The Duality of Progress And the extreme challenges of extreme progress. And the need for change - some of my simple high level thoughts follow. I would like to suggest listening to Brian @FutureAZA talking to Randy at @RandyWKirk1 to hear an excellent exposition of the 2 replies, 1 repost, 5 likes, 2055 views"
+                        uid=e289 generic
+                          uid=e294 generic
+                            uid=e296 img
+                            uid=e302 generic value="Pinned"
+                          uid=e303 generic
+                            uid=e315 link url="/jontwigge"
+                            uid=e318 generic
+                              uid=e320 generic
+                                uid=e323 generic
+                                  uid=e326 link "Jon Twigge Verified account" url="/jontwigge"
+                                    uid=e327 generic
+                                      uid=e329 generic value="Jon Twigge"
+                                      uid=e332 img "Verified account"
+                                  uid=e336 generic
+                                    uid=e338 link "@jontwigge" url="/jontwigge"
+                                      uid=e339 generic value="@jontwigge"
+                                    uid=e340 generic value="·"
+                                    uid=e342 link "Feb 17" url="/jontwigge/status/2023725491828527530"
+                                      uid=e343 time value="Feb 17"
+                                uid=e345 generic
+                                  uid=e347 button "Grok actions"
+                                    uid=e352 img
+                                  uid=e358 button "More"
+                                    uid=e362 img
+                              uid=e365 generic
+                                uid=e366 generic
+                                  uid=s35 StaticText "The Duality of Progress And the extreme challenges of extreme progress. And the need for change - some of my simple high level thoughts follow. I would like to suggest listening to Brian"
+                                  uid=e369 link "@FutureAZA" url="/FutureAZA"
+                                  uid=s36 StaticText "talking to Randy at"
+                                  uid=e372 link "@RandyWKirk1" url="/RandyWKirk1"
+                                  uid=s37 StaticText "to hear an excellent exposition of the"
+                                uid=e373 button "Show more"
+                              uid=e376 group "2 replies, 1 repost, 5 likes, 2055 views"
+                                uid=e378 button "2 Replies. Reply"
+                                  uid=e379 generic
+                                    uid=e382 img
+                                    uid=e387 generic value="2"
+                                uid=e389 button "1 repost. Repost"
+                                  uid=e390 generic
+                                    uid=e393 img
+                                    uid=e398 generic value="1"
+                                uid=e400 button "5 Likes. Like"
+                                  uid=e401 generic
+                                    uid=e404 img
+                                    uid=e409 generic value="5"
+                                uid=e411 link "2055 views. View post analytics" url="/jontwigge/status/2023725491828527530/analytics"
+                                  uid=e412 generic
+                                    uid=e415 img
+                                    uid=e420 generic value="2K"
+                                uid=e422 button "Bookmark"
+                                  uid=e426 img
+                                uid=e431 button "Share post"
+                                  uid=e435 img
+                      uid=e441 article "Jon Twigge reposted Cern Basher Verified account @CernBasher 1 hour ago 10 Billion FSD miles! Embedded video Play Video 25 replies, 41 reposts, 367 likes, 13 bookmarks, 5520 views"
+                        uid=e443 generic
+                          uid=e448 generic
+                            uid=e450 img
+                            uid=e457 link "Jon Twigge reposted" url="/jontwigge"
+                              uid=e458 generic
+                                uid=e459 generic value="Jon Twigge"
+                                uid=s38 StaticText "reposted"
+                          uid=e460 generic
+                            uid=e472 link url="/CernBasher"
+                            uid=e475 generic
+                              uid=e477 generic
+                                uid=e480 generic
+                                  uid=e483 link "Cern Basher Verified account" url="/CernBasher"
+                                    uid=e484 generic
+                                      uid=e486 generic value="Cern Basher"
+                                      uid=e489 img "Verified account"
+                                  uid=e493 generic
+                                    uid=e495 link "@CernBasher" url="/CernBasher"
+                                      uid=e496 generic value="@CernBasher"
+                                    uid=e497 generic value="·"
+                                    uid=e499 link "1 hour ago" url="/CernBasher/status/2050969016999518597"
+                                      uid=e500 time value="1h"
+                                uid=e502 generic
+                                  uid=e504 button "Grok actions"
+                                    uid=e509 img
+                                  uid=e515 button "More"
+                                    uid=e519 img
+                              uid=e523 generic value="10 Billion FSD miles!"
+                              uid=e540 generic
+                                uid=e543 generic "Embedded video"
+                                uid=e550 button "Play Video"
+                                  uid=e551 img
+                              uid=e557 group "25 replies, 41 reposts, 367 likes, 13 bookmarks, 5520 views"
+                                uid=e559 button "25 Replies. Reply"
+                                  uid=e560 generic
+                                    uid=e563 img
+                                    uid=e568 generic value="25"
+                                uid=e570 button "41 reposts. Repost"
+                                  uid=e571 generic
+                                    uid=e574 img
+                                    uid=e579 generic value="41"
+                                uid=e581 button "367 Likes. Like"
+                                  uid=e582 generic
+                                    uid=e585 img
+                                    uid=e590 generic value="367"
+                                uid=e592 link "5520 views. View post analytics" url="/CernBasher/status/2050969016999518597/analytics"
+                                  uid=e593 generic
+                                    uid=e596 img
+                                    uid=e601 generic value="5.5K"
+                                uid=e603 button "Bookmark"
+                                  uid=e607 img
+                                uid=e612 button "Share post"
+                                  uid=e616 img
+                      uid=s39 unknown
+                        uid=e624 generic
+                          uid=e629 generic
+                            uid=e631 img
+                            uid=e638 link "Jon Twigge reposted" url="/jontwigge"
+                              uid=e639 generic
+                                uid=e640 generic value="Jon Twigge"
+                                uid=s40 StaticText "reposted"
+                          uid=e641 generic
+                            uid=e653 link url="/CernBasher"
+                            uid=e656 generic
+                              uid=e658 generic
+                                uid=e661 generic
+                                  uid=e664 link "Cern Basher Verified account" url="/CernBasher"
+                                    uid=e665 generic
+                                      uid=e667 generic value="Cern Basher"
+                                      uid=e670 img "Verified account"
+                                  uid=e674 generic
+                                    uid=e676 link "@CernBasher" url="/CernBasher"
+                                      uid=e677 generic value="@CernBasher"
+                                    uid=e678 generic value="·"
+                                    uid=e680 link "Apr 26" url="/CernBasher/status/2048419197957423355"
+                                      uid=e681 time value="Apr 26"
+                                uid=e683 generic
+                                  uid=e685 button "Grok actions"
+                                    uid=e690 img
+                                  uid=e696 button "More"
+                                    uid=e700 img
+                              uid=e704 generic
+                                uid=s41 StaticText "Two Guys, Two Weeks, Two Hours: Episode 4 Phil ("
+                                uid=e707 link "@pbeisel" url="/pbeisel"
+                                uid=s42 StaticText ") and Cern talk about Tesla and SpaceX - two operating systems for civilization."
+                              uid=e724 generic
+                                uid=e727 generic "Embedded video"
+                                uid=e734 button "Play Video"
+                                  uid=e735 img
+                              uid=e741 group "12 replies, 30 reposts, 285 likes, 82 bookmarks, 30256 views"
+                                uid=e743 button "12 Replies. Reply"
+                                  uid=e744 generic
+                                    uid=e747 img
+                                    uid=e752 generic value="12"
+                                uid=e754 button "30 reposts. Repost"
+                                  uid=e755 generic
+                                    uid=e758 img
+                                    uid=e763 generic value="30"
+                                uid=e765 button "285 Likes. Like"
+                                  uid=e766 generic
+                                    uid=e769 img
+                                    uid=e774 generic value="285"
+                                uid=e776 link "30256 views. View post analytics" url="/CernBasher/status/2048419197957423355/analytics"
+                                  uid=e777 generic
+                                    uid=e780 img
+                                    uid=e785 generic value="30K"
+                                uid=e787 button "Bookmark"
+                                  uid=e791 img
+                                uid=e796 button "Share post"
+                                  uid=e800 img
+                      uid=s43 unknown
+                        uid=e812 generic
+                          uid=e824 link url="/jontwigge"
+                          uid=e827 generic
+                            uid=e829 generic
+                              uid=e832 generic
+                                uid=e835 link "Jon Twigge Verified account" url="/jontwigge"
+                                  uid=e836 generic
+                                    uid=e838 generic value="Jon Twigge"
+                                    uid=e841 img "Verified account"
+                                uid=e845 generic
+                                  uid=e847 link "@jontwigge" url="/jontwigge"
+                                    uid=e848 generic value="@jontwigge"
+                                  uid=e849 generic value="·"
+                                  uid=e851 link "Apr 24" url="/jontwigge/status/2047684499568263306"
+                                    uid=e852 time value="Apr 24"
+                              uid=e854 generic
+                                uid=e856 button "Grok actions"
+                                  uid=e861 img
+                                uid=e867 button "More"
+                                  uid=e871 img
+                            uid=e875 generic value="On the hardware HW3 upgrade path:"
+                            uid=e876 generic "Quote Jon Twigge Verified account @jontwigge Apr 24 Replying to @TSLA_inside_ I am on both sides of this having paid outright 3 1/2 years ago in the UK As a small shareholder I totally agree refunds to everyone would cause damage. As an owner with practically zero benefit so far… Navigate on autopilot does nothing useful as far as I can see - I have"
+                              uid=e877 generic
+                                uid=e878 generic value="Quote"
+                                uid=e879 link "Jon Twigge Verified account @jontwigge Apr 24 Replying to @TSLA_inside_ I am on both sides of this having paid outright 3 1/2 years ago in the UK As a small shareholder I totally agree refunds to everyone would cause damage. As an owner with practically zero benefit so far… Navigate on autopilot does nothing useful as far as I can see - I have"
+                                  uid=e880 generic
+                                    uid=e898 generic
+                                      uid=e902 generic
+                                        uid=e904 generic value="Jon Twigge"
+                                        uid=e907 img "Verified account"
+                                      uid=e911 generic
+                                        uid=e914 generic value="@jontwigge"
+                                        uid=e915 generic value="·"
+                                        uid=e918 generic "Apr 24"
+                                          uid=e919 time value="Apr 24"
+                                    uid=e920 generic
+                                      uid=e921 generic
+                                        uid=s44 StaticText "Replying to"
+                                        uid=e922 generic value="@TSLA_inside_"
+                                      uid=e923 generic value="I am on both sides of this having paid outright 3 1/2 years ago in the UK As a small shareholder I totally agree refunds to everyone would cause damage. As an owner with practically zero benefit so far… Navigate on autopilot does nothing useful as far as I can see - I have"
+                            uid=e926 group "1 reply, 136 views"
+                              uid=e928 button "1 Reply. Reply"
+                                uid=e929 generic
+                                  uid=e932 img
+                                  uid=e937 generic value="1"
+                              uid=e939 button "0 reposts. Repost"
+                                uid=e943 img
+                              uid=e950 button "0 Likes. Like"
+                                uid=e954 img
+                              uid=e961 link "136 views. View post analytics" url="/jontwigge/status/2047684499568263306/analytics"
+                                uid=e962 generic
+                                  uid=e965 img
+                                  uid=e970 generic value="136"
+                              uid=e972 button "Bookmark"
+                                uid=e976 img
+                              uid=e981 button "Share post"
+                                uid=e985 img
+                      uid=e991 article "Jon Twigge reposted OpenAI Verified account @OpenAI Apr 23 Introducing GPT-5.5 A new class of intelligence for real work and powering agents, built to understand complex goals, use tools, check its work, and carry more tasks through to completion. It marks a new way of getting computer work done. Now available in ChatGPT and Codex. Embedded video Play Video 2476 replies, 10400 reposts, 51937 likes, 9590 bookmarks, 12892496 views"
+                        uid=e993 generic
+                          uid=e998 generic
+                            uid=e1000 img
+                            uid=e1007 link "Jon Twigge reposted" url="/jontwigge"
+                              uid=e1008 generic
+                                uid=e1009 generic value="Jon Twigge"
+                                uid=s45 StaticText "reposted"
+                          uid=e1010 generic
+                            uid=e1022 link "Square profile picture" url="/OpenAI"
+                              uid=s46 generic
+                                uid=s47 generic
+                                  uid=s48 generic
+                                    uid=s49 generic "Square profile picture"
+                                      uid=s50 img "Square profile picture"
+                            uid=e1025 generic
+                              uid=e1027 generic
+                                uid=e1030 generic
+                                  uid=e1033 link "OpenAI Verified account" url="/OpenAI"
+                                    uid=e1034 generic
+                                      uid=e1036 generic value="OpenAI"
+                                      uid=e1039 img "Verified account"
+                                  uid=e1046 generic
+                                    uid=e1048 link "@OpenAI" url="/OpenAI"
+                                      uid=e1049 generic value="@OpenAI"
+                                    uid=e1050 generic value="·"
+                                    uid=e1052 link "Apr 23" url="/OpenAI/status/2047376561205325845"
+                                      uid=e1053 time value="Apr 23"
+                                uid=e1055 generic
+                                  uid=e1057 button "Grok actions"
+                                    uid=e1062 img
+                                  uid=e1068 button "More"
+                                    uid=e1072 img
+                              uid=e1076 generic value="Introducing GPT-5.5 A new class of intelligence for real work and powering agents, built to understand complex goals, use tools, check its work, and carry more tasks through to completion. It marks a new way of getting computer work done. Now available in ChatGPT and Codex."
+                              uid=e1093 generic
+                                uid=e1096 generic "Embedded video"
+                                uid=e1103 button "Play Video"
+                                  uid=e1104 img
+                              uid=e1110 group "2476 replies, 10400 reposts, 51937 likes, 9590 bookmarks, 12892496 views"
+                                uid=e1112 button "2476 Replies. Reply"
+                                  uid=e1113 generic
+                                    uid=e1116 img
+                                    uid=e1121 generic value="2.4K"
+                                uid=e1123 button "10400 reposts. Repost"
+                                  uid=e1124 generic
+                                    uid=e1127 img
+                                    uid=e1132 generic value="10K"
+                                uid=e1134 button "51937 Likes. Like"
+                                  uid=e1135 generic
+                                    uid=e1138 img
+                                    uid=e1143 generic value="51K"
+                                uid=e1145 link "12892496 views. View post analytics" url="/OpenAI/status/2047376561205325845/analytics"
+                                  uid=e1146 generic
+                                    uid=e1149 img
+                                    uid=e1154 generic value="12M"
+                                uid=e1156 button "Bookmark"
+                                  uid=e1160 img
+                                uid=e1165 button "Share post"
+                                  uid=e1169 img
+                      uid=e1176 heading "Who to follow" level="2"
+                        uid=e1177 generic value="Who to follow"
+                      uid=e1181 button "Christus Julius Maximus REX - SPQR Verified account @ThePlaidCons Follow @ThePlaidCons Tesla Bull. Enjoys flight simulations. Proud member of the Middle Finger Class. Living in the Future through the magic of Elite Dangerous."
+                        uid=e1182 generic
+                          uid=e1192 link url="/ThePlaidCons"
+                          uid=e1195 generic
+                            uid=e1196 generic
+                              uid=e1198 generic
+                                uid=e1200 link "Christus Julius Maximus REX - SPQR Verified account" url="/ThePlaidCons"
+                                  uid=e1201 generic
+                                    uid=e1203 generic value="Christus Julius Maximus REX - SPQR"
+                                    uid=e1206 img "Verified account"
+                                uid=e1211 link "@ThePlaidCons" url="/ThePlaidCons"
+                                  uid=e1213 generic value="@ThePlaidCons"
+                              uid=e1215 button "Follow @ThePlaidCons"
+                                uid=e1218 generic value="Follow"
+                            uid=e1219 generic value="Tesla Bull. Enjoys flight simulations. Proud member of the Middle Finger Class. Living in the Future through the magic of Elite Dangerous."
+                      uid=e1223 button "Tim Chao Verified account @cartbaby Follow @cartbaby"
+                        uid=e1224 generic
+                          uid=e1234 link url="/cartbaby"
+                          uid=e1238 generic
+                            uid=e1240 generic
+                              uid=e1242 link "Tim Chao Verified account" url="/cartbaby"
+                                uid=e1243 generic
+                                  uid=e1245 generic value="Tim Chao"
+                                  uid=e1248 img "Verified account"
+                              uid=e1253 link "@cartbaby" url="/cartbaby"
+                                uid=e1255 generic value="@cartbaby"
+                            uid=e1257 button "Follow @cartbaby"
+                              uid=e1260 generic value="Follow"
+                      uid=e1264 button "Rk Verified account @RmckRk Follow @RmckRk 🟢 Offer me Money 💰 Offer me power 🦸🏼‍♂️ I don’t care 🟢 This is just the beginning of the beginnings 🤠"
+                        uid=e1265 generic
+                          uid=e1275 link url="/RmckRk"
+                          uid=e1278 generic
+                            uid=e1279 generic
+                              uid=e1281 generic
+                                uid=e1283 link "Rk Verified account" url="/RmckRk"
+                                  uid=e1284 generic
+                                    uid=e1286 generic value="Rk"
+                                    uid=e1289 img "Verified account"
+                                uid=e1294 link "@RmckRk" url="/RmckRk"
+                                  uid=e1296 generic value="@RmckRk"
+                              uid=e1298 button "Follow @RmckRk"
+                                uid=e1301 generic value="Follow"
+                            uid=e1302 generic
+                              uid=e1303 img "🟢"
+                              uid=s51 StaticText "Offer me Money"
+                              uid=e1304 img "💰"
+                              uid=s52 StaticText "Offer me power"
+                              uid=e1305 img "🦸🏼‍♂️"
+                              uid=s53 StaticText "I don’t care"
+                              uid=e1306 img "🟢"
+                              uid=s54 StaticText "This is just the beginning of the beginnings"
+                              uid=e1307 img "🤠"
+                      uid=e1311 link "Show more" url="/i/connect_people?user_id=40510096"
+                        uid=e1312 generic value="Show more"
+  uid=s55 generic
+    uid=s56 img
+  uid=s57 generic
+    uid=s58 img

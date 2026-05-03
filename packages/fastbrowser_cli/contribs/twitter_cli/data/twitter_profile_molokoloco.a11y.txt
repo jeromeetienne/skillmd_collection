@@ -1,0 +1,483 @@
+uid=e2 generic
+  uid=s4 generic
+    uid=s5 generic
+      uid=e3 heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" level="2"
+        uid=e4 generic value="To view keyboard shortcuts, press question mark"
+        uid=e5 link "View keyboard shortcuts" url="/i/keyboard_shortcuts"
+      uid=e6 generic
+        uid=e7 button "Skip to home timeline"
+        uid=e9 button "Skip to trending"
+        uid=e11 banner
+          uid=e13 generic
+            uid=e14 generic
+              uid=e16 heading "X" level="1"
+                uid=e17 link "X" url="/home"
+                  uid=e19 img
+              uid=e23 navigation "Primary"
+                uid=e24 link "Home" url="/home"
+                  uid=e27 img
+                uid=e30 link "Search and explore" url="/explore"
+                  uid=e33 img
+                uid=e36 link "Notifications" url="/notifications"
+                  uid=e39 img
+                uid=e42 link "Direct Messages" url="/i/chat"
+                  uid=e45 img
+                uid=e48 link "Grok" url="/i/grok"
+                  uid=e51 img
+                uid=e54 link "Bookmarks" url="/i/bookmarks"
+                  uid=e57 img
+                uid=e60 link "Creator Studio" url="/i/jf/creators/studio"
+                  uid=e63 img
+                uid=e66 link "Premium" url="/i/premium_sign_up"
+                  uid=e69 img
+                uid=e72 link "Profile" url="/jerome_etienne"
+                  uid=e75 img
+                uid=e78 button "More menu items"
+                  uid=e81 img
+              uid=e85 link "Post" url="/compose/post"
+                uid=e87 img
+            uid=e92 button "Account menu"
+              uid=e100 generic
+                uid=s6 generic
+                  uid=s7 generic
+                    uid=s8 generic
+                      uid=s9 unknown
+                        uid=s10 unknown
+        uid=e103 main
+          uid=e108 generic "Home timeline"
+            uid=e109 generic
+              uid=e115 generic
+                uid=e117 button "Back"
+                  uid=e119 img
+                uid=e123 generic
+                  uid=e132 heading "Julien G. (julienweb.fr)" level="2"
+                    uid=e138 generic value="Julien G. (julienweb.fr)"
+                  uid=e139 generic value="18.5K posts"
+                uid=e141 generic
+                  uid=e142 button "Profile Summary"
+                    uid=e144 img
+                  uid=e147 button "Search"
+                    uid=e149 img
+              uid=s11 generic
+                uid=s12 generic
+                  uid=s13 status
+                    uid=s14 button
+                      uid=s15 generic
+                        uid=s16 img
+                        uid=s17 generic value="See new posts"
+            uid=e153 generic
+              uid=e154 generic
+                uid=e155 link url="/molokoloco/header_photo"
+                uid=e161 generic
+                  uid=e162 generic
+                    uid=e170 link "Opens profile photo" url="/molokoloco/photo"
+                      uid=s18 generic
+                        uid=s19 generic
+                          uid=s20 generic
+                            uid=s21 generic "Opens profile photo"
+                              uid=s22 img "Opens profile photo"
+                    uid=e173 generic
+                      uid=e174 button "More"
+                        uid=e176 img
+                      uid=e179 button "Message"
+                        uid=e181 img
+                      uid=e185 button "Turn on post notifications"
+                        uid=e187 img
+                      uid=e192 button "Following @molokoloco"
+                        uid=e195 generic value="Following"
+                  uid=e199 generic
+                    uid=e203 generic value="Julien G. (julienweb.fr)"
+                    uid=e204 generic
+                      uid=e207 generic value="@molokoloco"
+                      uid=e209 generic value="Follows you"
+                  uid=e212 generic value="Watching my world, my son, Internet and politics, 1996/2025 : JS fan boy. I do websites & Internet applications. 2026/+ : Berger de truites bretonnes."
+                  uid=e214 generic
+                    uid=e215 img
+                    uid=e218 button "Web Design Agency"
+                    uid=e219 img
+                    uid=e222 generic value="Pantin, France"
+                    uid=e223 link "julienweb.fr" url="https://t.co/8C5o9BoW4J"
+                      uid=e224 img
+                      uid=s23 StaticText "julienweb.fr"
+                    uid=e227 img
+                    uid=s24 StaticText "Born February 15"
+                    uid=e231 link "Joined May 2008" url="/molokoloco/about"
+                      uid=e232 img
+                      uid=s25 StaticText "Joined May 2008"
+                      uid=e235 img
+                  uid=e238 generic
+                    uid=e240 link "672 Following" url="/molokoloco/following"
+                      uid=e241 generic value="672"
+                      uid=e242 generic value="Following"
+                    uid=e244 link "616 Followers" url="/molokoloco/verified_followers"
+                      uid=e245 generic value="616"
+                      uid=e246 generic value="Followers"
+                  uid=e251 link "Followers you know" url="/molokoloco/followers_you_follow"
+                    uid=e284 generic
+                      uid=s26 StaticText "Followed by"
+                      uid=e285 generic value="EncourageEveryone"
+                      uid=s27 StaticText ","
+                      uid=e286 generic value="Sketchfab"
+                      uid=s28 StaticText ", and 12 others you follow"
+                uid=e318 generic
+                  uid=e319 generic value="Location"
+                  uid=e320 generic
+                    uid=e321 generic
+                      uid=e323 img
+                      uid=e324 generic
+                        uid=e326 link "https://julienweb.fr" url="https://t.co/8C5o9BoW4J"
+                        uid=e328 generic value="4, rue Lépine Pantin 93500"
+                        uid=e329 generic
+                          uid=e330 generic value="Closed"
+                          uid=e331 generic value="·"
+                          uid=e332 generic value="Opens Monday at 10:00 AM"
+                    uid=e333 generic
+                      uid=e334 link "Get directions" url="https://www.google.com/maps/search/?api=1&query=4%2C%20rue%20L%C3%A9pine%20Pantin%20%2093500"
+                        uid=e335 generic value="Get directions"
+                      uid=e337 button "Contact"
+                        uid=e338 generic value="Contact"
+              uid=e294 navigation "Profile timelines"
+                uid=e295 generic
+                  uid=s29 generic
+                    uid=s30 button "Previous" disabled
+                      uid=s31 generic
+                        uid=s32 img
+                  uid=e297 tablist
+                    uid=e298 tab "Posts" selected
+                      uid=e301 generic value="Posts"
+                    uid=e303 tab "Replies"
+                      uid=e306 generic value="Replies"
+                    uid=e307 tab "Media"
+                      uid=e310 generic value="Media"
+                  uid=s33 generic
+                    uid=s34 button "Next" disabled
+                      uid=s35 generic
+                        uid=s36 img
+              uid=e345 region "Julien G. (julienweb.fr)’s posts"
+                uid=e346 heading "Julien G. (julienweb.fr)’s posts" level="1"
+                uid=s37 unknown
+                  uid=e348 generic
+                    uid=e352 article "Pinned Julien G. (julienweb.fr) @molokoloco Mar 31 New site(s) on Julienweb.fr ! Embedded video Play Video"
+                      uid=e354 generic
+                        uid=e359 generic
+                          uid=e361 img
+                          uid=e367 generic value="Pinned"
+                        uid=e368 generic
+                          uid=e380 link url="/molokoloco"
+                          uid=e383 generic
+                            uid=e385 generic
+                              uid=e388 generic
+                                uid=e391 link "Julien G. (julienweb.fr)" url="/molokoloco"
+                                  uid=e394 generic value="Julien G. (julienweb.fr)"
+                                uid=e396 generic
+                                  uid=e398 link "@molokoloco" url="/molokoloco"
+                                    uid=e399 generic value="@molokoloco"
+                                  uid=e400 generic value="·"
+                                  uid=e402 link "Mar 31" url="/molokoloco/status/2039028416809255129"
+                                    uid=e403 time value="Mar 31"
+                              uid=e405 generic
+                                uid=e407 button "Grok actions"
+                                  uid=e412 img
+                                uid=e418 button "More"
+                                  uid=e422 img
+                            uid=e425 generic
+                              uid=e426 generic
+                                uid=e427 img
+                                uid=e430 generic value="Translated from French"
+                                uid=e431 button "Show original"
+                                  uid=e434 generic value="Show original"
+                              uid=e435 generic
+                                uid=s38 StaticText "New site(s) on"
+                                uid=e436 link "Julienweb.fr" url="https://t.co/7EJhKdC4Z0"
+                                uid=s39 StaticText "!"
+                            uid=e453 generic
+                              uid=e456 generic "Embedded video"
+                              uid=e463 button "Play Video"
+                                uid=e464 img
+                            uid=e470 group "79 views"
+                              uid=e472 button "0 Replies. Reply"
+                                uid=e476 img
+                              uid=e483 button "0 reposts. Repost"
+                                uid=e487 img
+                              uid=e494 button "0 Likes. Like"
+                                uid=e498 img
+                              uid=e505 link "79 views. View post analytics" url="/molokoloco/status/2039028416809255129/analytics"
+                                uid=e506 generic
+                                  uid=e509 img
+                                  uid=e514 generic value="79"
+                              uid=e516 button "Bookmark"
+                                uid=e520 img
+                              uid=e525 button "Share post"
+                                uid=e529 img
+                    uid=s40 unknown
+                      uid=e537 generic
+                        uid=e542 generic
+                          uid=e544 img
+                          uid=e551 link "Julien G. (julienweb.fr) reposted" url="/molokoloco"
+                            uid=e552 generic
+                              uid=e553 generic value="Julien G. (julienweb.fr)"
+                              uid=s41 StaticText "reposted"
+                        uid=e554 generic
+                          uid=e566 link url="/yudDIDit"
+                          uid=e569 generic
+                            uid=e571 generic
+                              uid=e574 generic
+                                uid=e577 link "Jeremy Yudkin Verified account" url="/yudDIDit"
+                                  uid=e578 generic
+                                    uid=e580 generic value="Jeremy Yudkin"
+                                    uid=e583 img "Verified account"
+                                uid=e587 generic
+                                  uid=e589 link "@yudDIDit" url="/yudDIDit"
+                                    uid=e590 generic value="@yudDIDit"
+                                  uid=e591 generic value="·"
+                                  uid=e593 link "Apr 30" url="/yudDIDit/status/2049888877129707759"
+                                    uid=e594 time value="Apr 30"
+                              uid=e596 generic
+                                uid=e598 button "Grok actions"
+                                  uid=e603 img
+                                uid=e609 button "More"
+                                  uid=e613 img
+                            uid=e617 generic
+                              uid=s42 StaticText "Today,"
+                              uid=e620 link "@editframe" url="/editframe"
+                              uid=s43 StaticText "emerges from stealth. Agents need video. Editframe Agent Skills: npm create @editframe@latest Just prompt Claude Code, Cursor, or Codex and get a working video or a full interactive GUI. This video was created just by prompting"
+                              uid=e621 img "👇"
+                            uid=e638 generic
+                              uid=e641 generic "Embedded video"
+                              uid=e648 button "Play Video"
+                                uid=e649 img
+                            uid=e655 group "142 replies, 256 reposts, 1290 likes, 1798 bookmarks, 295866 views"
+                              uid=e657 button "142 Replies. Reply"
+                                uid=e658 generic
+                                  uid=e661 img
+                                  uid=e666 generic value="142"
+                              uid=e668 button "256 reposts. Repost"
+                                uid=e669 generic
+                                  uid=e672 img
+                                  uid=e677 generic value="256"
+                              uid=e679 button "1290 Likes. Like"
+                                uid=e680 generic
+                                  uid=e683 img
+                                  uid=e688 generic value="1.2K"
+                              uid=e690 link "295866 views. View post analytics" url="/yudDIDit/status/2049888877129707759/analytics"
+                                uid=e691 generic
+                                  uid=e694 img
+                                  uid=e699 generic value="295K"
+                              uid=e701 button "Bookmark"
+                                uid=e705 img
+                              uid=e710 button "Share post"
+                                uid=e714 img
+                    uid=e720 article "Julien G. (julienweb.fr) reposted MoneyRadar Crypto Verified account @MRadarCrypto Apr 30 🚨 $500,000,000 vanished from the accounts of the Iranian Revolutionary Guards in a single click. Treasury Secretary Scott Bessent has just confirmed the record seizure of cryptos linked to Iran as part of Operation \"Economic Fury.\" The weapon of the crime? Tether's \"Freeze\" Image 204 replies, 922 reposts, 2143 likes, 286 bookmarks, 263312 views"
+                      uid=e722 generic
+                        uid=e727 generic
+                          uid=e729 img
+                          uid=e736 link "Julien G. (julienweb.fr) reposted" url="/molokoloco"
+                            uid=e737 generic
+                              uid=e738 generic value="Julien G. (julienweb.fr)"
+                              uid=s44 StaticText "reposted"
+                        uid=e739 generic
+                          uid=e751 link url="/MRadarCrypto"
+                          uid=e754 generic
+                            uid=e756 generic
+                              uid=e759 generic
+                                uid=e762 link "MoneyRadar Crypto Verified account" url="/MRadarCrypto"
+                                  uid=e763 generic
+                                    uid=e765 generic value="MoneyRadar Crypto"
+                                    uid=e768 img "Verified account"
+                                uid=e772 generic
+                                  uid=e774 link "@MRadarCrypto" url="/MRadarCrypto"
+                                    uid=e775 generic value="@MRadarCrypto"
+                                  uid=e776 generic value="·"
+                                  uid=e778 link "Apr 30" url="/MRadarCrypto/status/2049776672900014162"
+                                    uid=e779 time value="Apr 30"
+                              uid=e781 generic
+                                uid=e783 button "Grok actions"
+                                  uid=e788 img
+                                uid=e794 button "More"
+                                  uid=e798 img
+                            uid=e801 generic
+                              uid=e802 generic
+                                uid=e803 img
+                                uid=e806 generic value="Translated from French"
+                                uid=e807 button "Show original"
+                                  uid=e810 generic value="Show original"
+                              uid=e811 generic
+                                uid=e812 img "🚨"
+                                uid=s45 StaticText "$500,000,000 vanished from the accounts of the Iranian Revolutionary Guards in a single click. Treasury Secretary Scott Bessent has just confirmed the record seizure of cryptos linked to Iran as part of Operation \"Economic Fury.\" The weapon of the crime? Tether's \"Freeze\""
+                              uid=e813 button "Show more"
+                            uid=e821 link "Image" url="/MRadarCrypto/status/2049776672900014162/photo/1"
+                              uid=e825 generic "Image"
+                                uid=e827 img "Image"
+                            uid=e830 group "204 replies, 922 reposts, 2143 likes, 286 bookmarks, 263312 views"
+                              uid=e832 button "204 Replies. Reply"
+                                uid=e833 generic
+                                  uid=e836 img
+                                  uid=e841 generic value="204"
+                              uid=e843 button "922 reposts. Repost"
+                                uid=e844 generic
+                                  uid=e847 img
+                                  uid=e852 generic value="922"
+                              uid=e854 button "2143 Likes. Like"
+                                uid=e855 generic
+                                  uid=e858 img
+                                  uid=e863 generic value="2.1K"
+                              uid=e865 link "263312 views. View post analytics" url="/MRadarCrypto/status/2049776672900014162/analytics"
+                                uid=e866 generic
+                                  uid=e869 img
+                                  uid=e874 generic value="263K"
+                              uid=e876 button "Bookmark"
+                                uid=e880 img
+                              uid=e885 button "Share post"
+                                uid=e889 img
+                    uid=s46 unknown
+                      uid=e901 generic
+                        uid=e913 link url="/molokoloco"
+                        uid=e917 generic
+                          uid=e919 generic
+                            uid=e922 generic
+                              uid=e925 link "Julien G. (julienweb.fr)" url="/molokoloco"
+                                uid=e928 generic value="Julien G. (julienweb.fr)"
+                              uid=e930 generic
+                                uid=e932 link "@molokoloco" url="/molokoloco"
+                                  uid=e933 generic value="@molokoloco"
+                                uid=e934 generic value="·"
+                                uid=e936 link "Apr 30" url="/molokoloco/status/2049871545594462225"
+                                  uid=e937 time value="Apr 30"
+                            uid=e939 generic
+                              uid=e941 button "Grok actions"
+                                uid=e946 img
+                              uid=e952 button "More"
+                                uid=e956 img
+                          uid=e960 generic
+                            uid=s47 StaticText "Demo : \"Youtube Lead Scraper Pro v2.1\" -> Scrap emails from the web :) ->"
+                            uid=e961 link "julienweb.fr/blog/lead-scra" url="https://t.co/kxDPhek0io"
+                              uid=s48 StaticText "julienweb.fr/blog/lead-scra …"
+                          uid=e978 generic
+                            uid=e981 generic "Embedded video"
+                            uid=e988 button "Play Video"
+                              uid=e989 img
+                          uid=e995 group "1 reply, Liked, 20 views"
+                            uid=e997 button "1 Reply. Reply"
+                              uid=e998 generic
+                                uid=e1001 img
+                                uid=e1006 generic value="1"
+                            uid=e1008 button "0 reposts. Repost"
+                              uid=e1012 img
+                            uid=e1019 button "0 Likes. Liked"
+                              uid=e1023 img
+                            uid=e1030 link "20 views. View post analytics" url="/molokoloco/status/2049871545594462225/analytics"
+                              uid=e1031 generic
+                                uid=e1034 img
+                                uid=e1039 generic value="20"
+                            uid=e1041 button "Bookmark"
+                              uid=e1045 img
+                            uid=e1050 button "Share post"
+                              uid=e1054 img
+                    uid=e1060 article "Julien G. (julienweb.fr) @molokoloco Apr 30 Who will pay me to add LinkedIn scraping?"
+                      uid=e1068 generic
+                        uid=e1080 link url="/molokoloco"
+                        uid=e1083 generic
+                          uid=e1085 generic
+                            uid=e1088 generic
+                              uid=e1091 link "Julien G. (julienweb.fr)" url="/molokoloco"
+                                uid=e1094 generic value="Julien G. (julienweb.fr)"
+                              uid=e1096 generic
+                                uid=e1098 link "@molokoloco" url="/molokoloco"
+                                  uid=e1099 generic value="@molokoloco"
+                                uid=e1100 generic value="·"
+                                uid=e1102 link "Apr 30" url="/molokoloco/status/2049880023058780620"
+                                  uid=e1103 time value="Apr 30"
+                            uid=e1105 generic
+                              uid=e1107 button "Grok actions"
+                                uid=e1112 img
+                              uid=e1118 button "More"
+                                uid=e1122 img
+                          uid=e1125 generic
+                            uid=e1126 generic
+                              uid=e1127 img
+                              uid=e1130 generic value="Translated from French"
+                              uid=e1131 button "Show original"
+                                uid=e1134 generic value="Show original"
+                            uid=e1135 generic value="Who will pay me to add LinkedIn scraping?"
+                          uid=e1138 group "Liked, 11 views"
+                            uid=e1140 button "0 Replies. Reply"
+                              uid=e1144 img
+                            uid=e1151 button "0 reposts. Repost"
+                              uid=e1155 img
+                            uid=e1162 button "0 Likes. Liked"
+                              uid=e1166 img
+                            uid=e1173 link "11 views. View post analytics" url="/molokoloco/status/2049880023058780620/analytics"
+                              uid=e1174 generic
+                                uid=e1177 img
+                                uid=e1182 generic value="11"
+                            uid=e1184 button "Bookmark"
+                              uid=e1188 img
+                            uid=e1193 button "Share post"
+                              uid=e1197 img
+                    uid=s49 unknown
+                      uid=e1205 generic
+                        uid=e1210 generic
+                          uid=e1212 img
+                          uid=e1219 link "Julien G. (julienweb.fr) reposted" url="/molokoloco"
+                            uid=e1220 generic
+                              uid=e1221 generic value="Julien G. (julienweb.fr)"
+                              uid=s50 StaticText "reposted"
+                        uid=e1222 generic
+                          uid=e1234 link url="/anatolium"
+                          uid=e1237 generic
+                            uid=e1239 generic
+                              uid=e1242 generic
+                                uid=e1245 link "Juan Branco ✊ Verified account" url="/anatolium"
+                                  uid=e1246 generic
+                                    uid=e1248 generic
+                                      uid=s51 StaticText "Juan Branco"
+                                      uid=e1249 img "✊"
+                                    uid=e1252 img "Verified account"
+                                uid=e1256 generic
+                                  uid=e1258 link "@anatolium" url="/anatolium"
+                                    uid=e1259 generic value="@anatolium"
+                                  uid=e1260 generic value="·"
+                                  uid=e1262 link "Apr 30" url="/anatolium/status/2049797801257669045"
+                                    uid=e1263 time value="Apr 30"
+                              uid=e1265 generic
+                                uid=e1267 button "Grok actions"
+                                  uid=e1272 img
+                                uid=e1278 button "More"
+                                  uid=e1282 img
+                            uid=e1286 generic
+                              uid=s52 StaticText "Replying to"
+                              uid=e1288 link "@anatolium" url="/anatolium"
+                            uid=e1289 generic
+                              uid=e1290 generic
+                                uid=e1291 img
+                                uid=e1294 generic value="Translated from French"
+                                uid=e1295 button "Show original"
+                                  uid=e1298 generic value="Show original"
+                              uid=e1299 generic
+                                uid=s53 StaticText "To watch the film starting from 8 PM:"
+                                uid=e1300 link "youtube.com/watch?v=co3XI6" url="https://t.co/xJvKgNP0tH"
+                                  uid=s54 StaticText "youtube.com/watch?v=co3XI6 …"
+                                uid=s55 StaticText "To support it:"
+                                uid=e1301 link "gofundme.com/f/le-film-de-j" url="https://t.co/gZ7MzJ4epT"
+                                  uid=s56 StaticText "gofundme.com/f/le-film-de-j …"
+                            uid=e1304 group "4 replies, 28 reposts, 75 likes, 38 bookmarks, 6040 views"
+                              uid=e1306 button "4 Replies. Reply"
+                                uid=e1307 generic
+                                  uid=e1310 img
+                                  uid=e1315 generic value="4"
+                              uid=e1317 button "28 reposts. Repost"
+                                uid=e1318 generic
+                                  uid=e1321 img
+                                  uid=e1326 generic value="28"
+                              uid=e1328 button "75 Likes. Like"
+                                uid=e1329 generic
+                                  uid=e1332 img
+                                  uid=e1337 generic value="75"
+                              uid=e1339 link "6040 views. View post analytics" url="/anatolium/status/2049797801257669045/analytics"
+                                uid=e1340 generic
+                                  uid=e1343 img
+                                  uid=e1348 generic value="6K"
+                              uid=e1350 button "Bookmark"
+                                uid=e1354 img
+                              uid=e1359 button "Share post"
+                                uid=e1363 img
