@@ -1,0 +1,467 @@
+uid=e1 generic
+  uid=e2 generic
+    uid=s4 generic
+      uid=s5 generic
+        uid=e3 heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" level="2"
+          uid=e4 generic value="To view keyboard shortcuts, press question mark"
+          uid=e5 link "View keyboard shortcuts" url="/i/keyboard_shortcuts"
+        uid=e6 generic
+          uid=e1444 button "Skip to home timeline"
+          uid=e1446 button "Skip to trending"
+          uid=e11 banner
+            uid=e13 generic
+              uid=e14 generic
+                uid=e16 heading "X" level="1"
+                  uid=e17 link "X" active url="/home"
+                    uid=e19 img
+                uid=e23 navigation "Primary"
+                  uid=e24 link "Home" url="/home"
+                    uid=e1448 img
+                  uid=e30 link "Search and explore" url="/explore"
+                    uid=e33 img
+                  uid=e36 link "Notifications" url="/notifications"
+                    uid=e39 img
+                  uid=e42 link "Direct Messages" url="/i/chat"
+                    uid=e1451 img
+                  uid=e48 link "Grok" url="/i/grok"
+                    uid=e51 img
+                  uid=e54 link "Bookmarks" url="/i/bookmarks"
+                    uid=e57 img
+                  uid=e60 link "Creator Studio" url="/i/jf/creators/studio"
+                    uid=e63 img
+                  uid=e66 link "Premium" url="/i/premium_sign_up"
+                    uid=e69 img
+                  uid=e72 link "Profile" url="/jerome_etienne"
+                    uid=e1146 img
+                  uid=e78 button "More menu items"
+                    uid=e81 img
+                uid=e85 link "Post" url="/compose/post"
+                  uid=e87 img
+              uid=e92 button "Account menu"
+                uid=e100 generic
+                  uid=s6 generic
+                    uid=s7 generic
+                      uid=s8 generic
+                        uid=s9 unknown
+                          uid=s10 unknown
+          uid=e103 main
+            uid=e1457 generic "Home timeline"
+              uid=e1458 generic
+                uid=e1461 navigation
+                  uid=e1462 generic
+                    uid=s11 generic
+                      uid=s12 button "Previous" disabled
+                        uid=s13 generic
+                          uid=s14 img
+                    uid=e1464 tablist
+                      uid=e1465 tab "For you" selected
+                        uid=e1468 generic value="For you"
+                      uid=e1470 tab "Following"
+                        uid=e1473 generic value="Following"
+                      uid=e1474 tab "Solopreneurs Community"
+                        uid=e1477 generic value="Solopreneurs Community"
+                      uid=e1478 tab "Build in Public"
+                        uid=e1481 generic value="Build in Public"
+                    uid=s15 generic
+                      uid=s16 button "Next" disabled
+                        uid=s17 generic
+                          uid=s18 img
+                uid=s19 generic
+                  uid=s20 generic
+                    uid=s21 status
+                      uid=s22 button
+                        uid=s23 generic
+                          uid=s24 img
+                          uid=s25 generic value="See new posts"
+              uid=e1488 generic
+                uid=s26 unknown url="/jerome_etienne"
+                  uid=s27 generic
+                    uid=s28 generic
+                      uid=s29 generic
+                        uid=s30 unknown
+                          uid=s31 unknown
+                uid=e1500 generic
+                  uid=e1518 generic
+                    uid=e1520 generic value="What’s happening?"
+                    uid=e1522 textbox "Post text"
+                  uid=e1529 generic
+                    uid=e1530 navigation
+                      uid=e1531 generic
+                        uid=s32 generic
+                          uid=s33 button "Previous" disabled
+                            uid=s34 generic
+                              uid=s35 img
+                        uid=e1533 tablist
+                          uid=e1534 generic
+                            uid=e1535 button "Add photos or video"
+                              uid=e1537 img
+                            uid=e1540 button "Choose File"
+                          uid=e1541 button "Add a GIF"
+                            uid=e1543 img
+                          uid=e1546 button "Generate image"
+                            uid=e1548 img
+                          uid=e1551 button "Add poll"
+                            uid=e1553 img
+                          uid=e1557 button "Add emoji"
+                            uid=e1559 img
+                          uid=e1562 button "Schedule post"
+                            uid=e1564 img
+                          uid=e1567 button "Tag location"
+                            uid=e1569 img
+                          uid=e1572 button "Content disclosure"
+                            uid=e1574 img
+                        uid=s36 generic
+                          uid=s37 button "Next" disabled
+                            uid=s38 generic
+                              uid=s39 img
+                    uid=e1579 button "Post" disabled
+                      uid=e1582 generic value="Post"
+              uid=e1585 region "Your Home Timeline"
+                uid=e1586 heading "Your Home Timeline" level="1"
+                uid=s40 unknown
+                  uid=e1588 generic
+                    uid=e1592 article "Alexis Bouchez ✦ Verified account @alexisbchz May 2 github if french gov designed it Image Quote Jean P.D. Meijer ― 🇪🇺 eu/acc Verified account @initjean May 1 Image what if the european commission built github x.com/andrewqu/statu… 73 replies, 85 reposts, 1677 likes, 257 bookmarks, 328500 views"
+                      uid=e1598 generic
+                        uid=e1610 link url="/alexisbchz"
+                        uid=e1613 generic
+                          uid=e1615 generic
+                            uid=e1618 generic
+                              uid=e1621 link "Alexis Bouchez ✦ Verified account" url="/alexisbchz"
+                                uid=e1622 generic
+                                  uid=e1624 generic value="Alexis Bouchez ✦"
+                                  uid=e1627 img "Verified account"
+                              uid=e1631 generic
+                                uid=e1633 link "@alexisbchz" url="/alexisbchz"
+                                  uid=e1634 generic value="@alexisbchz"
+                                uid=e1635 generic value="·"
+                                uid=e1637 link "May 2" url="/alexisbchz/status/2050516276259274887"
+                                  uid=e1638 time value="May 2"
+                            uid=e1640 generic
+                              uid=e1642 button "Grok actions"
+                                uid=e1647 img
+                              uid=e1653 button "More"
+                                uid=e1657 img
+                          uid=e1661 generic value="github if french gov designed it"
+                          uid=e1662 generic "Quote Jean P.D. Meijer ― 🇪🇺 eu/acc Verified account @initjean May 1 Image what if the european commission built github x.com/andrewqu/statu…"
+                            uid=e1669 link "Image" url="/alexisbchz/status/2050516276259274887/photo/1"
+                              uid=e1673 generic "Image"
+                                uid=e1675 img "Image"
+                            uid=e1676 generic
+                              uid=e1677 generic value="Quote"
+                              uid=e1678 link "Jean P.D. Meijer ― 🇪🇺 eu/acc Verified account @initjean May 1 Image what if the european commission built github x.com/andrewqu/statu…"
+                                uid=e1679 generic
+                                  uid=e1697 generic
+                                    uid=e1701 generic
+                                      uid=e1703 generic
+                                        uid=s41 StaticText "Jean P.D. Meijer ―"
+                                        uid=e1704 img "🇪🇺"
+                                        uid=s42 StaticText "eu/acc"
+                                      uid=e1707 img "Verified account"
+                                    uid=e1711 generic
+                                      uid=e1714 generic value="@initjean"
+                                      uid=e1715 generic value="·"
+                                      uid=e1718 generic "May 1"
+                                        uid=e1719 time value="May 1"
+                                  uid=e1720 generic
+                                    uid=e1726 link "Image" url="/initjean/status/2050283688370352369/photo/1"
+                                      uid=e1730 generic "Image"
+                                        uid=e1732 img "Image"
+                                    uid=e1735 generic value="what if the european commission built github x.com/andrewqu/statu…"
+                          uid=e1737 generic
+                            uid=e1738 img
+                            uid=s43 StaticText "Made with AI"
+                          uid=e1743 group "73 replies, 85 reposts, 1677 likes, 257 bookmarks, 328500 views"
+                            uid=e1745 button "73 Replies. Reply"
+                              uid=e1746 generic
+                                uid=e1749 img
+                                uid=e1754 generic value="73"
+                            uid=e1756 button "85 reposts. Repost"
+                              uid=e1757 generic
+                                uid=e1760 img
+                                uid=e1765 generic value="85"
+                            uid=e1767 button "1677 Likes. Like"
+                              uid=e1768 generic
+                                uid=e1771 img
+                                uid=e1776 generic value="1.6K"
+                            uid=e1778 link "328500 views. View post analytics" url="/alexisbchz/status/2050516276259274887/analytics"
+                              uid=e1779 generic
+                                uid=e1782 img
+                                uid=e1787 generic value="328K"
+                            uid=e1789 button "Bookmark"
+                              uid=e1793 img
+                            uid=e1798 button "Share post"
+                              uid=e1802 img
+                    uid=e1817 article "Neofa SA Verified account @neofa_sa Do you pay more than €5,000 in taxes per year? There are 8 legal mechanisms to reduce them by 20 to 40%. Most are not offered by your bank. 👉 Discover how to optimize your tax situation neofa.com Optimiser ses impôts From neofa.com 3 replies, 8 reposts, 17 likes, 12 bookmarks, 130648 views"
+                      uid=e1823 generic
+                        uid=e1835 link url="/neofa_sa"
+                        uid=e1838 generic
+                          uid=e1840 generic
+                            uid=e1843 generic
+                              uid=e1846 link "Neofa SA Verified account" url="/neofa_sa"
+                                uid=e1847 generic
+                                  uid=e1849 generic value="Neofa SA"
+                                  uid=e1852 img "Verified account"
+                              uid=e1858 link "@neofa_sa" url="/neofa_sa"
+                                uid=e1859 generic value="@neofa_sa"
+                            uid=e1861 generic
+                              uid=e1862 generic value="Ad"
+                              uid=e1866 button "More"
+                                uid=e1870 img
+                          uid=e1873 generic
+                            uid=e1874 generic
+                              uid=e1875 img
+                              uid=e1878 generic value="Translated from French"
+                              uid=e1879 button "Show original"
+                                uid=e1882 generic value="Show original"
+                            uid=e1883 generic
+                              uid=s44 StaticText "Do you pay more than €5,000 in taxes per year? There are 8 legal mechanisms to reduce them by 20 to 40%. Most are not offered by your bank."
+                              uid=e1884 img "👉"
+                              uid=s45 StaticText "Discover how to optimize your tax situation"
+                          uid=e1885 generic "neofa.com Optimiser ses impôts"
+                            uid=e1886 generic "neofa.com Optimiser ses impôts"
+                              uid=e1888 link "neofa.com Optimiser ses impôts" url="https://landing.neofa.com/twitter/conseiller-fiscal-pour-particulier?twclid=2b6dikvtculx5rtgfnry50ekwu"
+                                uid=e1894 generic
+                                  uid=s46 generic
+                                    uid=s47 generic value="Optimiser ses impôts"
+                            uid=e1897 link "From neofa.com" url="https://landing.neofa.com/twitter/conseiller-fiscal-pour-particulier?twclid=2b6dikvtculx5rtgfnry50ekwu"
+                          uid=e1900 group "3 replies, 8 reposts, 17 likes, 12 bookmarks, 130648 views"
+                            uid=e1902 button "3 Replies. Reply"
+                              uid=e1903 generic
+                                uid=e1906 img
+                                uid=e1911 generic value="3"
+                            uid=e1913 button "8 reposts. Repost"
+                              uid=e1914 generic
+                                uid=e1917 img
+                                uid=e1922 generic value="8"
+                            uid=e1924 button "17 Likes. Like"
+                              uid=e1925 generic
+                                uid=e1928 img
+                                uid=e1933 generic value="17"
+                            uid=e1935 link "130648 views. View post analytics" url="/neofa_sa/status/2050672145110302953/analytics"
+                              uid=e1936 generic
+                                uid=e1939 img
+                                uid=e1944 generic value="130K"
+                            uid=e1946 button "Bookmark"
+                              uid=e1950 img
+                            uid=e1955 button "Share post"
+                              uid=e1959 img
+                    uid=e1965 article "Zsolt Kacso Verified account @kaolti 17 hours ago Always loved this glass effect. I built this interactive version with html-in-canvas and Three.js. Embedded video Play Video 61 replies, 140 reposts, 2390 likes, 1427 bookmarks, 115653 views"
+                      uid=e1971 generic
+                        uid=e1983 link url="/kaolti"
+                        uid=e1986 generic
+                          uid=e1988 generic
+                            uid=e1991 generic
+                              uid=e1994 link "Zsolt Kacso Verified account" url="/kaolti"
+                                uid=e1995 generic
+                                  uid=e1997 generic value="Zsolt Kacso"
+                                  uid=e2000 img "Verified account"
+                              uid=e2004 generic
+                                uid=e2006 link "@kaolti" url="/kaolti"
+                                  uid=e2007 generic value="@kaolti"
+                                uid=e2008 generic value="·"
+                                uid=e2011 link "17 hours ago" url="/kaolti/status/2050715622879760502"
+                                  uid=e2012 time value="17h"
+                            uid=e2014 generic
+                              uid=e2016 button "Grok actions"
+                                uid=e2021 img
+                              uid=e2027 button "More"
+                                uid=e2031 img
+                          uid=e2035 generic value="Always loved this glass effect. I built this interactive version with html-in-canvas and Three.js."
+                          uid=e2052 generic
+                            uid=e2055 generic "Embedded video"
+                            uid=e2062 button "Play Video"
+                              uid=e2063 img
+                          uid=e2069 group "61 replies, 140 reposts, 2390 likes, 1427 bookmarks, 115653 views"
+                            uid=e2071 button "61 Replies. Reply"
+                              uid=e2072 generic
+                                uid=e2075 img
+                                uid=e2080 generic value="61"
+                            uid=e2082 button "140 reposts. Repost"
+                              uid=e2083 generic
+                                uid=e2086 img
+                                uid=e2091 generic value="140"
+                            uid=e2093 button "2390 Likes. Like"
+                              uid=e2094 generic
+                                uid=e2097 img
+                                uid=e2102 generic value="2.3K"
+                            uid=e2104 link "115653 views. View post analytics" url="/kaolti/status/2050715622879760502/analytics"
+                              uid=e2105 generic
+                                uid=e2108 img
+                                uid=e2113 generic value="115K"
+                            uid=e2115 button "Bookmark"
+                              uid=e2119 img
+                            uid=e2124 button "Share post"
+                              uid=e2128 img
+                    uid=e2134 article "Arun Verified account @hiarun02 13 hours ago Claude Code 4.7 is insane. i know literally NOTHING about coding. ZERO. and i just built 3 fully functioning web apps in 30 minutes. http://localhost:3000/ http://localhost:8000/ http://localhost:5000/ check it out. 207 replies, 192 reposts, 3538 likes, 255 bookmarks, 221820 views"
+                      uid=e2140 generic
+                        uid=e2152 link url="/hiarun02"
+                        uid=e2155 generic
+                          uid=e2157 generic
+                            uid=e2160 generic
+                              uid=e2163 link "Arun Verified account" url="/hiarun02"
+                                uid=e2164 generic
+                                  uid=e2166 generic value="Arun"
+                                  uid=e2169 img "Verified account"
+                              uid=e2173 generic
+                                uid=e2175 link "@hiarun02" url="/hiarun02"
+                                  uid=e2176 generic value="@hiarun02"
+                                uid=e2177 generic value="·"
+                                uid=e2179 link "13 hours ago" url="/hiarun02/status/2050779882591048109"
+                                  uid=e2180 time value="13h"
+                            uid=e2182 generic
+                              uid=e2184 button "Grok actions"
+                                uid=e2189 img
+                              uid=e2195 button "More"
+                                uid=e2199 img
+                          uid=e2203 generic value="Claude Code 4.7 is insane. i know literally NOTHING about coding. ZERO. and i just built 3 fully functioning web apps in 30 minutes. http://localhost:3000/ http://localhost:8000/ http://localhost:5000/ check it out."
+                          uid=e2206 group "207 replies, 192 reposts, 3538 likes, 255 bookmarks, 221820 views"
+                            uid=e2208 button "207 Replies. Reply"
+                              uid=e2209 generic
+                                uid=e2212 img
+                                uid=e2217 generic value="207"
+                            uid=e2219 button "192 reposts. Repost"
+                              uid=e2220 generic
+                                uid=e2223 img
+                                uid=e2228 generic value="192"
+                            uid=e2230 button "3538 Likes. Like"
+                              uid=e2231 generic
+                                uid=e2234 img
+                                uid=e2239 generic value="3.5K"
+                            uid=e2241 link "221820 views. View post analytics" url="/hiarun02/status/2050779882591048109/analytics"
+                              uid=e2242 generic
+                                uid=e2245 img
+                                uid=e2250 generic value="221K"
+                            uid=e2252 button "Bookmark"
+                              uid=e2256 img
+                            uid=e2261 button "Share post"
+                              uid=e2265 img
+                    uid=s48 unknown
+                      uid=e2277 generic
+                        uid=e2289 link url="/carlosedubarret"
+                        uid=e2292 generic
+                          uid=e2294 generic
+                            uid=e2297 generic
+                              uid=e2300 link "Carlos Barreto Verified account" url="/carlosedubarret"
+                                uid=e2301 generic
+                                  uid=e2303 generic value="Carlos Barreto"
+                                  uid=e2306 img "Verified account"
+                              uid=e2310 generic
+                                uid=e2312 link "@carlosedubarret" url="/carlosedubarret"
+                                  uid=e2313 generic value="@carlosedubarret"
+                                uid=e2314 generic value="·"
+                                uid=e2316 link "May 2" url="/carlosedubarret/status/2050348860287979937"
+                                  uid=e2317 time value="May 2"
+                            uid=e2319 generic
+                              uid=e2321 button "Grok actions"
+                                uid=e2326 img
+                              uid=e2332 button "More"
+                                uid=e2336 img
+                          uid=e2340 generic
+                            uid=s49 StaticText "CEB SAM 3d Body Loader (with sound"
+                            uid=e2341 img "🔈"
+                            uid=s50 StaticText ") Footage from Anastasia Sereda on youtube Process: 1- selecting frames on the 60fps footage took about 15 minutes (287 frames were selected) 2- Processing using SAM 3d Body took about 20 minutes 3- loaded in blender"
+                            uid=e2343 link "#mocap" url="/hashtag/mocap?src=hashtag_click"
+                            uid=e2345 link "#b3d" url="/hashtag/b3d?src=hashtag_click"
+                          uid=s51 unknown
+                            uid=e2362 generic
+                              uid=e2365 generic "Embedded video"
+                              uid=e2372 button "Play Video"
+                                uid=e2373 img
+                            uid=e2377 generic
+                              uid=e2378 generic value="Quote"
+                              uid=s52 unknown
+                                uid=e2380 generic
+                                  uid=e2398 generic
+                                    uid=e2402 generic
+                                      uid=e2404 generic value="Carlos Barreto"
+                                      uid=e2407 img "Verified account"
+                                    uid=e2411 generic
+                                      uid=e2414 generic value="@carlosedubarret"
+                                      uid=e2415 generic value="·"
+                                      uid=e2418 generic "Apr 28"
+                                        uid=e2419 time value="Apr 28"
+                                  uid=e2420 generic
+                                    uid=e2430 generic "Embedded video"
+                                      uid=e2432 generic "Embedded video"
+                                        uid=e2434 img "Embedded video"
+                                      uid=s53 generic
+                                        uid=s54 generic
+                                          uid=s55 generic value="16:01"
+                                    uid=e2437 generic
+                                      uid=s56 StaticText "CEB SAM 3d Body loader RELEASED"
+                                      uid=e2438 img "🙌"
+                                      uid=s57 StaticText "tutorial attached More information, links to download (for supporters) and youtube tutorial at:"
+                                      uid=e2439 generic value="patreon.com/posts/ceb-sam- …"
+                          uid=e2442 group "9 replies, 107 reposts, 1047 likes, 1116 bookmarks, 128763 views"
+                            uid=e2444 button "9 Replies. Reply"
+                              uid=e2445 generic
+                                uid=e2448 img
+                                uid=e2453 generic value="9"
+                            uid=e2455 button "107 reposts. Repost"
+                              uid=e2456 generic
+                                uid=e2459 img
+                                uid=e2464 generic value="107"
+                            uid=e2466 button "1047 Likes. Like"
+                              uid=e2467 generic
+                                uid=e2470 img
+                                uid=e2475 generic value="1K"
+                            uid=e2477 link "128763 views. View post analytics" url="/carlosedubarret/status/2050348860287979937/analytics"
+                              uid=e2478 generic
+                                uid=e2481 img
+                                uid=e2486 generic value="128K"
+                            uid=e2488 button "Bookmark"
+                              uid=e2492 img
+                            uid=e2497 button "Share post"
+                              uid=e2501 img
+                    uid=s58 unknown
+                      uid=e2513 generic
+                        uid=e2525 link url="/UiSavior"
+                        uid=e2528 generic
+                          uid=e2530 generic
+                            uid=e2533 generic
+                              uid=e2536 link "UI/UX Savior Verified account" url="/UiSavior"
+                                uid=e2537 generic
+                                  uid=e2539 generic value="UI/UX Savior"
+                                  uid=e2542 img "Verified account"
+                              uid=e2546 generic
+                                uid=e2548 link "@UiSavior" url="/UiSavior"
+                                  uid=e2549 generic value="@UiSavior"
+                                uid=e2550 generic value="·"
+                                uid=e2552 link "8 hours ago" url="/UiSavior/status/2050849751998861469"
+                                  uid=e2553 time value="8h"
+                            uid=e2555 generic
+                              uid=e2557 button "Grok actions"
+                                uid=e2562 img
+                              uid=e2568 button "More"
+                                uid=e2572 img
+                          uid=e2576 generic
+                            uid=s59 StaticText "Step-by-step guide: Claude Skills for Designers."
+                            uid=e2577 img "👀"
+                          uid=e2585 link "Image" url="/UiSavior/status/2050849751998861469/photo/1"
+                            uid=e2589 generic "Image"
+                              uid=e2591 img "Image"
+                          uid=e2594 group "25 replies, 27 reposts, 357 likes, 604 bookmarks, 21646 views"
+                            uid=e2596 button "25 Replies. Reply"
+                              uid=e2597 generic
+                                uid=e2600 img
+                                uid=e2605 generic value="25"
+                            uid=e2607 button "27 reposts. Repost"
+                              uid=e2608 generic
+                                uid=e2611 img
+                                uid=e2616 generic value="27"
+                            uid=e2618 button "357 Likes. Like"
+                              uid=e2619 generic
+                                uid=e2622 img
+                                uid=e2627 generic value="357"
+                            uid=e2629 link "21646 views. View post analytics" url="/UiSavior/status/2050849751998861469/analytics"
+                              uid=e2630 generic
+                                uid=e2633 img
+                                uid=e2638 generic value="21K"
+                            uid=e2640 button "Bookmark"
+                              uid=e2644 img
+                            uid=e2649 button "Share post"
+                              uid=e2653 img
+  uid=s60 generic
+    uid=s61 img
+  uid=s62 generic
+    uid=s63 img

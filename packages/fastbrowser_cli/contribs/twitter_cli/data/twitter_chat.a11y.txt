@@ -1,0 +1,215 @@
+uid=e2 generic
+  uid=s4 generic
+    uid=s5 generic
+      uid=e3 heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" level="2"
+        uid=e4 generic value="To view keyboard shortcuts, press question mark"
+        uid=e5 link "View keyboard shortcuts" url="/i/keyboard_shortcuts"
+      uid=e6 generic
+        uid=e1139 button "Skip to home timeline"
+        uid=e1141 button "Skip to trending"
+        uid=e11 banner
+          uid=e13 generic
+            uid=e14 generic
+              uid=e16 heading "X" level="1"
+                uid=e17 link "X" url="/home"
+                  uid=e19 img
+              uid=e23 navigation "Primary"
+                uid=e24 link "Home" url="/home"
+                  uid=e27 img
+                uid=e30 link "Search and explore" url="/explore"
+                  uid=e33 img
+                uid=e36 link "Notifications" url="/notifications"
+                  uid=e39 img
+                uid=e42 link "Direct Messages" active url="/i/chat"
+                  uid=e1143 img
+                uid=e48 link "Grok" url="/i/grok"
+                  uid=e51 img
+                uid=e54 link "Bookmarks" url="/i/bookmarks"
+                  uid=e57 img
+                uid=e60 link "Creator Studio" url="/i/jf/creators/studio"
+                  uid=e63 img
+                uid=e66 link "Premium" url="/i/premium_sign_up"
+                  uid=e69 img
+                uid=e72 link "Profile" url="/jerome_etienne"
+                  uid=e1146 img
+                uid=e78 button "More menu items"
+                  uid=e81 img
+              uid=e85 link "Post" url="/compose/post"
+                uid=e87 img
+            uid=e92 button "Account menu"
+              uid=e100 generic
+                uid=s6 generic
+                  uid=s7 generic
+                    uid=s8 generic
+                      uid=s9 unknown
+                        uid=s10 unknown
+        uid=e103 main
+          uid=e1152 generic "Home timeline"
+            uid=e1156 generic
+              uid=e1157 generic
+                uid=e1158 generic
+                  uid=e1160 generic value="Chat"
+                  uid=e1161 generic
+                    uid=e1162 button "All"
+                      uid=e1163 generic value="All"
+                      uid=e1164 img
+                    uid=e1166 button
+                      uid=e1167 img
+                uid=e1171 generic
+                  uid=e1172 img
+                  uid=e1174 generic value="Search"
+              uid=e1176 generic
+                uid=e1177 listitem
+                  uid=s11 unknown url="/i/chat/10162102-14637220"
+                    uid=e1180 generic
+                      uid=e1182 link "user avatar" url="https://x.com/molokoloco"
+                        uid=e1183 img "user avatar"
+                      uid=e1184 generic
+                        uid=e1185 generic
+                          uid=e1188 generic value="Julien G. (julienweb.fr)"
+                          uid=e1190 generic value="3h"
+                        uid=e1193 generic value="You: hello how are you"
+                uid=e1194 listitem
+                  uid=s12 unknown url="/i/chat/10162102-189239506"
+                    uid=e1197 generic
+                      uid=e1199 link "user avatar" url="https://x.com/michaelybecker"
+                        uid=e1200 img "user avatar"
+                      uid=e1201 generic
+                        uid=e1202 generic
+                          uid=e1205 generic value="Michael Becker"
+                          uid=e1207 generic value="63w"
+                        uid=e1210 generic value="You: aka i would have to use a chrome extension, but i dont think it is a problem for sales people. Those people are willing to win, and to install a chrome ext wont stop it :)"
+                uid=e1211 listitem
+                  uid=e1213 link "user avatar James Baicoianu 63w Oof, sorry - so did the company I was working at, I was working on the web client for JanusVR. Very similar product, but the market just wasn't there for that kind of thing at the time. Ah well, what can we do but move on to the next thing, eh?" url="/i/chat/10162102-38413353"
+                    uid=e1214 generic
+                      uid=e1216 link "user avatar" url="https://x.com/bai0"
+                        uid=e1217 img "user avatar"
+                      uid=e1218 generic
+                        uid=e1219 generic
+                          uid=e1222 generic value="James Baicoianu"
+                          uid=e1224 generic value="63w"
+                        uid=e1227 generic value="Oof, sorry - so did the company I was working at, I was working on the web client for JanusVR. Very similar product, but the market just wasn't there for that kind of thing at the time. Ah well, what can we do but move on to the next thing, eh?"
+                uid=e1228 listitem
+                  uid=e1230 link "user avatar JOANN AMELINE 272w Hi Jerome, how are you? I would like to know if you are open for new jobs?" url="/i/chat/10162102-10809532"
+                    uid=e1231 generic
+                      uid=e1233 link "user avatar" url="https://x.com/joannameline"
+                        uid=e1234 img "user avatar"
+                      uid=e1235 generic
+                        uid=e1236 generic
+                          uid=e1239 generic value="JOANN AMELINE"
+                          uid=e1241 generic value="272w"
+                        uid=e1244 generic value="Hi Jerome, how are you? I would like to know if you are open for new jobs?"
+                uid=e1245 listitem
+                  uid=e1247 link "user avatar Juan Pablo Rodriguez 288w Do You know someone who might be interested in the project?" url="/i/chat/10162102-65428988"
+                    uid=e1248 generic
+                      uid=e1250 link "user avatar" url="https://x.com/andromedaleader"
+                        uid=e1251 img "user avatar"
+                      uid=e1252 generic
+                        uid=e1253 generic
+                          uid=e1256 generic value="Juan Pablo Rodriguez"
+                          uid=e1258 generic value="288w"
+                        uid=e1261 generic value="Do You know someone who might be interested in the project?"
+                uid=e1262 listitem
+                  uid=e1264 link "user avatar Tomasz Świetlikowski 🏴󠁧󠁢󠁳󠁣󠁴󠁿 342w Is AR.js ready to work with geo points instead of markers?" url="/i/chat/10162102-196165576"
+                    uid=e1265 generic
+                      uid=e1267 link "user avatar" url="https://x.com/swietlikowski"
+                        uid=e1268 img "user avatar"
+                      uid=e1269 generic
+                        uid=e1270 generic
+                          uid=e1272 generic
+                            uid=e1273 generic value="Tomasz Świetlikowski 🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+                            uid=e1277 button
+                              uid=e1278 img
+                          uid=e1281 generic value="342w"
+                        uid=e1284 generic value="Is AR.js ready to work with geo points instead of markers?"
+                uid=e1285 listitem
+                  uid=e1287 link "user avatar Sivan Iram 342w Hey, how are you man? Would love to catch up with you" url="/i/chat/10162102-441000026"
+                    uid=e1288 generic
+                      uid=e1290 link "user avatar" url="https://x.com/SivanIram"
+                        uid=e1291 img "user avatar"
+                      uid=e1292 generic
+                        uid=e1293 generic
+                          uid=e1296 generic value="Sivan Iram"
+                          uid=e1298 generic value="342w"
+                        uid=e1301 generic value="Hey, how are you man? Would love to catch up with you"
+                uid=e1302 listitem
+                  uid=s13 unknown url="/i/chat/10162102-616203093"
+                    uid=e1305 generic
+                      uid=e1307 link "user avatar" url="https://x.com/cipri_tom"
+                        uid=e1308 img "user avatar"
+                      uid=e1309 generic
+                        uid=e1310 generic
+                          uid=e1313 generic value="Ciprian Tomoiagă"
+                          uid=e1315 generic value="346w"
+                        uid=e1318 generic value="You: Hehe"
+                uid=e1319 listitem
+                  uid=e1321 link "user avatar Luke Weldon 362w Have you had a chance to check out the ARjs_Unity project? I'm curious what your thoughts are on it. Or if there is anything I could change about it (at least from what I have so far)." url="/i/chat/10162102-47129544"
+                    uid=e1322 generic
+                      uid=e1324 link "user avatar" url="https://x.com/weldlu"
+                        uid=e1325 img "user avatar"
+                      uid=e1326 generic
+                        uid=e1327 generic
+                          uid=e1330 generic value="Luke Weldon"
+                          uid=e1332 generic value="362w"
+                        uid=e1335 generic value="Have you had a chance to check out the ARjs_Unity project? I'm curious what your thoughts are on it. Or if there is anything I could change about it (at least from what I have so far)."
+                uid=e1336 listitem
+                  uid=s14 unknown url="/i/chat/10162102-19057948"
+                    uid=e1339 generic
+                      uid=e1341 link "user avatar" url="https://x.com/AharonWasserman"
+                        uid=e1342 img "user avatar"
+                      uid=e1343 generic
+                        uid=e1344 generic
+                          uid=e1347 generic value="Aharon Wasserman"
+                          uid=e1349 generic value="381w"
+                        uid=e1352 generic value="You: lets do that next week"
+                uid=e1353 listitem
+                  uid=e1355 link "user avatar marco sparagna 384w 6ish" url="/i/chat/10162102-96414314"
+                    uid=e1356 generic
+                      uid=e1358 link "user avatar" url="https://x.com/thetallestuser"
+                        uid=e1359 img "user avatar"
+                      uid=e1360 generic
+                        uid=e1361 generic
+                          uid=e1364 generic value="marco sparagna"
+                          uid=e1366 generic value="384w"
+                        uid=e1369 generic value="6ish"
+                uid=e1370 listitem
+                  uid=e1372 link "user avatar Alexandra Etienne 385w 🤡🤡" url="/i/chat/10162102-2416259222"
+                    uid=e1373 generic
+                      uid=e1375 link "user avatar" url="https://x.com/AndraConnect"
+                        uid=e1376 img "user avatar"
+                      uid=e1377 generic
+                        uid=e1378 generic
+                          uid=e1381 generic value="Alexandra Etienne"
+                          uid=e1383 generic value="385w"
+                        uid=e1386 generic value="🤡🤡"
+                uid=e1387 listitem
+                  uid=s15 unknown url="/i/chat/10162102-874985095068663808"
+                    uid=e1390 generic
+                      uid=e1392 link "user avatar" url="https://x.com/NellWaliczek"
+                        uid=e1393 img "user avatar"
+                      uid=e1394 generic
+                        uid=e1395 generic
+                          uid=e1398 generic value="Nell Waliczek"
+                          uid=e1400 generic value="387w"
+                        uid=e1403 generic value="You: Hi Nell. Just wanted to send you a message to say that it was a pleasure working with you. Unfortunately, things haven't worked out with Amazon. But please let me know if you are ever around Dublin. Take care and hopefully our paths will cross again in the future. Cheers!"
+                uid=e1404 listitem
+                  uid=s16 unknown url="/i/chat/10142-10162102"
+                    uid=e1407 generic
+                      uid=e1409 link "user avatar" url="https://x.com/JamesCorbett"
+                        uid=e1410 img "user avatar"
+                      uid=e1411 generic
+                        uid=e1412 generic
+                          uid=e1415 generic value="James Corbett"
+                          uid=e1417 generic value="387w"
+                        uid=e1420 generic value="You: Sounds good"
+                uid=e1421 listitem
+                  uid=e1423 link "user avatar Preston Tamkin 387w Hey. I'm sorry to hear that and I'm sorry things didn't work out. It was nice to work with you too." url="/i/chat/10162102-15667471"
+                    uid=e1424 generic
+                      uid=e1426 link "user avatar" url="https://x.com/prestomation"
+                        uid=e1427 img "user avatar"
+                      uid=e1428 generic
+                        uid=e1429 generic
+                          uid=e1432 generic value="Preston Tamkin"
+                          uid=e1434 generic value="387w"
+                        uid=e1437 generic value="Hey. I'm sorry to hear that and I'm sorry things didn't work out. It was nice to work with you too."
+                uid=e1441 img

@@ -1,0 +1,418 @@
+uid=e2 generic
+  uid=s4 generic
+    uid=s5 generic
+      uid=e3 heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" level="2"
+        uid=e4 generic value="To view keyboard shortcuts, press question mark"
+        uid=e5 link "View keyboard shortcuts" url="/i/keyboard_shortcuts"
+      uid=e6 generic
+        uid=e7 button "Skip to home timeline"
+        uid=e9 button "Skip to trending"
+        uid=e11 banner
+          uid=e13 generic
+            uid=e14 generic
+              uid=e16 heading "X" level="1"
+                uid=e17 link "X" url="/home"
+                  uid=e19 img
+              uid=e23 navigation "Primary"
+                uid=e24 link "Home" url="/home"
+                  uid=e27 img
+                uid=e30 link "Search and explore" url="/explore"
+                  uid=e33 img
+                uid=e36 link "Notifications" url="/notifications"
+                  uid=e39 img
+                uid=e42 link "Direct Messages" url="/i/chat"
+                  uid=e45 img
+                uid=e48 link "Grok" url="/i/grok"
+                  uid=e51 img
+                uid=e54 link "Bookmarks" url="/i/bookmarks"
+                  uid=e57 img
+                uid=e60 link "Creator Studio" url="/i/jf/creators/studio"
+                  uid=e63 img
+                uid=e66 link "Premium" url="/i/premium_sign_up"
+                  uid=e69 img
+                uid=e72 link "Profile" url="/jerome_etienne"
+                  uid=e75 img
+                uid=e78 button "More menu items"
+                  uid=e81 img
+              uid=e85 link "Post" url="/compose/post"
+                uid=e87 img
+            uid=e92 button "Account menu"
+              uid=e100 generic
+                uid=s6 generic
+                  uid=s7 generic
+                    uid=s8 generic
+                      uid=s9 unknown
+                        uid=s10 unknown
+        uid=e103 main
+          uid=e108 generic "Home timeline"
+            uid=e109 generic
+              uid=e115 generic
+                uid=e117 button "Back"
+                  uid=e119 img
+                uid=e123 generic
+                  uid=s11 unknown
+                    uid=e130 generic value="Jerome Etienne #ARjs"
+                  uid=e131 generic value="12K posts"
+                uid=e133 generic
+                  uid=e134 button "Profile Summary"
+                    uid=e136 img
+                  uid=e139 button "Search"
+                    uid=e141 img
+              uid=s12 generic
+                uid=s13 generic
+                  uid=s14 status
+                    uid=s15 button
+                      uid=s16 generic
+                        uid=s17 img
+                        uid=s18 generic value="See new posts"
+            uid=e146 generic
+              uid=e147 generic
+                uid=e148 link url="/jerome_etienne/header_photo"
+                uid=e154 generic
+                  uid=e155 generic
+                    uid=e163 link "Opens profile photo" url="/jerome_etienne/photo"
+                      uid=s19 generic
+                        uid=s20 generic
+                          uid=s21 generic
+                            uid=s22 generic "Opens profile photo"
+                              uid=s23 img "Opens profile photo"
+                    uid=e167 link "Edit profile" url="/settings/profile"
+                      uid=e170 generic value="Edit profile"
+                  uid=e174 generic
+                    uid=e178 generic value="Jerome Etienne #ARjs"
+                    uid=e182 generic value="@jerome_etienne"
+                  uid=e185 generic
+                    uid=s24 StaticText "Making WebAR a reality! Around Javascript and WebGL - 8th most active user on github - Write"
+                    uid=e188 link "@learningthreejs" url="/learningthreejs"
+                    uid=s25 StaticText "- Ex"
+                    uid=e191 link "@daqri" url="/daqri"
+                    uid=s26 StaticText "- Code AR.js all day"
+                    uid=e192 img "😄"
+                  uid=e194 generic
+                    uid=e195 img
+                    uid=e198 generic value="Dublin, ireland"
+                    uid=e199 link "github.com/jeromeetienne/…" url="https://t.co/5v8xFcMptT"
+                      uid=e200 img
+                      uid=s27 StaticText "github.com/jeromeetienne/…"
+                    uid=e204 link "Joined November 2007" url="/jerome_etienne/about"
+                      uid=e205 img
+                      uid=s28 StaticText "Joined November 2007"
+                      uid=e208 img
+                  uid=e211 generic
+                    uid=e213 link "977 Following" url="/jerome_etienne/following"
+                      uid=e214 generic value="977"
+                      uid=e215 generic value="Following"
+                    uid=e217 link "7,500 Followers" url="/jerome_etienne/verified_followers"
+                      uid=e218 generic value="7,500"
+                      uid=e219 generic value="Followers"
+              uid=e221 navigation "Profile timelines"
+                uid=e222 generic
+                  uid=s29 generic
+                    uid=s30 button "Previous" disabled
+                      uid=s31 generic
+                        uid=s32 img
+                  uid=e224 tablist
+                    uid=e225 tab "Posts" selected
+                      uid=e228 generic value="Posts"
+                    uid=e230 tab "Replies"
+                      uid=e233 generic value="Replies"
+                    uid=e234 tab "Highlights"
+                      uid=e237 generic value="Highlights"
+                    uid=e238 tab "Articles"
+                      uid=e241 generic value="Articles"
+                    uid=e242 tab "Media"
+                      uid=e245 generic value="Media"
+                    uid=e246 tab "Likes"
+                      uid=e249 generic value="Likes"
+                  uid=s33 generic
+                    uid=s34 button "Next" disabled
+                      uid=s35 generic
+                        uid=s36 img
+              uid=s37 unknown
+                uid=s38 unknown
+                uid=s39 unknown
+                  uid=e259 generic
+                    uid=s40 unknown
+                      uid=e265 generic
+                        uid=e270 generic
+                          uid=e272 img
+                          uid=e278 generic value="Pinned"
+                        uid=e279 generic
+                          uid=e291 link url="/jerome_etienne"
+                          uid=e294 generic
+                            uid=e296 generic
+                              uid=e299 generic
+                                uid=s41 unknown url="/jerome_etienne"
+                                  uid=e305 generic value="Jerome Etienne #ARjs"
+                                uid=e307 generic
+                                  uid=e309 link "@jerome_etienne" url="/jerome_etienne"
+                                    uid=e310 generic value="@jerome_etienne"
+                                  uid=e311 generic value="·"
+                                  uid=e313 link "Feb 21, 2017" url="/jerome_etienne/status/834067802705240065"
+                                    uid=e314 time value="Feb 21, 2017"
+                              uid=e316 generic
+                                uid=e318 button "Grok actions"
+                                  uid=e323 img
+                                uid=e329 button "More"
+                                  uid=e333 img
+                            uid=e337 generic
+                              uid=s42 StaticText "AR.js 1.0 is ready! Efficient"
+                              uid=e339 link "#AR" url="/hashtag/AR?src=hashtag_click"
+                              uid=s43 StaticText "for the web - 60fps on 2y old phones - Full"
+                              uid=e341 link "#opensource" url="/hashtag/opensource?src=hashtag_click"
+                              uid=e342 link "buff.ly/2m4li39" url="https://t.co/eRU3rmG7rX"
+                              uid=s44 StaticText "So proud the baby is out"
+                              uid=e343 img "😉"
+                            uid=e360 generic
+                              uid=e363 generic "Embedded video"
+                              uid=e365 generic
+                                uid=s45 generic
+                                  uid=e973 button "Play Video"
+                                  uid=s46 generic
+                                    uid=s47 progressbar
+                                      uid=s48 generic
+                                        uid=s49 img
+                            uid=e377 group "61 replies, 523 reposts, Reposted, 1100 likes, 6 bookmarks"
+                              uid=e379 button "61 Replies. Reply"
+                                uid=e380 generic
+                                  uid=e383 img
+                                  uid=e388 generic value="61"
+                              uid=e390 button "523 reposts. Reposted"
+                                uid=e391 generic
+                                  uid=e394 img
+                                  uid=e399 generic value="523"
+                              uid=e401 button "1100 Likes. Like"
+                                uid=e402 generic
+                                  uid=e405 img
+                                  uid=e410 generic value="1.1K"
+                              uid=e412 link "View post analytics" url="/jerome_etienne/status/834067802705240065/analytics"
+                                uid=e416 img
+                              uid=e420 button "Bookmark"
+                                uid=e424 img
+                              uid=e429 button "Share post"
+                                uid=e433 img
+                    uid=s50 unknown
+                      uid=e441 generic
+                        uid=e446 generic
+                          uid=e448 img
+                          uid=e455 link "You reposted" url="/jerome_etienne"
+                            uid=e456 generic value="You reposted"
+                        uid=e457 generic
+                          uid=e469 link url="/heyrimsha"
+                          uid=e472 generic
+                            uid=e474 generic
+                              uid=e477 generic
+                                uid=e480 link "Rimsha Bhardwaj Verified account" url="/heyrimsha"
+                                  uid=e481 generic
+                                    uid=e483 generic value="Rimsha Bhardwaj"
+                                    uid=e486 img "Verified account"
+                                uid=e490 generic
+                                  uid=e492 link "@heyrimsha" url="/heyrimsha"
+                                    uid=e493 generic value="@heyrimsha"
+                                  uid=e494 generic value="·"
+                                  uid=e496 link "May 2" url="/heyrimsha/status/2050554053227397619"
+                                    uid=e497 time value="May 2"
+                              uid=e499 generic
+                                uid=e501 button "Grok actions"
+                                  uid=e506 img
+                                uid=e512 button "More"
+                                  uid=e516 img
+                            uid=e519 generic
+                              uid=e520 generic value="Someone compiled every free public API on the internet into one massive GitHub repo. You can build anything: - AI, ML, Authentication, Blockchain - Crypto, Finance, Maps, Weather - Games, Music, Books, News - 1,400+ APIs across 48 categories 421K stars. 100% Opensource. Repo"
+                              uid=e521 button "Show more"
+                            uid=e529 link "Image" url="/heyrimsha/status/2050554053227397619/photo/1"
+                              uid=e533 generic "Image"
+                                uid=e535 img "Image"
+                            uid=e538 group "3 replies, 23 reposts, Reposted, 97 likes, Liked, 119 bookmarks, 6345 views"
+                              uid=e540 button "3 Replies. Reply"
+                                uid=e541 generic
+                                  uid=e544 img
+                                  uid=e549 generic value="3"
+                              uid=e551 button "23 reposts. Reposted"
+                                uid=e552 generic
+                                  uid=e555 img
+                                  uid=e560 generic value="23"
+                              uid=e562 button "97 Likes. Liked"
+                                uid=e563 generic
+                                  uid=e566 img
+                                  uid=e571 generic value="97"
+                              uid=e573 link "6345 views. View post analytics" url="/heyrimsha/status/2050554053227397619/analytics"
+                                uid=e574 generic
+                                  uid=e577 img
+                                  uid=e582 generic value="6.3K"
+                              uid=e584 button "Bookmark"
+                                uid=e588 img
+                              uid=e593 button "Share post"
+                                uid=e597 img
+                    uid=s51 unknown
+                      uid=e609 generic
+                        uid=e621 link url="/jerome_etienne"
+                        uid=e624 generic
+                          uid=e626 generic
+                            uid=e629 generic
+                              uid=s52 unknown url="/jerome_etienne"
+                                uid=e635 generic value="Jerome Etienne #ARjs"
+                              uid=e637 generic
+                                uid=e639 link "@jerome_etienne" url="/jerome_etienne"
+                                  uid=e640 generic value="@jerome_etienne"
+                                uid=e641 generic value="·"
+                                uid=e643 link "May 2" url="/jerome_etienne/status/2050587582493233523"
+                                  uid=e644 time value="May 2"
+                            uid=e646 generic
+                              uid=e648 button "Grok actions"
+                                uid=e653 img
+                              uid=e659 button "More"
+                                uid=e663 img
+                          uid=e667 generic
+                            uid=e668 img "✨"
+                            uid=s53 StaticText "New tool: bsky_client"
+                            uid=e669 img "🦋"
+                            uid=s54 StaticText "A Bluesky CLI for posts, replies, likes, follows, and full-text search. with a --json flag baked in so AI agents"
+                            uid=e670 img "🤖"
+                            uid=s55 StaticText "can drive it as a tool. Ships with a SKILL.md too!"
+                            uid=e671 img "🔗"
+                            uid=e672 link "github.com/jeromeetienne/" url="https://t.co/aQDHpHO57D"
+                              uid=s56 StaticText "github.com/jeromeetienne/ …"
+                            uid=e674 link "#buildInPublic" url="/hashtag/buildInPublic?src=hashtag_click"
+                            uid=e676 link "#bluesky" url="/hashtag/bluesky?src=hashtag_click"
+                            uid=e678 link "#atproto" url="/hashtag/atproto?src=hashtag_click"
+                            uid=e680 link "#typescript" url="/hashtag/typescript?src=hashtag_click"
+                          uid=e688 link "Image" url="/jerome_etienne/status/2050587582493233523/photo/1"
+                            uid=e692 generic "Image"
+                              uid=e694 img "Image"
+                          uid=e696 generic
+                            uid=e697 img
+                            uid=s57 StaticText "Made with AI"
+                          uid=e702 group "5 likes, 138 views"
+                            uid=e704 button "0 Replies. Reply"
+                              uid=e708 img
+                            uid=e715 button "0 reposts. Repost"
+                              uid=e719 img
+                            uid=e726 button "5 Likes. Like"
+                              uid=e727 generic
+                                uid=e730 img
+                                uid=e735 generic value="5"
+                            uid=e737 link "138 views. View post analytics" url="/jerome_etienne/status/2050587582493233523/analytics"
+                              uid=e738 generic
+                                uid=e741 img
+                                uid=e746 generic value="138"
+                            uid=e748 button "Bookmark"
+                              uid=e752 img
+                            uid=e757 button "Share post"
+                              uid=e761 img
+                    uid=s58 unknown
+                      uid=e773 generic
+                        uid=e785 link url="/jerome_etienne"
+                        uid=e788 generic
+                          uid=e790 generic
+                            uid=e793 generic
+                              uid=s59 unknown url="/jerome_etienne"
+                                uid=e799 generic value="Jerome Etienne #ARjs"
+                              uid=e801 generic
+                                uid=e803 link "@jerome_etienne" url="/jerome_etienne"
+                                  uid=e804 generic value="@jerome_etienne"
+                                uid=e805 generic value="·"
+                                uid=e807 link "May 2" url="/jerome_etienne/status/2050514092293566762"
+                                  uid=e808 time value="May 2"
+                            uid=e810 generic
+                              uid=e812 button "Grok actions"
+                                uid=e817 img
+                              uid=e823 button "More"
+                                uid=e827 img
+                          uid=e831 generic value="Useful to see how experience people do their agents!"
+                          uid=e832 generic "Quote Visual Studio Code Verified account @code May 2 Want to see what happens behind each prompt? 🔍 Agent Debug Logs lets you inspect chat interactions, tool calls, model requests, prompt discovery, agent flows, and more. code.visualstudio.com/docs/copilot/c Embedded video Play Video"
+                            uid=e833 generic
+                              uid=e834 generic value="Quote"
+                              uid=e835 link "Visual Studio Code Verified account @code May 2 Want to see what happens behind each prompt? 🔍 Agent Debug Logs lets you inspect chat interactions, tool calls, model requests, prompt discovery, agent flows, and more. code.visualstudio.com/docs/copilot/c Embedded video Play Video"
+                                uid=e836 generic
+                                  uid=e854 generic
+                                    uid=e858 generic
+                                      uid=e860 generic value="Visual Studio Code"
+                                      uid=e863 img "Verified account"
+                                    uid=e867 generic
+                                      uid=e870 generic value="@code"
+                                      uid=e871 generic value="·"
+                                      uid=e874 generic "May 2"
+                                        uid=e875 time value="May 2"
+                                  uid=e877 generic
+                                    uid=s60 StaticText "Want to see what happens behind each prompt?"
+                                    uid=e878 img "🔍"
+                                    uid=s61 StaticText "Agent Debug Logs lets you inspect chat interactions, tool calls, model requests, prompt discovery, agent flows, and more."
+                                    uid=e879 generic value="code.visualstudio.com/docs/copilot/c …"
+                                  uid=e894 generic
+                                    uid=e897 generic "Embedded video"
+                                    uid=e904 button "Play Video"
+                                      uid=e905 img
+                          uid=e911 group "1 like, 192 views"
+                            uid=e913 button "0 Replies. Reply"
+                              uid=e917 img
+                            uid=e924 button "0 reposts. Repost"
+                              uid=e928 img
+                            uid=e935 button "1 Like. Like"
+                              uid=e936 generic
+                                uid=e939 img
+                                uid=e944 generic value="1"
+                            uid=e946 link "192 views. View post analytics" url="/jerome_etienne/status/2050514092293566762/analytics"
+                              uid=e947 generic
+                                uid=e950 img
+                                uid=e955 generic value="192"
+                            uid=e957 button "Bookmark"
+                              uid=e961 img
+                            uid=e966 button "Share post"
+                              uid=e970 img
+                    uid=s62 unknown
+                      uid=e985 generic
+                        uid=e997 link url="/jerome_etienne"
+                        uid=e1000 generic
+                          uid=e1002 generic
+                            uid=e1005 generic
+                              uid=s63 unknown url="/jerome_etienne"
+                                uid=e1011 generic value="Jerome Etienne #ARjs"
+                              uid=e1013 generic
+                                uid=e1015 link "@jerome_etienne" url="/jerome_etienne"
+                                  uid=e1016 generic value="@jerome_etienne"
+                                uid=e1017 generic value="·"
+                                uid=e1019 link "May 2" url="/jerome_etienne/status/2050409429611237683"
+                                  uid=e1020 time value="May 2"
+                            uid=e1022 generic
+                              uid=e1024 button "Grok actions"
+                                uid=e1029 img
+                              uid=e1035 button "More"
+                                uid=e1039 img
+                          uid=e1043 generic
+                            uid=e1044 img "🚀"
+                            uid=s64 StaticText "Just shipped :is() :where() :not() :has() in a11y_parse"
+                            uid=e1045 img "🎯"
+                            uid=s65 StaticText "CSS-like selectors, but over the accessibility tree *:has(button) → nodes containing a button link:not([href^=\"https\"]) → internal links"
+                            uid=e1046 img "👉"
+                            uid=e1047 link "github.com/jeromeetienne/" url="https://t.co/kNP2yEuzzQ"
+                              uid=s66 StaticText "github.com/jeromeetienne/ …"
+                            uid=e1049 link "#buildInPublic" url="/hashtag/buildInPublic?src=hashtag_click"
+                            uid=e1051 link "#typescript" url="/hashtag/typescript?src=hashtag_click"
+                            uid=e1053 link "#a11y" url="/hashtag/a11y?src=hashtag_click"
+                            uid=e1055 link "#opensource" url="/hashtag/opensource?src=hashtag_click"
+                          uid=e1063 link "Image" url="/jerome_etienne/status/2050409429611237683/photo/1"
+                            uid=e1067 generic "Image"
+                              uid=e1069 img "Image"
+                          uid=e1071 generic
+                            uid=e1072 img
+                            uid=s67 StaticText "Made with AI"
+                          uid=e1077 group "1 repost, 4 likes, 227 views"
+                            uid=e1079 button "0 Replies. Reply"
+                              uid=e1083 img
+                            uid=e1090 button "1 repost. Repost"
+                              uid=e1091 generic
+                                uid=e1094 img
+                                uid=e1099 generic value="1"
+                            uid=e1101 button "4 Likes. Like"
+                              uid=e1102 generic
+                                uid=e1105 img
+                                uid=e1110 generic value="4"
+                            uid=e1112 link "227 views. View post analytics" url="/jerome_etienne/status/2050409429611237683/analytics"
+                              uid=e1113 generic
+                                uid=e1116 img
+                                uid=e1121 generic value="227"
+                            uid=e1123 button "Bookmark"
+                              uid=e1127 img
+                            uid=e1132 button "Share post"
+                              uid=e1136 img
