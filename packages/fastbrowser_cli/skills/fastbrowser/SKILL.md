@@ -265,6 +265,13 @@ npx fastbrowser_cli@latest fill_form -s 'textbox[name="Email"]' -v "hello@exampl
 # Press a comma-separated sequence of keys (literals and named keys both work)
 npx fastbrowser_cli@latest press_keys --keys "Tab, Tab, Enter"
 npx fastbrowser_cli@latest press_keys --keys "Hello, Tab, Enter"
+
+# Evaluate a JS function in the page context and get its JSON-able return value
+npx fastbrowser_cli@latest evaluate_script --script 'function() { return { title: document.title, url: location.href }; }'
+
+# Same, reading the function from a file or piped stdin
+npx fastbrowser_cli@latest evaluate_script ./my_script.js
+echo 'function() { return document.querySelectorAll("a").length; }' | npx fastbrowser_cli@latest evaluate_script
 ```
 
 ## Batch Execution
@@ -315,6 +322,7 @@ press_keys --keys "Tab, Enter"
 | `click` | Click an element by accessibility selector | `--selector` / `-s` |
 | `fill_form` | Fill a form field by accessibility selector | `--selector` / `-s`, `--value` |
 | `press_keys` | Press a comma-separated key sequence | `--keys` |
+| `evaluate_script` | Run a JS function in the page context and return its JSON-able result | one of: `<file>`, `--script`, or piped stdin |
 | `batch` | Run multiple commands from a file, piped stdin, or `--script` inline | one of: `<file>`, `--script`, or piped stdin |
 | `install [skill-folder]` | Install bundled skills into `<skill-folder>/skills/` (default: `.`) | — |
 | `server start` | Start the HTTP server daemon | — |

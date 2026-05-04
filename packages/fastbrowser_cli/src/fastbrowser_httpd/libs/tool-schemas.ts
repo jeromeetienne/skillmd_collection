@@ -61,6 +61,11 @@ export type PressKeysRequest = z.infer<typeof PressKeysRequestSchema>;
 export const TakeSnapshotRequestSchema = z.object({}).strict();
 export type TakeSnapshotRequest = z.infer<typeof TakeSnapshotRequestSchema>;
 
+export const EvaluateScriptRequestSchema = z.object({
+	functionTxt: z.string().describe('JS function text to evaluate in the page context. Should return JSON-able data.'),
+});
+export type EvaluateScriptRequest = z.infer<typeof EvaluateScriptRequestSchema>;
+
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 //	Uniform response — narrowed mirror of MCP's CallToolResult
@@ -104,4 +109,5 @@ export const TOOL_SCHEMAS: ToolSchemaEntry[] = [
 	{ routeName: 'query_selectors', mcpToolName: 'querySelectors', requestSchema: QuerySelectorRequestSchema },
 	{ routeName: 'press_keys', mcpToolName: 'pressKeys', requestSchema: PressKeysRequestSchema },
 	{ routeName: 'take_snapshot', mcpToolName: 'take_snapshot', requestSchema: TakeSnapshotRequestSchema },
+	{ routeName: 'evaluate_script', mcpToolName: 'evaluate_script', requestSchema: EvaluateScriptRequestSchema },
 ];

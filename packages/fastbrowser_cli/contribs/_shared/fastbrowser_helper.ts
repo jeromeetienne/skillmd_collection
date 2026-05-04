@@ -41,4 +41,7 @@ export class FastBrowserHelper {
 		return await FastBrowserHelper.run(`query_selectors --selector '${selector}'${flag}`);
 	}
 
+	static async evaluateScript(functionText: string): Promise<string> {
+		return await FastBrowserHelper.run(`evaluate_script --script "${functionText}"`);
+	}
 }

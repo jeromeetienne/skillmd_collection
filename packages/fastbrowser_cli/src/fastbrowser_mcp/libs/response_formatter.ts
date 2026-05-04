@@ -217,6 +217,15 @@ export class ResponseFormatter {
 		if (resultContent.type !== "text") throw new Error("Unexpected content type");
 		const resultText: string = resultContent.text
 
+		// ### Result
+		// undefined
+		// ### Ran Playwright code
+		// ```js
+		// await page.evaluate('() => {\n    const workspace = document.querySelector(\'main#workspace\');\n    if (workspace === null) {\n        throw new Error(\'Workspace element not found\');\n    }\n    const tryCount = 6;\n    const delayMs = 500;\n    (async () => {\n        for (let i = 0; i < tryCount; i++) {\n            workspace.scrollBy({\n                top: 600000,\n                behavior: \'smooth\'\n            });\n            await new Promise(resolve => setTimeout(resolve, delayMs));\n        }\n    })();\n}');
+		// ```
+		// ### Events
+		// - New console entries: .playwright-mcp/console-2026-05-04T05-43-55-775Z.log#L3959-L4058
+
 		// Target format example:
 		// Successfully clicked on the element
 

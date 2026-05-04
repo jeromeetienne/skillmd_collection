@@ -386,6 +386,15 @@ async function main(): Promise<void> {
 		});
 
 	program
+		.command('evaluate_script [file]')
+		.description('Evaluate a JavaScript function in the page context. Provide the function text inline via --script, as a [file] path, or piped on stdin. The function should return JSON-able data.')
+		.option('--script <script>', 'Inline JS function text (overrides [file] and stdin)')
+		.action(async (file: string | undefined, opts: { script?: string }, cmd: Command) => {
+			const functionTxt = await MainHelper.readBatchSource(file, opts.script);
+			await MainHelper.runTool(cmd, 'evaluate_script', { functionTxt });
+		});
+
+	program
 		.command('install [skill-folder]')
 		.description('Install all bundled skills into <skill-folder>/skills/ (default: .)')
 		.action(async (skillFolder: string | undefined) => {
