@@ -8,6 +8,7 @@ import { A11yQuery, A11yTree, AxNode } from 'a11y_parse';
 import { FastBrowserHelper } from '../../_shared/fastbrowser_helper.js';
 import { LinkedinThreadHelper } from './libs/linkedin_thread_helper.js';
 import { LinkedinProfile, LinkedinProfileHelper } from './libs/linkedin_profile_helper.js';
+import { LinkedinPost, LinkedinRecentPostsHelper } from './libs/linkedin_recent_posts_helper.js';
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -51,6 +52,56 @@ class MainHelper {
 		}
 		await FastBrowserHelper.run('check');
 		await FastBrowserHelper.navigatePage(`https://www.linkedin.com/in/${slug}/`);
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async gotoPageRecentPosts(slug: string): Promise<void> {
+		if (slug.length === 0) {
+			throw new Error('slug is required');
+		}
+		await FastBrowserHelper.run('check');
+		await FastBrowserHelper.navigatePage(`https://www.linkedin.com/in/${slug}/recent-activity/all/`);
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+	//
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
+
+	static async exportRecentPosts(slug: string, limit: number): Promise<LinkedinPost[]> {
+		// Trigger LinkedIn's infinite-scroll inside the window so that more than the initial posts get rendered.
+		const scrollFunctionTxt = [
+			`() => {`,
+			`    const tryCount = 6;`,
+			`    const delayMs = 500;`,
+			`    (async () => {`,
+			`        for (let i = 0; i < tryCount; i++) {`,
+			`            window.scrollTo({`,
+			`                top: 600000,`,
+			`                behavior: 'smooth'`,
+			`            });`,
+			`            await new Promise(resolve => setTimeout(resolve, delayMs));`,
+			`        }`,
+			`    })();`,
+			`}`,
+		].join('\n');
+		await FastBrowserHelper.evaluateScript(scrollFunctionTxt);
+
+		// take snapshot and parse posts
+		const snapshot = await FastBrowserHelper.takeSnapshot();
+		let posts: LinkedinPost[] = LinkedinRecentPostsHelper.parsePosts(snapshot, slug);
+		// apply limit
+		if (limit > 0 && posts.length > limit) {
+			posts = posts.slice(0, limit);
+		}
+		// return posts
+		return posts;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -264,6 +315,28 @@ async function main(): Promise<void> {
 				return;
 			}
 			console.log(LinkedinProfileHelper.formatMarkdown(profile));
+		});
+
+	program
+		.command('recent_posts <slug>')
+		.description('Export the recent activity (posts) of a LinkedIn profile')
+		.option('-f, --format <format>', 'output format: markdown or json', 'markdown')
+		.option('-l, --limit <limit>', 'max number of posts to return (0 = all visible)', '0')
+		.action(async (slug: string, opts: { format: string; limit: string; }) => {
+			if (opts.format !== 'markdown' && opts.format !== 'json') {
+				throw new Error(`unknown format '${opts.format}', expected 'markdown' or 'json'`);
+			}
+			const limit = parseInt(opts.limit, 10);
+			if (Number.isNaN(limit) === true || limit < 0) {
+				throw new Error(`invalid limit '${opts.limit}', expected a non-negative integer`);
+			}
+			await MainHelper.gotoPageRecentPosts(slug);
+			const posts = await MainHelper.exportRecentPosts(slug, limit);
+			if (opts.format === 'json') {
+				console.log(JSON.stringify(posts));
+				return;
+			}
+			console.log(LinkedinRecentPostsHelper.formatMarkdown(posts));
 		});
 
 	await program.parseAsync();
