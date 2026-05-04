@@ -18,6 +18,7 @@ export class McpTargetHelper {
 		pressKeys: "pressKeys",
 		click: "click",
 		fillForm: "fill_form",
+		evaluateScript: "evaluate_script",
 		getCurrentDateTime: "get_current_datetime",
 	}
 
@@ -208,6 +209,16 @@ export class McpTargetHelper {
 		} else if (mcpTarget === 'playwright') {
 			// FIXME browser_fill_form tool exist in playwright MCP... implement it later
 			throw new Error(`Fill form tool is not supported for Playwright MCP target yet`);
+		} else {
+			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
+		}
+	}
+
+	static async targetToolEvaluateScript(mcpTarget: FastBrowserMcpTarget, functionText: string): Promise<TargetToolConfig> {
+		if (mcpTarget === 'chrome_devtools') {
+			return { toolName: 'evaluate_script', toolArgs: { function: functionText } };
+		} else if (mcpTarget === 'playwright') {
+			return { toolName: 'browser_evaluate', toolArgs: { function: functionText } };
 		} else {
 			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
 		}

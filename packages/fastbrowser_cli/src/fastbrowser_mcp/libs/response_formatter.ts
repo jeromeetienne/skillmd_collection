@@ -211,4 +211,24 @@ export class ResponseFormatter {
 			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
 		}
 	}
+
+	static async formatEvaluateScript(mcpTarget: FastBrowserMcpTarget, callToolResult: CallToolResult): Promise<string> {
+		const resultContent = callToolResult.content[0]
+		if (resultContent.type !== "text") throw new Error("Unexpected content type");
+		const resultText: string = resultContent.text
+
+		// Target format example:
+		// Successfully clicked on the element
+
+		if (mcpTarget === 'chrome_devtools') {
+			// EXAMPLE:
+			// Successfully clicked on the element
+
+			return resultText
+		} else if (mcpTarget === 'playwright') {
+			return resultText
+		} else {
+			throw new Error(`Unsupported MCP target: ${mcpTarget}`);
+		}
+	}
 }

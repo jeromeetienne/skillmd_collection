@@ -507,38 +507,16 @@ class MainHelper {
 					// from chatgpt
 					const specialKeys = [
 						// Control / navigation
-						'Enter',
-						'Tab',
-						'Escape',
-						'Backspace',
-						'Delete',
-						'Insert',
+						'Enter', 'Tab', 'Escape', 'Backspace', 'Delete', 'Insert',
 
 						// Arrows
-						'ArrowUp',
-						'ArrowDown',
-						'ArrowLeft',
-						'ArrowRight',
+						'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
 
 						// Navigation keys
-						'Home',
-						'End',
-						'PageUp',
-						'PageDown',
+						'Home', 'End', 'PageUp', 'PageDown',
 
 						// Function keys
-						'F1',
-						'F2',
-						'F3',
-						'F4',
-						'F5',
-						'F6',
-						'F7',
-						'F8',
-						'F9',
-						'F10',
-						'F11',
-						'F12',
+						'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12',
 					];
 					if (specialKeys.includes(key)) {
 						keysToSend.push(key);
@@ -549,7 +527,7 @@ class MainHelper {
 						}
 					}
 				}
-				console.error("Keys to send:", keysToSend);
+				// console.error("Keys to send:", keysToSend);
 				// chrome-devtools-mcp's 'press_key' tool accepts a single 'key' per call — loop through the sequence
 				for (const key of keysToSend) {
 					const toolConfig = await McpTargetHelper.targetToolPressKey(mcpTarget, key);
@@ -604,7 +582,7 @@ class MainHelper {
 
 				// log the events
 				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.click}: output:`);
-
+				logger.warn(`${outputText}`);
 				return {
 					content: [{ type: "text", text: outputText }],
 				};
@@ -676,6 +654,36 @@ class MainHelper {
 			}
 		);
 
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+		//	
+		///////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////
+
+		mcpServer.registerTool(
+			McpTargetHelper.EXTERNAL_TOOL_NAME.evaluateScript,
+			{
+				description: "Evaluate a JavaScript function in the context of the current page. The function should return JSON-able data.",
+				inputSchema: z.object({
+					functionTxt: z.string().describe("The JavaScript function to evaluate in the page context. Should return JSON-able data."),
+				}),
+			},
+			async ({ functionTxt }: { functionTxt: string }) => {
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.evaluateScript}: evaluating function: ${functionTxt}`);
+
+				const toolConfig = await McpTargetHelper.targetToolEvaluateScript(mcpTarget, functionTxt);
+				const callToolResult = await mcpClient.callTool(toolConfig.toolName, toolConfig.toolArgs);
+				let outputText = await ResponseFormatter.formatEvaluateScript(mcpTarget, callToolResult);
+
+				// log the events
+				logger.warn(`${mcpTarget}:${McpTargetHelper.EXTERNAL_TOOL_NAME.evaluateScript}: output:`);
+				logger.warn(`${outputText}`);
+				return {
+					content: [{ type: "text", text: outputText }],
+				};
+			}
+		)
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
 		//	.get_current_datetime tool implementation
