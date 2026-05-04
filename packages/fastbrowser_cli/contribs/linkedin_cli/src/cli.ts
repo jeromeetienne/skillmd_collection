@@ -60,8 +60,37 @@ class MainHelper {
 	///////////////////////////////////////////////////////////////////////////////
 
 	static async exportProfile(slug: string): Promise<LinkedinProfile> {
+		// scroll to the bottom of the page multiple times to load dynamic content (like experience details, recommendations, etc.)
+		const functionTxt = [
+			`() => {`,
+			`    // select the element`,
+			`    const workspace = document.querySelector('main#workspace');`,
+			`    if (workspace === null) {`,
+			`        throw new Error('Workspace element not found');`,
+			`    }`,
+			`    // scroll to the bottom of the page multiple times to load dynamic content (like experience details, recommendations, etc.)`,
+			`    const tryCount = 6;`,
+			`    const delayMs = 500;`,
+			`    (async () => {`,
+			`        for (let i = 0; i < tryCount; i++) {`,
+			`            workspace.scrollBy({`,
+			`                top: 600000,`,
+			`                behavior: 'smooth'`,
+			`            });`,
+			`            await new Promise(resolve => setTimeout(resolve, delayMs));`,
+			`        }`,
+			`        resolve(true);`,
+			`    })();`,
+			`}`,
+		].join('\n');
+		const resultEvaluateStr: string = await FastBrowserHelper.evaluateScript(functionTxt);
+
+		// Take snapshot
 		const snapshot = await FastBrowserHelper.takeSnapshot();
-		return LinkedinProfileHelper.parseProfile(snapshot, slug);
+		// Parse profile
+		const linkedinProfile = LinkedinProfileHelper.parseProfile(snapshot, slug);
+		// Return profile
+		return linkedinProfile;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
