@@ -1,0 +1,2073 @@
+uid=e1 generic
+  uid=s4 generic
+    uid=e2 heading "0 notifications" level="2"
+    uid=s5 StaticText "            "
+    uid=e3 iframe active
+      uid=f136e1 generic
+        uid=s6 generic
+          uid=s7 region "Toast message"
+            uid=f136e3 heading "0 notifications total" level="2"
+            uid=s8 alert
+        uid=f136e4 region
+        uid=f136e5 generic
+          uid=f136e7 generic
+            uid=f136e8 button "Skip to search"
+              uid=f136e9 generic value="Skip to search"
+            uid=f136e10 button "Skip to main content"
+              uid=f136e11 generic value="Skip to main content"
+            uid=f136e12 button "Keyboard shortcuts"
+              uid=f136e13 generic value="Keyboard shortcuts"
+            uid=f136e14 button "Close jump menu"
+              uid=f136e15 img
+              uid=f136e17 generic value="Close jump menu"
+          uid=f136e18 banner "Global Navigation"
+            uid=f136e19 generic
+              uid=f136e20 link "LinkedIn" url="https://www.linkedin.com/feed/?nis=true"
+                uid=f136e23 img "LinkedIn"
+                  uid=f136e24 img
+              uid=f136e28 generic
+                uid=f136e29 combobox "Search"
+                uid=s9 generic
+                  uid=s10 img
+              uid=f136e30 navigation "Primary Navigation"
+                uid=f136e31 list
+                  uid=f136e32 listitem
+                    uid=f136e33 link "new feed updates notifications Home" url="https://www.linkedin.com/feed/"
+                      uid=f136e34 generic
+                        uid=f136e37 generic value="new feed updates notifications"
+                        uid=f136e41 img
+                      uid=f136e43 generic "Home"
+                  uid=f136e44 listitem
+                    uid=f136e45 link "My Network" url="https://www.linkedin.com/mynetwork/?"
+                      uid=f136e49 img
+                      uid=f136e51 generic "My Network"
+                  uid=f136e52 listitem
+                    uid=f136e53 link "Jobs" url="https://www.linkedin.com/jobs/?"
+                      uid=f136e57 img
+                      uid=f136e59 generic "Jobs"
+                  uid=f136e60 listitem
+                    uid=f136e61 link "Messaging" url="https://www.linkedin.com/messaging/?"
+                      uid=f136e65 img
+                      uid=f136e67 generic "Messaging"
+                  uid=f136e68 listitem
+                    uid=f136e69 link "3 new notifications Notifications" url="https://www.linkedin.com/notifications/?"
+                      uid=f136e70 generic
+                        uid=f136e71 generic
+                          uid=f136e72 generic value="3"
+                          uid=f136e73 generic value="3 new notifications"
+                        uid=f136e77 img
+                      uid=f136e79 generic "Notifications"
+                  uid=f136e80 listitem
+                    uid=f136e82 button "Jerome Etienne Me"
+                      uid=f136e83 img "Jerome Etienne"
+                      uid=f136e84 generic
+                        uid=s11 StaticText "Me"
+                        uid=f136e85 img
+                  uid=f136e87 listitem
+                    uid=f136e89 button "For Business"
+                      uid=f136e93 img
+                      uid=f136e95 generic "For Business"
+                        uid=s12 StaticText "For Business"
+                        uid=f136e96 img
+                  uid=f136e98 listitem
+                    uid=f136e100 link "Claim your 1 month free Premium Page" url="http://www.linkedin.com/premium/products/?upsellOrderOrigin=Tracking%3Av1%3Apremium_page_nav_upsell_text%3ACompany+Pages+SKU%3AIn-Product&referenceId=jp%2B%2BHOPYTACKdfsb8FN9lQ%3D%3D&companyUrn=urn%3Ali%3Afsd_company%3A106063595&isSS=false&upsellSlotId=NAV_SPOTLIGHT&destRedirectURL=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fjulien-guezennec%2F"
+                      uid=f136e102 generic value="Claim your 1 month free Premium Page"
+          uid=f136e108 generic
+            uid=f136e109 complementary active
+              uid=f136e112 generic
+                uid=f136e115 link "Julien Guézennec" url="/in/julien-guezennec/"
+                  uid=f136e116 img "Julien Guézennec"
+                uid=f136e117 generic
+                  uid=f136e118 link "Julien Guézennec" url="/in/julien-guezennec/"
+                    uid=f136e119 heading "Julien Guézennec" level="3"
+                  uid=f136e120 heading "Internet developer (Full Stack & WebDesign)" level="4"
+                uid=f136e122 generic
+                  uid=f136e123 generic
+                    uid=f136e124 generic value="Followers"
+                    uid=f136e125 generic value="595"
+                  uid=f136e128 button "Message Julien"
+                    uid=f136e129 generic value="Message"
+            uid=f136e130 main
+              uid=f136e132 generic
+                uid=f136e133 heading "All activity" level="2"
+                uid=f136e136 group "Select type of recent activity"
+                  uid=f136e137 button "Posts" pressed
+                    uid=f136e138 generic value="Posts"
+                  uid=f136e139 button "Comments"
+                    uid=f136e140 generic value="Comments"
+                  uid=f136e141 button "Videos"
+                    uid=f136e142 generic value="Videos"
+                  uid=f136e143 button "Images"
+                    uid=f136e144 generic value="Images"
+                  uid=f136e145 button "More"
+                    uid=f136e146 generic value="More"
+                    uid=f136e147 img
+                uid=f136e151 generic
+                  uid=f136e152 generic
+                    uid=f136e153 generic value="Loaded 20 Posts posts"
+                    uid=f136e154 list
+                      uid=f136e155 listitem
+                        uid=f136e160 article
+                          uid=f136e162 generic
+                            uid=f136e163 heading "Feed post number 1" level="2"
+                            uid=f136e164 generic
+                              uid=f136e165 generic
+                                uid=f136e167 generic
+                                  uid=f136e168 link "Julien’s profile photo" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e171 img "Julien’s profile photo"
+                                  uid=f136e172 generic
+                                    uid=f136e174 link "Julien Guézennec" url="/in/julien-guezennec/"
+                                    uid=s13 StaticText "reposted this"
+                                uid=f136e177 button "Open control menu for post by Allison Fiorentino"
+                                  uid=f136e178 img
+                                uid=f136e180 generic
+                                  uid=f136e181 generic
+                                    uid=f136e182 link "View Allison Fiorentino’s graphic link" url="https://www.linkedin.com/in/allison-fiorentino-6106651a?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAQDMywBZhbjY9gCYEFpv7AdXHqclfAj6-o"
+                                      uid=f136e186 img "View Allison Fiorentino’s graphic link"
+                                    uid=f136e187 generic
+                                      uid=s14 unknown url="https://www.linkedin.com/in/allison-fiorentino-6106651a?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAQDMywBZhbjY9gCYEFpv7AdXHqclfAj6-o"
+                                        uid=f136e189 generic
+                                          uid=f136e191 generic
+                                            uid=f136e192 generic value="Allison Fiorentino"
+                                            uid=f136e193 generic value="Allison Fiorentino"
+                                          uid=f136e194 generic
+                                            uid=f136e195 generic value="• 3rd+"
+                                            uid=f136e196 generic value="3rd+"
+                                        uid=f136e197 generic
+                                          uid=f136e198 generic value="Maître de conférences HDR | Spécialiste en droit social comparé (RU, US, Japon…) | Bien‑être animal | Co‑directrice DU dialogue social"
+                                          uid=f136e199 generic value="Maître de conférences HDR | Spécialiste en droit social comparé (RU, US, Japon…) | Bien‑être animal | Co‑directrice DU dialogue social"
+                                      uid=f136e200 generic
+                                        uid=f136e201 generic
+                                          uid=s15 StaticText "12h • Edited •"
+                                          uid=f136e204 img
+                                        uid=f136e206 generic value="12 hours ago • Edited • Visible to anyone on or off LinkedIn"
+                                  uid=f136e207 button "Follow Allison Fiorentino"
+                                    uid=f136e208 img
+                                    uid=f136e210 generic value="Follow"
+                              uid=f136e211 generic
+                                uid=f136e212 generic
+                                  uid=f136e215 generic
+                                    uid=s16 StaticText "𝗨𝗻𝗲 𝘁𝗲𝗰𝗵𝗻𝗶𝗾𝘂𝗲 𝗱𝗲 𝗽𝗿𝗼𝗺𝗽𝘁𝗶𝗻𝗴 𝗾𝘂𝗲 𝗷𝗲 𝘁𝗲𝘀𝘁𝗲 𝗲𝗻 𝗺𝗲𝘀 𝗿𝗲𝗰𝗵𝗲𝗿𝗰𝗵𝗲𝘀 𝗷𝘂𝗿𝗶𝗱𝗶𝗾𝘂𝗲𝘀"
+                                    uid=s17 StaticText "J'aime expérimenter avec Claude pour repérer les 𝗮𝗻𝗴𝗹𝗲𝘀 𝗺𝗼𝗿𝘁𝘀 d'une recherche juridique, et tester les techniques de prompting ."
+                                    uid=s18 StaticText "La newsletter 𝗚é𝗻é𝗿𝗮𝘁𝗶𝗼𝗻𝗜𝗔 𝗱𝗲"
+                                    uid=f136e217 link "Benoit Raphael" url="/in/benoitraphael/"
+                                    uid=s19 StaticText "du 12 avril dernier (que je recommande vivement) m'a mise sur une piste à essayer : utiliser dans mes prompts des mots empruntés à d'autres disciplines que le droit."
+                                    uid=s20 StaticText "Ces mots peuvent apporter une vision nouvelle. Médecine, géologie, phénoménologie, logique : chacun de ces champs vient avec une 𝗽𝗿𝗼𝗰é𝗱𝘂𝗿𝗲 𝗱'𝗮𝗻𝗮𝗹𝘆𝘀𝗲 𝗽𝗿𝗼𝗽𝗿𝗲, et c'est cette procédure qu'on importe en mobilisant le mot. Le modèle quitte alors son plan juridique réflexe (définition, conditions, régime, sanctions) et travaille autrement. On pourrait parler d'𝗮𝗺𝗼𝗿𝗰𝗲𝘀 𝗰𝗼𝗻𝗰𝗲𝗽𝘁𝘂𝗲𝗹𝗹𝗲𝘀."
+                                    uid=s21 StaticText "𝗨𝗻 𝗲𝘅𝗲𝗺𝗽𝗹𝗲. Au lieu de demander un état de la jurisprudence sur le harcèlement moral, je formule ceci :"
+                                    uid=s22 StaticText "« Procède à une 𝘀𝘁𝗿𝗮𝘁𝗶𝗴𝗿𝗮𝗽𝗵𝗶𝗲 de cette jurisprudence. Distingue les couches successives, les apports encore actifs en droit positif, les inflexions, les zones de controverse. Pour chaque strate, cite les arrêts qui la fondent. »"
+                                    uid=s23 StaticText "La réponse cesse d'être une frise chronologique. Apparaissent une couche textuelle issue du Code du travail, une couche probatoire avec son aménagement de la charge, une couche sur l'obligation de prévention et son autonomisation, une couche indemnitaire, puis une couche contemporaine qui réinscrit le harcèlement dans une logique organisationnelle de risques psychosociaux."
+                                    uid=s24 StaticText "J'ai identifié 𝘀𝗶𝘅 𝗳𝗮𝗺𝗶𝗹𝗹𝗲𝘀 servant à examiner un dossier, à éprouver une argumentation, à temporaliser, ou à comparer deux systèmes (translation test entre droit civil et common law)."
+                                    uid=s25 StaticText "𝗟'𝗮𝗺𝗼𝗿𝗰𝗲 𝗻𝗲 𝗱𝗶𝘀𝗽𝗲𝗻𝘀𝗲 𝗽𝗮𝘀 𝗱𝗲 𝗹𝗮 𝗿𝗲𝗰𝗵𝗲𝗿𝗰𝗵𝗲."
+                                    uid=s26 StaticText "Pour éviter que Claude reconstruise la jurisprudence à partir d'un corpus d'entraînement partiel et daté, j'adosse mes amorces à des 𝗠𝗖𝗣 𝗷𝘂𝗿𝗶𝗱𝗶𝗾𝘂𝗲𝘀 qui le contraignent à interroger les sources réelles. J'utilise celui de"
+                                    uid=f136e219 link "Raphael d'Assignies" url="/in/dassignies/"
+                                    uid=s27 StaticText "pour Légifrance, et ceux de"
+                                    uid=f136e221 link "Zacharie Laïk" url="/in/zacharie-la%C3%AFk-09535aab/"
+                                    uid=s28 StaticText ", Legal Data Hunter et Goodlegal."
+                                    uid=s29 StaticText "C'est encore mieux quand ces MCP sont 𝗲𝗻𝗰𝗮𝗽𝘀𝘂𝗹é𝘀 𝗱𝗮𝗻𝘀 𝗱𝗲𝘀 𝘀𝗸𝗶𝗹𝗹𝘀, qui imposent au modèle une méthode et une exigence de traçabilité, comme ceux du professeur"
+                                    uid=f136e223 link "Christophe Quézel-Ambrunaz" url="/in/christophe-qu%C3%A9zel-ambrunaz/"
+                                    uid=s30 StaticText ", ou celui que j'ai écrit sur la recherche de doctrine."
+                                    uid=s31 StaticText "Une amorce ouvre des angles. Elle ne produit du travail juridique solide qu'à condition d'être adossée à des sources qu'on peut vérifier."
+                                    uid=s32 StaticText "Etant une travailliste, la majorité de mes exemples concernent le droit du travail."
+                                    uid=f136e224 link "hashtag droit" url="https://www.linkedin.com/search/results/all/?keywords=%23droit&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e225 generic value="hashtag"
+                                      uid=f136e226 generic value="#droit"
+                                    uid=f136e227 link "hashtag IA" url="https://www.linkedin.com/search/results/all/?keywords=%23ia&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e228 generic value="hashtag"
+                                      uid=f136e229 generic value="#IA"
+                                    uid=f136e230 link "hashtag legaltech" url="https://www.linkedin.com/search/results/all/?keywords=%23legaltech&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e231 generic value="hashtag"
+                                      uid=f136e232 generic value="#legaltech"
+                                  uid=f136e233 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e234 generic value="…more"
+                                uid=f136e237 button "Show translation"
+                                  uid=f136e238 generic value="Show translation"
+                              uid=f136e240 generic
+                                uid=f136e241 alert value="Your document has finished loading"
+                                uid=f136e242 iframe
+                                  uid=f149e4 main
+                                    uid=f149e8 generic
+                                      uid=f149e9 generic value="amorces conceptuelles"
+                                      uid=f149e10 generic value="•"
+                                      uid=f149e11 generic value="9 pages"
+                                    uid=f149e14 list
+                                      uid=f149e15 listitem
+                                        uid=s33 img
+                                      uid=f149e16 listitem
+                                      uid=f149e17 listitem
+                                      uid=f149e18 listitem
+                                      uid=f149e19 listitem
+                                      uid=f149e20 listitem
+                                      uid=f149e21 listitem
+                                      uid=f149e22 listitem
+                                      uid=f149e23 listitem
+                                    uid=f149e25 button "Go to next page of document"
+                                      uid=f149e27 img
+                                      uid=f149e29 generic value="Go to next page of document"
+                                    uid=f149e32 img
+                                    uid=f149e36 generic
+                                      uid=f149e38 generic
+                                        uid=f149e39 generic
+                                          uid=f149e40 generic value="Current page"
+                                          uid=f149e41 generic value="1"
+                                        uid=s34 StaticText "/"
+                                        uid=f149e42 generic
+                                          uid=f149e43 generic value="Total pages"
+                                          uid=s35 StaticText "9"
+                                      uid=f149e45 progressbar "Progress bar Slide 1/9"
+                                      uid=f149e50 button "Enter full screen. An accessible version of the document is available in full screen mode."
+                                        uid=f149e52 img
+                                        uid=f149e54 generic value="Enter full screen. An accessible version of the document is available in full screen mode."
+                              uid=f136e243 generic
+                                uid=f136e247 list
+                                  uid=f136e248 listitem
+                                    uid=f136e249 button "Julien Guézennec and 19 others"
+                                      uid=f136e250 img "like"
+                                      uid=f136e251 img "insightful"
+                                      uid=f136e252 img "celebrate"
+                                      uid=f136e253 generic
+                                        uid=f136e254 generic value="20"
+                                        uid=f136e255 generic value="Julien Guézennec and 19 others"
+                                  uid=f136e256 listitem
+                                    uid=f136e257 list
+                                      uid=f136e258 listitem
+                                        uid=f136e259 button "1 comment on Allison Fiorentino’s post"
+                                          uid=f136e260 generic value="1 comment"
+                                        uid=s36 StaticText "·"
+                                      uid=f136e261 listitem
+                                        uid=f136e262 button "2 reposts of Allison Fiorentino’s post"
+                                          uid=f136e263 generic value="2 reposts"
+                                uid=f136e264 generic
+                                  uid=f136e265 generic
+                                    uid=f136e266 button "React Like"
+                                      uid=f136e268 generic
+                                        uid=f136e269 img
+                                        uid=f136e271 generic value="Like"
+                                    uid=s37 button "Open reactions menu"
+                                      uid=f136e273 img
+                                  uid=f136e277 button "Comment"
+                                    uid=f136e278 img
+                                    uid=f136e280 generic value="Comment"
+                                  uid=f136e283 button "Repost"
+                                    uid=f136e284 img
+                                    uid=f136e286 generic value="Repost"
+                                  uid=f136e289 button "Send in a private message"
+                                    uid=f136e290 img
+                                    uid=f136e293 generic value="Send"
+                      uid=f136e294 listitem
+                        uid=f136e299 article
+                          uid=f136e301 generic
+                            uid=f136e302 heading "Feed post number 2" level="2"
+                            uid=f136e303 generic
+                              uid=f136e304 generic
+                                uid=f136e306 generic
+                                  uid=f136e307 link "Julien’s profile photo" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e310 img "Julien’s profile photo"
+                                  uid=f136e311 generic
+                                    uid=f136e313 link "Julien Guézennec" url="/in/julien-guezennec/"
+                                    uid=s38 StaticText "reposted this"
+                                uid=f136e316 button "Open control menu for post by Jean-Baptiste CORDRAY"
+                                  uid=f136e317 img
+                                uid=f136e319 generic
+                                  uid=f136e320 generic
+                                    uid=f136e321 link "View Jean-Baptiste CORDRAY’s graphic link" url="https://www.linkedin.com/in/jean-baptiste-cordray-935a10a6?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAABaTLjkBaUs7DdbRNKf_B3ulAGBK2DyC3eo"
+                                      uid=f136e325 img "View Jean-Baptiste CORDRAY’s graphic link"
+                                    uid=f136e326 generic
+                                      uid=s39 unknown url="https://www.linkedin.com/in/jean-baptiste-cordray-935a10a6?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAABaTLjkBaUs7DdbRNKf_B3ulAGBK2DyC3eo"
+                                        uid=f136e328 generic
+                                          uid=f136e330 generic
+                                            uid=f136e331 generic value="Jean-Baptiste CORDRAY"
+                                            uid=f136e332 generic value="Jean-Baptiste CORDRAY"
+                                          uid=f136e333 generic
+                                            uid=f136e334 generic
+                                              uid=f136e335 img
+                                                uid=f136e336 img
+                                              uid=s40 StaticText "• 2nd"
+                                            uid=f136e338 generic value="Premium • 2nd"
+                                        uid=f136e339 generic
+                                          uid=f136e340 generic value="LinkedIn ne te bloque pas. Il ne te comprend pas. Je corrige ca. | Cliaso IA dédiée & Employé IA | Vu dans LEGEND 🎤 | Technologie Française 🇫🇷 | Substi.ai"
+                                          uid=f136e341 generic value="LinkedIn ne te bloque pas. Il ne te comprend pas. Je corrige ca. | Cliaso IA dédiée & Employé IA | Vu dans LEGEND 🎤 | Technologie Française 🇫🇷 | Substi.ai"
+                                      uid=f136e342 link "Book an appointment" url="https://calendly.com/jb-cliaso/30min"
+                                        uid=f136e343 generic value="Book an appointment"
+                                      uid=f136e344 generic
+                                        uid=f136e345 generic
+                                          uid=s41 StaticText "4d •"
+                                          uid=f136e348 img
+                                        uid=f136e350 generic value="4 days ago • Visible to anyone on or off LinkedIn"
+                                  uid=f136e351 button "Follow Jean-Baptiste CORDRAY"
+                                    uid=f136e352 img
+                                    uid=f136e354 generic value="Follow"
+                              uid=f136e355 generic
+                                uid=f136e356 generic
+                                  uid=f136e359 generic
+                                    uid=s42 StaticText "Plus c'est pas cher, plus le client est insupportable."
+                                    uid=s43 StaticText "C'est une loi."
+                                    uid=s44 StaticText "Comme la gravité."
+                                    uid=s45 StaticText "Sauf qu'aucun cadre ne te l'apprend en école de commerce."
+                                    uid=s46 StaticText "Je vends un t-shirt sur Vinted à 2 euros."
+                                    uid=s47 StaticText "Dans les 4 minutes qui suivent, je reçois :"
+                                    uid=s48 StaticText "\"Bonjour, vous pouvez baisser à 1 euro ?\""
+                                    uid=s49 StaticText "\"Vous avez d'autres photos sous lumière naturelle ?\""
+                                    uid=s50 StaticText "\"Quelles sont les mesures exactes manche par manche ?\""
+                                    uid=s51 StaticText "\"Le tissu c'est 100% coton ou il y a du polyester ?\""
+                                    uid=s52 StaticText "\"Vous fumez chez vous ?\""
+                                    uid=s53 StaticText "\"Vous avez un chat ?\""
+                                    uid=s54 StaticText "Madame."
+                                    uid=s55 StaticText "Le t-shirt est à 2 euros."
+                                    uid=s56 StaticText "À ce prix là j'ai le droit d'avoir tué quelqu'un dedans."
+                                    uid=s57 StaticText "À l'inverse je connais un mec qui vend des montres à 18 000 euros."
+                                    uid=s58 StaticText "Le client appelle."
+                                    uid=s59 StaticText "\"Je la veux.\""
+                                    uid=s60 StaticText "Il paye."
+                                    uid=s61 StaticText "Il dit merci."
+                                    uid=s62 StaticText "Il repart."
+                                    uid=s63 StaticText "Voilà. Toute la transaction."
+                                    uid=s64 StaticText "Aucune négociation. Aucune photo supplémentaire. Aucune question sur l'animal de compagnie du vendeur."
+                                    uid=s65 StaticText "C'est partout pareil."
+                                    uid=s66 StaticText "Le client à 50 euros par mois te demande pourquoi tu réponds pas le dimanche à 23h. Le client à 5 000 euros par mois te dit \"prends ton temps\"."
+                                    uid=s67 StaticText "Le restau à 12 euros le menu, t'as un avis Google si le pain est tiède au lieu d'être chaud. Le restau à 250 euros la table, le mec laisse 5 étoiles parce que \"très bonne expérience\" et il oublie de signer."
+                                    uid=s68 StaticText "La nana qui achète un eyeliner à 3 euros chez Action laisse une review de 800 mots avec photos avant après. La nana qui s'achète un sac Hermès à 15 000 balles te dit juste \"parfait\"."
+                                    uid=s69 StaticText "Y'a une raison physique à ça."
+                                    uid=s70 StaticText "Le client pas cher a payé avec quelque chose qu'il considère précieux : son argent durement gagné."
+                                    uid=s71 StaticText "Le client cher a payé avec quelque chose qu'il considère banal : son argent."
+                                    uid=s72 StaticText "L'un te paye en sang. L'autre en monnaie."
+                                    uid=s73 StaticText "Devine lequel attend du sang en retour."
+                                    uid=s74 StaticText "Donc le jour où tu te demandes pourquoi t'as 200 clients qui te bouffent la vie pendant que ton pote en a 12 qui le payent 10 fois plus et qui le remercient."
+                                    uid=s75 StaticText "Tu connais la réponse."
+                                    uid=s76 StaticText "T'as choisi le mauvais segment."
+                                    uid=s77 StaticText "Le mauvais prix."
+                                    uid=s78 StaticText "Le mauvais combat."
+                                    uid=s79 StaticText "Augmenter tes prix c'est pas une stratégie commerciale."
+                                    uid=s80 StaticText "C'est une stratégie de santé mentale."
+                                  uid=f136e360 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e361 generic value="…more"
+                                uid=f136e364 button "Show translation"
+                                  uid=f136e365 generic value="Show translation"
+                              uid=f136e367 generic
+                                uid=f136e368 alert value="Your document has finished loading"
+                                uid=f136e369 iframe
+                                  uid=f150e4 main
+                                    uid=f150e8 generic
+                                      uid=f150e9 generic value="Pricing"
+                                      uid=f150e10 generic value="•"
+                                      uid=f150e11 generic value="6 pages"
+                                    uid=f150e14 list
+                                      uid=f150e15 listitem
+                                      uid=f150e16 listitem
+                                      uid=f150e17 listitem
+                                      uid=f150e18 listitem
+                                      uid=f150e19 listitem
+                                      uid=f150e20 listitem
+                                    uid=f150e22 button "Go to next page of document"
+                                      uid=f150e24 img
+                                      uid=f150e26 generic value="Go to next page of document"
+                                    uid=f150e29 img
+                                    uid=f150e33 generic
+                                      uid=f150e35 generic
+                                        uid=f150e36 generic
+                                          uid=f150e37 generic value="Current page"
+                                          uid=f150e38 generic value="1"
+                                        uid=s81 StaticText "/"
+                                        uid=f150e39 generic
+                                          uid=f150e40 generic value="Total pages"
+                                          uid=s82 StaticText "6"
+                                      uid=f150e42 progressbar "Progress bar Slide 1/6"
+                                      uid=f150e47 button "Enter full screen. An accessible version of the document is available in full screen mode."
+                                        uid=f150e49 img
+                                        uid=f150e51 generic value="Enter full screen. An accessible version of the document is available in full screen mode."
+                              uid=f136e370 generic
+                                uid=f136e374 list
+                                  uid=f136e375 listitem
+                                    uid=f136e376 button "Julien Guézennec and 267 others"
+                                      uid=f136e377 img "like"
+                                      uid=f136e378 img "insightful"
+                                      uid=f136e379 img "celebrate"
+                                      uid=f136e380 generic
+                                        uid=f136e381 generic value="268"
+                                        uid=f136e382 generic value="Julien Guézennec and 267 others"
+                                  uid=f136e383 listitem
+                                    uid=f136e384 list
+                                      uid=f136e385 listitem
+                                        uid=f136e386 button "60 comments on Jean-Baptiste CORDRAY’s post"
+                                          uid=f136e387 generic value="60 comments"
+                                        uid=s83 StaticText "·"
+                                      uid=f136e388 listitem
+                                        uid=f136e389 button "4 reposts of Jean-Baptiste CORDRAY’s post"
+                                          uid=f136e390 generic value="4 reposts"
+                                uid=f136e391 generic
+                                  uid=f136e392 generic
+                                    uid=f136e393 button "React Like"
+                                      uid=f136e395 generic
+                                        uid=f136e396 img
+                                        uid=f136e398 generic value="Like"
+                                    uid=s84 button "Open reactions menu"
+                                      uid=f136e400 img
+                                  uid=f136e404 button "Comment"
+                                    uid=f136e405 img
+                                    uid=f136e407 generic value="Comment"
+                                  uid=f136e410 button "Repost"
+                                    uid=f136e411 img
+                                    uid=f136e413 generic value="Repost"
+                                  uid=f136e416 button "Send in a private message"
+                                    uid=f136e417 img
+                                    uid=f136e420 generic value="Send"
+                      uid=f136e421 listitem
+                        uid=f136e426 article
+                          uid=f136e428 generic
+                            uid=f136e429 heading "Feed post number 3" level="2"
+                            uid=f136e430 generic
+                              uid=f136e431 generic
+                                uid=f136e433 generic
+                                  uid=f136e434 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e438 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e439 generic
+                                    uid=s85 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e441 generic
+                                        uid=f136e443 generic
+                                          uid=f136e444 generic value="Julien Guézennec"
+                                          uid=f136e445 generic value="Julien Guézennec"
+                                        uid=f136e446 generic
+                                          uid=f136e447 generic
+                                            uid=f136e448 img
+                                            uid=s86 StaticText "• 1st"
+                                          uid=f136e450 generic value="Verified • 1st"
+                                      uid=f136e451 generic
+                                        uid=f136e452 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e453 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e454 generic
+                                      uid=f136e455 generic
+                                        uid=s87 StaticText "3d •"
+                                        uid=f136e458 img
+                                      uid=f136e460 generic value="3 days ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e463 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e464 img
+                              uid=f136e470 generic
+                                uid=s88 StaticText "Demo : \"Youtube Lead Scraper Pro v2.1\" -> Scrap emails from the web :)"
+                                uid=s89 StaticText "-"
+                                uid=f136e471 link "https://lnkd.in/eNeMb_g3" url="https://lnkd.in/eNeMb_g3"
+                                uid=s90 StaticText "-"
+                                uid=f136e472 link "https://lnkd.in/eZNna7KF" url="https://lnkd.in/eZNna7KF"
+                              uid=f136e477 region "Video player"
+                                uid=f136e481 generic
+                                  uid=f136e482 button "Play"
+                                    uid=f136e483 generic value="Play"
+                                  uid=f136e484 slider "Playback progress"
+                                    uid=f136e486 generic value="Loaded: 12.96%"
+                                  uid=f136e488 generic
+                                    uid=s91 StaticText "Remaining time"
+                                    uid=f136e489 generic value="3:35"
+                                  uid=f136e490 generic
+                                    uid=s92 generic value="1x"
+                                    uid=f136e491 button "Playback speed"
+                                      uid=f136e492 generic value="Playback speed"
+                                  uid=f136e493 generic
+                                    uid=f136e494 button "Unmute"
+                                      uid=f136e495 generic value="Unmute"
+                                    uid=s93 generic
+                                      uid=s94 slider "Volume"
+                                  uid=f136e497 button "Turn fullscreen on"
+                                    uid=f136e498 generic value="Turn fullscreen on"
+                              uid=f136e499 generic
+                                uid=f136e503 list
+                                  uid=f136e504 listitem
+                                    uid=f136e505 button "You and 1 other"
+                                      uid=f136e506 img "like"
+                                      uid=f136e507 generic
+                                        uid=f136e508 generic value="2"
+                                        uid=f136e509 generic value="You and 1 other"
+                                  uid=f136e510 listitem
+                                    uid=f136e511 list
+                                      uid=f136e512 listitem
+                                        uid=f136e513 button "1 comment on Julien Guézennec’s post"
+                                          uid=f136e514 generic value="1 comment"
+                                uid=f136e515 generic
+                                  uid=f136e516 generic
+                                    uid=f136e517 button "Unreact Like" pressed
+                                      uid=f136e519 generic
+                                        uid=f136e520 img "like"
+                                        uid=f136e521 generic value="Like"
+                                    uid=s95 button "Open reactions menu"
+                                      uid=f136e523 img
+                                  uid=f136e527 button "Comment"
+                                    uid=f136e528 img
+                                    uid=f136e530 generic value="Comment"
+                                  uid=f136e533 button "Repost"
+                                    uid=f136e534 img
+                                    uid=f136e536 generic value="Repost"
+                                  uid=f136e539 button "Send in a private message"
+                                    uid=f136e540 img
+                                    uid=f136e543 generic value="Send"
+                      uid=f136e544 listitem
+                        uid=f136e549 article
+                          uid=f136e551 generic
+                            uid=f136e552 heading "Feed post number 4" level="2"
+                            uid=f136e553 generic
+                              uid=f136e554 generic
+                                uid=f136e556 generic
+                                  uid=f136e557 link "Julien’s profile photo" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e560 img "Julien’s profile photo"
+                                  uid=f136e561 generic
+                                    uid=f136e563 link "Julien Guézennec" url="/in/julien-guezennec/"
+                                    uid=s96 StaticText "reposted this"
+                                uid=f136e566 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e567 img
+                                uid=f136e570 generic
+                                  uid=f136e571 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e575 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e576 generic
+                                    uid=s97 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e578 generic
+                                        uid=f136e580 generic
+                                          uid=f136e581 generic value="Julien Guézennec"
+                                          uid=f136e582 generic value="Julien Guézennec"
+                                        uid=f136e583 generic
+                                          uid=f136e584 generic
+                                            uid=f136e585 img
+                                            uid=s98 StaticText "• 1st"
+                                          uid=f136e587 generic value="Verified • 1st"
+                                      uid=f136e588 generic
+                                        uid=f136e589 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e590 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e591 generic
+                                      uid=f136e592 generic
+                                        uid=s99 StaticText "5d •"
+                                        uid=f136e595 img
+                                      uid=f136e597 generic value="5 days ago • Visible to anyone on or off LinkedIn"
+                              uid=f136e598 generic
+                                uid=f136e599 generic
+                                  uid=f136e602 generic
+                                    uid=s100 StaticText "J'ai open-sourcé mon pipeline de prospection B2B — Lead Scraper Pro v2.1"
+                                    uid=s101 StaticText "Pendant des années, constituer une liste de prospects locaux prenait une journée entière."
+                                    uid=s102 StaticText "Copier-coller depuis PagesJaunes. Croiser avec Pappers. Chercher les emails à la main. Recommencer."
+                                    uid=s103 StaticText "J'ai automatisé tout ça."
+                                    uid=s104 StaticText "Lead Scraper Pro v2.1 est un pipeline Node.js + Playwright qui :"
+                                    uid=s105 StaticText "→ Scrape 6 sources en parallèle (PagesJaunes, Pappers, Google Maps, Planity, Cylex, Instagram)"
+                                    uid=s106 StaticText "→ Déduplique et normalise automatiquement"
+                                    uid=s107 StaticText "→ Enrichit chaque contact en 3 passes (Google → site web → Facebook)"
+                                    uid=s108 StaticText "→ Produit un CSV propre, prêt pour Mailchimp, Lemlist ou votre CRM"
+                                    uid=s109 StaticText "Une commande. Un fichier. Prêt à l'envoi."
+                                    uid=s110 StaticText "Je l'utilise pour identifier les PME et commerces locaux sans présence digitale — le terrain de chasse idéal pour une agence ou un consultant web."
+                                    uid=s111 StaticText "Le projet est publié en open-source MIT sur GitHub 👇"
+                                    uid=s112 StaticText "🔗"
+                                    uid=f136e603 link "https://lnkd.in/etWUMQMX" url="https://lnkd.in/etWUMQMX"
+                                    uid=s113 StaticText "Article complet avec détails techniques sur"
+                                    uid=f136e604 link "julienweb.fr" url="http://julienweb.fr"
+                                    uid=s114 StaticText "(lien en commentaire)"
+                                    uid=f136e605 link "hashtag ProspectionB2B" url="https://www.linkedin.com/search/results/all/?keywords=%23prospectionb2b&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e606 generic value="hashtag"
+                                      uid=f136e607 generic value="#ProspectionB2B"
+                                    uid=f136e608 link "hashtag OpenSource" url="https://www.linkedin.com/search/results/all/?keywords=%23opensource&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e609 generic value="hashtag"
+                                      uid=f136e610 generic value="#OpenSource"
+                                    uid=f136e611 link "hashtag NodeJS" url="https://www.linkedin.com/search/results/all/?keywords=%23nodejs&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e612 generic value="hashtag"
+                                      uid=f136e613 generic value="#NodeJS"
+                                    uid=f136e614 link "hashtag Automatisation" url="https://www.linkedin.com/search/results/all/?keywords=%23automatisation&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e615 generic value="hashtag"
+                                      uid=f136e616 generic value="#Automatisation"
+                                    uid=f136e617 link "hashtag LeadGeneration" url="https://www.linkedin.com/search/results/all/?keywords=%23leadgeneration&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e618 generic value="hashtag"
+                                      uid=f136e619 generic value="#LeadGeneration"
+                                    uid=f136e620 link "hashtag Scraping" url="https://www.linkedin.com/search/results/all/?keywords=%23scraping&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e621 generic value="hashtag"
+                                      uid=f136e622 generic value="#Scraping"
+                                    uid=f136e623 link "hashtag OutilsMarketing" url="https://www.linkedin.com/search/results/all/?keywords=%23outilsmarketing&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e624 generic value="hashtag"
+                                      uid=f136e625 generic value="#OutilsMarketing"
+                                  uid=f136e626 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e627 generic value="…more"
+                                uid=f136e630 button "Show translation"
+                                  uid=f136e631 generic value="Show translation"
+                              uid=f136e633 generic
+                                uid=f136e635 button "Activate to view larger image, No alternative text description for this image"
+                                  uid=f136e636 generic value="Activate to view larger image,"
+                                  uid=f136e639 img "No alternative text description for this image"
+                                uid=f136e640 generic value="Activate to view larger image,"
+                              uid=f136e641 generic
+                                uid=f136e645 list
+                                  uid=f136e646 listitem
+                                    uid=f136e647 button "Julien Guézennec and 2 others"
+                                      uid=f136e648 img "like"
+                                      uid=f136e649 generic
+                                        uid=f136e650 generic value="3"
+                                        uid=f136e651 generic value="Julien Guézennec and 2 others"
+                                  uid=f136e652 listitem
+                                    uid=f136e653 list
+                                      uid=f136e654 listitem
+                                        uid=f136e655 button "1 comment on Julien Guézennec’s post"
+                                          uid=f136e656 generic value="1 comment"
+                                        uid=s115 StaticText "·"
+                                      uid=f136e657 listitem
+                                        uid=f136e658 button "2 reposts of Julien Guézennec’s post"
+                                          uid=f136e659 generic value="2 reposts"
+                                uid=f136e660 generic
+                                  uid=f136e661 generic
+                                    uid=f136e662 button "React Like"
+                                      uid=f136e664 generic
+                                        uid=f136e665 img
+                                        uid=f136e667 generic value="Like"
+                                    uid=s116 button "Open reactions menu"
+                                      uid=f136e669 img
+                                  uid=f136e673 button "Comment"
+                                    uid=f136e674 img
+                                    uid=f136e676 generic value="Comment"
+                                  uid=f136e679 button "Repost"
+                                    uid=f136e680 img
+                                    uid=f136e682 generic value="Repost"
+                                  uid=f136e685 button "Send in a private message"
+                                    uid=f136e686 img
+                                    uid=f136e689 generic value="Send"
+                      uid=f136e690 listitem
+                        uid=f136e695 article
+                          uid=f136e697 generic
+                            uid=f136e698 heading "Feed post number 5" level="2"
+                            uid=f136e699 generic
+                              uid=f136e700 generic
+                                uid=f136e702 generic
+                                  uid=f136e703 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e707 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e708 generic
+                                    uid=s117 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e710 generic
+                                        uid=f136e712 generic
+                                          uid=f136e713 generic value="Julien Guézennec"
+                                          uid=f136e714 generic value="Julien Guézennec"
+                                        uid=f136e715 generic
+                                          uid=f136e716 generic
+                                            uid=f136e717 img
+                                            uid=s118 StaticText "• 1st"
+                                          uid=f136e719 generic value="Verified • 1st"
+                                      uid=f136e720 generic
+                                        uid=f136e721 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e722 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e723 generic
+                                      uid=f136e724 generic
+                                        uid=s119 StaticText "5d •"
+                                        uid=f136e727 img
+                                      uid=f136e729 generic value="5 days ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e732 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e733 img
+                              uid=f136e735 generic
+                                uid=f136e739 generic
+                                  uid=s120 StaticText "Désolé 😔"
+                                  uid=f136e740 link "hashtag NoJob" url="https://www.linkedin.com/search/results/all/?keywords=%23nojob&origin=HASH_TAG_FROM_FEED"
+                                    uid=f136e741 generic value="hashtag"
+                                    uid=f136e742 generic value="#NoJob"
+                                uid=f136e745 button "Show translation"
+                                  uid=f136e746 generic value="Show translation"
+                              uid=f136e748 generic
+                                uid=f136e750 button "Activate to view larger image, No alternative text description for this image"
+                                  uid=f136e751 generic value="Activate to view larger image,"
+                                  uid=f136e754 img "No alternative text description for this image"
+                                uid=f136e755 generic value="Activate to view larger image,"
+                              uid=f136e757 generic
+                                uid=f136e758 generic
+                                  uid=f136e759 button "React Like"
+                                    uid=f136e761 generic
+                                      uid=f136e762 img
+                                      uid=f136e764 generic value="Like"
+                                  uid=s121 button "Open reactions menu"
+                                    uid=f136e766 img
+                                uid=f136e770 button "Comment"
+                                  uid=f136e771 img
+                                  uid=f136e773 generic value="Comment"
+                                uid=f136e776 button "Repost"
+                                  uid=f136e777 img
+                                  uid=f136e779 generic value="Repost"
+                                uid=f136e782 button "Send in a private message"
+                                  uid=f136e783 img
+                                  uid=f136e786 generic value="Send"
+                      uid=f136e787 listitem
+                        uid=f136e793 article
+                          uid=f136e795 generic
+                            uid=f136e796 heading "Feed post number 6" level="2"
+                            uid=f136e797 generic
+                              uid=f136e798 generic
+                                uid=f136e800 generic
+                                  uid=f136e801 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e805 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e806 generic
+                                    uid=s122 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e808 generic
+                                        uid=f136e810 generic
+                                          uid=f136e811 generic value="Julien Guézennec"
+                                          uid=f136e812 generic value="Julien Guézennec"
+                                        uid=f136e813 generic
+                                          uid=f136e814 generic
+                                            uid=f136e815 img
+                                            uid=s123 StaticText "• 1st"
+                                          uid=f136e817 generic value="Verified • 1st"
+                                      uid=f136e818 generic
+                                        uid=f136e819 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e820 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e821 generic
+                                      uid=f136e822 generic
+                                        uid=s124 StaticText "5d •"
+                                        uid=f136e825 img
+                                      uid=f136e827 generic value="5 days ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e830 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e831 img
+                              uid=f136e833 generic
+                                uid=f136e834 generic
+                                  uid=f136e837 generic
+                                    uid=s125 StaticText "J'ai open-sourcé mon pipeline de prospection B2B — Lead Scraper Pro v2.1"
+                                    uid=s126 StaticText "Pendant des années, constituer une liste de prospects locaux prenait une journée entière."
+                                    uid=s127 StaticText "Copier-coller depuis PagesJaunes. Croiser avec Pappers. Chercher les emails à la main. Recommencer."
+                                    uid=s128 StaticText "J'ai automatisé tout ça."
+                                    uid=s129 StaticText "Lead Scraper Pro v2.1 est un pipeline Node.js + Playwright qui :"
+                                    uid=s130 StaticText "→ Scrape 6 sources en parallèle (PagesJaunes, Pappers, Google Maps, Planity, Cylex, Instagram)"
+                                    uid=s131 StaticText "→ Déduplique et normalise automatiquement"
+                                    uid=s132 StaticText "→ Enrichit chaque contact en 3 passes (Google → site web → Facebook)"
+                                    uid=s133 StaticText "→ Produit un CSV propre, prêt pour Mailchimp, Lemlist ou votre CRM"
+                                    uid=s134 StaticText "Une commande. Un fichier. Prêt à l'envoi."
+                                    uid=s135 StaticText "Je l'utilise pour identifier les PME et commerces locaux sans présence digitale — le terrain de chasse idéal pour une agence ou un consultant web."
+                                    uid=s136 StaticText "Le projet est publié en open-source MIT sur GitHub 👇"
+                                    uid=s137 StaticText "🔗"
+                                    uid=f136e838 link "https://lnkd.in/etWUMQMX" url="https://lnkd.in/etWUMQMX"
+                                    uid=s138 StaticText "Article complet avec détails techniques sur"
+                                    uid=f136e839 link "julienweb.fr" url="http://julienweb.fr"
+                                    uid=s139 StaticText "(lien en commentaire)"
+                                    uid=f136e840 link "hashtag ProspectionB2B" url="https://www.linkedin.com/search/results/all/?keywords=%23prospectionb2b&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e841 generic value="hashtag"
+                                      uid=f136e842 generic value="#ProspectionB2B"
+                                    uid=f136e843 link "hashtag OpenSource" url="https://www.linkedin.com/search/results/all/?keywords=%23opensource&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e844 generic value="hashtag"
+                                      uid=f136e845 generic value="#OpenSource"
+                                    uid=f136e846 link "hashtag NodeJS" url="https://www.linkedin.com/search/results/all/?keywords=%23nodejs&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e847 generic value="hashtag"
+                                      uid=f136e848 generic value="#NodeJS"
+                                    uid=f136e849 link "hashtag Automatisation" url="https://www.linkedin.com/search/results/all/?keywords=%23automatisation&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e850 generic value="hashtag"
+                                      uid=f136e851 generic value="#Automatisation"
+                                    uid=f136e852 link "hashtag LeadGeneration" url="https://www.linkedin.com/search/results/all/?keywords=%23leadgeneration&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e853 generic value="hashtag"
+                                      uid=f136e854 generic value="#LeadGeneration"
+                                    uid=f136e855 link "hashtag Scraping" url="https://www.linkedin.com/search/results/all/?keywords=%23scraping&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e856 generic value="hashtag"
+                                      uid=f136e857 generic value="#Scraping"
+                                    uid=f136e858 link "hashtag OutilsMarketing" url="https://www.linkedin.com/search/results/all/?keywords=%23outilsmarketing&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e859 generic value="hashtag"
+                                      uid=f136e860 generic value="#OutilsMarketing"
+                                  uid=f136e861 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e862 generic value="…more"
+                                uid=f136e865 button "Show translation"
+                                  uid=f136e866 generic value="Show translation"
+                              uid=f136e868 generic
+                                uid=f136e870 button "Activate to view larger image, No alternative text description for this image"
+                                  uid=f136e871 generic value="Activate to view larger image,"
+                                  uid=f136e874 img "No alternative text description for this image"
+                                uid=f136e875 generic value="Activate to view larger image,"
+                              uid=f136e876 generic
+                                uid=f136e880 list
+                                  uid=f136e881 listitem
+                                    uid=f136e882 button "Julien Guézennec and 2 others"
+                                      uid=f136e883 img "like"
+                                      uid=f136e884 generic
+                                        uid=f136e885 generic value="3"
+                                        uid=f136e886 generic value="Julien Guézennec and 2 others"
+                                  uid=f136e887 listitem
+                                    uid=f136e888 list
+                                      uid=f136e889 listitem
+                                        uid=f136e890 button "1 comment on Julien Guézennec’s post"
+                                          uid=f136e891 generic value="1 comment"
+                                        uid=s140 StaticText "·"
+                                      uid=f136e892 listitem
+                                        uid=f136e893 button "2 reposts of Julien Guézennec’s post"
+                                          uid=f136e894 generic value="2 reposts"
+                                uid=f136e895 generic
+                                  uid=f136e896 generic
+                                    uid=f136e897 button "React Like"
+                                      uid=f136e899 generic
+                                        uid=f136e900 img
+                                        uid=f136e902 generic value="Like"
+                                    uid=s141 button "Open reactions menu"
+                                      uid=f136e904 img
+                                  uid=f136e908 button "Comment"
+                                    uid=f136e909 img
+                                    uid=f136e911 generic value="Comment"
+                                  uid=f136e914 button "Repost"
+                                    uid=f136e915 img
+                                    uid=f136e917 generic value="Repost"
+                                  uid=f136e920 button "Send in a private message"
+                                    uid=f136e921 img
+                                    uid=f136e924 generic value="Send"
+                      uid=f136e925 listitem
+                        uid=f136e931 article
+                          uid=f136e933 generic
+                            uid=f136e934 heading "Feed post number 7" level="2"
+                            uid=f136e935 generic
+                              uid=f136e936 generic
+                                uid=f136e938 generic
+                                  uid=f136e939 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e943 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e944 generic
+                                    uid=s142 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e946 generic
+                                        uid=f136e948 generic
+                                          uid=f136e949 generic value="Julien Guézennec"
+                                          uid=f136e950 generic value="Julien Guézennec"
+                                        uid=f136e951 generic
+                                          uid=f136e952 generic
+                                            uid=f136e953 img
+                                            uid=s143 StaticText "• 1st"
+                                          uid=f136e955 generic value="Verified • 1st"
+                                      uid=f136e956 generic
+                                        uid=f136e957 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e958 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e959 generic
+                                      uid=f136e960 generic
+                                        uid=s144 StaticText "1w •"
+                                        uid=f136e963 img
+                                      uid=f136e965 generic value="1 week ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e968 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e969 img
+                              uid=f136e971 generic
+                                uid=f136e975 generic
+                                  uid=s145 StaticText "Quelle plateforme pour votre boutique ?"
+                                  uid=f136e976 link "https://lnkd.in/evvaepk4" url="https://lnkd.in/evvaepk4"
+                                uid=f136e979 button "Show translation"
+                                  uid=f136e980 generic value="Show translation"
+                              uid=f136e982 generic
+                                uid=f136e984 button "Activate to view larger image, graphical user interface, text"
+                                  uid=f136e985 generic value="Activate to view larger image,"
+                                  uid=f136e988 img "graphical user interface, text"
+                                uid=f136e989 generic value="Activate to view larger image,"
+                              uid=f136e991 generic
+                                uid=f136e992 generic
+                                  uid=f136e993 button "React Like"
+                                    uid=f136e995 generic
+                                      uid=f136e996 img
+                                      uid=f136e998 generic value="Like"
+                                  uid=s146 button "Open reactions menu"
+                                    uid=f136e1000 img
+                                uid=f136e1004 button "Comment"
+                                  uid=f136e1005 img
+                                  uid=f136e1007 generic value="Comment"
+                                uid=f136e1010 button "Repost"
+                                  uid=f136e1011 img
+                                  uid=f136e1013 generic value="Repost"
+                                uid=f136e1016 button "Send in a private message"
+                                  uid=f136e1017 img
+                                  uid=f136e1020 generic value="Send"
+                      uid=f136e1021 listitem
+                        uid=f136e1027 article
+                          uid=f136e1029 generic
+                            uid=f136e1030 heading "Feed post number 8" level="2"
+                            uid=f136e1031 generic
+                              uid=f136e1032 generic
+                                uid=f136e1034 generic
+                                  uid=f136e1035 link "Julien’s profile photo" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1038 img "Julien’s profile photo"
+                                  uid=f136e1039 generic
+                                    uid=f136e1041 link "Julien Guézennec" url="/in/julien-guezennec/"
+                                    uid=s147 StaticText "reposted this"
+                                uid=f136e1044 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e1045 img
+                                uid=f136e1048 generic
+                                  uid=f136e1049 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1053 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1054 generic
+                                    uid=s148 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1056 generic
+                                        uid=f136e1058 generic
+                                          uid=f136e1059 generic value="Julien Guézennec"
+                                          uid=f136e1060 generic value="Julien Guézennec"
+                                        uid=f136e1061 generic
+                                          uid=f136e1062 generic
+                                            uid=f136e1063 img
+                                            uid=s149 StaticText "• 1st"
+                                          uid=f136e1065 generic value="Verified • 1st"
+                                      uid=f136e1066 generic
+                                        uid=f136e1067 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e1068 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e1069 generic
+                                      uid=f136e1070 generic
+                                        uid=s150 StaticText "1w •"
+                                        uid=f136e1073 img
+                                      uid=f136e1075 generic value="1 week ago • Visible to anyone on or off LinkedIn"
+                              uid=f136e1076 generic
+                                uid=f136e1077 generic
+                                  uid=f136e1080 generic
+                                    uid=s151 StaticText "🛡️ Nouvelle étape pour"
+                                    uid=f136e1081 link "JulienWeb.fr" url="http://JulienWeb.fr"
+                                    uid=s152 StaticText ": je suis désormais professionnel référencé sur"
+                                    uid=f136e1082 link "Cybermalveillance.gouv.fr" url="http://Cybermalveillance.gouv.fr"
+                                    uid=s153 StaticText "Le dispositif national d'assistance et de prévention du risque numérique, porté par le GIP ACYMA, vient de valider mon référencement."
+                                    uid=s154 StaticText "Concrètement, ça veut dire quoi pour vous ?"
+                                    uid=s155 StaticText "→ Particuliers, artisans, TPE/PME de Pantin, du 93 et d'Île-de-France : vous avez désormais un interlocuteur de confiance, vérifié par l'État, pour intervenir en cas de :"
+                                    uid=s156 StaticText "✅ Piratage de site WordPress / WooCommerce"
+                                    uid=s157 StaticText "✅ Compromission de compte (email, réseaux sociaux, back-office)"
+                                    uid=s158 StaticText "✅ Rançongiciel, phishing, usurpation d'identité"
+                                    uid=s159 StaticText "✅ Fuite de données ou incident de sécurité"
+                                    uid=s160 StaticText "✅ Prévention et audit avant que ça n'arrive"
+                                    uid=s161 StaticText "25 ans d'expérience en développement web + une approche pragmatique : diagnostic rapide, remédiation, et surtout mise en place des bonnes pratiques pour ne plus jamais revivre ça."
+                                    uid=s162 StaticText "La cybersécurité n'est plus une option, même pour une petite structure. 80 % des cyberattaques visent des TPE/PME justement parce qu'elles se pensent \"trop petites pour intéresser\"."
+                                    uid=s163 StaticText "👉 Besoin d'une intervention d'urgence ou d'un audit préventif ?"
+                                    uid=f136e1083 link "https://lnkd.in/eDH8uG2A" url="https://lnkd.in/eDH8uG2A"
+                                    uid=f136e1084 link "hashtag Cybersécurité" url="https://www.linkedin.com/search/results/all/?keywords=%23cybers%C3%A9curit%C3%A9&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1085 generic value="hashtag"
+                                      uid=f136e1086 generic value="#Cybersécurité"
+                                    uid=f136e1087 link "hashtag Cybermalveillance" url="https://www.linkedin.com/search/results/all/?keywords=%23cybermalveillance&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1088 generic value="hashtag"
+                                      uid=f136e1089 generic value="#Cybermalveillance"
+                                    uid=f136e1090 link "hashtag WordPress" url="https://www.linkedin.com/search/results/all/?keywords=%23wordpress&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1091 generic value="hashtag"
+                                      uid=f136e1092 generic value="#WordPress"
+                                    uid=f136e1093 link "hashtag TPE" url="https://www.linkedin.com/search/results/all/?keywords=%23tpe&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1094 generic value="hashtag"
+                                      uid=f136e1095 generic value="#TPE"
+                                    uid=f136e1096 link "hashtag PME" url="https://www.linkedin.com/search/results/all/?keywords=%23pme&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1097 generic value="hashtag"
+                                      uid=f136e1098 generic value="#PME"
+                                    uid=f136e1099 link "hashtag Pantin" url="https://www.linkedin.com/search/results/all/?keywords=%23pantin&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1100 generic value="hashtag"
+                                      uid=f136e1101 generic value="#Pantin"
+                                    uid=f136e1102 link "hashtag SeineSaintDenis" url="https://www.linkedin.com/search/results/all/?keywords=%23seinesaintdenis&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1103 generic value="hashtag"
+                                      uid=f136e1104 generic value="#SeineSaintDenis"
+                                    uid=f136e1105 link "hashtag SécuritéInformatique" url="https://www.linkedin.com/search/results/all/?keywords=%23s%C3%A9curit%C3%A9informatique&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1106 generic value="hashtag"
+                                      uid=f136e1107 generic value="#SécuritéInformatique"
+                                    uid=f136e1108 link "hashtag FranceNum" url="https://www.linkedin.com/search/results/all/?keywords=%23francenum&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1109 generic value="hashtag"
+                                      uid=f136e1110 generic value="#FranceNum"
+                                  uid=f136e1111 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e1112 generic value="…more"
+                                uid=f136e1115 button "Show translation"
+                                  uid=f136e1116 generic value="Show translation"
+                              uid=f136e1117 generic
+                                uid=s164 unknown url="https://julienweb.fr/services-julienweb-fr/intervention-durgence-piratage-incident-de-securite/"
+                                uid=s165 unknown url="https://julienweb.fr/services-julienweb-fr/intervention-durgence-piratage-incident-de-securite/"
+                                  uid=f136e1127 generic
+                                    uid=f136e1129 generic value="Intervention d'urgence : Piratage & Incident de sécurité | JULIENWEB.FR"
+                                    uid=f136e1130 generic value="julienweb.fr"
+                              uid=f136e1131 generic
+                                uid=f136e1135 list
+                                  uid=f136e1136 listitem
+                                    uid=f136e1137 button "Julien Guézennec and 1 other"
+                                      uid=f136e1138 img "love"
+                                      uid=f136e1139 img "like"
+                                      uid=f136e1140 generic
+                                        uid=f136e1141 generic value="2"
+                                        uid=f136e1142 generic value="Julien Guézennec and 1 other"
+                                  uid=f136e1143 listitem
+                                    uid=f136e1144 list
+                                      uid=f136e1145 listitem
+                                        uid=f136e1146 button "1 repost of Julien Guézennec’s post"
+                                          uid=f136e1147 generic value="1 repost"
+                                uid=f136e1148 generic
+                                  uid=f136e1149 generic
+                                    uid=f136e1150 button "React Like"
+                                      uid=f136e1152 generic
+                                        uid=f136e1153 img
+                                        uid=f136e1155 generic value="Like"
+                                    uid=s166 button "Open reactions menu"
+                                      uid=f136e1157 img
+                                  uid=f136e1161 button "Comment"
+                                    uid=f136e1162 img
+                                    uid=f136e1164 generic value="Comment"
+                                  uid=f136e1167 button "Repost"
+                                    uid=f136e1168 img
+                                    uid=f136e1170 generic value="Repost"
+                                  uid=f136e1173 button "Send in a private message"
+                                    uid=f136e1174 img
+                                    uid=f136e1177 generic value="Send"
+                      uid=f136e1178 listitem
+                        uid=f136e1184 article
+                          uid=f136e1186 generic
+                            uid=f136e1187 heading "Feed post number 9" level="2"
+                            uid=f136e1188 generic
+                              uid=f136e1189 generic
+                                uid=f136e1191 generic
+                                  uid=f136e1192 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1196 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1197 generic
+                                    uid=s167 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1199 generic
+                                        uid=f136e1201 generic
+                                          uid=f136e1202 generic value="Julien Guézennec"
+                                          uid=f136e1203 generic value="Julien Guézennec"
+                                        uid=f136e1204 generic
+                                          uid=f136e1205 generic
+                                            uid=f136e1206 img
+                                            uid=s168 StaticText "• 1st"
+                                          uid=f136e1208 generic value="Verified • 1st"
+                                      uid=f136e1209 generic
+                                        uid=f136e1210 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e1211 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e1212 generic
+                                      uid=f136e1213 generic
+                                        uid=s169 StaticText "1w •"
+                                        uid=f136e1216 img
+                                      uid=f136e1218 generic value="1 week ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e1221 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e1222 img
+                              uid=f136e1224 generic
+                                uid=f136e1225 generic
+                                  uid=f136e1228 generic
+                                    uid=s170 StaticText "🛡️ Nouvelle étape pour"
+                                    uid=f136e1229 link "JulienWeb.fr" url="http://JulienWeb.fr"
+                                    uid=s171 StaticText ": je suis désormais professionnel référencé sur"
+                                    uid=f136e1230 link "Cybermalveillance.gouv.fr" url="http://Cybermalveillance.gouv.fr"
+                                    uid=s172 StaticText "Le dispositif national d'assistance et de prévention du risque numérique, porté par le GIP ACYMA, vient de valider mon référencement."
+                                    uid=s173 StaticText "Concrètement, ça veut dire quoi pour vous ?"
+                                    uid=s174 StaticText "→ Particuliers, artisans, TPE/PME de Pantin, du 93 et d'Île-de-France : vous avez désormais un interlocuteur de confiance, vérifié par l'État, pour intervenir en cas de :"
+                                    uid=s175 StaticText "✅ Piratage de site WordPress / WooCommerce"
+                                    uid=s176 StaticText "✅ Compromission de compte (email, réseaux sociaux, back-office)"
+                                    uid=s177 StaticText "✅ Rançongiciel, phishing, usurpation d'identité"
+                                    uid=s178 StaticText "✅ Fuite de données ou incident de sécurité"
+                                    uid=s179 StaticText "✅ Prévention et audit avant que ça n'arrive"
+                                    uid=s180 StaticText "25 ans d'expérience en développement web + une approche pragmatique : diagnostic rapide, remédiation, et surtout mise en place des bonnes pratiques pour ne plus jamais revivre ça."
+                                    uid=s181 StaticText "La cybersécurité n'est plus une option, même pour une petite structure. 80 % des cyberattaques visent des TPE/PME justement parce qu'elles se pensent \"trop petites pour intéresser\"."
+                                    uid=s182 StaticText "👉 Besoin d'une intervention d'urgence ou d'un audit préventif ?"
+                                    uid=f136e1231 link "https://lnkd.in/eDH8uG2A" url="https://lnkd.in/eDH8uG2A"
+                                    uid=f136e1232 link "hashtag Cybersécurité" url="https://www.linkedin.com/search/results/all/?keywords=%23cybers%C3%A9curit%C3%A9&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1233 generic value="hashtag"
+                                      uid=f136e1234 generic value="#Cybersécurité"
+                                    uid=f136e1235 link "hashtag Cybermalveillance" url="https://www.linkedin.com/search/results/all/?keywords=%23cybermalveillance&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1236 generic value="hashtag"
+                                      uid=f136e1237 generic value="#Cybermalveillance"
+                                    uid=f136e1238 link "hashtag WordPress" url="https://www.linkedin.com/search/results/all/?keywords=%23wordpress&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1239 generic value="hashtag"
+                                      uid=f136e1240 generic value="#WordPress"
+                                    uid=f136e1241 link "hashtag TPE" url="https://www.linkedin.com/search/results/all/?keywords=%23tpe&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1242 generic value="hashtag"
+                                      uid=f136e1243 generic value="#TPE"
+                                    uid=f136e1244 link "hashtag PME" url="https://www.linkedin.com/search/results/all/?keywords=%23pme&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1245 generic value="hashtag"
+                                      uid=f136e1246 generic value="#PME"
+                                    uid=f136e1247 link "hashtag Pantin" url="https://www.linkedin.com/search/results/all/?keywords=%23pantin&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1248 generic value="hashtag"
+                                      uid=f136e1249 generic value="#Pantin"
+                                    uid=f136e1250 link "hashtag SeineSaintDenis" url="https://www.linkedin.com/search/results/all/?keywords=%23seinesaintdenis&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1251 generic value="hashtag"
+                                      uid=f136e1252 generic value="#SeineSaintDenis"
+                                    uid=f136e1253 link "hashtag SécuritéInformatique" url="https://www.linkedin.com/search/results/all/?keywords=%23s%C3%A9curit%C3%A9informatique&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1254 generic value="hashtag"
+                                      uid=f136e1255 generic value="#SécuritéInformatique"
+                                    uid=f136e1256 link "hashtag FranceNum" url="https://www.linkedin.com/search/results/all/?keywords=%23francenum&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1257 generic value="hashtag"
+                                      uid=f136e1258 generic value="#FranceNum"
+                                  uid=f136e1259 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e1260 generic value="…more"
+                                uid=f136e1263 button "Show translation"
+                                  uid=f136e1264 generic value="Show translation"
+                              uid=f136e1265 generic
+                                uid=s183 unknown url="https://julienweb.fr/services-julienweb-fr/intervention-durgence-piratage-incident-de-securite/"
+                                uid=s184 unknown url="https://julienweb.fr/services-julienweb-fr/intervention-durgence-piratage-incident-de-securite/"
+                                  uid=f136e1275 generic
+                                    uid=f136e1277 generic value="Intervention d'urgence : Piratage & Incident de sécurité | JULIENWEB.FR"
+                                    uid=f136e1278 generic value="julienweb.fr"
+                              uid=f136e1279 generic
+                                uid=f136e1283 list
+                                  uid=f136e1284 listitem
+                                    uid=f136e1285 button "Julien Guézennec and 1 other"
+                                      uid=f136e1286 img "love"
+                                      uid=f136e1287 img "like"
+                                      uid=f136e1288 generic
+                                        uid=f136e1289 generic value="2"
+                                        uid=f136e1290 generic value="Julien Guézennec and 1 other"
+                                  uid=f136e1291 listitem
+                                    uid=f136e1292 list
+                                      uid=f136e1293 listitem
+                                        uid=f136e1294 button "1 repost of Julien Guézennec’s post"
+                                          uid=f136e1295 generic value="1 repost"
+                                uid=f136e1296 generic
+                                  uid=f136e1297 generic
+                                    uid=f136e1298 button "React Like"
+                                      uid=f136e1300 generic
+                                        uid=f136e1301 img
+                                        uid=f136e1303 generic value="Like"
+                                    uid=s185 button "Open reactions menu"
+                                      uid=f136e1305 img
+                                  uid=f136e1309 button "Comment"
+                                    uid=f136e1310 img
+                                    uid=f136e1312 generic value="Comment"
+                                  uid=f136e1315 button "Repost"
+                                    uid=f136e1316 img
+                                    uid=f136e1318 generic value="Repost"
+                                  uid=f136e1321 button "Send in a private message"
+                                    uid=f136e1322 img
+                                    uid=f136e1325 generic value="Send"
+                      uid=f136e1326 listitem
+                        uid=f136e1332 article
+                          uid=f136e1334 generic
+                            uid=f136e1335 heading "Feed post number 10" level="2"
+                            uid=f136e1336 generic
+                              uid=f136e1337 generic
+                                uid=f136e1339 generic
+                                  uid=f136e1340 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1344 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1345 generic
+                                    uid=s186 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1347 generic
+                                        uid=f136e1349 generic
+                                          uid=f136e1350 generic value="Julien Guézennec"
+                                          uid=f136e1351 generic value="Julien Guézennec"
+                                        uid=f136e1352 generic
+                                          uid=f136e1353 generic
+                                            uid=f136e1354 img
+                                            uid=s187 StaticText "• 1st"
+                                          uid=f136e1356 generic value="Verified • 1st"
+                                      uid=f136e1357 generic
+                                        uid=f136e1358 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e1359 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e1360 generic
+                                      uid=f136e1361 generic
+                                        uid=s188 StaticText "1w •"
+                                        uid=f136e1364 img
+                                      uid=f136e1366 generic value="1 week ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e1369 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e1370 img
+                              uid=f136e1372 generic
+                                uid=f136e1373 generic
+                                  uid=f136e1376 generic
+                                    uid=s189 StaticText "Aujourd'hui il y avait :"
+                                    uid=s190 StaticText "- 16:00 \"Café IA\" à l'Eternel Solidaire, 1 rue de la Solidarité, Paris 19E"
+                                    uid=s191 StaticText "Trop déçu il y avait personne, sauf moi et la speakerine... Pourtant une initiative du gouvernement. Et j'ai abrégé son malheur d'être qu'avec moi, je suis parti... Les Français n'aiment pas l'IA ?"
+                                    uid=s192 StaticText "En plus j'étais bien dans le sujet, je voulais lui montrer un talk, mais elle en avait que pour son histoire à vendre, je n'étais pas le bon client pour son initiation IA ^^ :)"
+                                    uid=s193 StaticText "Le speech que j'aurais voulu faire sur le thème de ce Café IA \"parler du futur du marché du travail\""
+                                    uid=f136e1377 link "https://lnkd.in/efQ4pMhs" url="https://lnkd.in/efQ4pMhs"
+                                  uid=f136e1378 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e1379 generic value="…more"
+                                uid=f136e1382 button "Show translation"
+                                  uid=f136e1383 generic value="Show translation"
+                              uid=f136e1385 generic
+                                uid=f136e1386 alert value="Your document has finished loading"
+                                uid=f136e1387 iframe
+                                  uid=f152e4 main
+                                    uid=f152e8 generic
+                                      uid=f152e9 generic value="IA : accélérateur de génie… et machine à exclure ?"
+                                      uid=f152e10 generic value="•"
+                                      uid=f152e11 generic value="13 pages"
+                                    uid=f152e14 list
+                                      uid=f152e15 listitem
+                                        uid=s194 unknown
+                                      uid=f152e16 listitem
+                                        uid=s195 img
+                                      uid=f152e17 listitem
+                                      uid=f152e18 listitem
+                                      uid=f152e19 listitem
+                                      uid=f152e20 listitem
+                                      uid=f152e21 listitem
+                                      uid=f152e22 listitem
+                                      uid=f152e23 listitem
+                                      uid=f152e24 listitem
+                                      uid=f152e25 listitem
+                                      uid=f152e26 listitem
+                                      uid=f152e27 listitem
+                                    uid=f152e29 button "Go to next page of document"
+                                      uid=f152e31 img
+                                      uid=f152e33 generic value="Go to next page of document"
+                                    uid=f152e36 img
+                                    uid=f152e40 generic
+                                      uid=f152e42 generic
+                                        uid=f152e43 generic
+                                          uid=f152e44 generic value="Current page"
+                                          uid=f152e45 generic value="1"
+                                        uid=s196 StaticText "/"
+                                        uid=f152e46 generic
+                                          uid=f152e47 generic value="Total pages"
+                                          uid=s197 StaticText "13"
+                                      uid=f152e49 progressbar "Progress bar Slide 1/13"
+                                      uid=f152e54 button "Enter full screen. An accessible version of the document is available in full screen mode."
+                                        uid=f152e56 img
+                                        uid=f152e58 generic value="Enter full screen. An accessible version of the document is available in full screen mode."
+                              uid=f136e1388 generic
+                                uid=f136e1392 list
+                                  uid=f136e1393 listitem
+                                    uid=f136e1394 button "Julien Guézennec and 2 others"
+                                      uid=f136e1395 img "like"
+                                      uid=f136e1396 generic
+                                        uid=f136e1397 generic value="3"
+                                        uid=f136e1398 generic value="Julien Guézennec and 2 others"
+                                  uid=f136e1399 listitem
+                                    uid=f136e1400 list
+                                      uid=f136e1401 listitem
+                                        uid=f136e1402 button "1 comment on Julien Guézennec’s post"
+                                          uid=f136e1403 generic value="1 comment"
+                                uid=f136e1404 generic
+                                  uid=f136e1405 generic
+                                    uid=f136e1406 button "React Like"
+                                      uid=f136e1408 generic
+                                        uid=f136e1409 img
+                                        uid=f136e1411 generic value="Like"
+                                    uid=s198 button "Open reactions menu"
+                                      uid=f136e1413 img
+                                  uid=f136e1417 button "Comment"
+                                    uid=f136e1418 img
+                                    uid=f136e1420 generic value="Comment"
+                                  uid=f136e1423 button "Repost"
+                                    uid=f136e1424 img
+                                    uid=f136e1426 generic value="Repost"
+                                  uid=f136e1429 button "Send in a private message"
+                                    uid=f136e1430 img
+                                    uid=f136e1433 generic value="Send"
+                      uid=f136e1434 listitem
+                        uid=f136e1440 article
+                          uid=f136e1442 generic
+                            uid=f136e1443 heading "Feed post number 11" level="2"
+                            uid=f136e1444 generic
+                              uid=f136e1445 generic
+                                uid=f136e1447 generic
+                                  uid=f136e1448 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1452 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1453 generic
+                                    uid=s199 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1455 generic
+                                        uid=f136e1457 generic
+                                          uid=f136e1458 generic value="Julien Guézennec"
+                                          uid=f136e1459 generic value="Julien Guézennec"
+                                        uid=f136e1460 generic
+                                          uid=f136e1461 generic
+                                            uid=f136e1462 img
+                                            uid=s200 StaticText "• 1st"
+                                          uid=f136e1464 generic value="Verified • 1st"
+                                      uid=f136e1465 generic
+                                        uid=f136e1466 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e1467 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e1468 generic
+                                      uid=f136e1469 generic
+                                        uid=s201 StaticText "2w •"
+                                        uid=f136e1472 img
+                                      uid=f136e1474 generic value="2 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e1477 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e1478 img
+                              uid=f136e1480 generic
+                                uid=f136e1481 generic
+                                  uid=f136e1484 generic
+                                    uid=s202 StaticText "J'ai changé une seule chose dans Claude, Perplexity et Gemini. Gain de temps quotidien : énorme."
+                                    uid=s203 StaticText "Le truc ? Mes préférences personnelles."
+                                    uid=s204 StaticText "Au lieu d'écrire un paragraphe en texte libre (ce que 90% des gens font), j'ai structuré mon profil en XML."
+                                    uid=s205 StaticText "Pourquoi XML et pas du texte ?"
+                                    uid=s206 StaticText "→ Les LLM sont entraînés à parser les balises. Claude en particulier."
+                                    uid=s207 StaticText "→ <skill>WordPress</skill> est non-ambigu. \"- WordPress\" peut être confondu avec autre chose."
+                                    uid=s208 StaticText "→ Densité tokens imbattable : pas de guillemets ni virgules à maintenir."
+                                    uid=s209 StaticText "→ Hiérarchie explicite : expertise, stack, règles de réponse... le modèle sait quoi faire de chaque bloc."
+                                    uid=s210 StaticText "Résultat concret dans mes prompts :"
+                                    uid=s211 StaticText "✅ Réponses direct au code, sans intro théorique"
+                                    uid=s212 StaticText "✅ Le modèle propose des alternatives spontanément"
+                                    uid=s213 StaticText "✅ Mes règles de format (pas de H1, structure en H3) sont respectées en fin de longue conversation"
+                                    uid=s214 StaticText "✅ Gain : 30 à 40% de tokens économisés vs prose libre"
+                                    uid=s215 StaticText "Quand utiliser quoi :"
+                                    uid=s216 StaticText "- XML → profil court, règles strictes (recommandé)"
+                                    uid=s217 StaticText "- Markdown → profil long avec sections narratives"
+                                    uid=s218 StaticText "- Texte libre → à éviter"
+                                    uid=s219 StaticText "- JSON → seulement si injecté par API"
+                                    uid=s220 StaticText "Pro tip : sépare \"style de réponse\" et \"préférences techniques\". Sinon le modèle applique parfois des règles tech à des questions non-tech."
+                                    uid=s221 StaticText "Et surtout : mets ça dans le champ dédié (Projects, userPreferences, system prompt). JAMAIS dans chaque message, tu cannibalises ta fenêtre de contexte."
+                                    uid=s222 StaticText "Ça change la vie quand on bosse avec l'IA au quotidien."
+                                    uid=s223 StaticText "Vous structurez vos préférences comment ?"
+                                    uid=f136e1485 link "hashtag IA" url="https://www.linkedin.com/search/results/all/?keywords=%23ia&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1486 generic value="hashtag"
+                                      uid=f136e1487 generic value="#IA"
+                                    uid=f136e1488 link "hashtag Claude" url="https://www.linkedin.com/search/results/all/?keywords=%23claude&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1489 generic value="hashtag"
+                                      uid=f136e1490 generic value="#Claude"
+                                    uid=f136e1491 link "hashtag Productivité" url="https://www.linkedin.com/search/results/all/?keywords=%23productivit%C3%A9&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1492 generic value="hashtag"
+                                      uid=f136e1493 generic value="#Productivité"
+                                    uid=f136e1494 link "hashtag PromptEngineering" url="https://www.linkedin.com/search/results/all/?keywords=%23promptengineering&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1495 generic value="hashtag"
+                                      uid=f136e1496 generic value="#PromptEngineering"
+                                    uid=f136e1497 link "hashtag Freelance" url="https://www.linkedin.com/search/results/all/?keywords=%23freelance&origin=HASH_TAG_FROM_FEED"
+                                      uid=f136e1498 generic value="hashtag"
+                                      uid=f136e1499 generic value="#Freelance"
+                                  uid=f136e1500 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e1501 generic value="…more"
+                                uid=f136e1504 button "Show translation"
+                                  uid=f136e1505 generic value="Show translation"
+                              uid=f136e1507 generic
+                                uid=f136e1508 alert value="Your document has finished loading"
+                                uid=f136e1509 iframe
+                                  uid=f153e4 main
+                                    uid=f153e8 generic
+                                      uid=f153e9 generic value="Petit hack IA qui m'a vraiment changé la vie 👇"
+                                      uid=f153e10 generic value="•"
+                                      uid=f153e11 generic value="7 pages"
+                                    uid=f153e14 list
+                                      uid=f153e15 listitem
+                                        uid=s224 img "PROMPT ENGINEERING Swipe → → J'ai changé 1 SEUL truc dans Claude. Et mes réponses IA sont devenues 10× plus précises."
+                                      uid=f153e16 listitem
+                                      uid=f153e17 listitem
+                                      uid=f153e18 listitem
+                                      uid=f153e19 listitem
+                                      uid=f153e20 listitem
+                                      uid=f153e21 listitem
+                                    uid=f153e23 button "Go to next page of document"
+                                      uid=f153e25 img
+                                      uid=f153e27 generic value="Go to next page of document"
+                                    uid=f153e30 img
+                                    uid=f153e34 generic
+                                      uid=f153e36 generic
+                                        uid=f153e37 generic
+                                          uid=f153e38 generic value="Current page"
+                                          uid=f153e39 generic value="1"
+                                        uid=s225 StaticText "/"
+                                        uid=f153e40 generic
+                                          uid=f153e41 generic value="Total pages"
+                                          uid=s226 StaticText "7"
+                                      uid=f153e43 progressbar "Progress bar Slide 1/7"
+                                      uid=f153e48 button "Enter full screen. An accessible version of the document is available in full screen mode."
+                                        uid=f153e50 img
+                                        uid=f153e52 generic value="Enter full screen. An accessible version of the document is available in full screen mode."
+                              uid=f136e1510 generic
+                                uid=f136e1514 list
+                                  uid=f136e1515 listitem
+                                    uid=f136e1516 button "Julien Guézennec and 1 other"
+                                      uid=f136e1517 img "like"
+                                      uid=f136e1518 generic
+                                        uid=f136e1519 generic value="2"
+                                        uid=f136e1520 generic value="Julien Guézennec and 1 other"
+                                  uid=f136e1521 listitem
+                                    uid=f136e1522 list
+                                      uid=f136e1523 listitem
+                                        uid=f136e1524 button "2 comments on Julien Guézennec’s post"
+                                          uid=f136e1525 generic value="2 comments"
+                                uid=f136e1526 generic
+                                  uid=f136e1527 generic
+                                    uid=f136e1528 button "React Like"
+                                      uid=f136e1530 generic
+                                        uid=f136e1531 img
+                                        uid=f136e1533 generic value="Like"
+                                    uid=s227 button "Open reactions menu"
+                                      uid=f136e1535 img
+                                  uid=f136e1539 button "Comment"
+                                    uid=f136e1540 img
+                                    uid=f136e1542 generic value="Comment"
+                                  uid=f136e1545 button "Repost"
+                                    uid=f136e1546 img
+                                    uid=f136e1548 generic value="Repost"
+                                  uid=f136e1551 button "Send in a private message"
+                                    uid=f136e1552 img
+                                    uid=f136e1555 generic value="Send"
+                      uid=f136e1556 listitem
+                        uid=f136e1562 article
+                          uid=f136e1564 generic
+                            uid=f136e1565 heading "Feed post number 12" level="2"
+                            uid=f136e1566 generic
+                              uid=f136e1567 generic
+                                uid=f136e1569 generic
+                                  uid=f136e1570 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1574 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1575 generic
+                                    uid=s228 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1577 generic
+                                        uid=f136e1579 generic
+                                          uid=f136e1580 generic value="Julien Guézennec"
+                                          uid=f136e1581 generic value="Julien Guézennec"
+                                        uid=f136e1582 generic
+                                          uid=f136e1583 generic
+                                            uid=f136e1584 img
+                                            uid=s229 StaticText "• 1st"
+                                          uid=f136e1586 generic value="Verified • 1st"
+                                      uid=f136e1587 generic
+                                        uid=f136e1588 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e1589 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e1590 generic
+                                      uid=f136e1591 generic
+                                        uid=s230 StaticText "2w •"
+                                        uid=f136e1594 img
+                                      uid=f136e1596 generic value="2 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e1599 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e1600 img
+                              uid=f136e1602 generic
+                                uid=f136e1606 generic value="Un couvreur qui demande de l'aide à Claude en 2027"
+                                uid=f136e1609 button "Show translation"
+                                  uid=f136e1610 generic value="Show translation"
+                              uid=f136e1611 article
+                                uid=f136e1612 generic
+                                  uid=s231 unknown url="https://www.linkedin.com/pulse/un-couvreur-qui-demande-de-laide-%25C3%25A0-claude-en-2027-julien-gu%25C3%25A9zennec-bgzwe?trackingId=QrsiSSjfEKGUFHzmBvM2WA%3D%3D"
+                                  uid=s232 unknown url="https://www.linkedin.com/pulse/un-couvreur-qui-demande-de-laide-%25C3%25A0-claude-en-2027-julien-gu%25C3%25A9zennec-bgzwe?trackingId=QrsiSSjfEKGUFHzmBvM2WA%3D%3D"
+                                    uid=f136e1620 generic
+                                      uid=f136e1622 generic value="Un couvreur qui demande de l'aide à Claude en 2027"
+                                      uid=f136e1623 generic value="Julien Guézennec"
+                              uid=f136e1625 generic
+                                uid=f136e1626 generic
+                                  uid=f136e1627 button "React Like"
+                                    uid=f136e1629 generic
+                                      uid=f136e1630 img
+                                      uid=f136e1632 generic value="Like"
+                                  uid=s233 button "Open reactions menu"
+                                    uid=f136e1634 img
+                                uid=f136e1638 button "Comment"
+                                  uid=f136e1639 img
+                                  uid=f136e1641 generic value="Comment"
+                                uid=f136e1644 button "Repost"
+                                  uid=f136e1645 img
+                                  uid=f136e1647 generic value="Repost"
+                                uid=f136e1650 button "Send in a private message"
+                                  uid=f136e1651 img
+                                  uid=f136e1654 generic value="Send"
+                      uid=f136e1655 listitem
+                        uid=f136e1661 article
+                          uid=f136e1663 generic
+                            uid=f136e1664 heading "Feed post number 13" level="2"
+                            uid=f136e1665 generic
+                              uid=f136e1666 generic
+                                uid=f136e1668 generic
+                                  uid=f136e1669 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1673 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1674 generic
+                                    uid=s234 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1676 generic
+                                        uid=f136e1678 generic
+                                          uid=f136e1679 generic value="Julien Guézennec"
+                                          uid=f136e1680 generic value="Julien Guézennec"
+                                        uid=f136e1681 generic
+                                          uid=f136e1682 generic
+                                            uid=f136e1683 img
+                                            uid=s235 StaticText "• 1st"
+                                          uid=f136e1685 generic value="Verified • 1st"
+                                      uid=f136e1686 generic
+                                        uid=f136e1687 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e1688 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e1689 generic
+                                      uid=f136e1690 generic
+                                        uid=s236 StaticText "2w •"
+                                        uid=f136e1693 img
+                                      uid=f136e1695 generic value="2 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e1698 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e1699 img
+                              uid=f136e1701 generic
+                                uid=f136e1705 generic value="Hier.. j'étais au salon Go entrepreneur Paris... Teddy Riner en live !!!"
+                                uid=f136e1708 button "Show translation"
+                                  uid=f136e1709 generic value="Show translation"
+                              uid=f136e1711 generic
+                                uid=f136e1713 button "Activate to view larger image, No alternative text description for this image"
+                                  uid=f136e1714 generic value="Activate to view larger image,"
+                                  uid=f136e1717 img "No alternative text description for this image"
+                                uid=f136e1718 generic value="Activate to view larger image,"
+                              uid=f136e1720 generic
+                                uid=f136e1721 generic
+                                  uid=f136e1722 button "React Like"
+                                    uid=f136e1724 generic
+                                      uid=f136e1725 img
+                                      uid=f136e1727 generic value="Like"
+                                  uid=s237 button "Open reactions menu"
+                                    uid=f136e1729 img
+                                uid=f136e1733 button "Comment"
+                                  uid=f136e1734 img
+                                  uid=f136e1736 generic value="Comment"
+                                uid=f136e1739 button "Repost"
+                                  uid=f136e1740 img
+                                  uid=f136e1742 generic value="Repost"
+                                uid=f136e1745 button "Send in a private message"
+                                  uid=f136e1746 img
+                                  uid=f136e1749 generic value="Send"
+                      uid=f136e1750 listitem
+                        uid=f136e1756 article
+                          uid=f136e1758 generic
+                            uid=f136e1759 heading "Feed post number 14" level="2"
+                            uid=f136e1760 generic
+                              uid=f136e1761 generic
+                                uid=f136e1763 generic
+                                  uid=f136e1764 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1768 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1769 generic
+                                    uid=s238 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1771 generic
+                                        uid=f136e1773 generic
+                                          uid=f136e1774 generic value="Julien Guézennec"
+                                          uid=f136e1775 generic value="Julien Guézennec"
+                                        uid=f136e1776 generic
+                                          uid=f136e1777 generic
+                                            uid=f136e1778 img
+                                            uid=s239 StaticText "• 1st"
+                                          uid=f136e1780 generic value="Verified • 1st"
+                                      uid=f136e1781 generic
+                                        uid=f136e1782 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e1783 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e1784 generic
+                                      uid=f136e1785 generic
+                                        uid=s240 StaticText "2w •"
+                                        uid=f136e1788 img
+                                      uid=f136e1790 generic value="2 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e1793 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e1794 img
+                              uid=f136e1796 generic
+                                uid=f136e1800 generic
+                                  uid=s241 StaticText "\"Chef de projet Café IA - Relations territoriales SEN-CIAN-219 H/F\""
+                                  uid=f136e1801 link "https://lnkd.in/eMSd9dXF" url="https://lnkd.in/eMSd9dXF"
+                                  uid=s242 StaticText "Je suis un ouf, j'ai candidaté ^^ CV full IA ^^ LOL"
+                                uid=f136e1804 button "Show translation"
+                                  uid=f136e1805 generic value="Show translation"
+                              uid=f136e1807 generic
+                                uid=f136e1809 button "Activate to view larger image, graphical user interface, text, application"
+                                  uid=f136e1810 generic value="Activate to view larger image,"
+                                  uid=f136e1813 img "graphical user interface, text, application"
+                                uid=f136e1814 generic value="Activate to view larger image,"
+                              uid=f136e1815 generic
+                                uid=f136e1819 list
+                                  uid=f136e1820 listitem
+                                    uid=f136e1821 button "Julien Bouquillon and 1 other"
+                                      uid=f136e1822 img "like"
+                                      uid=f136e1823 generic
+                                        uid=f136e1824 generic value="2"
+                                        uid=f136e1825 generic value="Julien Bouquillon and 1 other"
+                                uid=f136e1826 generic
+                                  uid=f136e1827 generic
+                                    uid=f136e1828 button "React Like"
+                                      uid=f136e1830 generic
+                                        uid=f136e1831 img
+                                        uid=f136e1833 generic value="Like"
+                                    uid=s243 button "Open reactions menu"
+                                      uid=f136e1835 img
+                                  uid=f136e1839 button "Comment"
+                                    uid=f136e1840 img
+                                    uid=f136e1842 generic value="Comment"
+                                  uid=f136e1845 button "Repost"
+                                    uid=f136e1846 img
+                                    uid=f136e1848 generic value="Repost"
+                                  uid=f136e1851 button "Send in a private message"
+                                    uid=f136e1852 img
+                                    uid=f136e1855 generic value="Send"
+                      uid=f136e1856 listitem
+                        uid=f136e1862 article
+                          uid=f136e1864 generic
+                            uid=f136e1865 heading "Feed post number 15" level="2"
+                            uid=f136e1866 generic
+                              uid=f136e1867 generic
+                                uid=f136e1869 generic
+                                  uid=f136e1870 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1874 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1875 generic
+                                    uid=s244 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1877 generic
+                                        uid=f136e1879 generic
+                                          uid=f136e1880 generic value="Julien Guézennec"
+                                          uid=f136e1881 generic value="Julien Guézennec"
+                                        uid=f136e1882 generic
+                                          uid=f136e1883 generic
+                                            uid=f136e1884 img
+                                            uid=s245 StaticText "• 1st"
+                                          uid=f136e1886 generic value="Verified • 1st"
+                                      uid=f136e1887 generic
+                                        uid=f136e1888 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e1889 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e1890 generic
+                                      uid=f136e1891 generic
+                                        uid=s246 StaticText "2w •"
+                                        uid=f136e1894 img
+                                      uid=f136e1896 generic value="2 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e1899 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e1900 img
+                              uid=f136e1902 generic
+                                uid=f136e1903 generic
+                                  uid=f136e1906 generic
+                                    uid=s247 StaticText "Wesh je suis sous-côté en business ^^"
+                                    uid=s248 StaticText "Je cherche toujours du taff !"
+                                    uid=s249 StaticText "Mon CV :"
+                                    uid=f136e1907 link "https://lnkd.in/ehNzUQh9" url="https://lnkd.in/ehNzUQh9"
+                                    uid=s250 StaticText "Profil LinkedIn :"
+                                    uid=f136e1908 link "https://lnkd.in/gvwggHrJ" url="https://lnkd.in/gvwggHrJ"
+                                    uid=s251 StaticText "Et site :"
+                                    uid=f136e1909 link "https://julienweb.fr" url="https://julienweb.fr"
+                                  uid=f136e1910 button "see more, visually reveals content which is already detected by screen readers"
+                                    uid=f136e1911 generic value="…more"
+                                uid=f136e1914 button "Show translation"
+                                  uid=f136e1915 generic value="Show translation"
+                              uid=f136e1917 generic
+                                uid=f136e1918 generic
+                                  uid=f136e1919 button "Activate to view larger image, No alternative text description for this image"
+                                    uid=f136e1920 generic value="Activate to view larger image,"
+                                    uid=f136e1923 img "No alternative text description for this image"
+                                  uid=f136e1925 generic
+                                    uid=f136e1926 button "This image has content credentials."
+                                      uid=f136e1927 img
+                                        uid=f136e1928 img
+                                    uid=f136e1930 generic value="See content credentials"
+                                uid=f136e1931 generic value="Activate to view larger image,"
+                              uid=f136e1932 generic
+                                uid=f136e1936 list
+                                  uid=f136e1937 listitem
+                                    uid=f136e1938 button "2 reactions"
+                                      uid=f136e1939 img "like"
+                                      uid=f136e1940 generic value="2"
+                                  uid=f136e1941 listitem
+                                    uid=f136e1942 list
+                                      uid=f136e1943 listitem
+                                        uid=f136e1944 button "1 comment on Julien Guézennec’s post"
+                                          uid=f136e1945 generic value="1 comment"
+                                uid=f136e1946 generic
+                                  uid=f136e1947 generic
+                                    uid=f136e1948 button "React Like"
+                                      uid=f136e1950 generic
+                                        uid=f136e1951 img
+                                        uid=f136e1953 generic value="Like"
+                                    uid=s252 button "Open reactions menu"
+                                      uid=f136e1955 img
+                                  uid=f136e1959 button "Comment"
+                                    uid=f136e1960 img
+                                    uid=f136e1962 generic value="Comment"
+                                  uid=f136e1965 button "Repost"
+                                    uid=f136e1966 img
+                                    uid=f136e1968 generic value="Repost"
+                                  uid=f136e1971 button "Send in a private message"
+                                    uid=f136e1972 img
+                                    uid=f136e1975 generic value="Send"
+                      uid=f136e1976 listitem
+                        uid=f136e1982 article
+                          uid=f136e1984 generic
+                            uid=f136e1985 heading "Feed post number 16" level="2"
+                            uid=f136e1986 generic
+                              uid=f136e1987 generic
+                                uid=f136e1989 generic
+                                  uid=f136e1990 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e1994 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e1995 generic
+                                    uid=s253 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e1997 generic
+                                        uid=f136e1999 generic
+                                          uid=f136e2000 generic value="Julien Guézennec"
+                                          uid=f136e2001 generic value="Julien Guézennec"
+                                        uid=f136e2002 generic
+                                          uid=f136e2003 generic
+                                            uid=f136e2004 img
+                                            uid=s254 StaticText "• 1st"
+                                          uid=f136e2006 generic value="Verified • 1st"
+                                      uid=f136e2007 generic
+                                        uid=f136e2008 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e2009 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e2010 generic
+                                      uid=f136e2011 generic
+                                        uid=s255 StaticText "2w •"
+                                        uid=f136e2014 img
+                                      uid=f136e2016 generic value="2 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e2019 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e2020 img
+                              uid=f136e2026 generic value="The Apr 13, 2pm Ah ah ah ^^"
+                              uid=f136e2028 generic
+                                uid=f136e2030 button "Activate to view larger image, text"
+                                  uid=f136e2031 generic value="Activate to view larger image,"
+                                  uid=f136e2034 img "text"
+                                uid=f136e2035 generic value="Activate to view larger image,"
+                              uid=f136e2037 generic
+                                uid=f136e2038 generic
+                                  uid=f136e2039 button "React Like"
+                                    uid=f136e2041 generic
+                                      uid=f136e2042 img
+                                      uid=f136e2044 generic value="Like"
+                                  uid=s256 button "Open reactions menu"
+                                    uid=f136e2046 img
+                                uid=f136e2050 button "Comment"
+                                  uid=f136e2051 img
+                                  uid=f136e2053 generic value="Comment"
+                                uid=f136e2056 button "Repost"
+                                  uid=f136e2057 img
+                                  uid=f136e2059 generic value="Repost"
+                                uid=f136e2062 button "Send in a private message"
+                                  uid=f136e2063 img
+                                  uid=f136e2066 generic value="Send"
+                      uid=f136e2067 listitem
+                        uid=f136e2073 article
+                          uid=f136e2075 generic
+                            uid=f136e2076 heading "Feed post number 17" level="2"
+                            uid=f136e2077 generic
+                              uid=f136e2078 generic
+                                uid=f136e2080 generic
+                                  uid=f136e2081 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e2085 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e2086 generic
+                                    uid=s257 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e2088 generic
+                                        uid=f136e2090 generic
+                                          uid=f136e2091 generic value="Julien Guézennec"
+                                          uid=f136e2092 generic value="Julien Guézennec"
+                                        uid=f136e2093 generic
+                                          uid=f136e2094 generic
+                                            uid=f136e2095 img
+                                            uid=s258 StaticText "• 1st"
+                                          uid=f136e2097 generic value="Verified • 1st"
+                                      uid=f136e2098 generic
+                                        uid=f136e2099 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e2100 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e2101 generic
+                                      uid=f136e2102 generic
+                                        uid=s259 StaticText "3w •"
+                                        uid=f136e2105 img
+                                      uid=f136e2107 generic value="3 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e2110 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e2111 img
+                              uid=f136e2117 generic
+                                uid=s260 StaticText "J'ai construit mon premier dashboard local avec Claude"
+                                uid=f136e2118 link "https://lnkd.in/eH2niTt4" url="https://lnkd.in/eH2niTt4"
+                              uid=f136e2120 generic
+                                uid=f136e2122 button "Activate to view larger image, graphical user interface, text"
+                                  uid=f136e2123 generic value="Activate to view larger image,"
+                                  uid=f136e2126 img "graphical user interface, text"
+                                uid=f136e2127 generic value="Activate to view larger image,"
+                              uid=f136e2128 generic
+                                uid=f136e2132 list
+                                  uid=f136e2133 listitem
+                                    uid=f136e2134 button "Julien Guézennec and 1 other"
+                                      uid=f136e2135 img "like"
+                                      uid=f136e2136 generic
+                                        uid=f136e2137 generic value="2"
+                                        uid=f136e2138 generic value="Julien Guézennec and 1 other"
+                                uid=f136e2139 generic
+                                  uid=f136e2140 generic
+                                    uid=f136e2141 button "React Like"
+                                      uid=f136e2143 generic
+                                        uid=f136e2144 img
+                                        uid=f136e2146 generic value="Like"
+                                    uid=s261 button "Open reactions menu"
+                                      uid=f136e2148 img
+                                  uid=f136e2152 button "Comment"
+                                    uid=f136e2153 img
+                                    uid=f136e2155 generic value="Comment"
+                                  uid=f136e2158 button "Repost"
+                                    uid=f136e2159 img
+                                    uid=f136e2161 generic value="Repost"
+                                  uid=f136e2164 button "Send in a private message"
+                                    uid=f136e2165 img
+                                    uid=f136e2168 generic value="Send"
+                      uid=f136e2169 listitem
+                        uid=f136e2175 article
+                          uid=f136e2177 generic
+                            uid=f136e2178 heading "Feed post number 18" level="2"
+                            uid=f136e2179 generic
+                              uid=f136e2180 generic
+                                uid=f136e2182 generic
+                                  uid=f136e2183 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e2187 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e2188 generic
+                                    uid=s262 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e2190 generic
+                                        uid=f136e2192 generic
+                                          uid=f136e2193 generic value="Julien Guézennec"
+                                          uid=f136e2194 generic value="Julien Guézennec"
+                                        uid=f136e2195 generic
+                                          uid=f136e2196 generic
+                                            uid=f136e2197 img
+                                            uid=s263 StaticText "• 1st"
+                                          uid=f136e2199 generic value="Verified • 1st"
+                                      uid=f136e2200 generic
+                                        uid=f136e2201 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e2202 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e2203 generic
+                                      uid=f136e2204 generic
+                                        uid=s264 StaticText "3w •"
+                                        uid=f136e2207 img
+                                      uid=f136e2209 generic value="3 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e2212 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e2213 img
+                              uid=f136e2215 generic
+                                uid=f136e2219 generic
+                                  uid=s265 StaticText "Comment j'ai documenté ma charte graphique Elementor : palette"
+                                  uid=f136e2220 link "hashtag 1E91D4" url="https://www.linkedin.com/search/results/all/?keywords=%231e91d4&origin=HASH_TAG_FROM_FEED"
+                                    uid=f136e2221 generic value="hashtag"
+                                    uid=f136e2222 generic value="#1E91D4"
+                                  uid=s266 StaticText "/"
+                                  uid=f136e2223 link "hashtag 5A4095" url="https://www.linkedin.com/search/results/all/?keywords=%235a4095&origin=HASH_TAG_FROM_FEED"
+                                    uid=f136e2224 generic value="hashtag"
+                                    uid=f136e2225 generic value="#5A4095"
+                                  uid=s267 StaticText ", typographie Squada One + Poppins, boutons pill shape. Indispensable avec les outils IA ->"
+                                  uid=f136e2226 link "https://lnkd.in/enaHCekW" url="https://lnkd.in/enaHCekW"
+                                uid=f136e2229 button "Show translation"
+                                  uid=f136e2230 generic value="Show translation"
+                              uid=f136e2231 generic
+                                uid=s268 unknown url="https://julienweb.fr/blog/design-system-wordpress-palette-typographie-elementor/9331/"
+                                uid=f136e2238 link "Design system WordPress — palette, typographie et composants" url="https://julienweb.fr/blog/design-system-wordpress-palette-typographie-elementor/9331/"
+                                  uid=f136e2241 generic
+                                    uid=f136e2243 generic value="Design system WordPress — palette, typographie et composants"
+                                    uid=f136e2244 generic value="julienweb.fr"
+                              uid=f136e2246 generic
+                                uid=f136e2247 generic
+                                  uid=f136e2248 button "React Like"
+                                    uid=f136e2250 generic
+                                      uid=f136e2251 img
+                                      uid=f136e2253 generic value="Like"
+                                  uid=s269 button "Open reactions menu"
+                                    uid=f136e2255 img
+                                uid=f136e2259 button "Comment"
+                                  uid=f136e2260 img
+                                  uid=f136e2262 generic value="Comment"
+                                uid=f136e2265 button "Repost"
+                                  uid=f136e2266 img
+                                  uid=f136e2268 generic value="Repost"
+                                uid=f136e2271 button "Send in a private message"
+                                  uid=f136e2272 img
+                                  uid=f136e2275 generic value="Send"
+                      uid=f136e2276 listitem
+                        uid=f136e2282 article
+                          uid=f136e2284 generic
+                            uid=f136e2285 heading "Feed post number 19" level="2"
+                            uid=f136e2286 generic
+                              uid=f136e2287 generic
+                                uid=f136e2289 generic
+                                  uid=f136e2290 link "View Julien Guézennec’s open to work graphic link" url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                    uid=f136e2294 img "View Julien Guézennec’s open to work graphic link"
+                                  uid=f136e2295 generic
+                                    uid=s270 unknown url="https://www.linkedin.com/in/julien-guezennec?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAADjYaoBKCGNtZN_m0INLC4MnN9yFkTDUqY"
+                                      uid=f136e2297 generic
+                                        uid=f136e2299 generic
+                                          uid=f136e2300 generic value="Julien Guézennec"
+                                          uid=f136e2301 generic value="Julien Guézennec"
+                                        uid=f136e2302 generic
+                                          uid=f136e2303 generic
+                                            uid=f136e2304 img
+                                            uid=s271 StaticText "• 1st"
+                                          uid=f136e2306 generic value="Verified • 1st"
+                                      uid=f136e2307 generic
+                                        uid=f136e2308 generic value="Internet developer (Full Stack & WebDesign)"
+                                        uid=f136e2309 generic value="Internet developer (Full Stack & WebDesign)"
+                                    uid=f136e2310 generic
+                                      uid=f136e2311 generic
+                                        uid=s272 StaticText "3w •"
+                                        uid=f136e2314 img
+                                      uid=f136e2316 generic value="3 weeks ago • Visible to anyone on or off LinkedIn"
+                                uid=f136e2319 button "Open control menu for post by Julien Guézennec"
+                                  uid=f136e2320 img
+                              uid=f136e2322 generic
+                                uid=f136e2326 generic
+                                  uid=s273 StaticText "Tellement de services à lister sur mon site Internet que j'ai dû implementer un petit soft de mindmap pour tout afficher ;)"
+                                  uid=f136e2327 link "https://lnkd.in/ecqF6v24" url="https://lnkd.in/ecqF6v24"
+                                uid=f136e2330 button "Show translation"
+                                  uid=f136e2331 generic value="Show translation"
+                              uid=f136e2333 generic
+                                uid=f136e2335 button "Activate to view larger image, No alternative text description for this image"
+                                  uid=f136e2336 generic value="Activate to view larger image,"
+                                  uid=f136e2339 img "No alternative text description for this image"
+                                uid=f136e2340 generic value="Activate to view larger image,"
+                              uid=f136e2341 generic
+                                uid=f136e2345 list
+                                  uid=f136e2346 listitem
+                                    uid=f136e2347 button "2 reactions"
+                                      uid=f136e2348 img "like"
+                                      uid=f136e2349 generic value="2"
+                                  uid=f136e2350 listitem
+                                    uid=f136e2351 list
+                                      uid=f136e2352 listitem
+                                        uid=f136e2353 button "1 comment on Julien Guézennec’s post"
+                                          uid=f136e2354 generic value="1 comment"
+                                uid=f136e2355 generic
+                                  uid=f136e2356 generic
+                                    uid=f136e2357 button "Unreact Like" pressed
+                                      uid=f136e2359 generic
+                                        uid=f136e2360 img "like"
+                                        uid=f136e2361 generic value="Like"
+                                    uid=s274 button "Open reactions menu"
+                                      uid=f136e2363 img
+                                  uid=f136e2367 button "Comment"
+                                    uid=f136e2368 img
+                                    uid=f136e2370 generic value="Comment"
+                                  uid=f136e2373 button "Repost"
+                                    uid=f136e2374 img
+                                    uid=f136e2376 generic value="Repost"
+                                  uid=f136e2379 button "Send in a private message"
+                                    uid=f136e2380 img
+                                    uid=f136e2383 generic value="Send"
+                      uid=f136e2384 listitem
+                  uid=f136e2390 button "Show more results"
+                    uid=f136e2391 generic value="Show more results"
+            uid=f136e2392 complementary "Interests"
+              uid=f136e2394 iframe
+                uid=f147e3 main "Work With Us Container"
+                  uid=f147e4 generic
+                    uid=f147e6 img
+                    uid=f147e7 generic
+                      uid=f147e8 img "Jerome"
+                      uid=f147e9 link "World Kinect" url="https://www.linkedin.com/li/tscp/sct?destinationUrl=http%3A%2F%2Fwww.linkedin.com%2Fcompany%2F15258971%2Flife&trackingEvent=%5B%7B%22eventInfo%22%3A%7B%22appId%22%3A%22com.linkedin.ads.rendering.d_web%22%2C%22eventName%22%3A%22SponsoredRightRailContentActionEvent%22%2C%22topicName%22%3A%22SponsoredRightRailContentActionEvent%22%7D%2C%22eventBody%22%3A%7B%22sponsoredEventHeader%22%3A%7B%22encryptedTrackingData%22%3A%22CwEAAAGd8auhjjhHhE2bY_N2hXSLhEUdm_RlIDNioFZP7c4IpbNgMecLrH2b77TFtwoXLF37qiISoihRYvUQGC8ZGgdvQ55JtMW9LuD5IeXguhiFNy5odhjEd8F3_XhbJ_Zs9PshqF1t2Gap3BUQjTvwLUFf3NzFwlzh4uRsv28nW4OKjLEeXY01PXifr9Jh4reSFzsfB4q8EaTqDd1tWCLbamU8Ahey7GfmS4Mb0sOFjLwf3hJ5R4PW82tYoeph5SvfXffquQDK-pkP-4xa-b4InmnUyJou53hSVEUsVXnizSuLDwLMneJvVMn8ddBNgX64Qjta6c3iAvoE7k3tPM_lAYj1bAdOcLu7mVN-CkfVLPz2c7z-PJinHjlrIdGtsHt8_YBTjQsPMKQfdKaNueQ-6NBoIbR-DN0_ZmMSpn7y3nrkBD6eqhn1N4Q6Ygwp_S1Q8QvNzEbix_RPF1cH77bb_Pma3QEcF2fWCHbdh6oTQDKhaK6L7xd0xSgP8xt3v14UdyuQtw2XmMYmtE66Qr-tbqx7nncyf-oni6-NTz3-r9kTHfhDYfOsWLwP4cfylZcx-n2X_Bb3Vgv66_RtDldg21rBRVMaNilHkmy2t6uj0jBpHsvsWIRM2Eo_BmOxIyCexvwWlmywRBprDMKbOw_gbVdpICK1uJ79yzVAYyZ1QUnZx6kWdow5uFcNvrPB8LMcDwyQ-vWU0gQ1hS05Mujik0m3Ptjd17RHfVG1_Z2b_3eJ50OL1TG8dHax8BGuP2jxPd75I_ZN8X-UStd-0YBE_LFEXnV4f3NtNy-QCDn3dmbirOjDEVTZPDwI2IBifPDRVEA-JMFDnIkjP7aK-fJNI1h764uu1X_3Ywy93PfRryMxvyU98iXmK3lTN_bb6fBIdlX2jWaoLTOPKVASZGfHVEYH0GSShIYMD6SucekIUBkZ3pGyQ5d7Ag09V0M9PH5FYicFQ5c3mgI2FtSlgy4DVMaUsYgAWv0G9bwUr2_aN_asWR-409BtIQp9qzc2QIufk2ff9EJ8oT7vcykhCc1S232VsYjq2spstMWYuL5cZgl73PAZB0gCXnl_PQbd__hSrLOhGWZ37ss%22%7D%2C%22header%22%3A%7B%22pageInstance%22%3A%7B%22pageUrn%22%3A%22urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_recent_activity_content_view%22%2C%22trackingId%22%3A%2236e5ecdd-0d20-4e3d-a5ae-56bb8f98e609%22%7D%2C%22time%22%3A1777876050271%2C%22version%22%3A%220.0.0%22%7D%2C%22requestHeader%22%3A%7B%22pageKey%22%3A%22d_flagship3_profile_view_base_recent_activity_content_view%22%2C%22interfaceLocale%22%3A%22en-US%22%7D%7D%7D%5D&csrfToken=ajax%3A5544974620789791545"
+                        uid=f147e10 img "World Kinect"
+                  uid=f147e11 generic
+                    uid=f147e12 generic
+                      uid=f147e13 paragraph value="Jerome, explore relevant opportunities with World Kinect"
+                      uid=f147e14 paragraph value="Get the latest jobs and industry news"
+                    uid=f147e15 link "Follow" url="https://www.linkedin.com/li/tscp/sct?destinationUrl=http%3A%2F%2Fwww.linkedin.com%2Fcompany%2F15258971%2Flife%3FisFollowingPage%3Dtrue&trackingEvent=%5B%7B%22eventInfo%22%3A%7B%22appId%22%3A%22com.linkedin.ads.rendering.d_web%22%2C%22eventName%22%3A%22SponsoredRightRailContentActionEvent%22%2C%22topicName%22%3A%22SponsoredRightRailContentActionEvent%22%7D%2C%22eventBody%22%3A%7B%22sponsoredEventHeader%22%3A%7B%22encryptedTrackingData%22%3A%22CwEAAAGd8auhj4tQOBbgQytxyyOHZTZt773T1SyligyXv-34VbAbgL81Cq2aoVs_a1bLUWqASeUF3TBLcXPUwmR8TEVEDhhqYBpvsINsLwnJKMjOYhP6EYhvJm7-pGqmLNS0qURdLsz9mIvOd6itbT4yn_23Yc39oCN_N1gCxrUkGgKUpCL9attzcPWOZxeJLScniVIMbzSBpSGewWi_i2aigpblvilntJiabVVQOwRwOUVllCVZxPMzhNr4NZoVGYhBpDqBeH6VtZAez1WHGAepCTYyXnWa98quj9iecMCO7UsZR8a4bBYXOk-42qjXZ7Jd_V6eBRr0LaotAI6XDbcHtPMjqGGjQe0stP6uUyNeLQAy5dKnQRZ1ofjce72Fex9SWuTzXgp_6zhuAjBZxA8h0OKqLSvtj2aKtw_vxYYG3HotbPuaEw5bw51BWzZ7E6Iozsajy2mIKxk_1Cgdotq_VIQCEi0BUAL71Gvg-FoOmNpoGe-mh5jr9DFMHfzRdHYGcPWoYJEkSCR1lkPnWupT23zoaj3I1ox9nYFPZ9dYUtOvLunu7av2w0lKgb0x9VYmpMp3idr8lyMtG_kwXZEGRn_6FmYvj5B6dsV--JWk5UIm7_PJDsByl_iI2FW5LVjCkgdMPd3kM1WYodZIFxgx9omfIk-M6On1D6BjOYLyEMuax4T1L2lDSN0808OCy_wonh6Z8b76oxCggx0Ta2Sf10bJY_mKRnWzhcP3TVwr5K_uwP9ASje49N_V9AqrDTBXVavk7dIYE-W95fearfUSQqBPlcf4vlxtnZkbbypVc-zvwxksiFJprvYfgMJ9tKrkFK8TfkjVku0FRXfZDSlv3Wc1ozoQli6TFc7fuzdp3Terz6qay9i1zsWiVFLMBBXWVgR0-YlVzSWl8lxKKIYW9_YwoHVGWwwYNsCCUju2AhxdvSGhLtw9AmN6okNlvAQcLwSRSqMS2XbZFa5si_dmQbqkSnmHYoA_xuWJKYuCDsAMPHGH79Ro6kqe1N1ZdLl1Easbdlc9SpoclUPlmNfF30mkFDD6C_2g2XuUJvmQ2GIjTRdqjJ0WwGTVtAzpzHuyyykAqJR2P3uxPUscGAnvR930aEMYN5nvMxb323nb8lEA4LEcYMX7FiA%22%7D%2C%22header%22%3A%7B%22pageInstance%22%3A%7B%22pageUrn%22%3A%22urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_recent_activity_content_view%22%2C%22trackingId%22%3A%225813e1b0-cc74-4199-9fb8-e59d1cf013e0%22%7D%2C%22time%22%3A1777876050271%2C%22version%22%3A%220.0.0%22%7D%2C%22requestHeader%22%3A%7B%22pageKey%22%3A%22d_flagship3_profile_view_base_recent_activity_content_view%22%2C%22interfaceLocale%22%3A%22en-US%22%7D%7D%7D%5D&csrfToken=ajax%3A5544974620789791545"
+                  uid=f147e16 generic
+                    uid=f147e17 paragraph value="Promoted"
+                    uid=f147e18 button "Ad Options"
+                      uid=f147e19 img
+                      uid=f147e23 generic value="Ad Options"
+              uid=f136e2395 generic
+                uid=f136e2399 generic
+                  uid=f136e2400 heading "People you may know" level="2"
+                    uid=f136e2401 generic value="People you may know"
+                    uid=f136e2402 generic value="People you may know"
+                  uid=f136e2403 paragraph
+                    uid=f136e2404 generic value="From Julien's school"
+                    uid=f136e2405 generic value="From Julien's school"
+                uid=f136e2406 generic
+                  uid=f136e2407 list
+                    uid=f136e2408 listitem
+                      uid=f136e2409 generic
+                        uid=f136e2411 link "Sarah Le Net" url="https://www.linkedin.com/in/sarah-le-net-13268944"
+                          uid=f136e2414 img "Sarah Le Net"
+                        uid=f136e2415 generic
+                          uid=f136e2417 link "Sarah Le Net Founder at TheLab" url="https://www.linkedin.com/in/sarah-le-net-13268944?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAlazXYBBN6g05_FGp_Pu9viL-cBSgFcPkg"
+                            uid=f136e2418 generic
+                              uid=f136e2421 generic
+                                uid=f136e2422 generic value="Sarah Le Net"
+                                uid=f136e2423 generic value="Sarah Le Net"
+                              uid=f136e2426 img
+                            uid=f136e2431 generic
+                              uid=f136e2432 generic value="Founder at TheLab"
+                              uid=f136e2433 generic value="Founder at TheLab"
+                          uid=f136e2435 list
+                            uid=f136e2436 listitem
+                              uid=f136e2438 button "Invite Sarah Le Net to connect"
+                                uid=f136e2439 img
+                                uid=f136e2441 generic value="Connect"
+                    uid=f136e2442 listitem
+                      uid=f136e2443 generic
+                        uid=f136e2445 link "Aida MEJRI" url="https://www.linkedin.com/in/aidmej"
+                          uid=f136e2448 img "Aida MEJRI"
+                        uid=f136e2449 generic
+                          uid=f136e2451 link "Aida MEJRI Fondatrice PROCELIA · Stratégie IA & Croissance B2B · Conformité AI Act · Executive MBA Transformation Digitale" url="https://www.linkedin.com/in/aidmej?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAdWkiABY7Gxco5Vqb0oxFZzCHOeXKXMONc"
+                            uid=f136e2452 generic
+                              uid=f136e2455 generic
+                                uid=f136e2456 generic value="Aida MEJRI"
+                                uid=f136e2457 generic value="Aida MEJRI"
+                              uid=f136e2460 img
+                                uid=f136e2461 img
+                            uid=f136e2466 generic
+                              uid=f136e2467 generic value="Fondatrice PROCELIA · Stratégie IA & Croissance B2B · Conformité AI Act · Executive MBA Transformation Digitale"
+                              uid=f136e2468 generic value="Fondatrice PROCELIA · Stratégie IA & Croissance B2B · Conformité AI Act · Executive MBA Transformation Digitale"
+                          uid=f136e2470 list
+                            uid=f136e2471 listitem
+                              uid=f136e2473 button "Invite Aida MEJRI to connect"
+                                uid=f136e2474 img
+                                uid=f136e2476 generic value="Connect"
+                    uid=f136e2477 listitem
+                      uid=f136e2478 generic
+                        uid=f136e2480 link "Loïc Carrère" url="https://www.linkedin.com/in/carrereloic"
+                          uid=f136e2483 img "Loïc Carrère"
+                        uid=f136e2484 generic
+                          uid=f136e2486 link "Loïc Carrère Building Kingdoms for Data at CALICO IIM" url="https://www.linkedin.com/in/carrereloic?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAJcunoBB7oHEqWTuua5tzPEsnRozLFtE4A"
+                            uid=f136e2487 generic
+                              uid=f136e2490 generic
+                                uid=f136e2491 generic value="Loïc Carrère"
+                                uid=f136e2492 generic value="Loïc Carrère"
+                              uid=f136e2495 img
+                            uid=f136e2500 generic
+                              uid=f136e2501 generic value="Building Kingdoms for Data at CALICO IIM"
+                              uid=f136e2502 generic value="Building Kingdoms for Data at CALICO IIM"
+                          uid=f136e2504 list
+                            uid=f136e2505 listitem
+                              uid=f136e2507 button "Invite Loïc Carrère to connect"
+                                uid=f136e2508 img
+                                uid=f136e2510 generic value="Connect"
+                    uid=f136e2511 listitem
+                      uid=f136e2512 generic
+                        uid=f136e2514 link "Adam SAROUTI" url="https://www.linkedin.com/in/adam-sarouti"
+                          uid=f136e2517 img "Adam SAROUTI"
+                        uid=f136e2518 generic
+                          uid=f136e2520 link "Adam SAROUTI Directeur des Systèmes d’Information (DSI) | CIO | IT/OT Program Director" url="https://www.linkedin.com/in/adam-sarouti?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAABBi3oIBax3x7lCwu_h50jjUHPKU8KzLQ-I"
+                            uid=f136e2521 generic
+                              uid=f136e2524 generic
+                                uid=f136e2525 generic value="Adam SAROUTI"
+                                uid=f136e2526 generic value="Adam SAROUTI"
+                              uid=f136e2529 img
+                            uid=f136e2534 generic
+                              uid=f136e2535 generic value="Directeur des Systèmes d’Information (DSI) | CIO | IT/OT Program Director"
+                              uid=f136e2536 generic value="Directeur des Systèmes d’Information (DSI) | CIO | IT/OT Program Director"
+                          uid=f136e2538 list
+                            uid=f136e2539 listitem
+                              uid=f136e2541 button "Invite Adam SAROUTI to connect"
+                                uid=f136e2542 img
+                                uid=f136e2544 generic value="Connect"
+                    uid=f136e2545 listitem
+                      uid=f136e2546 generic
+                        uid=f136e2548 link "Mathias F." url="https://www.linkedin.com/in/mathiasfraisse"
+                          uid=f136e2551 img "Mathias F."
+                        uid=f136e2552 generic
+                          uid=f136e2554 link "Mathias F. Chief Digital Officer" url="https://www.linkedin.com/in/mathiasfraisse?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAAiCqcBTBVjiWHmoYRLzLZ32RA2GV_PYyA"
+                            uid=f136e2558 generic
+                              uid=f136e2559 generic value="Mathias F."
+                              uid=f136e2560 generic value="Mathias F."
+                            uid=f136e2564 generic
+                              uid=f136e2565 generic value="Chief Digital Officer"
+                              uid=f136e2566 generic value="Chief Digital Officer"
+                          uid=f136e2568 list
+                            uid=f136e2569 listitem
+                              uid=f136e2571 button "Invite Mathias F. to connect"
+                                uid=f136e2572 img
+                                uid=f136e2574 generic value="Connect"
+                  uid=f136e2577 button "Show more"
+                    uid=f136e2578 img
+                    uid=f136e2580 generic value="Show more"
+              uid=f136e2583 generic
+                uid=f136e2585 iframe
+                  uid=f148e3 main "Work With Us Container"
+                    uid=f148e4 generic
+                      uid=f148e6 img
+                      uid=f148e7 generic
+                        uid=f148e8 img "Jerome"
+                        uid=f148e9 link "Neosoft" url="https://www.linkedin.com/li/tscp/sct?destinationUrl=http%3A%2F%2Fwww.linkedin.com%2Fcompany%2F947153%2Flife&trackingEvent=%5B%7B%22eventInfo%22%3A%7B%22appId%22%3A%22com.linkedin.ads.rendering.d_web%22%2C%22eventName%22%3A%22SponsoredRightRailContentActionEvent%22%2C%22topicName%22%3A%22SponsoredRightRailContentActionEvent%22%7D%2C%22eventBody%22%3A%7B%22sponsoredEventHeader%22%3A%7B%22encryptedTrackingData%22%3A%22CwEAAAGd8auhfruIy47Znp3VPdgP71uehHBB5OCBdXK0Nuq-Z0jjiVbyzyYNSOWF_QBctdLNHm5CPHFe0K8A_uNVLXWFwqPy2tLfTsPCnMh6dWhoEsZ8MGF13dzkhAjI-5OwbxwJpOqp1bjEH6QMI9JJOL6hs3qgmD31ie7C4KmRusASH1daGu3Rzzo4Q2Ty9jLLQKD1lfHj3D4PY5MP8gNGPinmk2um6KRTYY98qE7d4xoMCQ80gZrPvlbTOQSYQxBtBbpYhpth3JXTqKmKjCaPZELP3YhBXXtvos0dD6zyc-_NPoNyu2Eq9380c4-33hRwre-wWLck6Sc01JTJP3iXIrmhxAO5s05MHQOaT1eektEzoc382n9J_NyAPk5AdZwF_1t1bHBJ6vz8gcvCEpP2nUiIIiVT8ktkGr8zxgyBga9XdenCOh6A32jlNUhXQSKA4nwrBAnEy1xXvYnAOKDPPFnXdmkDbshkykrwUKjmnxb56Q1VQR8bnlBvV0XDP10o3aodRVU8cHXIZmyrzlh9IkT7wUj33W-IYx1jBN5rhbkNQ6TUvSWD-6Dx8qbgkiv336ioBFXUysiV_jm4NmDHdks8iYJRmWB5zUyfogQptrKLSLfQ2QFzWifa1RYuRfF8mObE2eVF0kvywS-_b9YI5lUjdv6XZ8Ks6m0tDAxtcLWcvvY9K8cAwx9ybG5MMec2Zh5qEkw2xtooONqDyGiyN5ygwbZCulcPGYPk0EBF-J31o_bGk2iW7kTVVp7pPJbmLPLHbGwUwrgIi8xTPu6JSnfpcVHsfsLh0Pf2RcZGZDFsTUQe1SXDk67eykEPxRnn6KamV7K3iGbajgvW2io4ZHOfFT35Tf6NhqeRMXQZvXyQmnIe-QhFWFKXwCAWVHfTfZ8RjHCOlUsTEwZIEeB15cttrZjIcVIdQZ9WQ43WvFHHW_R1do13kVvFYOp5j_toS7Bfd8d9XVqGGQ2Sv0fZM4OSALt4VeE8NgN61AKJcp5huVeiosbKWZQRxBpwihnCBBKfqp9XEX762G6_4ymEQ5dNr6CF-6MakYZLzCHZlfq7eHocczbm310M_7H6PkqYUFHavfoRRVahCtYq8FYWKhA1IgLW5uQNQ4fD3aE_vlq61cb3WW4CP_5y9hdrY7QqQrY1jUMQAlfjaFsw6kgwVxiToItSOsvx7M3XpUJk-fJdMlufVJ4vaatf%22%7D%2C%22header%22%3A%7B%22pageInstance%22%3A%7B%22pageUrn%22%3A%22urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_recent_activity_content_view%22%2C%22trackingId%22%3A%220a6d84ed-f953-4d6a-9b35-9e27ddcff573%22%7D%2C%22time%22%3A1777876050250%2C%22version%22%3A%220.0.0%22%7D%2C%22requestHeader%22%3A%7B%22pageKey%22%3A%22d_flagship3_profile_view_base_recent_activity_content_view%22%2C%22interfaceLocale%22%3A%22en-US%22%7D%7D%7D%5D&csrfToken=ajax%3A5544974620789791545"
+                          uid=f148e10 img "Neosoft"
+                    uid=f148e11 generic
+                      uid=f148e12 generic
+                        uid=f148e13 paragraph value="Jerome, explore relevant opportunities with Neosoft"
+                        uid=f148e14 paragraph value="Get the latest jobs and industry news"
+                      uid=f148e15 link "Follow" url="https://www.linkedin.com/li/tscp/sct?destinationUrl=http%3A%2F%2Fwww.linkedin.com%2Fcompany%2F947153%2Flife%3FisFollowingPage%3Dtrue&trackingEvent=%5B%7B%22eventInfo%22%3A%7B%22appId%22%3A%22com.linkedin.ads.rendering.d_web%22%2C%22eventName%22%3A%22SponsoredRightRailContentActionEvent%22%2C%22topicName%22%3A%22SponsoredRightRailContentActionEvent%22%7D%2C%22eventBody%22%3A%7B%22sponsoredEventHeader%22%3A%7B%22encryptedTrackingData%22%3A%22CwEAAAGd8auhfljCvZlxD_l_Rc7MTl-a-QRqtnNunJ0G6QJumCMgGt_UjLZThqXF93uArGUMn9vs2rF1KXliv3Q3VpALyuZIp5N5goJ2ycAvLu76OfwDZJMPJKvK9O070fT3KkQut7mlxUjRaEvi69b8CijeJ0HRzGmmE-jikBJlWtWGBvjzMLWMEHwS3Qax7nMr__mcWJPZzCrpGZHAmw2QE3-Ei43nKX6uhJKJyiGIyxa6goXYhdzgoPXaOm0WSHVDQA02JYrgF_ivhCxaCm6yuMW6Hqdrna47fAxMCRIbIkt7eegRQILB36wd-K-nrSj8udYvVCaH4JjpNvIO-D_yH679Gq13NJPdTUro0Sm5XI8bOBi-i-2ZwDM7v28ei_VvuIBgFJ2jZFU5pJ46rjfrZwdeBtU8LBKaACuYgvdrJt1UIaBNxBgXkD5e0wm6MiB8AJJkUQmbAnKf8mNufQ9SbAdTxCLLdGEOBiQg1pEuiJUuGdpZtOHv_Hsy_lJBgZnA34lk4WSCSEt2-PtpgIlTeokZ7DP4O8G6oJ2Gxk5-YdbDvmeF4vGFEhRs0B3b9PFWdLEJpt8ptDf3YGVXug_Eg7bJGbtrrvMe2Ynfxl4XnOkCntQgcyIRwbbDhokYQ0Qvkvpqwd6-8idCCG9cC7zIG2aau0JPctxzEOB2-6yV2C1_05mvufuGRVAguDNUDnoea-vzG_-DaDf4HktxnJuOt0awJyf_RyjseALyCSQRb6uHUrMg-XUCl1f7yLP21W2fH-v5u1N3WmECHJVWW-u4Fe7pklNL22vuQLaUH_Uty8Ya5AH-X7zYcHTUZAAwVXmi5BzaxKmCkm9M09FYpkGgXctPV5hC5yvkyS2-yDvj4LO9kpxcrKvhBYcR2qs6DyqsOZaXtWsDnemuVxwfDgYyHaPW-j7XWXyn6wvAn96rRJ6rSw0Q_cRPr60c4SbxMfPowJYdurhYifFBJ3OA4pMLaZDtzokpcXVcQZ0UgOAcRFa_z-EsK2J-ix8SxAa2FMv1trq8D1CRRduC1n_dhLi7MCwuPqmCykJN3QgycBrmclH9SOVUVfvOptHfEz_aZFW3842zzq71yLD9UpdsJjtILzGMuGKB8k5Q4Xz8cgZZay4TUryQgvMBQ0AY1lXJeuOdUOkDfkR2pkvgwKETFYOLAgwHdlbCjzfuFfxwBFYQnpyR9QyYYBY6B3joAhvbulnVogcLXX18ODgzObbINJM_tPSwQu8wFPFHVw%22%7D%2C%22header%22%3A%7B%22pageInstance%22%3A%7B%22pageUrn%22%3A%22urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_recent_activity_content_view%22%2C%22trackingId%22%3A%229bb4dd3c-bc8b-4fbe-9ec8-88e93d834ff9%22%7D%2C%22time%22%3A1777876050250%2C%22version%22%3A%220.0.0%22%7D%2C%22requestHeader%22%3A%7B%22pageKey%22%3A%22d_flagship3_profile_view_base_recent_activity_content_view%22%2C%22interfaceLocale%22%3A%22en-US%22%7D%7D%7D%5D&csrfToken=ajax%3A5544974620789791545"
+                    uid=f148e16 generic
+                      uid=f148e17 paragraph value="Promoted"
+                      uid=f148e18 button "Ad Options"
+                        uid=f148e19 img
+                        uid=f148e23 generic value="Ad Options"
+                uid=f136e2586 generic "LinkedIn Footer Content"
+                  uid=f136e2587 generic
+                    uid=f136e2588 paragraph value="Accessibilité: partiellement conforme"
+                    uid=f136e2589 list
+                      uid=f136e2590 listitem
+                        uid=f136e2591 link "About" url="https://about.linkedin.com/"
+                          uid=f136e2592 generic value="About"
+                      uid=f136e2593 listitem
+                        uid=f136e2594 link "Accessibility" url="https://www.linkedin.com/accessibility"
+                          uid=f136e2595 generic value="Accessibility"
+                      uid=f136e2596 listitem
+                        uid=f136e2597 link "Help Center" url="https://www.linkedin.com/help/linkedin?trk=footer_d_flagship3_profile_view_base_recent_activity_content_view"
+                          uid=f136e2598 generic value="Help Center"
+                      uid=f136e2599 listitem
+                        uid=f136e2601 button "Privacy & Terms"
+                          uid=f136e2603 generic
+                            uid=s275 StaticText "Privacy & Terms"
+                            uid=f136e2604 img
+                      uid=f136e2606 listitem
+                        uid=f136e2607 link "Ad Choices" url="https://www.linkedin.com/help/linkedin/answer/62931"
+                          uid=f136e2608 generic value="Ad Choices"
+                      uid=f136e2609 listitem
+                        uid=f136e2610 link "Advertising" url="https://www.linkedin.com/ad/start?trk=n_nav_ads_rr"
+                          uid=f136e2611 generic value="Advertising"
+                      uid=f136e2612 listitem
+                        uid=f136e2614 button "Business Services"
+                          uid=f136e2616 generic
+                            uid=s276 StaticText "Business Services"
+                            uid=f136e2617 img
+                      uid=f136e2619 listitem
+                        uid=f136e2622 button "Get the LinkedIn app"
+                      uid=f136e2623 listitem
+                        uid=f136e2624 button "More options" value="More"
+                    uid=f136e2625 generic
+                      uid=f136e2626 img "LinkedIn"
+                        uid=f136e2627 img
+                      uid=s277 StaticText "LinkedIn Corporation © 2026"
+          uid=s278 generic
+            uid=s279 generic
+              uid=s280 complementary
+                uid=f136e2629 generic
+                  uid=f136e2630 generic
+                    uid=f136e2632 generic
+                      uid=f136e2633 generic
+                        uid=f136e2634 img "Jerome Etienne"
+                        uid=f136e2636 generic value="Status is online"
+                      uid=f136e2637 button "You are on the messaging overlay. Press enter to open the list of conversations."
+                        uid=f136e2638 generic
+                          uid=f136e2639 generic value="Messaging"
+                          uid=f136e2640 generic value="You are on the messaging overlay. Press enter to open the list of conversations."
+                    uid=f136e2641 generic
+                      uid=f136e2643 button "Open messenger dropdown menu"
+                        uid=f136e2644 img "Open messenger dropdown menu"
+                      uid=f136e2647 button "Compose message"
+                        uid=f136e2648 img
+                        uid=f136e2650 generic value="Compose message"
+                      uid=f136e2651 button "You are on the messaging overlay. Press enter to open the list of conversations."
+                        uid=f136e2652 img
+                        uid=f136e2654 generic value="You are on the messaging overlay. Press enter to open the list of conversations."
+                  uid=f136e2655 generic
+                    uid=f136e2657 heading "Page inboxes" level="3"
+                    uid=f136e2658 generic
+                      uid=f136e2659 generic value="Click to see affiliated inboxes"
+                      uid=f136e2660 button "Page inboxes"
+                        uid=f136e2661 img
+              uid=s281 complementary "AI-powered assistant to get help with your career, jobs etc"
