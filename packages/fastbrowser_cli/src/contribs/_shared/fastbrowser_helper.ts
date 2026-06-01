@@ -1,12 +1,17 @@
 import { execSync } from 'node:child_process';
 
 const __dirname = new URL('.', import.meta.url).pathname;
+const __filename = new URL(import.meta.url).pathname;
 
 export class FastBrowserHelper {
 	static async run(command: string): Promise<string> {
-		// const fullCommand = `npx fastbrowser_cli ${command}`;
-		const fullCommand = `npx tsx ${__dirname}../../fastbrowser_cli/fastbrowser_cli.ts  ${command}`;
-		console.error(`Running command: ${fullCommand}`);
+		const duringDev = __filename.endsWith('.ts') ? true : false;
+		const baseCommand = duringDev
+			? `npx tsx ${__dirname}../../fastbrowser_cli/fastbrowser_cli.ts`
+			: `node ${__dirname}../../fastbrowser_cli/fastbrowser_cli.js`;
+		const fullCommand = `${baseCommand} ${command}`;
+		// console.log(`FastBrowserHelper: meta.url: ${import.meta.url}`);
+		// console.error(`FastBrowserHelper: Running command: ${fullCommand}`);
 		return execSync(fullCommand, { encoding: 'utf8' });
 	}
 
