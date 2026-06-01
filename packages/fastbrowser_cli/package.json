@@ -5,7 +5,9 @@
     "main": "dist/fastbrowser_cli/fastbrowser_cli.js",
     "bin": {
         "fastbrowser_cli": "./dist/fastbrowser_cli/fastbrowser_cli.js",
-        "fastbrowser_mcp": "./dist/fastbrowser_mcp/fastbrowser_mcp.js"
+        "fastbrowser_mcp": "./dist/fastbrowser_mcp/fastbrowser_mcp.js",
+        "linkedin_cli": "./dist/contribs/linkedin_cli/src/cli.js",
+        "twitter_cli": "./dist/contribs/twitter_cli/src/cli.js"
     },
     "scripts": {
         "dev:mcp": "npx tsx ./src/fastbrowser_mcp/fastbrowser_mcp.ts",
