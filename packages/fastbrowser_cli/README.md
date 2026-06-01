@@ -200,6 +200,22 @@ npm run start:fastbrowser_mcp   # run fastbrowser_mcp from source
 npm run inspect:fastbrowser_mcp # open the MCP inspector against fastbrowser_mcp
 ```
 
+## Contribs
+
+two examples using fastbrowser_cli as a dependency to build higher-level tools on top of it. Run these commands from the root of the repo.
+
+### linkedin_cli
+
+```
+npx -p fastbrowser_cli@latest linkedin_cli profile jeromeetienne
+```
+
+### twitter_cli
+
+```
+npx -p fastbrowser_cli@latest twitter_cli profile jerome_etienne
+```
+
 ## How to publish to npmjs.com
 
 `fastbrowser_cli` depends on the in-repo workspace package `a11y_parse`. Always publish through **pnpm** (not npm) — `pnpm publish` rewrites the `workspace:^` dep into a real version range in the tarball; `npm publish` cannot.
