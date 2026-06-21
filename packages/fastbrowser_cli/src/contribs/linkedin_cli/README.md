@@ -15,6 +15,10 @@ It lets you create posts on the feed and manage direct-message conversations (li
 npx tsx ./src/cli.ts <command> [args]
 ```
 
+```bash
+npx -p fastbrowser_cli@latest linkedin_cli profile jeromeetienne
+```
+
 ### Commands
 
 | Command | Description |

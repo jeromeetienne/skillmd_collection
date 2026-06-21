@@ -15,6 +15,10 @@ It lets you create posts, manage direct-message conversations (list, read, send)
 npx tsx ./src/cli.ts <command> [args]
 ```
 
+```bash
+npx -p fastbrowser_cli@latest twitter_cli profile jerome_etienne
+```
+
 ### Commands
 
 | Command | Description |
