@@ -1,0 +1,52 @@
+{
+	"name": "mcp-now",
+	"version": "1.0.2",
+	"description": "MCP server providing current date and time tools",
+	"type": "commonjs",
+	"main": "dist/index.js",
+	"bin": {
+		"mcp-now": "dist/index.js"
+	},
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"postbuild": "chmod +x ./dist/index.js",
+		"typecheck": "tsc -p tsconfig.json --noEmit",
+		"dev": "tsx ./src/index.ts",
+		"start": "node dist/index.js",
+		"test": "npx tsx --test 'tests/**/*.test.ts'",
+		"inspect": "npx @modelcontextprotocol/inspector tsx ./src/index.ts",
+		"publish:all": "npm run build && npm version patch && npm publish --access public"
+	},
+	"keywords": [
+		"mcp",
+		"model-context-protocol",
+		"datetime",
+		"date",
+		"time",
+		"timezone"
+	],
+	"author": "",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jeromeetienne/skillmd_collection.git",
+		"directory": "packages/mcp-now"
+	},
+	"homepage": "https://github.com/jeromeetienne/skillmd_collection/tree/main/packages/mcp-now#readme",
+	"bugs": {
+		"url": "https://github.com/jeromeetienne/skillmd_collection/issues"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.29.0",
+		"zod": "^4.3.6"
+	},
+	"devDependencies": {
+		"@types/node": "^22.0.0",
+		"tsx": "^4.19.2",
+		"typescript": "^5.8.0"
+	}
+}

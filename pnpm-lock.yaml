@@ -152,6 +152,25 @@ importers:
         specifier: ^4.19.2
         version: 4.21.0
 
+  packages/mcp-now:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.29.0
+        version: 1.29.0(zod@4.3.6)
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
+    devDependencies:
+      '@types/node':
+        specifier: ^22.0.0
+        version: 22.19.17
+      tsx:
+        specifier: ^4.19.2
+        version: 4.21.0
+      typescript:
+        specifier: ^5.8.0
+        version: 5.9.3
+
   packages/perplexity_cli:
     dependencies:
       '@perplexity-ai/perplexity_ai':
