@@ -16,7 +16,7 @@ Pretty-prints [Claude Code](https://claude.com/claude-code) `stream-json` events
 ```bash
 npm install -g claude_stream_viewer
 # or run on demand without installing
-npx claude_stream_viewer@latest
+npx -y claude_stream_viewer@latest
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Pipe any source of stream-json events into the viewer:
 ```bash
 claude --output-format stream-json --verbose \
        --permission-mode auto -p "explain quantum computing like I'm 5" \
-  | npx claude_stream_viewer@latest
+  | npx -y claude_stream_viewer@latest
 ```
 
 The viewer reads one JSON event per line from stdin and writes a colorized, human-readable rendering to stdout. It exits when stdin closes, printing `[stream ended]`.
