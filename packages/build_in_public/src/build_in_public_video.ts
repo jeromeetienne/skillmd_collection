@@ -3,7 +3,6 @@
 import ChildProcess from 'node:child_process';
 import Fs from 'node:fs';
 import Path from 'node:path';
-import Os from 'node:os';
 import path from 'node:path';
 import * as Commander from 'commander';
 
@@ -101,9 +100,9 @@ export class MainHelper {
 
 		// FIXME use --install
 		console.log('Copying build-in-public-video skill to project...');
-		const skillSource = path.join(
-			Os.homedir(),
-			'webwork/transformer_bitcoin_ai/packages/build_in_public/skills/build-in-public-video',
+		const skillSource = Path.resolve(
+			import.meta.dirname,
+			'../skills/build-in-public-video',
 		);
 		const skillDest = path.join(projectDir, '.claude/skills/build-in-public-video');
 		Fs.cpSync(skillSource, skillDest, { recursive: true, preserveTimestamps: true });
